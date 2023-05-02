@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Reflection;
+using System;
 
 public class TriggerScript : MonoBehaviour
 {
@@ -17,6 +19,14 @@ public class TriggerScript : MonoBehaviour
     public GameObject changeObjectColour;
     public Color newColour;
 
+    [Tooltip("To call a function from a script on another object, needs the object with the script, the script's name and the function's name")]
+    public GameObject activateObjectScriptFunction;
+    public string scriptName;
+    private MonoBehaviour script;
+    public string functionName;
+
+    
+
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -25,12 +35,9 @@ public class TriggerScript : MonoBehaviour
         {
             Debug.Log("Trigger entered by object with tag: " + requiredTag);
 
-            if (destroyObject != null)
-            {
-                Destroy(destroyObject);
-            }
+            
 
-            else if (destroyObjectHitbox != null)
+            if (destroyObjectHitbox != null)
             {
                 Collider2D collider = destroyObjectHitbox.GetComponent<Collider2D>();
                 if (collider != null)
@@ -46,6 +53,27 @@ public class TriggerScript : MonoBehaviour
                 {
                     render.color = newColour;
                 }
+            }
+
+            if (activateObjectScriptFunction != null)
+            {
+                Debug.Log("activateObject not null");
+                Type scriptType = Type.GetType(scriptName);
+                if (scriptType != null && typeof(MonoBehaviour).IsAssignableFrom(scriptType))
+                {
+                    Debug.Log("script not null");
+                    script = activateObjectScriptFunction.GetComponent(scriptType) as MonoBehaviour;
+                    if (script != null)
+                    {
+                        Debug.Log("message sent");
+                        script.SendMessage(functionName);
+                    }
+                }
+            }
+
+            if (destroyObject != null)
+            {
+                Destroy(destroyObject);
             }
         }
     }
