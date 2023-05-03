@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 namespace Platformer.Mechanics
 {
@@ -16,6 +18,9 @@ namespace Platformer.Mechanics
         public Transform barrel;
         public Transform muzzle;
         public GameObject projectile;
+        public TMP_Text velocity;
+        public TMP_Text Hvelocity;
+        public TMP_Text Vvelocity;
         public float shotForce = 1f;
         public float shotRecoil = 2f;
         public float reloadTime = 1f;
@@ -44,10 +49,35 @@ namespace Platformer.Mechanics
             soundMachine = GetComponent<AudioSource>();
         }
 
-
+        private bool debug = false;
+        public void ToggleDebug()
+        {
+            debug = !debug; // toggle the debug variable
+            Debug.Log("Debug mode is now " + debug);
+        }
 
         void Update()
         {
+            if (Input.GetButtonDown("Enable Debug Button 1"))
+            {
+                ToggleDebug();
+            }
+            if (debug)
+            {
+                velocity.gameObject.SetActive(true);
+                Hvelocity.gameObject.SetActive(true);
+                Vvelocity.gameObject.SetActive(true);
+                velocity.text = "Velocity: " + this.GetComponent<Rigidbody2D>().velocity.magnitude.ToString();
+                Hvelocity.text = "Horizontal Velocity: " + this.GetComponent<Rigidbody2D>().velocity.x.ToString();
+                Vvelocity.text = "Vertical Velocity: " + this.GetComponent<Rigidbody2D>().velocity.y.ToString();
+            }
+            else
+            {
+                velocity.gameObject.SetActive(false);
+                Hvelocity.gameObject.SetActive(false);
+                Vvelocity.gameObject.SetActive(false);
+            }
+           
             if (grounded)
             {
                 if (shotCount == 0 && !reloading)
