@@ -131,7 +131,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -286,6 +286,10 @@ PrefabInstance:
     - target: {fileID: 137075355935315006, guid: fa3230113ec5c534d9997a1ae07a48ab, type: 3}
       propertyPath: m_Name
       value: Particle System
+      objectReference: {fileID: 0}
+    - target: {fileID: 137075355935315006, guid: fa3230113ec5c534d9997a1ae07a48ab, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4655246620721475139, guid: fa3230113ec5c534d9997a1ae07a48ab, type: 3}
       propertyPath: m_RootOrder
