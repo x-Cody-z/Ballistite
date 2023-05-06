@@ -11,6 +11,13 @@ namespace Platformer.Mechanics
     /// </summary>
     public class BespokePlayerController : MonoBehaviour
     {
+        //UI object and script, probably easier than linking every text field in the UI
+        //Being set automatically based on name in Awake(), could be set to public if this needs to be changed
+        private GameObject UIObject;
+        private uiController UIScript;
+        //part of new reload function, this is the value that changes as the reload time progresses, old reloadTime is used as a target value.
+        private float reloadTimeActive;
+        
         public AudioClip gunAudio;
         public AudioClip reloadAudio;
         public AudioClip landingAudio;
@@ -18,9 +25,12 @@ namespace Platformer.Mechanics
         public Transform barrel;
         public Transform muzzle;
         public GameObject projectile;
+        //updated UI so these aren't needed for now
+        /* 
         public TMP_Text velocity;
         public TMP_Text Hvelocity;
         public TMP_Text Vvelocity;
+        */
         public float shotForce = 1f;
         public float shotRecoil = 2f;
         public float reloadTime = 1f;
@@ -47,6 +57,13 @@ namespace Platformer.Mechanics
             shotCount = shotNumber;
             spawn = transform.position;
             soundMachine = GetComponent<AudioSource>();
+
+            UIObject = GameObject.Find("UI");
+            if (UIObject != null)
+            {
+                UIScript = UIObject.GetComponent<uiController>();
+            }
+            reloadTimeActive = reloadTime;
         }
 
         private bool debug = false;
@@ -58,6 +75,8 @@ namespace Platformer.Mechanics
 
         void Update()
         {
+            //I've updated the method used to change UI values so this isn't needed, I'll if needed we can change back
+            /*
             if (Input.GetButtonDown("Enable Debug Button 1"))
             {
                 ToggleDebug();
@@ -77,13 +96,13 @@ namespace Platformer.Mechanics
                 Hvelocity.gameObject.SetActive(false);
                 Vvelocity.gameObject.SetActive(false);
             }
-           
+           */
             if (grounded)
             {
                 if (shotCount == 0 && !reloading)
                 {
                     reloading = true;
-                    StartCoroutine(GunReload());
+                    StartCoroutine(GunReloadV2());
                 }
             }
             if (controlEnabled)
@@ -115,6 +134,7 @@ namespace Platformer.Mechanics
                     transform.position = spawn;
                 }
             }
+            UpdateUIValues();
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -132,6 +152,8 @@ namespace Platformer.Mechanics
                 grounded = false;
             }
         }
+        //The reload function has been updated so that reload can be displayed in the UI
+        /*
         IEnumerator GunReload()
         {
             
@@ -156,6 +178,32 @@ namespace Platformer.Mechanics
                 //Debug.LogError("CLICK");
             }
         }
+        */
+        IEnumerator GunReloadV2()
+        {
+            for (reloadTimeActive = 1f; reloadTimeActive > 0; reloadTimeActive -= Time.deltaTime)
+                yield return null;
+            shotCount++;
+            reloadTimeActive = reloadTime;
+
+            if (shotCount < shotNumber && grounded)
+            {
+                soundMachine.PlayOneShot(reloadAudio);
+                StartCoroutine(GunReloadV2());
+            }
+            else if (shotCount < shotNumber)
+            {
+                yield return new WaitUntil(() => grounded);
+                soundMachine.PlayOneShot(reloadAudio);
+                StartCoroutine(GunReloadV2());
+            }
+            if (shotCount == shotNumber)
+            {
+                soundMachine.PlayOneShot(reloadAudio);
+                reloading = false;
+                //Debug.LogError("CLICK");
+            }
+        }
 
         IEnumerator Cooldown()
         {
@@ -164,6 +212,16 @@ namespace Platformer.Mechanics
             yield return new WaitForSeconds(0.5f);
             cooldown = false;
             //Debug.Log("End Cooldown");
+        }
+
+        //calls functions from the UI's script to update values. Is called in update
+        private void UpdateUIValues()
+        {
+            if (UIScript != null)
+            {
+                UIScript.updateAmmoValues(shotCount, reloadTimeActive);
+                UIScript.updateVelocityValues(this.GetComponent<Rigidbody2D>().velocity.magnitude, this.GetComponent<Rigidbody2D>().velocity.x, this.GetComponent<Rigidbody2D>().velocity.y);
+            }
         }
     }
 }
