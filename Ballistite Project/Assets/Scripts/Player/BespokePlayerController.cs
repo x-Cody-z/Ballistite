@@ -139,7 +139,7 @@ namespace Platformer.Mechanics
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.name == "Level")
+            if (collision.gameObject.CompareTag("Level"))
             {
                 soundMachine.PlayOneShot(landingAudio);
                 grounded = true;
@@ -147,7 +147,7 @@ namespace Platformer.Mechanics
         }
         private void OnCollisionExit2D(Collision2D collision)
         {
-            if (collision.gameObject.name == "Level")
+            if (collision.gameObject.CompareTag("Level"))
             {
                 grounded = false;
             }
