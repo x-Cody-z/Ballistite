@@ -116,25 +116,48 @@ namespace Platformer.Mechanics
                 barrel.rotation = Quaternion.Euler(new Vector3(0, 0, barrelAngle));
                 if (Input.GetButtonDown("Fire1") && shotCount > 0 && !cooldown)
                 {
-                    soundMachine.PlayOneShot(gunAudio);
-                    StartCoroutine(Cooldown());
-                    shotCount--;
-                    Rigidbody2D tankRB = GetComponent<Rigidbody2D>();
-                    GameObject shotProjectile = Instantiate(projectile);
-                    shotProjectile.transform.position = muzzle.transform.position;
-                    shotProjectile.transform.rotation = muzzle.transform.rotation;
-                    Rigidbody2D shotProjectileRB = shotProjectile.GetComponent<Rigidbody2D>();
                     float angleInRadians = barrelAngle * Mathf.Deg2Rad;
-                    Vector2 forceDirection = new(Mathf.Cos(angleInRadians), Mathf.Sin(angleInRadians));
-                    shotProjectileRB.AddForce(forceDirection * shotForce, ForceMode2D.Impulse);
-                    tankRB.AddForce(forceDirection * shotForce * -shotRecoil, ForceMode2D.Impulse);
+                    Vector3 shotSpawnPos = muzzle.transform.position;
+                    shoot(angleInRadians, shotSpawnPos);
                 }
                 if (Input.GetButtonDown("Jump"))
                 {
                     transform.position = spawn;
                 }
+
+                if (Input.GetKeyDown(KeyCode.Alpha1))
+                {
+                    shoot(0f, this.transform.position);
+                }
+                if (Input.GetKeyDown(KeyCode.Alpha2))
+                {
+                    shoot(1.57079f, this.transform.position);
+                }
+                if (Input.GetKeyDown(KeyCode.Alpha3))
+                {
+                    shoot(3.14159f, this.transform.position);
+                }
+                if (Input.GetKeyDown(KeyCode.Alpha4))
+                {
+                    shoot(4.71238f, this.transform.position);
+                }
             }
             UpdateUIValues();
+        }
+
+        private void shoot(float angle, Vector3 spawnPos)
+        {
+            soundMachine.PlayOneShot(gunAudio);
+            StartCoroutine(Cooldown());
+            shotCount--;
+            Rigidbody2D tankRB = GetComponent<Rigidbody2D>();
+            GameObject shotProjectile = Instantiate(projectile);
+            shotProjectile.transform.position = spawnPos;
+            shotProjectile.transform.rotation = muzzle.transform.rotation;
+            Rigidbody2D shotProjectileRB = shotProjectile.GetComponent<Rigidbody2D>();
+            Vector2 forceDirection = new(Mathf.Cos(angle), Mathf.Sin(angle));
+            shotProjectileRB.AddForce(forceDirection * shotForce, ForceMode2D.Impulse);
+            tankRB.AddForce(forceDirection * shotForce * -shotRecoil, ForceMode2D.Impulse);
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
