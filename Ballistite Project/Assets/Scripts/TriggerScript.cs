@@ -19,6 +19,9 @@ public class TriggerScript : MonoBehaviour
     public GameObject changeObjectColour;
     public Color newColour;
 
+    [Tooltip("This object will set an object to be inactive at first, but activate on trigger, use this on object you want to appear on trigger")]
+    public GameObject spawnObject;
+
     [Tooltip("To call a function from a script on another object, needs the object with the script, the script's name and the function's name")]
     public GameObject ObjectWithScript;
     //public string ObjectNameWithScript;
@@ -27,7 +30,13 @@ public class TriggerScript : MonoBehaviour
     private MonoBehaviour script;
     public string functionName;
 
-    
+    private void Awake()
+    {
+        if (spawnObject != null)
+        {
+            spawnObject.SetActive(false);
+        }
+    }
 
 
 
@@ -55,6 +64,11 @@ public class TriggerScript : MonoBehaviour
                 {
                     render.color = newColour;
                 }
+            }
+
+            if (spawnObject != null)
+            {
+                spawnObject.SetActive(true);
             }
             
             /*
