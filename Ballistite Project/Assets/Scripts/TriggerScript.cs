@@ -20,7 +20,9 @@ public class TriggerScript : MonoBehaviour
     public Color newColour;
 
     [Tooltip("To call a function from a script on another object, needs the object with the script, the script's name and the function's name")]
-    public GameObject activateObjectScriptFunction;
+    public GameObject ObjectWithScript;
+    //public string ObjectNameWithScript;
+    //private GameObject ObjectWithScript;
     public string scriptName;
     private MonoBehaviour script;
     public string functionName;
@@ -54,15 +56,37 @@ public class TriggerScript : MonoBehaviour
                     render.color = newColour;
                 }
             }
-
-            if (activateObjectScriptFunction != null)
+            
+            /*
+            if (ObjectNameWithScript != null)
             {
                 Debug.Log("activateObject not null");
                 Type scriptType = Type.GetType(scriptName);
                 if (scriptType != null && typeof(MonoBehaviour).IsAssignableFrom(scriptType))
                 {
                     Debug.Log("script not null");
-                    script = activateObjectScriptFunction.GetComponent(scriptType) as MonoBehaviour;
+                    ObjectWithScript = GameObject.Find(ObjectNameWithScript);
+                    if (ObjectWithScript != null)
+                    {
+                        script = ObjectWithScript.GetComponent(scriptType) as MonoBehaviour;
+                        if (script != null)
+                        {
+                            Debug.Log("message sent");
+                            script.SendMessage(functionName);
+                        }
+                    }
+                }
+            }
+            */
+            
+            if (ObjectWithScript != null)
+            {
+                Debug.Log("activateObject not null");
+                Type scriptType = Type.GetType(scriptName);
+                if (scriptType != null && typeof(MonoBehaviour).IsAssignableFrom(scriptType))
+                {
+                    Debug.Log("script not null");
+                    script = ObjectWithScript.GetComponent(scriptType) as MonoBehaviour;
                     if (script != null)
                     {
                         Debug.Log("message sent");
@@ -70,6 +94,7 @@ public class TriggerScript : MonoBehaviour
                     }
                 }
             }
+            
 
             if (destroyObject != null)
             {
