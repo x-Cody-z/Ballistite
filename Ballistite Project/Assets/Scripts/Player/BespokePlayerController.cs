@@ -31,8 +31,11 @@ namespace Platformer.Mechanics
         public TMP_Text Hvelocity;
         public TMP_Text Vvelocity;
         */
-        public float shotForce = 1f;
-        public float shotRecoil = 2f;
+        [Tooltip("every one increase in this value is one grid unit of vertical height to the shot")]
+        public float shotForce = 4f;
+
+        [Tooltip("every one increase in this value is one grid unit of horizontal movement")]
+        public float shotRecoil = 1f;
         public float reloadTime = 1f;
         public float cooldownTime = 0.5f;
         public int shotNumber = 1;
@@ -125,21 +128,25 @@ namespace Platformer.Mechanics
                     transform.position = spawn;
                 }
 
-                if (Input.GetKeyDown(KeyCode.Alpha1))
+                if (Input.GetKeyDown(KeyCode.RightArrow))
                 {
                     shoot(0f, this.transform.position);
                 }
-                if (Input.GetKeyDown(KeyCode.Alpha2))
+                if (Input.GetKeyDown(KeyCode.UpArrow))
                 {
                     shoot(1.57079f, this.transform.position);
                 }
-                if (Input.GetKeyDown(KeyCode.Alpha3))
+                if (Input.GetKeyDown(KeyCode.LeftArrow))
                 {
                     shoot(3.14159f, this.transform.position);
                 }
-                if (Input.GetKeyDown(KeyCode.Alpha4))
+                if (Input.GetKeyDown(KeyCode.DownArrow))
                 {
                     shoot(4.71238f, this.transform.position);
+                }
+                if (Input.GetKeyDown(KeyCode.Alpha1))
+                {
+                    shoot(0.785398f, this.transform.position);
                 }
             }
             UpdateUIValues();
@@ -156,8 +163,20 @@ namespace Platformer.Mechanics
             shotProjectile.transform.rotation = muzzle.transform.rotation;
             Rigidbody2D shotProjectileRB = shotProjectile.GetComponent<Rigidbody2D>();
             Vector2 forceDirection = new(Mathf.Cos(angle), Mathf.Sin(angle));
-            shotProjectileRB.AddForce(forceDirection * shotForce, ForceMode2D.Impulse);
-            tankRB.AddForce(forceDirection * shotForce * -shotRecoil, ForceMode2D.Impulse);
+            shotProjectileRB.AddForce(forceDirection * calcForce(), ForceMode2D.Impulse);
+            tankRB.AddForce(forceDirection * calcRecoil(), ForceMode2D.Impulse);
+        }
+
+        private float calcRecoil()
+        {
+            float adjustmentFactor = Mathf.Pow(shotRecoil, 0.5f);
+            return -adjustmentFactor * 2.83f;
+        }
+
+        private float calcForce()
+        {
+            float adjustmentFactor = Mathf.Pow(shotForce, 0.5f);
+            return adjustmentFactor * 0.48f;
         }
 
         private void OnCollisionEnter2D(Collision2D collision)

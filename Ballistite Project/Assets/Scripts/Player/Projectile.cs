@@ -5,8 +5,9 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
 
-    public float explosionRadius = 100f;
-    public float explosionForce = 1000f;
+    public float explosionRadius = 2f;
+    [Tooltip("every one increase in this value is one grid unit of vertical movement")]
+    public float explosionForce = 2f;
     public LayerMask explosionLayers;
     public AudioClip explosionSound;
 
@@ -49,8 +50,15 @@ public class Projectile : MonoBehaviour
                 Vector2 direction = rb.transform.position - transform.position;
                 float distance = direction.magnitude;
 
+                Debug.Log("Distance from explosion center: " + distance);
+
+                if (distance < 0.5f)
+                    distance = 0f;
+                else
+                    distance -= 0.4f;
+
                 // Apply impulse force to collider based on distance and explosion force
-                rb.AddForce(direction.normalized * (1 - distance / explosionRadius) * explosionForce, ForceMode2D.Impulse);
+                rb.AddForce(direction.normalized * calcExplosion(distance), ForceMode2D.Impulse);
             }
         }
         explosionEffect.Play();
@@ -60,6 +68,13 @@ public class Projectile : MonoBehaviour
         sp.enabled = false;
         Destroy(gameObject, explosionEffect.main.duration);
     }
+
+    private float calcExplosion(float dist)
+    {
+        float adjustmentValue = 4.62f * Mathf.Pow(explosionForce,0.5f);
+        return adjustmentValue * (1 - dist / explosionRadius);
+    }
+
     private void OnDrawGizmos()
     {
         // Draw a wire sphere around the explosion object to visualize the explosion radius in the editor
