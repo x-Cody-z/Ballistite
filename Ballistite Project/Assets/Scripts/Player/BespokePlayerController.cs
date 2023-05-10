@@ -35,9 +35,10 @@ namespace Platformer.Mechanics
         public GameObject indicator2;
         public GameObject indicator3;
 
-
-        public float shotForce = 1f;
-        public float shotRecoil = 2f;
+        [SerializeField] private float shotPower = 1f;
+        [SerializeField] private float shotMod = 0.5f;
+        private float shotForce = 1f;
+        private float shotRecoil = 2f;
         public float reloadTime = 1f;
         public float cooldownTime = 0.5f;
         public int shotNumber = 1;
@@ -74,7 +75,7 @@ namespace Platformer.Mechanics
         }
 
         private bool debug = false;
-
+        [SerializeField]private float power;
         public void ToggleDebug()
         {
             debug = !debug; // toggle the debug variable
@@ -134,33 +135,39 @@ namespace Platformer.Mechanics
                 if (Input.GetButton("Fire1") && shotCount > 0 && !cooldown)
                 {
                     paused = false;
-                    if (Timer < 1)
+                    switch (Timer)
                     {
-                        shotForce = 1f;
-                        shotRecoil = 2f;
-                        indicator1.SetActive(true);
-                    }
-                    else if (Timer >= 1 && Timer < 2)
-                    {
-                        shotForce = 1.5f;
-                        shotRecoil = 3f;
-                        indicator2.SetActive(true);
-                    }
-                    else if (Timer >= 2 && Timer < 3)
-                    {
-                        shotForce = 2f;
-                        shotRecoil = 4f;
-                        indicator3.SetActive(true);
-                    }
-                    else if (Timer > 6)
-                    {
-                        Fire();
+                        case < 1 :
+                            if (!indicator1.activeInHierarchy)
+                            {
+                                power = shotPower;
+                                indicator1.SetActive(true);
+                            }
+                            break;
+                        case >= 1 and < 2:
+                            if (!indicator2.activeInHierarchy)
+                            {
+                                power = shotPower + shotMod;
+                                indicator2.SetActive(true);
+                            }
+                            break;
+                        case >= 2 and < 3:
+                            if (!indicator3.activeInHierarchy)
+                            {
+                                power = shotPower + 2*shotMod;
+                                indicator3.SetActive(true);
+                            }
+                            break;
+                        case > 6:
+                            Fire(power);
+                            break;
                     }
                 }
                 if (Input.GetButtonUp("Fire1") && shotCount > 0 && !cooldown)
                 {
-                    Fire();
+                    Fire(power);
                 }
+
                 if (Input.GetButtonDown("Jump"))
                 {
                     transform.position = spawn;
@@ -169,7 +176,9 @@ namespace Platformer.Mechanics
             UpdateUIValues();
         }
 
-        private void Fire()
+
+
+        private void Fire(float power)
         {
             soundMachine.PlayOneShot(gunAudio);
             StartCoroutine(Cooldown());
@@ -181,8 +190,8 @@ namespace Platformer.Mechanics
             Rigidbody2D shotProjectileRB = shotProjectile.GetComponent<Rigidbody2D>();
             float angleInRadians = barrelAngle * Mathf.Deg2Rad;
             Vector2 forceDirection = new(Mathf.Cos(angleInRadians), Mathf.Sin(angleInRadians));
-            shotProjectileRB.AddForce(forceDirection * shotForce, ForceMode2D.Impulse);
-            tankRB.AddForce(forceDirection * shotForce * -shotRecoil, ForceMode2D.Impulse);
+            shotProjectileRB.AddForce(forceDirection * shotForce * power, ForceMode2D.Impulse);
+            tankRB.AddForce(forceDirection * power * -shotRecoil, ForceMode2D.Impulse);
             Timer = 0;
             paused = true;
             indicator1.SetActive(false);
