@@ -24,7 +24,7 @@ public class Projectile : MonoBehaviour
         explosionEffect = GetComponentInChildren<ParticleSystem>();
         rb = GetComponent<Rigidbody2D>();
         bc = GetComponent<BoxCollider2D>();
-        sp = GetComponent<SpriteRenderer>();
+        sp = GetComponentInChildren<SpriteRenderer>();
         soundMachine = GetComponent<AudioSource>();
     }
 
