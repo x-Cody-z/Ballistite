@@ -39,6 +39,13 @@ namespace Platformer.Mechanics
         [SerializeField] private float shotMod = 0.5f;
         private float shotForce = 1f;
         private float shotRecoil = 2f;
+
+        [Tooltip("every one increase in this value is one grid unit of vertical height to the shot")]
+        public float shotForce = 4f;
+
+        [Tooltip("every one increase in this value is one grid unit of horizontal movement")]
+        public float shotRecoil = 1f;
+
         public float reloadTime = 1f;
         public float cooldownTime = 0.5f;
         public int shotNumber = 1;
@@ -74,8 +81,9 @@ namespace Platformer.Mechanics
             reloadTimeActive = reloadTime;
         }
 
+        private bool singlePower = false;
         private bool debug = false;
-        [SerializeField]private float power;
+        [SerializeField] private float power;
         public void ToggleDebug()
         {
             debug = !debug; // toggle the debug variable
@@ -132,71 +140,113 @@ namespace Platformer.Mechanics
                 mouseIndicator.position = Worldpos2D;
                 barrelAngle = Mathf.Atan2(Worldpos2D.y - transform.position.y, Worldpos2D.x - transform.position.x) * Mathf.Rad2Deg;
                 barrel.rotation = Quaternion.Euler(new Vector3(0, 0, barrelAngle));
-                if (Input.GetButton("Fire1") && shotCount > 0 && !cooldown)
+                float angleInRadians = barrelAngle * Mathf.Deg2Rad;
+                Vector3 shotSpawnPos = muzzle.transform.position;
+                if (!singlePower)
                 {
-                    paused = false;
-                    switch (Timer)
+                    if (Input.GetButton("Fire1") && shotCount > 0 && !cooldown)
                     {
-                        case < 1 :
-                            if (!indicator1.activeInHierarchy)
-                            {
-                                power = shotPower;
-                                indicator1.SetActive(true);
-                            }
-                            break;
-                        case >= 1 and < 2:
-                            if (!indicator2.activeInHierarchy)
-                            {
-                                power = shotPower + shotMod;
-                                indicator2.SetActive(true);
-                            }
-                            break;
-                        case >= 2 and < 3:
-                            if (!indicator3.activeInHierarchy)
-                            {
-                                power = shotPower + 2*shotMod;
-                                indicator3.SetActive(true);
-                            }
-                            break;
-                        case > 6:
-                            Fire(power);
-                            break;
+                        paused = false;
+                        switch (Timer)
+                        {
+                            case < 1 :
+                                if (!indicator1.activeInHierarchy)
+                                {
+                                    power = shotPower;
+                                    indicator1.SetActive(true);
+                                }
+                                break;
+                            case >= 1 and < 2:
+                                if (!indicator2.activeInHierarchy)
+                                {
+                                    power = shotPower + shotMod;
+                                    indicator2.SetActive(true);
+                                }
+                                break;
+                            case >= 2 and < 3:
+                                if (!indicator3.activeInHierarchy)
+                                {
+                                    power = shotPower + 2*shotMod;
+                                    indicator3.SetActive(true);
+                                }
+                                break;
+                            case > 6:
+                                shoot(angleInRadians, shotSpawnPos, power);
+                                break;
+                        }
+
                     }
-                }
-                if (Input.GetButtonUp("Fire1") && shotCount > 0 && !cooldown)
+                    if (Input.GetButtonUp("Fire1") && shotCount > 0 && !cooldown)
+                    {
+                        shoot(angleInRadians, shotSpawnPos, 1);
+                    }
+                } else
                 {
-                    Fire(power);
+                    if (Input.GetButtonDown("Fire1") && shotCount > 0 && !cooldown)
+                    {
+                        shoot(angleInRadians, shotSpawnPos, 1);
+                    }
                 }
 
                 if (Input.GetButtonDown("Jump"))
                 {
                     transform.position = spawn;
                 }
+
+                if (Input.GetKeyDown(KeyCode.RightArrow))
+                {
+                    shoot(0f, this.transform.position);
+                }
+                if (Input.GetKeyDown(KeyCode.UpArrow))
+                {
+                    shoot(1.57079f, this.transform.position);
+                }
+                if (Input.GetKeyDown(KeyCode.LeftArrow))
+                {
+                    shoot(3.14159f, this.transform.position);
+                }
+                if (Input.GetKeyDown(KeyCode.DownArrow))
+                {
+                    shoot(4.71238f, this.transform.position);
+                }
+                if (Input.GetKeyDown(KeyCode.Alpha1))
+                {
+                    shoot(0.785398f, this.transform.position);
+                }
             }
             UpdateUIValues();
         }
 
-
-
-        private void Fire(float power)
+        private void shoot(float angle, Vector3 spawnPos, float powerMod)
         {
             soundMachine.PlayOneShot(gunAudio);
             StartCoroutine(Cooldown());
             shotCount--;
             Rigidbody2D tankRB = GetComponent<Rigidbody2D>();
             GameObject shotProjectile = Instantiate(projectile);
-            shotProjectile.transform.position = muzzle.transform.position;
-            shotProjectile.transform.rotation = muzzle.transform.rotation;
-            Rigidbody2D shotProjectileRB = shotProjectile.GetComponent<Rigidbody2D>();
-            float angleInRadians = barrelAngle * Mathf.Deg2Rad;
-            Vector2 forceDirection = new(Mathf.Cos(angleInRadians), Mathf.Sin(angleInRadians));
-            shotProjectileRB.AddForce(forceDirection * shotForce * power, ForceMode2D.Impulse);
-            tankRB.AddForce(forceDirection * power * -shotRecoil, ForceMode2D.Impulse);
             Timer = 0;
             paused = true;
             indicator1.SetActive(false);
             indicator2.SetActive(false);
             indicator3.SetActive(false);
+            shotProjectile.transform.position = spawnPos;
+            shotProjectile.transform.rotation = muzzle.transform.rotation;
+            Rigidbody2D shotProjectileRB = shotProjectile.GetComponent<Rigidbody2D>();
+            Vector2 forceDirection = new(Mathf.Cos(angle), Mathf.Sin(angle));
+            shotProjectileRB.AddForce(forceDirection * calcForce() * powerMod, ForceMode2D.Impulse);
+            tankRB.AddForce(forceDirection * calcRecoil() * powerMod, ForceMode2D.Impulse);
+        }
+
+        private float calcRecoil()
+        {
+            float adjustmentFactor = Mathf.Pow(shotRecoil, 0.5f);
+            return -adjustmentFactor * 2.83f;
+        }
+
+        private float calcForce()
+        {
+            float adjustmentFactor = Mathf.Pow(shotForce, 0.5f);
+            return adjustmentFactor * 0.48f;
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
