@@ -1562,6 +1562,10 @@ PrefabInstance:
       value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4475686102729582358, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
+      propertyPath: shotPower
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475686102729582358, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
       propertyPath: indicator1
       value: 
       objectReference: {fileID: 1806423902}

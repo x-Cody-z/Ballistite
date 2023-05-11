@@ -13,6 +13,7 @@ namespace Platformer.Mechanics
     {
         //UI object and script, probably easier than linking every text field in the UI
         //Being set automatically based on name in Awake(), could be set to public if this needs to be changed
+        private GameObject chargeBar;
         private GameObject UIObject;
         private uiController UIScript;
         //part of new reload function, this is the value that changes as the reload time progresses, old reloadTime is used as a target value.
@@ -37,8 +38,6 @@ namespace Platformer.Mechanics
 
         [SerializeField] private float shotPower = 1f;
         [SerializeField] private float shotMod = 0.5f;
-        private float shotForce = 1f;
-        private float shotRecoil = 2f;
 
         [Tooltip("every one increase in this value is one grid unit of vertical height to the shot")]
         public float shotForce = 4f;
@@ -74,6 +73,7 @@ namespace Platformer.Mechanics
             soundMachine = GetComponent<AudioSource>();
 
             UIObject = GameObject.Find("UI");
+            chargeBar = GameObject.Find("chargePanel");
             if (UIObject != null)
             {
                 UIScript = UIObject.GetComponent<uiController>();
@@ -131,6 +131,11 @@ namespace Platformer.Mechanics
                     StartCoroutine(GunReloadV2());
                 }
             }
+            chargeBar.SetActive(!singlePower);
+            if (Input.GetKeyDown("1"))
+            {
+                singlePower = !singlePower;
+            }
             if (controlEnabled)
             {
                 mousePos = Input.mousePosition;
@@ -178,7 +183,7 @@ namespace Platformer.Mechanics
                     }
                     if (Input.GetButtonUp("Fire1") && shotCount > 0 && !cooldown)
                     {
-                        shoot(angleInRadians, shotSpawnPos, 1);
+                        shoot(angleInRadians, shotSpawnPos, power);
                     }
                 } else
                 {
@@ -192,7 +197,7 @@ namespace Platformer.Mechanics
                 {
                     transform.position = spawn;
                 }
-
+                /*
                 if (Input.GetKeyDown(KeyCode.RightArrow))
                 {
                     shoot(0f, this.transform.position);
@@ -213,6 +218,7 @@ namespace Platformer.Mechanics
                 {
                     shoot(0.785398f, this.transform.position);
                 }
+                */
             }
             UpdateUIValues();
         }
