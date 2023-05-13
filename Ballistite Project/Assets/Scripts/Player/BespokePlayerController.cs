@@ -235,12 +235,15 @@ namespace Platformer.Mechanics
             indicator1.SetActive(false);
             indicator2.SetActive(false);
             indicator3.SetActive(false);
-            shotProjectile.transform.position = spawnPos;
+
+            //shotProjectile.transform.position = spawnPos;
+            shotProjectile.transform.position = this.transform.position;
             shotProjectile.transform.rotation = muzzle.transform.rotation;
             Rigidbody2D shotProjectileRB = shotProjectile.GetComponent<Rigidbody2D>();
             Vector2 forceDirection = new(Mathf.Cos(angle), Mathf.Sin(angle));
             shotProjectileRB.AddForce(forceDirection * calcForce() * powerMod, ForceMode2D.Impulse);
-            tankRB.AddForce(forceDirection * calcRecoil() * powerMod, ForceMode2D.Impulse);
+            //tankRB.AddForce(forceDirection * calcRecoil() * powerMod, ForceMode2D.Impulse);
+            tankRB.velocity = tankRB.velocity + forceDirection * calcRecoil() * powerMod;
         }
 
         private float calcRecoil()
