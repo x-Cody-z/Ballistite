@@ -109,8 +109,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1802866734}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.00000023841858, y: 0, z: -1}
-  m_LocalScale: {x: 0.21828273, y: 0.6912287, z: 0.41577664}
+  m_LocalPosition: {x: 0.087, y: 0.16, z: -1}
+  m_LocalScale: {x: 0.24011101, y: 1.1664484, z: 0.41577664}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1555745146874365634}
@@ -331,8 +331,10 @@ MonoBehaviour:
   indicator1: {fileID: 0}
   indicator2: {fileID: 0}
   indicator3: {fileID: 0}
-  shotPower: 2
-  shotMod: 0.3
+  shotPower: 1
+  shotMod: 0.6
+  shotForce: 4
+  shotRecoil: 1
   reloadTime: 1
   cooldownTime: 0.5
   shotNumber: 2
