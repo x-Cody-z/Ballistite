@@ -16,7 +16,7 @@ public class Projectile : MonoBehaviour
     private Rigidbody2D rb;
     private BoxCollider2D bc;
     private SpriteRenderer sp;
-
+    [SerializeField] private GameObject graphic;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +31,9 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Vector2 flightDir = rb.velocity.normalized;
+        Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, flightDir);
+        graphic.transform.rotation = Quaternion.Lerp(graphic.transform.rotation, targetRotation, Time.deltaTime * 0.6f);
     }
 
 
