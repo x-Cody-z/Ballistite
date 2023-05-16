@@ -125,7 +125,7 @@ namespace Platformer.Mechanics
 
             if (grounded)
             {
-                if (shotCount == 0 && !reloading)
+                if (shotCount < shotNumber && !reloading)
                 {
                     reloading = true;
                     StartCoroutine(GunReloadV2());
