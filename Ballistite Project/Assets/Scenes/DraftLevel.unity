@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.49237204, g: 0.62137693, b: 0.7326431, a: 1}
+  m_IndirectSpecularColor: {r: 0.49252352, g: 0.62015617, b: 0.7294667, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -205,7 +205,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160669109}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.91, y: 1.391, z: -9}
+  m_LocalPosition: {x: -5.18, y: 1.5, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1025,12 +1025,12 @@ GameObject:
   - component: {fileID: 950397165}
   - component: {fileID: 950397164}
   m_Layer: 0
-  m_Name: BackLeveltesting
+  m_Name: BackLevel (1)
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &950397163
 Transform:
   m_ObjectHideFlags: 0
@@ -9125,11 +9125,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3074137270349710252, guid: d068ee02d86fddf45b4e3923ac7833ab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.91
+      value: -5.18
       objectReference: {fileID: 0}
     - target: {fileID: 3074137270349710252, guid: d068ee02d86fddf45b4e3923ac7833ab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.391
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3074137270349710252, guid: d068ee02d86fddf45b4e3923ac7833ab, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9361,13 +9361,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredTag: Bullet
+  delay: 0.1
   destroyObject: {fileID: 0}
   destroyObjectHitbox: {fileID: 0}
   changeObjectColour: {fileID: 0}
   newColour: {r: 0, g: 0, b: 0, a: 0}
   spawnObject: {fileID: 0}
-  ObjectWithScript: {fileID: 0}
   ObjectAnimator: {fileID: 1987298473}
+  ObjectWithScript: {fileID: 0}
   scriptName: TestTriggeredScript
   functionName: DoThing
 --- !u!212 &1573414078
@@ -9493,11 +9494,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8966696862554122415, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.91
+      value: -5.18
       objectReference: {fileID: 0}
     - target: {fileID: 8966696862554122415, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.391
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8966696862554122415, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
       propertyPath: m_LocalPosition.z
