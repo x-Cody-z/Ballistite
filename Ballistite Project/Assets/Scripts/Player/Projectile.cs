@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -16,7 +17,7 @@ public class Projectile : MonoBehaviour
     private Rigidbody2D rb;
     private BoxCollider2D bc;
     private SpriteRenderer sp;
-    [SerializeField] private GameObject graphic;
+    public GameObject graphic;
 
     // Start is called before the first frame update
     void Start()
@@ -32,8 +33,15 @@ public class Projectile : MonoBehaviour
     void Update()
     {
         Vector2 flightDir = rb.velocity.normalized;
-        Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, flightDir);
-        graphic.transform.rotation = Quaternion.Lerp(graphic.transform.rotation, targetRotation, Time.deltaTime * 0.6f);
+        if(flightDir.x > 0 )
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, flightDir);
+            graphic.transform.rotation = Quaternion.Lerp(graphic.transform.rotation, targetRotation, Time.deltaTime * 0.6f);
+        } else
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, -flightDir);
+            graphic.transform.rotation = Quaternion.Lerp(graphic.transform.rotation, targetRotation, Time.deltaTime * 0.6f);
+        }
     }
 
 

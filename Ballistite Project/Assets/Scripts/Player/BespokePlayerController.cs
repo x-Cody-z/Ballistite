@@ -238,7 +238,8 @@ namespace Platformer.Mechanics
 
             //shotProjectile.transform.position = spawnPos;
             shotProjectile.transform.position = this.transform.position;
-            shotProjectile.transform.rotation = muzzle.transform.rotation;
+
+            shotProjectile.GetComponent<Projectile>().graphic.transform.rotation = muzzle.transform.rotation;
             Rigidbody2D shotProjectileRB = shotProjectile.GetComponent<Rigidbody2D>();
             Vector2 forceDirection = new(Mathf.Cos(angle), Mathf.Sin(angle));
             shotProjectileRB.AddForce(forceDirection * calcForce() * powerMod, ForceMode2D.Impulse);
