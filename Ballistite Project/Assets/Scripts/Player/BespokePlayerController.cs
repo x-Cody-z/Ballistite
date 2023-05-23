@@ -50,7 +50,7 @@ namespace Platformer.Mechanics
         public float cooldownTime = 0.5f;
         public int shotNumber = 1;
         private int shotCount;
-        private float Timer;
+        public float Timer;
         public bool paused = true;
 
         public AudioSource soundMachine;
