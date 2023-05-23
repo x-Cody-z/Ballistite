@@ -26,12 +26,6 @@ namespace Platformer.Mechanics
         public Transform barrel;
         public Transform muzzle;
         public GameObject projectile;
-        //updated UI so these aren't needed for now
-        /* 
-        public TMP_Text velocity;
-        public TMP_Text Hvelocity;
-        public TMP_Text Vvelocity;
-        */
         public GameObject indicator1;
         public GameObject indicator2;
         public GameObject indicator3;
@@ -65,11 +59,13 @@ namespace Platformer.Mechanics
         private Vector2 Worldpos2D;
         private float barrelAngle;
         private Vector3 spawn;
+        private Quaternion spawnRot;
 
         void Awake()
         {
             shotCount = shotNumber;
             spawn = transform.position;
+            spawnRot = transform.rotation;
             soundMachine = GetComponent<AudioSource>();
 
             UIObject = GameObject.Find("UI");
@@ -98,31 +94,6 @@ namespace Platformer.Mechanics
                 Timer += Time.deltaTime;
             }
 
-
-            //I've updated the method used to change UI values so this isn't needed, I'll if needed we can change back
-            /*
-            if (Input.GetButtonDown("Enable Debug Button 1"))
-            {
-                ToggleDebug();
-            }
-            if (debug)
-            {
-                velocity.gameObject.SetActive(true);
-                Hvelocity.gameObject.SetActive(true);
-                Vvelocity.gameObject.SetActive(true);
-                velocity.text = "Velocity: " + this.GetComponent<Rigidbody2D>().velocity.magnitude.ToString();
-                Hvelocity.text = "Horizontal Velocity: " + this.GetComponent<Rigidbody2D>().velocity.x.ToString();
-                Vvelocity.text = "Vertical Velocity: " + this.GetComponent<Rigidbody2D>().velocity.y.ToString();
-            }
-            else
-            {
-                velocity.gameObject.SetActive(false);
-                Hvelocity.gameObject.SetActive(false);
-                Vvelocity.gameObject.SetActive(false);
-            }
-            
-           */
-
             if (grounded)
             {
                 if (shotCount < shotNumber && !reloading)
@@ -143,6 +114,7 @@ namespace Platformer.Mechanics
                 Worldpos = Camera.main.ScreenToWorldPoint(mousePos);
                 Worldpos2D = new Vector2(Worldpos.x, Worldpos.y);
                 mouseIndicator.position = Worldpos2D;
+                Vector3 mouseDistance = transform.position - mouseIndicator.position;
                 barrelAngle = Mathf.Atan2(Worldpos2D.y - transform.position.y, Worldpos2D.x - transform.position.x) * Mathf.Rad2Deg;
                 barrel.rotation = Quaternion.Euler(new Vector3(0, 0, barrelAngle));
                 float angleInRadians = barrelAngle * Mathf.Deg2Rad;
@@ -196,6 +168,7 @@ namespace Platformer.Mechanics
                 if (Input.GetButtonDown("Jump"))
                 {
                     transform.position = spawn;
+                    transform.rotation = spawnRot;
                 }
                 /*
                 if (Input.GetKeyDown(KeyCode.RightArrow))
