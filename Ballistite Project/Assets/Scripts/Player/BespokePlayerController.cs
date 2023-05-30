@@ -25,6 +25,7 @@ namespace Platformer.Mechanics
         public AudioClip landingAudio;
         public Transform mouseIndicator;
         public Transform barrel;
+        public Transform barrelPivot;
         public Transform muzzle;
         public GameObject projectile;
         public GameObject indicator1;
@@ -116,7 +117,7 @@ namespace Platformer.Mechanics
                 Worldpos2D = new Vector2(Worldpos.x, Worldpos.y);
                 mouseIndicator.position = Worldpos2D;
                 Vector3 mouseDistance = transform.position - mouseIndicator.position;
-                barrelAngle = Mathf.Atan2(Worldpos2D.y - transform.position.y, Worldpos2D.x - transform.position.x) * Mathf.Rad2Deg;
+                barrelAngle = Mathf.Atan2(Worldpos2D.y - barrelPivot.position.y, Worldpos2D.x - barrelPivot.position.x) * Mathf.Rad2Deg;
                 barrel.rotation = Quaternion.Euler(new Vector3(0, 0, barrelAngle));
                 float angleInRadians = barrelAngle * Mathf.Deg2Rad;
                 Vector3 shotSpawnPos = muzzle.transform.position;
