@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Cinemachine;
 
 namespace Platformer.Mechanics
 {
@@ -16,6 +17,8 @@ namespace Platformer.Mechanics
         private GameObject chargeBar;
         private GameObject UIObject;
         private uiController UIScript;
+        [SerializeField] CinemachineVirtualCamera vcamMouse;
+        [SerializeField] CinemachineVirtualCamera vcamPlayer;
         //part of new reload function, this is the value that changes as the reload time progresses, old reloadTime is used as a target value.
         private float reloadTimeActive;
         
@@ -88,8 +91,17 @@ namespace Platformer.Mechanics
 
         void Update()
         {
-
-            if (!paused)
+            if (Input.GetKey(KeyCode.Mouse1))
+            {
+                vcamMouse.m_Priority = 1;
+                vcamPlayer.m_Priority = 0;
+            }
+            else
+            {
+                vcamMouse.m_Priority = 0;
+                vcamPlayer.m_Priority = 1;
+            }
+                if (!paused)
             {
                 Timer += Time.deltaTime;
             }
@@ -118,6 +130,8 @@ namespace Platformer.Mechanics
                 barrelAngle = Mathf.Atan2(Worldpos2D.y - transform.position.y, Worldpos2D.x - transform.position.x) * Mathf.Rad2Deg;
                 barrel.rotation = Quaternion.Euler(new Vector3(0, 0, barrelAngle));
                 float angleInRadians = barrelAngle * Mathf.Deg2Rad;
+
+                
                 Vector3 shotSpawnPos = muzzle.transform.position;
                 if (!singlePower)
                 {

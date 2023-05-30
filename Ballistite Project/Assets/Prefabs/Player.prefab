@@ -109,7 +109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1802866734}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.087, y: 0.16, z: -1}
+  m_LocalPosition: {x: 0.087, y: 0.16, z: -0.297}
   m_LocalScale: {x: 0.24011101, y: 1.1664484, z: 0.41577664}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -234,7 +234,7 @@ Transform:
   - {fileID: 8962347402026695018}
   - {fileID: 1542091727}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &8864624024850247068
 Rigidbody2D:
@@ -275,6 +275,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b766b02c2faee4a42a8b8d5e3f72c0b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vcamMouse: {fileID: 0}
+  vcamPlayer: {fileID: 0}
   gunAudio: {fileID: 8300000, guid: dbe29fdb85b67b047be6483b363b3e89, type: 3}
   reloadAudio: {fileID: 8300000, guid: 5f6ca32ae83928540b67e4ba4b8f1b05, type: 3}
   landingAudio: {fileID: 8300000, guid: d9281b1779cc9684ba465aaf01f86b42, type: 3}
