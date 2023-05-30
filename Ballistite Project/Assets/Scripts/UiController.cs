@@ -20,6 +20,9 @@ public class uiController : MonoBehaviour
     private float hVelocityFloat;
     private float vVelocityFloat;
 
+    public GameObject CaseShellL;
+    public GameObject CaseShellR;
+
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +46,22 @@ public class uiController : MonoBehaviour
 
         
         setText();
+        
+        switch(ammoCountInt)
+        {
+            case 0:
+                CaseShellL.SetActive(false);
+                CaseShellR.SetActive(false);
+                break;
+            case 1:
+                CaseShellL.SetActive(false);
+                CaseShellR.SetActive(true);
+                break;
+            case 2:
+                CaseShellL.SetActive(true);
+                CaseShellR.SetActive(true);
+                break;
+        }
         
     }
 
