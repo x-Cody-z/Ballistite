@@ -18,6 +18,7 @@ namespace Platformer.Mechanics
         private uiController UIScript;
         //part of new reload function, this is the value that changes as the reload time progresses, old reloadTime is used as a target value.
         private float reloadTimeActive;
+        private float reloadDelay;
         
         public AudioClip gunAudio;
         public AudioClip reloadAudio;
@@ -43,7 +44,7 @@ namespace Platformer.Mechanics
         public float cooldownTime = 0.5f;
         public int shotNumber = 1;
         private int shotCount;
-        private float Timer;
+        public float Timer;
         public bool paused = true;
 
         public AudioSource soundMachine;
@@ -96,7 +97,7 @@ namespace Platformer.Mechanics
 
             if (grounded)
             {
-                if (shotCount < shotNumber && !reloading)
+                if (shotCount < shotNumber && !reloading && reloadDelay <=0)
                 {
                     reloading = true;
                     StartCoroutine(GunReloadV2());
@@ -198,6 +199,9 @@ namespace Platformer.Mechanics
 
         private void shoot(float angle, Vector3 spawnPos, float powerMod)
         {
+            //functionality for reload
+            StartCoroutine(ReloadDelay());
+
             soundMachine.PlayOneShot(gunAudio);
             StartCoroutine(Cooldown());
             shotCount--;
@@ -282,6 +286,7 @@ namespace Platformer.Mechanics
             shotCount++;
             reloadTimeActive = reloadTime;
 
+
             if (shotCount < shotNumber && grounded)
             {
                 soundMachine.PlayOneShot(reloadAudio);
@@ -301,7 +306,16 @@ namespace Platformer.Mechanics
             }
         }
 
-        IEnumerator Cooldown()
+        IEnumerator ReloadDelay()
+        {
+
+            for (reloadDelay = 0.05f; reloadDelay > 0; reloadDelay -= Time.deltaTime)
+                yield return null;
+
+        }
+
+
+            IEnumerator Cooldown()
         {
             //Debug.Log("Start Cooldown");
             cooldown = true;
