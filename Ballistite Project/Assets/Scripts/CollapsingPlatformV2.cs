@@ -13,7 +13,8 @@ public class CollapsingPlatformV2 : MonoBehaviour
     private float rtTimer;
 
     private Animator anim;
-    public string animationName;
+    public string triggerAnimation;
+    public string stopAnimation;
 
 
     // Start is called before the first frame update
@@ -28,15 +29,12 @@ public class CollapsingPlatformV2 : MonoBehaviour
 
     }
 
-    public void OnCollisionEnter2D(Collision2D other)
+    public void StartCollapse()
     {
-        if (other.gameObject.CompareTag("Player") && triggered == false)
+        if (!triggered)
         {
             triggered = true;
-            anim.Play(animationName);
-            Debug.Log("I'm playing!");
-            cdTimer = collapseDelay;
-            rtTimer = respawnTime;
+            anim.Play(triggerAnimation);
             StartCoroutine(DestroyObject());
         }
 
@@ -45,11 +43,12 @@ public class CollapsingPlatformV2 : MonoBehaviour
     private IEnumerator DestroyObject()
     {
         // Wait for the specified amount of time
-        for (cdTimer = 1f; cdTimer > 0; cdTimer -= Time.deltaTime)
+        for (cdTimer = collapseDelay; cdTimer > 0; cdTimer -= Time.deltaTime)
             yield return null;
 
         // Hides the existing object
-        SwapState(false);
+        ShowSelf(false);
+        anim.Play(stopAnimation);
 
         if (respawnable)
             StartCoroutine(RespawnObject());
@@ -58,19 +57,28 @@ public class CollapsingPlatformV2 : MonoBehaviour
     private IEnumerator RespawnObject()
     {
         // Wait for the specified amount of time
-        for (rtTimer = 1f; rtTimer > 0; rtTimer -= Time.deltaTime)
+        for (rtTimer = respawnTime; rtTimer > 0; rtTimer -= Time.deltaTime)
             yield return null;
 
         // Show the object
-        SwapState(true);
-        anim.StopPlayback();
-        Debug.Log("I've stopped!");
+        ShowSelf(true);
         triggered = false;
     }
 
-    private void SwapState(bool state)
+    private void ShowSelf(bool state)
     {
-        gameObject.GetComponent<SpriteRenderer>().enabled = state;
-        gameObject.GetComponent<Collider2D>().enabled = state;
+        Debug.Log("ShowingSelf Active");
+        if (state)
+        {
+            Debug.Log("Show");
+            GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f);
+        }
+        else
+        {
+            Debug.Log("Hide");
+            GetComponent<SpriteRenderer>().color = new Color(0.3f, 0.3f, 0.3f); 
+        }
+
+        GetComponent<Collider2D>().enabled = state;
     }
 }
