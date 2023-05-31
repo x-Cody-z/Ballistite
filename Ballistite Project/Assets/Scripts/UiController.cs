@@ -20,7 +20,7 @@ public class uiController : MonoBehaviour
     private float hVelocityFloat;
     private float vVelocityFloat;
 
-    public GameObject player;
+    private GameObject player;
     public GameObject ReloadIndicator;
     public GameObject CaseShellL;
     public GameObject CaseShellR;
