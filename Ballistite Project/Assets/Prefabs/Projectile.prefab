@@ -163,7 +163,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 72
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -209,7 +209,7 @@ MonoBehaviour:
   explosionForce: 2
   explosionLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 63
   explosionSound: {fileID: 8300000, guid: d1565c45acb0c4c4f8ca74d0b1cac8bd, type: 3}
   graphic: {fileID: 433997715138457908}
 --- !u!82 &4388822916004649983

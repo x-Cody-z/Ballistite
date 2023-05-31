@@ -18,12 +18,14 @@ namespace Platformer.Mechanics
         private uiController UIScript;
         //part of new reload function, this is the value that changes as the reload time progresses, old reloadTime is used as a target value.
         private float reloadTimeActive;
+        private float reloadDelay;
         
         public AudioClip gunAudio;
         public AudioClip reloadAudio;
         public AudioClip landingAudio;
         public Transform mouseIndicator;
         public Transform barrel;
+        public Transform barrelPivot;
         public Transform muzzle;
         public GameObject projectile;
         public GameObject indicator1;
@@ -43,7 +45,7 @@ namespace Platformer.Mechanics
         public float cooldownTime = 0.5f;
         public int shotNumber = 1;
         private int shotCount;
-        private float Timer;
+        public float Timer;
         public bool paused = true;
 
         public AudioSource soundMachine;
@@ -96,7 +98,7 @@ namespace Platformer.Mechanics
 
             if (grounded)
             {
-                if (shotCount < shotNumber && !reloading)
+                if (shotCount < shotNumber && !reloading && reloadDelay <=0)
                 {
                     reloading = true;
                     StartCoroutine(GunReloadV2());
@@ -115,7 +117,7 @@ namespace Platformer.Mechanics
                 Worldpos2D = new Vector2(Worldpos.x, Worldpos.y);
                 mouseIndicator.position = Worldpos2D;
                 Vector3 mouseDistance = transform.position - mouseIndicator.position;
-                barrelAngle = Mathf.Atan2(Worldpos2D.y - transform.position.y, Worldpos2D.x - transform.position.x) * Mathf.Rad2Deg;
+                barrelAngle = Mathf.Atan2(Worldpos2D.y - barrelPivot.position.y, Worldpos2D.x - barrelPivot.position.x) * Mathf.Rad2Deg;
                 barrel.rotation = Quaternion.Euler(new Vector3(0, 0, barrelAngle));
                 float angleInRadians = barrelAngle * Mathf.Deg2Rad;
                 Vector3 shotSpawnPos = muzzle.transform.position;
@@ -198,6 +200,9 @@ namespace Platformer.Mechanics
 
         private void shoot(float angle, Vector3 spawnPos, float powerMod)
         {
+            //functionality for reload
+            StartCoroutine(ReloadDelay());
+
             soundMachine.PlayOneShot(gunAudio);
             StartCoroutine(Cooldown());
             shotCount--;
@@ -282,6 +287,7 @@ namespace Platformer.Mechanics
             shotCount++;
             reloadTimeActive = reloadTime;
 
+
             if (shotCount < shotNumber && grounded)
             {
                 soundMachine.PlayOneShot(reloadAudio);
@@ -301,7 +307,16 @@ namespace Platformer.Mechanics
             }
         }
 
-        IEnumerator Cooldown()
+        IEnumerator ReloadDelay()
+        {
+
+            for (reloadDelay = 0.05f; reloadDelay > 0; reloadDelay -= Time.deltaTime)
+                yield return null;
+
+        }
+
+
+            IEnumerator Cooldown()
         {
             //Debug.Log("Start Cooldown");
             cooldown = true;
