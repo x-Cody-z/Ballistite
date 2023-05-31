@@ -20,6 +20,8 @@ public class uiController : MonoBehaviour
     private float hVelocityFloat;
     private float vVelocityFloat;
 
+    public GameObject player;
+    public GameObject ReloadIndicator;
     public GameObject CaseShellL;
     public GameObject CaseShellR;
 
@@ -27,6 +29,7 @@ public class uiController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("Player");
         visisble = false;
         if (hideToggle != null)
         {
@@ -37,7 +40,7 @@ public class uiController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        ReloadIndicator.transform.position = player.transform.position;
         if (hideToggle != null && Input.GetButtonDown("Enable Debug Button 1"))
         {
             visisble = !visisble;
