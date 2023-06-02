@@ -59,6 +59,7 @@ namespace Platformer.Mechanics
 
         public static Vector3 mousePos;
 
+        private GameObject mouse;
         private Vector3 Worldpos;
         private Vector2 Worldpos2D;
         private float barrelAngle;
@@ -72,6 +73,7 @@ namespace Platformer.Mechanics
             spawnRot = transform.rotation;
             soundMachine = GetComponent<AudioSource>();
 
+            mouse = GameObject.Find("mousePos");
             UIObject = GameObject.Find("UI");
             chargeBar = GameObject.Find("chargePanel");
             if (UIObject != null)
@@ -126,6 +128,7 @@ namespace Platformer.Mechanics
                 mousePos.z = Camera.main.nearClipPlane;
                 Worldpos = Camera.main.ScreenToWorldPoint(mousePos);
                 Worldpos2D = new Vector2(Worldpos.x, Worldpos.y);
+                mouse.transform.position = Worldpos2D;
                 barrelAngle = Mathf.Atan2(Worldpos2D.y - barrelPivot.position.y, Worldpos2D.x - barrelPivot.position.x) * Mathf.Rad2Deg;
                 barrel.rotation = Quaternion.Euler(new Vector3(0, 0, barrelAngle));
                 float angleInRadians = barrelAngle * Mathf.Deg2Rad;
