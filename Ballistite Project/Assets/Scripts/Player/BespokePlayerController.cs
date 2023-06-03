@@ -48,6 +48,7 @@ namespace Platformer.Mechanics
         public int shotNumber = 1;
         private int shotCount;
         public float Timer;
+        public float LastBlastValue;
         public bool paused = true;
 
         public AudioSource soundMachine;
@@ -167,7 +168,7 @@ namespace Platformer.Mechanics
                                 shoot(angleInRadians, shotSpawnPos, power);
                                 break;
                         }
-
+                        LastBlastValue = Timer;
                     }
                     if (Input.GetButtonUp("Fire1") && shotCount > 0 && !cooldown)
                     {

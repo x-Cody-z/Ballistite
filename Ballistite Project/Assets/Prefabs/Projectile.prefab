@@ -211,6 +211,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 63
   explosionSound: {fileID: 8300000, guid: d1565c45acb0c4c4f8ca74d0b1cac8bd, type: 3}
+  explosionEffectMain: {fileID: 1336992743854364684}
+  explosionEffectSmoke: {fileID: 9070898060886746670}
+  explosionEffectSpark: {fileID: 2748376668869832416}
   graphic: {fileID: 433997715138457908}
 --- !u!82 &4388822916004649983
 AudioSource:
@@ -318,7 +321,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 137075355935315006, guid: fa3230113ec5c534d9997a1ae07a48ab, type: 3}
       propertyPath: m_Name
-      value: Particle System
+      value: BlastMain
       objectReference: {fileID: 0}
     - target: {fileID: 137075355935315006, guid: fa3230113ec5c534d9997a1ae07a48ab, type: 3}
       propertyPath: m_Layer
@@ -373,8 +376,23 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa3230113ec5c534d9997a1ae07a48ab, type: 3}
+--- !u!198 &1336992743854364684 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1369115167905501346, guid: fa3230113ec5c534d9997a1ae07a48ab, type: 3}
+  m_PrefabInstance: {fileID: 111993148526135470}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &2748376668869832416 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2858047607494190670, guid: fa3230113ec5c534d9997a1ae07a48ab, type: 3}
+  m_PrefabInstance: {fileID: 111993148526135470}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4690256087664649965 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4655246620721475139, guid: fa3230113ec5c534d9997a1ae07a48ab, type: 3}
+  m_PrefabInstance: {fileID: 111993148526135470}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &9070898060886746670 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8966575146915769984, guid: fa3230113ec5c534d9997a1ae07a48ab, type: 3}
   m_PrefabInstance: {fileID: 111993148526135470}
   m_PrefabAsset: {fileID: 0}
