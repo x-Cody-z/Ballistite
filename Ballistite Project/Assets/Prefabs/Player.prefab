@@ -10,7 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 40855722}
   - component: {fileID: 40855723}
-  m_Layer: 3
+  - component: {fileID: 40855725}
+  - component: {fileID: 40855729}
+  - component: {fileID: 40855730}
+  m_Layer: 6
   m_Name: TankWheelMiddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,6 +87,88 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &40855725
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40855721}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!232 &40855729
+DistanceJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40855721}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 1
+  m_ConnectedRigidBody: {fileID: 8864624024850247068}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_BreakAction: 0
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0.008087824, y: -0.31}
+  m_AutoConfigureDistance: 1
+  m_Distance: 0.010509964
+  m_MaxDistanceOnly: 0
+--- !u!58 &40855730
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40855721}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 72
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.125
 --- !u!1 &402393396
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,8 +278,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 417231223}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.393, y: 0.61, z: -0.39}
-  m_LocalScale: {x: 0.24011101, y: 1.1664484, z: 0.41577664}
+  m_LocalPosition: {x: 0.99, y: 0.032, z: -0.39}
+  m_LocalScale: {x: 0.2530407, y: 0.2530407, z: 0.2530407}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1555745146874365634}
@@ -262,7 +347,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1104304329}
   - component: {fileID: 1104304330}
-  m_Layer: 3
+  - component: {fileID: 1104304332}
+  - component: {fileID: 1104304336}
+  - component: {fileID: 1104304337}
+  m_Layer: 6
   m_Name: TankWheelLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -336,6 +424,88 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1104304332
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104304328}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!232 &1104304336
+DistanceJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104304328}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 1
+  m_ConnectedRigidBody: {fileID: 8864624024850247068}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_BreakAction: 0
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: -0.41366225, y: -0.31}
+  m_AutoConfigureDistance: 1
+  m_Distance: 0.010521364
+  m_MaxDistanceOnly: 0
+--- !u!58 &1104304337
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104304328}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 72
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.125
 --- !u!1 &1131722322
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,8 +891,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1802866734}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.302, y: 0.49, z: -0.39}
-  m_LocalScale: {x: 0.24011101, y: 1.1664484, z: 0.41577664}
+  m_LocalPosition: {x: 0.29500014, y: 0.008, z: -0.39}
+  m_LocalScale: {x: 0.23102, y: 0.23102, z: 0.23102}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1555745146874365634}
@@ -790,7 +960,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1959380579}
   - component: {fileID: 1959380580}
-  m_Layer: 3
+  - component: {fileID: 1959380582}
+  - component: {fileID: 1959380587}
+  - component: {fileID: 1959380588}
+  m_Layer: 6
   m_Name: TankWheelRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -864,6 +1037,88 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1959380582
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959380578}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!232 &1959380587
+DistanceJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959380578}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 1
+  m_ConnectedRigidBody: {fileID: 8864624024850247068}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_BreakAction: 0
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0.42831486, y: -0.31}
+  m_AutoConfigureDistance: 1
+  m_Distance: 0.0105012525
+  m_MaxDistanceOnly: 0
+--- !u!58 &1959380588
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959380578}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 72
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.125
 --- !u!1 &631616598898898270
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,7 +1335,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5197845457302251699}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.727, y: 0.61, z: 0}
+  m_LocalPosition: {x: 1.29, y: 0.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1125,7 +1380,7 @@ Transform:
   - {fileID: 4653869769868049342}
   - {fileID: 1779101613307916770}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &8864624024850247068
 Rigidbody2D:
@@ -1166,12 +1421,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b766b02c2faee4a42a8b8d5e3f72c0b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vcamMouse: {fileID: 0}
+  vcamPlayer: {fileID: 0}
   gunAudio: {fileID: 8300000, guid: dbe29fdb85b67b047be6483b363b3e89, type: 3}
   reloadAudio: {fileID: 8300000, guid: 5f6ca32ae83928540b67e4ba4b8f1b05, type: 3}
   landingAudio: {fileID: 8300000, guid: d9281b1779cc9684ba465aaf01f86b42, type: 3}
-  mouseIndicator: {fileID: 0}
-  barrel: {fileID: 8962347402026695018}
-  barrelPivot: {fileID: 0}
+  barrel: {fileID: 1555745146874365634}
+  barrelPivot: {fileID: 8962347402026695018}
   muzzle: {fileID: 1900594786463767661}
   projectile: {fileID: 6425388640759641725, guid: 7e67086ad6e974c4e888260b0c4b41fc, type: 3}
   indicator1: {fileID: 0}
@@ -1332,24 +1588,24 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.57943344, y: 0.63999987}
-      - {x: -0.57399654, y: 0.63999987}
-      - {x: -0.6358551, y: 0.6363622}
-      - {x: -0.63999987, y: 0.5804553}
-      - {x: -0.64956856, y: 0.036616325}
-      - {x: -0.96652985, y: 0.027342558}
-      - {x: -1.148921, y: -0.25163245}
-      - {x: -0.63999987, y: -0.5908632}
-      - {x: -0.63573635, y: -0.636062}
-      - {x: -0.5534439, y: -0.63999987}
-      - {x: 0.5551443, y: -0.63999987}
-      - {x: 0.6363622, y: -0.6364068}
-      - {x: 0.64, y: -0.5813215}
-      - {x: 1.170577, y: -0.34908533}
-      - {x: 1.0016985, y: -0.0043013096}
-      - {x: 0.6835537, y: -0.012734652}
-      - {x: 0.64, y: 0.5864196}
-      - {x: 0.6364217, y: 0.63630307}
+    - - {x: 0.17187214, y: 0.46956515}
+      - {x: -0.35910034, y: 0.48438573}
+      - {x: -0.48024118, y: 0.42887676}
+      - {x: -0.5955386, y: 0.2544067}
+      - {x: -0.5680561, y: 0.14035916}
+      - {x: -0.9072485, y: 0.042162895}
+      - {x: -1.0081272, y: -0.18494058}
+      - {x: -0.9141774, y: -0.29445505}
+      - {x: -0.7172488, y: -0.31742346}
+      - {x: -0.5015726, y: -0.35841203}
+      - {x: 0.4143505, y: -0.39546323}
+      - {x: 0.769745, y: -0.40669048}
+      - {x: 0.87712634, y: -0.41088676}
+      - {x: 0.99273205, y: -0.1490097}
+      - {x: 0.85349464, y: 0.069800615}
+      - {x: 0.4538374, y: 0.12805915}
+      - {x: 0.5214373, y: 0.26778078}
+      - {x: 0.517858, y: 0.3695358}
   m_UseDelaunayMesh: 0
 --- !u!1 &6076884873503302242
 GameObject:
@@ -1375,8 +1631,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6076884873503302242}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.267, y: -0.004, z: -0.85}
-  m_LocalScale: {x: 1, y: 0.2, z: 1}
+  m_LocalPosition: {x: 0, y: 0.3, z: -0.85}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1900594786463767661}
@@ -1409,8 +1665,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8093307367903922204}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalPosition: {x: 0, y: 0.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8966696862554122415}
