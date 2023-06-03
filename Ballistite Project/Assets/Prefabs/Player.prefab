@@ -1166,12 +1166,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b766b02c2faee4a42a8b8d5e3f72c0b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vcamMouse: {fileID: 0}
+  vcamPlayer: {fileID: 0}
   gunAudio: {fileID: 8300000, guid: dbe29fdb85b67b047be6483b363b3e89, type: 3}
   reloadAudio: {fileID: 8300000, guid: 5f6ca32ae83928540b67e4ba4b8f1b05, type: 3}
   landingAudio: {fileID: 8300000, guid: d9281b1779cc9684ba465aaf01f86b42, type: 3}
-  mouseIndicator: {fileID: 0}
-  barrel: {fileID: 8962347402026695018}
-  barrelPivot: {fileID: 0}
+  barrel: {fileID: 1555745146874365634}
+  barrelPivot: {fileID: 8962347402026695018}
   muzzle: {fileID: 1900594786463767661}
   projectile: {fileID: 6425388640759641725, guid: 7e67086ad6e974c4e888260b0c4b41fc, type: 3}
   indicator1: {fileID: 0}
