@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SlowdownTrigger : MonoBehaviour
 {
-    private bool slowed = false;
+    public bool slowed = false;
     [Tooltip("1.0 is normal speed, 0.5 for half speed, 2.0 for 2x speed, etc.")]
-    [SerializeField] private float slowdownAmount;
+    public float slowdownAmount;
 
     // Start is called before the first frame update
     void Start()
