@@ -58,6 +58,7 @@ namespace Platformer.Mechanics
         public bool grounded = true;
         public bool reloading = false;
         public bool cooldown = false;
+        private bool shotCancel = false;
 
         public static Vector3 mousePos;
 
@@ -139,7 +140,7 @@ namespace Platformer.Mechanics
                 Vector3 shotSpawnPos = muzzle.transform.position;
                 if (!singlePower)
                 {
-                    if (Input.GetButton("Fire1") && shotCount > 0 && !cooldown)
+                    if (Input.GetButton("Fire1") && shotCount > 0 && !cooldown && !shotCancel)
                     {
                         paused = false;
                         switch (Timer)
@@ -171,10 +172,30 @@ namespace Platformer.Mechanics
                         }
                         LastBlastValue = Timer;
                     }
-                    if (Input.GetButtonUp("Fire1") && shotCount > 0 && !cooldown)
+                    if (Input.GetButtonUp("Fire1") && shotCount > 0 && !cooldown && !shotCancel)
                     {
                         shoot(angleInRadians, shotSpawnPos, power);
                     }
+
+
+                    //cancel shot
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        Timer = 0;
+                        paused = true;
+                        //StartCoroutine(Cooldown(0.2f));
+                        shotCancel = true;
+
+                        indicator1.SetActive(false);
+                        indicator2.SetActive(false);
+                        indicator3.SetActive(false);
+                    }
+
+                    if (Input.GetButtonUp("Fire1"))
+                    {
+                        shotCancel = false;
+                    }
+
                 } else
                 {
                     if (Input.GetButtonDown("Fire1") && shotCount > 0 && !cooldown)
@@ -183,7 +204,7 @@ namespace Platformer.Mechanics
                     }
                 }
 
-                if (Input.GetButtonDown("Jump"))
+                if (Input.GetKeyDown(KeyCode.Alpha0))
                 {
                     transform.position = spawn;
                     transform.rotation = spawnRot;
@@ -219,8 +240,9 @@ namespace Platformer.Mechanics
             //functionality for reload
             StartCoroutine(ReloadDelay());
 
+
             soundMachine.PlayOneShot(gunAudio, volumeScale);
-            StartCoroutine(Cooldown());
+            StartCoroutine(Cooldown(cooldownTime));
             shotCount--;
             Rigidbody2D tankRB = GetComponent<Rigidbody2D>();
             GameObject shotProjectile = Instantiate(projectile);
@@ -332,11 +354,11 @@ namespace Platformer.Mechanics
         }
 
 
-            IEnumerator Cooldown()
+        IEnumerator Cooldown(float cd)
         {
             //Debug.Log("Start Cooldown");
             cooldown = true;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(cd);
             cooldown = false;
             //Debug.Log("End Cooldown");
         }
