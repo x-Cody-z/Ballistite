@@ -323,10 +323,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlastMain
       objectReference: {fileID: 0}
-    - target: {fileID: 137075355935315006, guid: fa3230113ec5c534d9997a1ae07a48ab, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4655246620721475139, guid: fa3230113ec5c534d9997a1ae07a48ab, type: 3}
       propertyPath: m_RootOrder
       value: 0
