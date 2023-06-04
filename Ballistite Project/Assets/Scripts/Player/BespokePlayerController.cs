@@ -95,8 +95,19 @@ namespace Platformer.Mechanics
             Debug.Log("Debug mode is now " + debug);
         }
 
+
+        public GameObject exit;
+
         void Update()
         {
+            if (exit.activeSelf)
+            {
+                controlEnabled = false;
+            } else
+            {
+                controlEnabled = true;
+            }
+
             if (Input.GetKey(KeyCode.Mouse1))
             {
                 vcamMouse.m_Priority = 1;
@@ -121,10 +132,6 @@ namespace Platformer.Mechanics
                 }
             }
             chargeBar.SetActive(!singlePower);
-            if (Input.GetKeyDown("1"))
-            {
-                singlePower = !singlePower;
-            }
             if (controlEnabled)
             {
                 mousePos = Input.mousePosition;
@@ -140,16 +147,22 @@ namespace Platformer.Mechanics
                 Vector3 shotSpawnPos = muzzle.transform.position;
                 if (!singlePower)
                 {
+                    //this is for charging power
                     if (Input.GetButton("Fire1") && shotCount > 0 && !cooldown && !shotCancel)
                     {
                         paused = false;
                         switch (Timer)
                         {
                             case < 1 :
+                                //eventually this code needs to be refactored to not use the indicators if we arent gonna have them in games
                                 if (!indicator1.activeInHierarchy)
                                 {
                                     power = shotPower;
                                     indicator1.SetActive(true);
+                                    if (Input.GetButtonUp("Fire1") && shotCount > 0 && !cooldown && !shotCancel)
+                                    {
+                                        shoot(angleInRadians, shotSpawnPos, power);
+                                    }
                                 }
                                 break;
                             case >= 1 and < 2:
@@ -157,6 +170,10 @@ namespace Platformer.Mechanics
                                 {
                                     power = shotPower + shotMod;
                                     indicator2.SetActive(true);
+                                    if (Input.GetButtonUp("Fire1") && shotCount > 0 && !cooldown && !shotCancel)
+                                    {
+                                        shoot(angleInRadians, shotSpawnPos, power);
+                                    }
                                 }
                                 break;
                             case >= 2 and < 3:
@@ -164,6 +181,10 @@ namespace Platformer.Mechanics
                                 {
                                     power = shotPower + 2*shotMod;
                                     indicator3.SetActive(true);
+                                    if (Input.GetButtonUp("Fire1") && shotCount > 0 && !cooldown && !shotCancel)
+                                    {
+                                        shoot(angleInRadians, shotSpawnPos, power);
+                                    }
                                 }
                                 break;
                             case > 6:
@@ -172,11 +193,7 @@ namespace Platformer.Mechanics
                         }
                         LastBlastValue = Timer;
                     }
-                    if (Input.GetButtonUp("Fire1") && shotCount > 0 && !cooldown && !shotCancel)
-                    {
-                        shoot(angleInRadians, shotSpawnPos, power);
-                    }
-
+                    
 
                     //cancel shot
                     if (Input.GetKeyDown(KeyCode.Space))
@@ -198,16 +215,19 @@ namespace Platformer.Mechanics
 
                 } else
                 {
+                    //This is for single shot
                     if (Input.GetButtonDown("Fire1") && shotCount > 0 && !cooldown)
                     {
                         shoot(angleInRadians, shotSpawnPos, 1);
                     }
                 }
 
+                //key zero respawns player back at the beginning of level
                 if (Input.GetKeyDown(KeyCode.Alpha0))
                 {
                     transform.position = spawn;
                     transform.rotation = spawnRot;
+                    GameObject.Find("win panel").SetActive(false);
                 }
                 /*
                 if (Input.GetKeyDown(KeyCode.RightArrow))
