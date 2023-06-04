@@ -22,6 +22,7 @@ namespace Platformer.Mechanics
         //part of new reload function, this is the value that changes as the reload time progresses, old reloadTime is used as a target value.
         private float reloadTimeActive;
         private float reloadDelay;
+        [SerializeField] private float volumeScale = 1;
         
         public AudioClip gunAudio;
         public AudioClip reloadAudio;
@@ -218,7 +219,7 @@ namespace Platformer.Mechanics
             //functionality for reload
             StartCoroutine(ReloadDelay());
 
-            soundMachine.PlayOneShot(gunAudio);
+            soundMachine.PlayOneShot(gunAudio, volumeScale);
             StartCoroutine(Cooldown());
             shotCount--;
             Rigidbody2D tankRB = GetComponent<Rigidbody2D>();
@@ -256,7 +257,7 @@ namespace Platformer.Mechanics
         {
             if (collision.gameObject.CompareTag("Level"))
             {
-                soundMachine.PlayOneShot(landingAudio);
+                soundMachine.PlayOneShot(landingAudio, volumeScale);
                 grounded = true;
             }
         }
@@ -311,7 +312,7 @@ namespace Platformer.Mechanics
             else if (shotCount < shotNumber)
             {
                 yield return new WaitUntil(() => grounded);
-                soundMachine.PlayOneShot(reloadAudio);
+                soundMachine.PlayOneShot(reloadAudio, volumeScale);
                 StartCoroutine(GunReloadV2());
             }
             if (shotCount == shotNumber)
