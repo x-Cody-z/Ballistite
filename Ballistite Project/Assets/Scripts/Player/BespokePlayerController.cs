@@ -159,10 +159,6 @@ namespace Platformer.Mechanics
                                 {
                                     power = shotPower;
                                     indicator1.SetActive(true);
-                                    if (Input.GetButtonUp("Fire1") && shotCount > 0 && !cooldown && !shotCancel)
-                                    {
-                                        shoot(angleInRadians, shotSpawnPos, power);
-                                    }
                                 }
                                 break;
                             case >= 1 and < 2:
@@ -170,10 +166,6 @@ namespace Platformer.Mechanics
                                 {
                                     power = shotPower + shotMod;
                                     indicator2.SetActive(true);
-                                    if (Input.GetButtonUp("Fire1") && shotCount > 0 && !cooldown && !shotCancel)
-                                    {
-                                        shoot(angleInRadians, shotSpawnPos, power);
-                                    }
                                 }
                                 break;
                             case >= 2 and < 3:
@@ -181,10 +173,6 @@ namespace Platformer.Mechanics
                                 {
                                     power = shotPower + 2*shotMod;
                                     indicator3.SetActive(true);
-                                    if (Input.GetButtonUp("Fire1") && shotCount > 0 && !cooldown && !shotCancel)
-                                    {
-                                        shoot(angleInRadians, shotSpawnPos, power);
-                                    }
                                 }
                                 break;
                             case > 6:
@@ -192,6 +180,10 @@ namespace Platformer.Mechanics
                                 break;
                         }
                         LastBlastValue = Timer;
+                    }
+                    if (Input.GetButtonUp("Fire1") && shotCount > 0 && !cooldown && !shotCancel)
+                    {
+                        shoot(angleInRadians, shotSpawnPos, power);
                     }
                     
 
