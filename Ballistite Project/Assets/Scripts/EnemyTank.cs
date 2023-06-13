@@ -30,6 +30,8 @@ public class EnemyTank : MonoBehaviour
 
     void Update() //fixedupdate?
     {
+        Debug.DrawRay(transform.position, transform.forward * 10, Color.green);
+
         switch (m_State)
         {
             case State.Idle:
