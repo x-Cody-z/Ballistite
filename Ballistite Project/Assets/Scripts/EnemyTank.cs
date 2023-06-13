@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class EnemyTank : MonoBehaviour
@@ -17,7 +18,8 @@ public class EnemyTank : MonoBehaviour
     public GameObject aimPoint;
 
     [SerializeField] private GameObject player;
-    [SerializeField] private float FireRate;
+    [SerializeField] private float fireRate;
+    [SerializeField] private float maxRange;
 
     void Start()
     {
@@ -32,13 +34,19 @@ public class EnemyTank : MonoBehaviour
         {
             case State.Idle:
                 // waits in place or patrolling, once a raycast on the player is successful 
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, player.transform.position);
-                Debug.DrawRay(transform.position, Vector3.forward, Color.green);
+                RaycastHit hit;
 
-                if (hit.collider == null)
+                if (Vector2.Distance(transform.position, player.transform.position) < maxRange)
                 {
-                    Debug.Log("Your tank has been detected!");
+                    if (Physics.Raycast(transform.position, (player.transform.position - transform.position), out hit, maxRange))
+                    {
+                        if (hit.transform == player)
+                        {
+                            Debug.Log("Your tank has been detected!");
+                        }
+                    }
                 }
+                
                 break;
 
            case State.Alert:
