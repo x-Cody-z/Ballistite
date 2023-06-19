@@ -21,46 +21,53 @@ public class EnemyTank : MonoBehaviour
     [SerializeField] private float fireRate;
     [SerializeField] private float maxRange;
 
+    //debug check
+    [Space]
+    [SerializeField] private Vector3 normalizedDirection; // just to see stats, later on delete this line and put the data type in the Update()
+    [SerializeField] private float distance;              // ditto ^
+
+    private int layerMask;
+    private List<Collider2D> ignoreColliders = new List<Collider2D>();
+
     void Start()
     {
         m_State = State.Idle;
         player = GameObject.Find("Player");
-        Debug.DrawRay(transform.position, Vector3.forward, Color.green, 100f, false);
+
+        // To avoid raycasting on the Cinemachine collider
+        layerMask = ~LayerMask.GetMask("IgnoreRaycast");
     }
 
     void Update() //fixedupdate?
     {
-        Debug.DrawRay(transform.position, transform.forward * 10, Color.green);
+        Vector3 direction = player.transform.position - transform.position;
+
+        distance = direction.magnitude;
+
+        normalizedDirection = direction.normalized;
+
+        float clampedDistance = Mathf.Min(distance, maxRange);
+        Vector3 raycastDirection = normalizedDirection * clampedDistance;
 
         switch (m_State)
         {
             case State.Idle:
-                // waits in place or patrolling, once a raycast on the player is successful 
-                RaycastHit hit;
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, raycastDirection, clampedDistance, LayerMask.GetMask("Player", "Level"));
 
-                if (Vector2.Distance(transform.position, player.transform.position) < maxRange)
+                if (hit.transform != null && hit.transform.gameObject == player)
                 {
-                    if (Physics.Raycast(transform.position, (player.transform.position - transform.position), out hit, maxRange))
-                    {
-                        if (hit.transform == player)
-                        {
-                            Debug.Log("Your tank has been detected!");
-                        }
-                    }
+                    Debug.Log("Player detected within range");
                 }
-                
+
                 break;
 
            case State.Alert:
-                // checks raycast to see if player is still in view, continue attack
                 break;
 
             case State.Search:
-                // raycast is broken, keeps watch or atively searches, after an amount of time has elapsed, return to idle state
                 break;
 
             case State.Destroyed:
-                // tank HP is 0 or flipped and unable to roll back over, can sprite to destroyed and smoke VFX begins
                 break;
 
             default:
