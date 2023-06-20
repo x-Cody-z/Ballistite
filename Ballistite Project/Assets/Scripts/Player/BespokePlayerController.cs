@@ -363,5 +363,10 @@ namespace Platformer.Mechanics
                 UIScript.updateChargeValues(charge1, charge2, charge3);
             }
         }
+
+        public void IncreaseAmmo(int ammnt)
+        {
+            shotCount += ammnt;
+        }
     }
 }
