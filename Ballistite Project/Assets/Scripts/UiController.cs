@@ -20,6 +20,8 @@ public class uiController : MonoBehaviour
     private float hVelocityFloat;
     private float vVelocityFloat;
 
+    public GameObject slowdownEffect;
+
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +41,15 @@ public class uiController : MonoBehaviour
         {
             visisble = !visisble;
             hideToggle.SetActive(visisble);
+        }
+
+        if (slowdownEffect != null && Time.timeScale < 1)
+        {
+            slowdownEffect.SetActive(true);
+        }
+        else if (slowdownEffect != null && Time.timeScale >= 1)
+        {
+            slowdownEffect.SetActive(false);
         }
 
         
