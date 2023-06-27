@@ -27,6 +27,12 @@ public class uiController : MonoBehaviour
     public GameObject CaseShellL;
     public GameObject CaseShellR;
 
+    public GameObject indicator1;
+    public GameObject indicator2;
+    public GameObject indicator3;
+
+    public GameObject winPanel;
+
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +42,10 @@ public class uiController : MonoBehaviour
         if (hideToggle != null)
         {
             hideToggle.SetActive(visisble);
+        }
+        if (winPanel != null)
+        {
+            winPanel.SetActive(false);
         }
     }
 
@@ -58,6 +68,11 @@ public class uiController : MonoBehaviour
         {
             exitactive = !exitactive;
             quitmenu.SetActive(exitactive);
+            
+            if (exitactive)
+                Time.timeScale = 0;
+            else
+                Time.timeScale = 1;
 
         }
 
@@ -101,6 +116,13 @@ public class uiController : MonoBehaviour
         velocityFloat = v;
         hVelocityFloat = hV;
         vVelocityFloat = vV;
+    }
+
+    public void updateChargeValues(bool ind1, bool ind2, bool ind3)
+    {
+        indicator1.SetActive(ind1);
+        indicator2.SetActive(ind1);
+        indicator3.SetActive(ind1);
     }
 
     public void exitGame()
