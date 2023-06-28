@@ -86,9 +86,7 @@ namespace Platformer.Mechanics
 
         private bool singlePower = false;
         private bool debug = false;
-
-        //should this be serialized?
-        [SerializeField] private float power;
+        private float power;
 
         void Awake()
         {
