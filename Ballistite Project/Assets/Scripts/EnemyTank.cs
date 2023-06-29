@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
 
-public class EnemyTank : MonoBehaviour
+public class EnemyTank : Tank
 {
     // requirements: Cannot see player through wall, have a raycast with the player and a certain distance specified in order to 'detect' the player and change phases.
     //               Have an empty gameObject to represent what it is aiming at and have that slowly follow the player while it is in detect mode.
@@ -14,7 +14,6 @@ public class EnemyTank : MonoBehaviour
     private enum State {Idle, Alert, Search, Destroyed}
     [SerializeField] private State m_State;
 
-    public GameObject projectile;
     public GameObject aimPoint;
 
     [SerializeField] private GameObject player;
@@ -38,6 +37,12 @@ public class EnemyTank : MonoBehaviour
         layerMask = ~LayerMask.GetMask("IgnoreRaycast");
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawRay(transform.position, normalizedDirection);
+        Gizmos.color = Color.green;
+    }
+
     void Update() //fixedupdate?
     {
         Vector3 direction = player.transform.position - transform.position;
@@ -57,11 +62,18 @@ public class EnemyTank : MonoBehaviour
                 if (hit.transform != null && hit.transform.gameObject == player)
                 {
                     Debug.Log("Player detected within range");
+                    m_State = State.Alert;
                 }
 
                 break;
 
            case State.Alert:
+                float angleInRadians = MoveBarrel(player.transform.position) * Mathf.Deg2Rad;
+                barrel.rotation = Quaternion.Euler(new Vector3(0, 0, MoveBarrel(player.transform.position)));
+                if (distance > maxRange)
+                {
+                    m_State = State.Idle;
+                }
                 break;
 
             case State.Search:

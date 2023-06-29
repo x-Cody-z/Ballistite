@@ -17,8 +17,8 @@ public class Tank : MonoBehaviour
     public float LastBlastValue;
     public bool paused = true;
 
-    [SerializeField] private float shotPower = 1f;
-    [SerializeField] private float shotMod = 0.5f;
+    public float shotPower = 1f;
+    public float shotMod = 0.5f;
 
     [Tooltip("every one increase in this value is one grid unit of vertical height to the shot")]
     public float shotForce = 4f;
@@ -36,28 +36,26 @@ public class Tank : MonoBehaviour
     public int shotNumber = 1;
 
     //this is what actually keeps track of the number of shots, shotNumber is more like a static variable that shotCount gets set to
-    private int shotCount;
+    public int shotCount;
 
     //part of new reload function, this is the value that changes as the reload time progresses, old reloadTime is used as a target value.
-    private float reloadTimeActive;
-    private float reloadDelay;
+    public float reloadTimeActive;
+    public float reloadDelay;
 
     public bool controlEnabled = true;
     public bool grounded = true;
     public bool reloading = false;
     public bool cooldown = false;
-    private bool shotCancel = false;
+    public bool shotCancel = false;
 
     public float MoveBarrel(Vector3 target)
     {
-        Vector3 Worldpos = Camera.main.ScreenToWorldPoint(target);
-        Vector2 Worldpos2D = new Vector2(Worldpos.x, Worldpos.y);
+        Vector2 Worldpos2D = new Vector2(target.x, target.y);
         float barrelAngle = Mathf.Atan2(Worldpos2D.y - barrelPivot.position.y, Worldpos2D.x - barrelPivot.position.x) * Mathf.Rad2Deg;
-        barrel.rotation = Quaternion.Euler(new Vector3(0, 0, barrelAngle));
         return barrelAngle;
     }
 
-    private void Shoot(float angle, Vector3 spawnPos, float powerMod)
+    public void Shoot(float angle, Vector3 spawnPos, float powerMod)
     {
         //functionality for reload
         StartCoroutine(ReloadDelay());
@@ -78,11 +76,10 @@ public class Tank : MonoBehaviour
         Rigidbody2D shotProjectileRB = shotProjectile.GetComponent<Rigidbody2D>();
         Vector2 forceDirection = new(Mathf.Cos(angle), Mathf.Sin(angle));
         shotProjectileRB.AddForce(forceDirection * calcForce() * powerMod, ForceMode2D.Impulse);
-        //tankRB.AddForce(forceDirection * calcRecoil() * powerMod, ForceMode2D.Impulse);
         tankRB.velocity = tankRB.velocity + forceDirection * calcRecoil() * powerMod;
     }
 
-    IEnumerator GunReloadV2()
+    public IEnumerator GunReloadV2()
     {
         for (reloadTimeActive = 1f; reloadTimeActive > 0; reloadTimeActive -= Time.deltaTime)
             yield return null;
@@ -105,7 +102,6 @@ public class Tank : MonoBehaviour
         {
             //soundMachine.PlayOneShot(reloadAudio);
             reloading = false;
-            //Debug.LogError("CLICK");
         }
     }
 
@@ -120,11 +116,9 @@ public class Tank : MonoBehaviour
 
     IEnumerator Cooldown(float cd)
     {
-        //Debug.Log("Start Cooldown");
         cooldown = true;
         yield return new WaitForSeconds(cd);
         cooldown = false;
-        //Debug.Log("End Cooldown");
     }
 
     private float calcRecoil()
@@ -137,10 +131,5 @@ public class Tank : MonoBehaviour
     {
         float adjustmentFactor = Mathf.Pow(shotForce, 0.5f);
         return adjustmentFactor * 0.48f;
-    }
-
-    private void Update()
-    {       
-        float angleInRadians = MoveBarrel(Input.mousePosition) * Mathf.Deg2Rad;
     }
 }

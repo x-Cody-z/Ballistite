@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Cinemachine;
+using System;
 
 namespace Platformer.Mechanics
 {
@@ -10,7 +11,7 @@ namespace Platformer.Mechanics
     /// This is the main class used to implement control of the player.
     /// It is a superset of the AnimationController class, but is inlined to allow for any kind of customisation.
     /// </summary>
-    public class BespokePlayerController : MonoBehaviour
+    public class BespokePlayerController : Tank
     {
         //UI object and script, probably easier than linking every text field in the UI
         //Being set automatically based on name in Awake(), could be set to public if this needs to be changed
@@ -20,67 +21,21 @@ namespace Platformer.Mechanics
         
         [SerializeField] CinemachineVirtualCamera vcamMouse;
         [SerializeField] CinemachineVirtualCamera vcamPlayer;
-       
-        //part of new reload function, this is the value that changes as the reload time progresses, old reloadTime is used as a target value.
-        private float reloadTimeActive;
-        private float reloadDelay;
         [SerializeField] private float volumeScale = 1;
         
         public AudioClip gunAudio;
         public AudioClip reloadAudio;
         public AudioClip landingAudio;
-        public Transform barrel;
-        public Transform barrelPivot;
-        public Transform muzzle;
-        public GameObject projectile;
         
         //bools used for toggling the charge indicators
         private bool charge1;
         private bool charge2;
         private bool charge3;
 
-
-
-        [SerializeField] private float shotPower = 1f;
-        [SerializeField] private float shotMod = 0.5f;
-
-        [Tooltip("every one increase in this value is one grid unit of vertical height to the shot")]
-        public float shotForce = 4f;
-
-        [Tooltip("every one increase in this value is one grid unit of horizontal movement")]
-        public float shotRecoil = 1f;
-
-        [Tooltip("time in seconds for one shot to be reloaded")]
-        public float reloadTime = 1f;
-
-        [Tooltip("minimum time in seconds between each shot, think of it as fire rate")]
-        public float cooldownTime = 0.5f;
-
-        [Tooltip("the number of shots that can be loaded at once")]
-        public int shotNumber = 1;
-
-        //this is what actually keeps track of the number of shots, shotNumber is more like a static variable that shotCount gets set to
-        private int shotCount;
-
-        //timer stuff used for charging shot power
-        public float Timer;
-        public float LastBlastValue;
-        public bool paused = true;
-
         public AudioSource soundMachine;
 
-        public bool controlEnabled = true;
-        public bool grounded = true;
-        public bool reloading = false;
-        public bool cooldown = false;
-        private bool shotCancel = false;
-
         public static Vector3 mousePos;
-
-        private GameObject mouse;
         private Vector3 Worldpos;
-        private Vector2 Worldpos2D;
-        private float barrelAngle;
         private Vector3 spawn;
         private Quaternion spawnRot;
 
@@ -95,7 +50,6 @@ namespace Platformer.Mechanics
             spawnRot = transform.rotation;
             soundMachine = GetComponent<AudioSource>();
 
-            mouse = GameObject.Find("mousePos");
             UIObject = GameObject.Find("UI");
             chargeBar = GameObject.Find("chargePanel");
             if (UIObject != null)
@@ -161,13 +115,10 @@ namespace Platformer.Mechanics
                 mousePos = Input.mousePosition;
                 mousePos.z = Camera.main.nearClipPlane;
                 Worldpos = Camera.main.ScreenToWorldPoint(mousePos);
-                Worldpos2D = new Vector2(Worldpos.x, Worldpos.y);
-                mouse.transform.position = Worldpos2D;
-                barrelAngle = Mathf.Atan2(Worldpos2D.y - barrelPivot.position.y, Worldpos2D.x - barrelPivot.position.x) * Mathf.Rad2Deg;
-                barrel.rotation = Quaternion.Euler(new Vector3(0, 0, barrelAngle));
-                float angleInRadians = barrelAngle * Mathf.Deg2Rad;
+                float angleInRadians = MoveBarrel(Worldpos) * Mathf.Deg2Rad;
+                barrel.rotation = Quaternion.Euler(new Vector3(0, 0, MoveBarrel(Worldpos)));
 
-                
+
                 Vector3 shotSpawnPos = muzzle.transform.position;
                 if (!singlePower)
                 {
@@ -200,14 +151,14 @@ namespace Platformer.Mechanics
                                 }
                                 break;
                             case > 6:
-                                shoot(angleInRadians, shotSpawnPos, power);
+                                Shoot(angleInRadians, shotSpawnPos, power);
                                 break;
                         }
                         LastBlastValue = Timer;
                     }
                     if (Input.GetButtonUp("Fire1") && shotCount > 0 && !cooldown && !shotCancel)
                     {
-                        shoot(angleInRadians, shotSpawnPos, power);
+                        Shoot(angleInRadians, shotSpawnPos, power);
                     }
                     
 
@@ -234,7 +185,7 @@ namespace Platformer.Mechanics
                     //This is for single shot
                     if (Input.GetButtonDown("Fire1") && shotCount > 0 && !cooldown)
                     {
-                        shoot(angleInRadians, shotSpawnPos, 1);
+                        Shoot(angleInRadians, shotSpawnPos, 1);
                     }
                 }
 
@@ -248,46 +199,6 @@ namespace Platformer.Mechanics
                 
             }
             UpdateUIValues();
-        }
-
-        private void shoot(float angle, Vector3 spawnPos, float powerMod)
-        {
-            //functionality for reload
-            StartCoroutine(ReloadDelay());
-
-
-            soundMachine.PlayOneShot(gunAudio, volumeScale);
-            StartCoroutine(Cooldown(cooldownTime));
-            shotCount--;
-            Rigidbody2D tankRB = GetComponent<Rigidbody2D>();
-            GameObject shotProjectile = Instantiate(projectile);
-            Timer = 0;
-            paused = true;
-            charge1 = false;
-            charge2 = false;
-            charge3 = false;
-
-            //shotProjectile.transform.position = spawnPos;
-            shotProjectile.transform.position = this.transform.position;
-
-            shotProjectile.GetComponent<Projectile>().graphic.transform.rotation = muzzle.transform.rotation;
-            Rigidbody2D shotProjectileRB = shotProjectile.GetComponent<Rigidbody2D>();
-            Vector2 forceDirection = new(Mathf.Cos(angle), Mathf.Sin(angle));
-            shotProjectileRB.AddForce(forceDirection * calcForce() * powerMod, ForceMode2D.Impulse);
-            //tankRB.AddForce(forceDirection * calcRecoil() * powerMod, ForceMode2D.Impulse);
-            tankRB.velocity = tankRB.velocity + forceDirection * calcRecoil() * powerMod;
-        }
-
-        private float calcRecoil()
-        {
-            float adjustmentFactor = Mathf.Pow(shotRecoil, 0.5f);
-            return -adjustmentFactor * 2.83f;
-        }
-
-        private float calcForce()
-        {
-            float adjustmentFactor = Mathf.Pow(shotForce, 0.5f);
-            return adjustmentFactor * 0.48f;
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -304,51 +215,6 @@ namespace Platformer.Mechanics
             {
                 grounded = false;
             }
-        }
-
-        IEnumerator GunReloadV2()
-        {
-            for (reloadTimeActive = 1f; reloadTimeActive > 0; reloadTimeActive -= Time.deltaTime)
-                yield return null;
-            shotCount++;
-            reloadTimeActive = reloadTime;
-
-
-            if (shotCount < shotNumber && grounded)
-            {
-                soundMachine.PlayOneShot(reloadAudio);
-                StartCoroutine(GunReloadV2());
-            }
-            else if (shotCount < shotNumber)
-            {
-                yield return new WaitUntil(() => grounded);
-                soundMachine.PlayOneShot(reloadAudio, volumeScale);
-                StartCoroutine(GunReloadV2());
-            }
-            if (shotCount == shotNumber)
-            {
-                soundMachine.PlayOneShot(reloadAudio);
-                reloading = false;
-                //Debug.LogError("CLICK");
-            }
-        }
-
-        IEnumerator ReloadDelay()
-        {
-
-            for (reloadDelay = 0.05f; reloadDelay > 0; reloadDelay -= Time.deltaTime)
-                yield return null;
-
-        }
-
-
-        IEnumerator Cooldown(float cd)
-        {
-            //Debug.Log("Start Cooldown");
-            cooldown = true;
-            yield return new WaitForSeconds(cd);
-            cooldown = false;
-            //Debug.Log("End Cooldown");
         }
 
         //calls functions from the UI's script to update values. Is called in update
