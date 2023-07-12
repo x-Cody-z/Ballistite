@@ -383,7 +383,7 @@ namespace Platformer.Mechanics
             {
                 UIScript.updateAmmoValues(shotCount, reloadTimeActive);
                 UIScript.updateVelocityValues(this.GetComponent<Rigidbody2D>().velocity.magnitude, this.GetComponent<Rigidbody2D>().velocity.x, this.GetComponent<Rigidbody2D>().velocity.y);
-                //UIScript.updateChargeValues(charge1, charge2, charge3);
+                UIScript.updateChargeValues(charge1, charge2, charge3);
             }
         }
     }
