@@ -22,6 +22,7 @@ public class uiController : MonoBehaviour
     private float hVelocityFloat;
     private float vVelocityFloat;
 
+    public GameObject slowdownEffect;
     private GameObject player;
     public GameObject ReloadIndicator;
     public GameObject CaseShellL;
@@ -63,6 +64,15 @@ public class uiController : MonoBehaviour
         */
         
         setText();
+
+        if (slowdownEffect != null && Time.timeScale < 1)
+        {
+            slowdownEffect.SetActive(true);
+        }
+        else if (slowdownEffect != null && Time.timeScale >= 1)
+        {
+            slowdownEffect.SetActive(false);
+        }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
