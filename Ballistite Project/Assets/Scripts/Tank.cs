@@ -121,13 +121,13 @@ public class Tank : MonoBehaviour
         cooldown = false;
     }
 
-    private float calcRecoil()
+    public float calcRecoil()
     {
         float adjustmentFactor = Mathf.Pow(shotRecoil, 0.5f);
         return -adjustmentFactor * 2.83f;
     }
 
-    private float calcForce()
+    public float calcForce()
     {
         float adjustmentFactor = Mathf.Pow(shotForce, 0.5f);
         return adjustmentFactor * 0.48f;

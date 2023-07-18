@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
@@ -11,13 +12,20 @@ public class EnemyTank : Tank
     //               When upside-down or HP depleted, destroyed state. Explosion and smoke trailing from wreakage.
     // extras:       Possibility of sharing information with each other? RadioSFX? A dedicated 'spotter' enemy? Mortar/Artillary a looming key feature of the city level in the background?
 
+    //TODO: - Complete code for other states
+    //      DONE - Add code to control fire rate
+    //      DONE - add code to control shooting and target lead prediction
+    //           - add code to control accuracy
+    //      - add code to control tank movement
+    //      - enemy shouldn't be able to see player through walls
     private enum State {Idle, Alert, Search, Destroyed}
     [SerializeField] private State m_State;
 
     public GameObject aimPoint;
 
     [SerializeField] private GameObject player;
-    [SerializeField] private float fireRate;
+    [SerializeField] private float fireRate = 3f;
+    [SerializeField] private float nextFire;
     [SerializeField] private float maxRange;
 
     //debug check
@@ -27,6 +35,20 @@ public class EnemyTank : Tank
 
     private int layerMask;
     private List<Collider2D> ignoreColliders = new List<Collider2D>();
+
+    private float CalculateProjectileSpeed()
+    {
+        return (calcForce() / projectile.GetComponent<Rigidbody2D>().mass);
+    }
+
+    private Vector3 CalculateLead(Vector3 targetPosition, Vector3 targetVelocity, float projectileSpeed)
+    {
+        Vector3 targetDirection = targetPosition - transform.position;
+        float distance = targetDirection.magnitude;
+        float time = distance / projectileSpeed;
+
+        return targetPosition + targetVelocity * time;
+    }
 
     void Start()
     {
@@ -54,12 +76,14 @@ public class EnemyTank : Tank
         float clampedDistance = Mathf.Min(distance, maxRange);
         Vector3 raycastDirection = normalizedDirection * clampedDistance;
 
+        aimPoint.transform.position = CalculateLead(player.transform.position, player.GetComponent<Rigidbody2D>().velocity, CalculateProjectileSpeed());
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, raycastDirection, clampedDistance, LayerMask.GetMask("Player", "Level"));
+
         switch (m_State)
         {
             case State.Idle:
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, raycastDirection, clampedDistance, LayerMask.GetMask("Player", "Level"));
 
-                if (hit.transform != null && hit.transform.gameObject == player)
+                if (hit.transform != null && hit.transform.tag == "Player")
                 {
                     Debug.Log("Player detected within range");
                     m_State = State.Alert;
@@ -68,15 +92,32 @@ public class EnemyTank : Tank
                 break;
 
            case State.Alert:
-                float angleInRadians = MoveBarrel(player.transform.position) * Mathf.Deg2Rad;
-                barrel.rotation = Quaternion.Euler(new Vector3(0, 0, MoveBarrel(player.transform.position)));
+                float angleInRadians = MoveBarrel(CalculateLead(player.transform.position, player.GetComponent<Rigidbody2D>().velocity, CalculateProjectileSpeed())) * Mathf.Deg2Rad;
+                barrel.rotation = Quaternion.Euler(new Vector3(0, 0, MoveBarrel(CalculateLead(player.transform.position, player.GetComponent<Rigidbody2D>().velocity, CalculateProjectileSpeed()))));
+                if (Time.time > nextFire)
+                {
+                    nextFire = Time.time + fireRate;
+                    Shoot(angleInRadians, muzzle.transform.position, 1f);
+                    Console.WriteLine("Enemy fired");
+                }
                 if (distance > maxRange)
                 {
-                    m_State = State.Idle;
+                    m_State = State.Search;
+                }
+                if (hit.transform != null && hit.transform.tag == "Level")
+                {
+                    Debug.Log("Player detected within range");
+                    m_State = State.Search;
                 }
                 break;
 
             case State.Search:
+                if (hit.transform != null && hit.transform.tag == "Player")
+                {
+                    Debug.Log("Player detected within range");
+                    m_State = State.Alert;
+                } 
+                Debug.Log("Searching for player");
                 break;
 
             case State.Destroyed:
