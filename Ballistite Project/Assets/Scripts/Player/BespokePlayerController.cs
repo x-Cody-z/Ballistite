@@ -75,6 +75,9 @@ namespace Platformer.Mechanics
         public bool cooldown = false;
         private bool shotCancel = false;
 
+        [SerializeField] private GameObject SlowdownTrigger;
+        private SlowdownTrigger SlowmoScript;
+
         public static Vector3 mousePos;
 
         private GameObject mouse;
@@ -106,6 +109,11 @@ namespace Platformer.Mechanics
             }
 
             reloadTimeActive = reloadTime;
+
+            if (SlowdownTrigger != null)
+            {
+                SlowmoScript = SlowdownTrigger.GetComponent<SlowdownTrigger>();
+            }
         }
 
         
@@ -145,7 +153,18 @@ namespace Platformer.Mechanics
             //start timer when holding left click
             if (!paused)
             {
-                Timer += Time.deltaTime;
+                if (SlowmoScript != null)
+                {
+                    if (SlowmoScript.slowed)
+                    {
+                        Timer += Time.deltaTime * (0.5f / SlowmoScript.slowdownAmount);
+                    }
+                    else
+                        Timer += Time.deltaTime;
+                }
+
+                else
+                    Timer += Time.deltaTime;
             }
 
             //checks for starting reload
@@ -283,6 +302,10 @@ namespace Platformer.Mechanics
         private float calcRecoil()
         {
             float adjustmentFactor = Mathf.Pow(shotRecoil, 0.5f);
+            //increases force if slow-mo is enabled
+            if (SlowmoScript != null)
+                if (SlowmoScript.slowed)
+                    adjustmentFactor *= 1.5f;
             return -adjustmentFactor * 2.83f;
         }
 
