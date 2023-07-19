@@ -38,7 +38,13 @@ public class PowerUp : MonoBehaviour
     void Ammo()
     {
         soundMachine.PlayOneShot(collectSFX, 0.4f);
-        PlayerScript.IncreaseAmmo(1);
+        PlayerScript.IncreaseAmmo(1, "");
 
+    }
+
+    void Ricochet()
+    {
+        soundMachine.PlayOneShot(collectSFX, 0.4f);
+        PlayerScript.IncreaseAmmo(1, "ricochet");
     }
 }

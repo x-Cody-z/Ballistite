@@ -10917,6 +10917,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 40855729, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
+      propertyPath: m_Distance
+      value: 0.010509964
+      objectReference: {fileID: 0}
+    - target: {fileID: 1104304336, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
+      propertyPath: m_Distance
+      value: 0.010521364
+      objectReference: {fileID: 0}
+    - target: {fileID: 1959380587, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
+      propertyPath: m_Distance
+      value: 0.0105012525
+      objectReference: {fileID: 0}
     - target: {fileID: 4475686102729582358, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
       propertyPath: vcamMouse
       value: 
@@ -10941,6 +10953,10 @@ PrefabInstance:
       propertyPath: SlowdownTrigger
       value: 
       objectReference: {fileID: 1659250833}
+    - target: {fileID: 4475686102729582358, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
+      propertyPath: projectile_ricochet
+      value: 
+      objectReference: {fileID: 6425388640759641725, guid: 30cb667ee0cfff6439d554e12c164f2a, type: 3}
     - target: {fileID: 5692961899612229980, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
       propertyPath: m_Name
       value: Player
@@ -71276,7 +71292,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1318853926248205804, guid: 6c709559c583be24cbf4c76e97535d88, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1318853926248205804, guid: 6c709559c583be24cbf4c76e97535d88, type: 3}
       propertyPath: m_LocalPosition.x

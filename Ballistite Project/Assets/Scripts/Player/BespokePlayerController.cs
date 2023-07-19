@@ -33,6 +33,7 @@ namespace Platformer.Mechanics
         public Transform barrelPivot;
         public Transform muzzle;
         public GameObject projectile;
+        public GameObject projectile_ricochet;
         
         //bools used for toggling the charge indicators
         private bool charge1;
@@ -61,6 +62,9 @@ namespace Platformer.Mechanics
 
         //this is what actually keeps track of the number of shots, shotNumber is more like a static variable that shotCount gets set to
         private int shotCount;
+
+        //power-up shot counts
+        private int ricochetAmmo;
 
         //timer stuff used for charging shot power
         public float Timer;
@@ -281,7 +285,7 @@ namespace Platformer.Mechanics
             StartCoroutine(Cooldown(cooldownTime));
             shotCount--;
             Rigidbody2D tankRB = GetComponent<Rigidbody2D>();
-            GameObject shotProjectile = Instantiate(projectile);
+            GameObject shotProjectile = Instantiate(projectileManager());
             Timer = 0;
             paused = true;
             charge1 = false;
@@ -291,7 +295,7 @@ namespace Platformer.Mechanics
             //shotProjectile.transform.position = spawnPos;
             shotProjectile.transform.position = this.transform.position;
 
-            shotProjectile.GetComponent<Projectile>().graphic.transform.rotation = muzzle.transform.rotation;
+            //shotProjectile.GetComponent<Projectile>().graphic.transform.rotation = muzzle.transform.rotation;
             Rigidbody2D shotProjectileRB = shotProjectile.GetComponent<Rigidbody2D>();
             Vector2 forceDirection = new(Mathf.Cos(angle), Mathf.Sin(angle));
             shotProjectileRB.AddForce(forceDirection * calcForce() * powerMod, ForceMode2D.Impulse);
@@ -387,9 +391,29 @@ namespace Platformer.Mechanics
             }
         }
 
-        public void IncreaseAmmo(int ammnt)
+        //used by the power-up controller to increase and change ammo types
+        public void IncreaseAmmo(int amount, string type)
         {
-            shotCount += ammnt;
+            if (type == "ricochet")
+            {
+                ricochetAmmo += amount;
+            }
+
+            else if (type == "normal" || type == "default" || type == "")
+                shotCount += amount;
+
+        }
+
+        //used by shoot function to select which projectile type to spawn
+        private GameObject projectileManager()
+        {
+            //if (selectedAmmoType == ricochet)         //if we want the player to select the ammo type with scroll wheel
+            if (ricochetAmmo > 0)                       //if we want the player to immediately use the ammo they picked up
+            {
+                ricochetAmmo -= 1;
+                return projectile_ricochet;
+            }
+            return projectile;
         }
     }
 }
