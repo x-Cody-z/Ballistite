@@ -41,6 +41,7 @@ namespace Platformer.Mechanics
 
         private bool singlePower = false;
         private bool debug = false;
+        [SerializeField]
         private float power;
 
         void Awake()
@@ -152,6 +153,9 @@ namespace Platformer.Mechanics
                                 break;
                             case > 6:
                                 Shoot(angleInRadians, shotSpawnPos, power);
+                                charge1 = false;
+                                charge2 = false;
+                                charge3 = false;
                                 break;
                         }
                         LastBlastValue = Timer;
@@ -159,6 +163,9 @@ namespace Platformer.Mechanics
                     if (Input.GetButtonUp("Fire1") && shotCount > 0 && !cooldown && !shotCancel)
                     {
                         Shoot(angleInRadians, shotSpawnPos, power);
+                        charge1 = false;
+                        charge2 = false;
+                        charge3 = false;   
                     }
                     
 

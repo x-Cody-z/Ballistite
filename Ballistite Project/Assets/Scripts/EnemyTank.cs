@@ -12,26 +12,22 @@ public class EnemyTank : Tank
     //               When upside-down or HP depleted, destroyed state. Explosion and smoke trailing from wreakage.
     // extras:       Possibility of sharing information with each other? RadioSFX? A dedicated 'spotter' enemy? Mortar/Artillary a looming key feature of the city level in the background?
 
-    //TODO: - Complete code for other states
+    //TODO:
+    //      - Complete code for other states
     //      DONE - Add code to control fire rate
     //      DONE - add code to control shooting and target lead prediction
     //           - add code to control accuracy
     //      - add code to control tank movement
     //      - enemy shouldn't be able to see player through walls
+    //      - add code to control enemy health/destruction
+    //      DONE - update projectile to hit player if enemy has shot
     private enum State {Idle, Alert, Search, Destroyed}
     [SerializeField] private State m_State;
-
-    public GameObject aimPoint;
 
     [SerializeField] private GameObject player;
     [SerializeField] private float fireRate = 3f;
     [SerializeField] private float nextFire;
     [SerializeField] private float maxRange;
-
-    //debug check
-    [Space]
-    [SerializeField] private Vector3 normalizedDirection; // just to see stats, later on delete this line and put the data type in the Update()
-    [SerializeField] private float distance;              // ditto ^
 
     private int layerMask;
     private List<Collider2D> ignoreColliders = new List<Collider2D>();
@@ -50,6 +46,29 @@ public class EnemyTank : Tank
         return targetPosition + targetVelocity * time;
     }
 
+    private void OnDrawGizmos()
+    {
+        // Draw a wire sphere around the explosion object to visualize the explosion radius in the editor
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(CalculateLead(GameObject.Find("Player").transform.position, GameObject.Find("Player").GetComponent<Rigidbody2D>().velocity, CalculateProjectileSpeed()), 0.5f);
+    }
+
+    private RaycastHit2D DetectPlayer()
+    {
+        Vector3 direction = player.transform.position - transform.position;
+
+        float distance = direction.magnitude;
+
+        Vector3 normalizedDirection = direction.normalized;
+
+        float clampedDistance = Mathf.Min(distance, maxRange);
+        Vector3 raycastDirection = normalizedDirection * clampedDistance;
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, raycastDirection, clampedDistance, LayerMask.GetMask("Player", "Level"));
+
+        return hit;
+    }
+
     void Start()
     {
         m_State = State.Idle;
@@ -59,25 +78,9 @@ public class EnemyTank : Tank
         layerMask = ~LayerMask.GetMask("IgnoreRaycast");
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawRay(transform.position, normalizedDirection);
-        Gizmos.color = Color.green;
-    }
-
     void Update() //fixedupdate?
     {
-        Vector3 direction = player.transform.position - transform.position;
-
-        distance = direction.magnitude;
-
-        normalizedDirection = direction.normalized;
-
-        float clampedDistance = Mathf.Min(distance, maxRange);
-        Vector3 raycastDirection = normalizedDirection * clampedDistance;
-
-        aimPoint.transform.position = CalculateLead(player.transform.position, player.GetComponent<Rigidbody2D>().velocity, CalculateProjectileSpeed());
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, raycastDirection, clampedDistance, LayerMask.GetMask("Player", "Level"));
+        RaycastHit2D hit = DetectPlayer();
 
         switch (m_State)
         {
@@ -100,7 +103,7 @@ public class EnemyTank : Tank
                     Shoot(angleInRadians, muzzle.transform.position, 1f);
                     Console.WriteLine("Enemy fired");
                 }
-                if (distance > maxRange)
+                if (hit.distance > maxRange)
                 {
                     m_State = State.Search;
                 }

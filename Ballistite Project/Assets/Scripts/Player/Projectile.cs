@@ -43,7 +43,7 @@ public class Projectile : MonoBehaviour
         explosionsmoke = explosionEffectSmoke.main;
         explosionspark = explosionEffectSpark.main;
         chargeScale = PlayerScript.LastBlastValue;
-        Debug.Log("Timer = " + chargeScale);
+        //Debug.Log("Timer = " + chargeScale);
     }
 
     // Update is called once per frame
@@ -86,7 +86,7 @@ public class Projectile : MonoBehaviour
                 Vector2 direction = rb.transform.position - transform.position;
                 float distance = direction.magnitude;
 
-                Debug.Log("Distance from explosion center: " + distance);
+                //Debug.Log("Distance from explosion center: " + distance);
 
                 if (distance < 0.5f)
                     distance = 0f;
@@ -99,7 +99,7 @@ public class Projectile : MonoBehaviour
         }
 
         explosionEffectMain.Play();
-        Debug.Log(chargeScale);
+        //Debug.Log(chargeScale);
         soundMachine.PlayOneShot(explosionSound);
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
         bc.enabled = false;
