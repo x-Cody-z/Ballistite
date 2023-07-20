@@ -18,7 +18,7 @@ public class EnemyTank : Tank
     //      DONE - add code to control shooting and target lead prediction
     //           - add code to control accuracy
     //      - add code to control tank movement
-    //      - enemy shouldn't be able to see player through walls
+    //      DONE s- enemy shouldn't be able to see player through walls
     //      - add code to control enemy health/destruction
     //      DONE - update projectile to hit player if enemy has shot
     private enum State {Idle, Alert, Search, Destroyed}
@@ -65,6 +65,18 @@ public class EnemyTank : Tank
         Vector3 raycastDirection = normalizedDirection * clampedDistance;
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, raycastDirection, clampedDistance, LayerMask.GetMask("Player", "Level"));
+        Color color = Color.green;
+
+        if (hit.transform != null && hit.transform.tag == "Player")
+        {
+            color = Color.red;
+        }
+        else
+        {
+            color = Color.green;
+        }
+
+        Debug.DrawRay(transform.position, raycastDirection, color);
 
         return hit;
     }
