@@ -1240,7 +1240,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0.42831486, y: -0.31}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.0105012525
+  m_Distance: 0.010501249
   m_MaxDistanceOnly: 0
 --- !u!58 &1959380588
 CircleCollider2D:
@@ -1712,7 +1712,7 @@ Transform:
   - {fileID: 4653869769868049342}
   - {fileID: 1779101613307916770}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &8864624024850247068
 Rigidbody2D:
@@ -1789,7 +1789,7 @@ AudioSource:
   m_GameObject: {fileID: 5692961899612229980}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -433370230062960663, guid: 1106133a821ee8f41b3b2b54fe781a46, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.5
