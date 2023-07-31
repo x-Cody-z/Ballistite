@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tutorial Farmlands.unity
     guid: e94f4a9c57499fe49937b54f38415f68
+  - enabled: 1
+    path: Assets/Scenes/SettingsScreen.unity
+    guid: 4e630f953697dbb438508dd9dd3bf79a
   m_configObjects: {}
