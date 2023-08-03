@@ -14,12 +14,13 @@ public class EnemyTank : Tank
 
     //TODO:
     //      - Complete code for other states
+    //           - Add code for search pattern
     //      DONE - Add code to control fire rate
     //      DONE - add code to control shooting and target lead prediction
-    //           - add code to control accuracy
-    //      - add code to control tank movement
+    //      Optional? - add code to control accuracy
+    //      Optional? - add code to control tank movement
     //      DONE s- enemy shouldn't be able to see player through walls
-    //      - add code to control enemy health/destruction
+    //      DONE- add code to control enemy health/destruction
     //      DONE - update projectile to hit player if enemy has shot
     private enum State {Idle, Alert, Search, Destroyed}
     [SerializeField] private State m_State;
@@ -28,29 +29,16 @@ public class EnemyTank : Tank
     [SerializeField] private float fireRate = 3f;
     [SerializeField] private float nextFire;
     [SerializeField] private float maxRange;
+    public event EventHandler OnEnemyDestroyed;
 
     private int layerMask;
     private List<Collider2D> ignoreColliders = new List<Collider2D>();
-
-    private float CalculateProjectileSpeed()
-    {
-        return (calcForce() / projectile.GetComponent<Rigidbody2D>().mass);
-    }
-
-    private Vector3 CalculateLead(Vector3 targetPosition, Vector3 targetVelocity, float projectileSpeed)
-    {
-        Vector3 targetDirection = targetPosition - transform.position;
-        float distance = targetDirection.magnitude;
-        float time = distance / projectileSpeed;
-
-        return targetPosition + targetVelocity * time;
-    }
 
     private void OnDrawGizmos()
     {
         // Draw a wire sphere around the explosion object to visualize the explosion radius in the editor
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(CalculateLead(GameObject.Find("Player").transform.position, GameObject.Find("Player").GetComponent<Rigidbody2D>().velocity, CalculateProjectileSpeed()), 0.5f);
+        Gizmos.DrawWireSphere(CalculateLead(GameObject.Find("Player").transform.position, GameObject.Find("Player").GetComponent<Rigidbody2D>().velocity, CalculateProjectileSpeed(projectile)), 0.5f);
     }
 
     private RaycastHit2D DetectPlayer()
@@ -88,6 +76,22 @@ public class EnemyTank : Tank
 
         // To avoid raycasting on the Cinemachine collider
         layerMask = ~LayerMask.GetMask("IgnoreRaycast");
+        OnEnemyDestroyed += EnemyTank_OnEnemyDestroyed;
+    }
+
+    private void EnemyTank_OnEnemyDestroyed(object sender, EventArgs e)
+    {
+        Debug.Log("Enemy destroyed");
+        m_State = State.Destroyed;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            Debug.Log("Enemy hit by projectile");
+            OnEnemyDestroyed?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     void Update() //fixedupdate?
@@ -100,20 +104,18 @@ public class EnemyTank : Tank
 
                 if (hit.transform != null && hit.transform.tag == "Player")
                 {
-                    Debug.Log("Player detected within range");
                     m_State = State.Alert;
                 }
 
                 break;
 
            case State.Alert:
-                float angleInRadians = MoveBarrel(CalculateLead(player.transform.position, player.GetComponent<Rigidbody2D>().velocity, CalculateProjectileSpeed())) * Mathf.Deg2Rad;
-                barrel.rotation = Quaternion.Euler(new Vector3(0, 0, MoveBarrel(CalculateLead(player.transform.position, player.GetComponent<Rigidbody2D>().velocity, CalculateProjectileSpeed()))));
+                float angleInRadians = MoveBarrel(CalculateLead(player.transform.position, player.GetComponent<Rigidbody2D>().velocity, CalculateProjectileSpeed(projectile))) * Mathf.Deg2Rad;
+                barrel.rotation = Quaternion.Euler(new Vector3(0, 0, MoveBarrel(CalculateLead(player.transform.position, player.GetComponent<Rigidbody2D>().velocity, CalculateProjectileSpeed(projectile)))));
                 if (Time.time > nextFire)
                 {
                     nextFire = Time.time + fireRate;
                     Shoot(angleInRadians, muzzle.transform.position, 1f);
-                    Console.WriteLine("Enemy fired");
                 }
                 if (hit.distance > maxRange)
                 {
@@ -121,7 +123,6 @@ public class EnemyTank : Tank
                 }
                 if (hit.transform != null && hit.transform.tag == "Level")
                 {
-                    Debug.Log("Player detected within range");
                     m_State = State.Search;
                 }
                 break;
@@ -129,10 +130,8 @@ public class EnemyTank : Tank
             case State.Search:
                 if (hit.transform != null && hit.transform.tag == "Player")
                 {
-                    Debug.Log("Player detected within range");
                     m_State = State.Alert;
                 } 
-                Debug.Log("Searching for player");
                 break;
 
             case State.Destroyed:

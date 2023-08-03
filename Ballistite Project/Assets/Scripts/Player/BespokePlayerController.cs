@@ -67,10 +67,13 @@ namespace Platformer.Mechanics
             debug = !debug; // toggle the debug variable
             Debug.Log("Debug mode is now " + debug);
         }
-        
+
+
 
         void Update()
         {
+            CalculateTrajectory(CalculateProjectileSpeed(projectile), muzzle.position - barrelPivot.position, 20, 0.25f);
+
             //take control away when paused
             if (Time.timeScale == 0)
             {

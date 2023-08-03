@@ -1,13 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Threading;
-using Unity.VisualScripting;
-using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
+[RequireComponent(typeof(LineRenderer))]
 public class Tank : MonoBehaviour
 {
+
+    LineRenderer trajectoryLine;
     public Transform barrel;
     public Transform barrelPivot;
     public Transform muzzle;
@@ -48,11 +47,73 @@ public class Tank : MonoBehaviour
     public bool cooldown = false;
     public bool shotCancel = false;
 
+    private void Start()
+    {
+        if (trajectoryLine == null)
+        {
+            trajectoryLine = GetComponent<LineRenderer>();
+        }
+    }
+
     public float MoveBarrel(Vector3 target)
     {
         Vector2 Worldpos2D = new Vector2(target.x, target.y);
         float barrelAngle = Mathf.Atan2(Worldpos2D.y - barrelPivot.position.y, Worldpos2D.x - barrelPivot.position.x) * Mathf.Rad2Deg;
         return barrelAngle;
+    }
+
+    public float CalculateProjectileSpeed(GameObject projectile)
+    {
+        return (calcForce() / projectile.GetComponent<Rigidbody2D>().mass);
+    }
+
+    /// <summary>
+    /// Calculates the position the projectile should be fired at to hit a moving target
+    /// </summary>
+    /// <param name="targetPosition"></param>
+    /// <param name="targetVelocity"></param>
+    /// <param name="projectileSpeed"></param>
+    /// <returns>Returns a vector3 representing the position that should be aimed at to hit target</returns>
+    public Vector3 CalculateLead(Vector3 targetPosition, Vector3 targetVelocity, float projectileSpeed)
+    {
+        Vector3 targetDirection = targetPosition - transform.position;
+        float distance = targetDirection.magnitude;
+        float timeToTarget = distance / projectileSpeed;
+
+        return targetPosition + targetVelocity * timeToTarget;
+    }
+
+    public Vector3 CalculateProjectileVelocity(Vector3 velocity, float time)
+    {
+        velocity += Physics.gravity * time;
+        return velocity;
+    }
+
+    private void UpdateLineRenderer(int count, int pointNum, Vector3 pos)
+    {
+        trajectoryLine.positionCount = count;
+        trajectoryLine.SetPosition(pointNum, pos);
+    }
+
+    public void CalculateTrajectory(float projectileSpeed, Vector3 aimDirection, int resolution, float sampleRate)
+    {
+        //calculate position of projectile over its flight time as a set of points
+        Vector3 velocity = projectileSpeed / aimDirection.magnitude * aimDirection;
+        Vector3 pos = muzzle.position;
+        Vector3 nextPos;
+
+        //raycast between each point to check for collisions and draw a line
+        UpdateLineRenderer(resolution, 0, pos);
+        for (int i = 1; i < resolution; i++)
+        {
+            velocity = CalculateProjectileVelocity(velocity, sampleRate);
+            nextPos = pos + velocity * sampleRate;
+
+            pos = nextPos;
+            UpdateLineRenderer(resolution, i, nextPos);
+        }
+
+        //if collision is detected, draw a line to the point of collision and stop drawing the line
     }
 
     public void Shoot(float angle, Vector3 spawnPos, float powerMod)

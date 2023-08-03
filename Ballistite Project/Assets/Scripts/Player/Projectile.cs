@@ -35,6 +35,8 @@ public class Projectile : MonoBehaviour
         if (PlayerObject) {
             PlayerScript = PlayerObject.GetComponent<BespokePlayerController>();
         }
+
+
         rb = GetComponent<Rigidbody2D>();
         bc = GetComponent<BoxCollider2D>();
         sp = GetComponentInChildren<SpriteRenderer>();
