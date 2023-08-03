@@ -35,8 +35,8 @@ namespace Platformer.Mechanics
         public AudioSource soundMachine;
 
         public static Vector3 mousePos;
-        private Vector3 Worldpos;
-        private Vector3 spawn;
+        private Vector2 Worldpos;
+        private Vector2 spawn;
         private Quaternion spawnRot;
 
         private bool singlePower = false;
@@ -68,11 +68,9 @@ namespace Platformer.Mechanics
             Debug.Log("Debug mode is now " + debug);
         }
 
-
-
         void Update()
         {
-            CalculateTrajectory(CalculateProjectileSpeed(projectile), muzzle.position - barrelPivot.position, 20, 0.25f);
+            CalculateTrajectory(CalculateProjectileSpeed(projectile, power), muzzle.position - barrelPivot.position, 50, 0.10f);
 
             //take control away when paused
             if (Time.timeScale == 0)
@@ -169,6 +167,7 @@ namespace Platformer.Mechanics
                         charge1 = false;
                         charge2 = false;
                         charge3 = false;   
+                        power = shotPower;
                     }
                     
 

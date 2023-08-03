@@ -38,19 +38,19 @@ public class EnemyTank : Tank
     {
         // Draw a wire sphere around the explosion object to visualize the explosion radius in the editor
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(CalculateLead(GameObject.Find("Player").transform.position, GameObject.Find("Player").GetComponent<Rigidbody2D>().velocity, CalculateProjectileSpeed(projectile)), 0.5f);
+        Gizmos.DrawWireSphere(CalculateLead(GameObject.Find("Player").transform.position, GameObject.Find("Player").GetComponent<Rigidbody2D>().velocity, CalculateProjectileSpeed(projectile, 1)), 0.5f);
     }
 
     private RaycastHit2D DetectPlayer()
     {
-        Vector3 direction = player.transform.position - transform.position;
+        Vector2 direction = player.transform.position - transform.position;
 
         float distance = direction.magnitude;
 
-        Vector3 normalizedDirection = direction.normalized;
+        Vector2 normalizedDirection = direction.normalized;
 
         float clampedDistance = Mathf.Min(distance, maxRange);
-        Vector3 raycastDirection = normalizedDirection * clampedDistance;
+        Vector2 raycastDirection = normalizedDirection * clampedDistance;
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, raycastDirection, clampedDistance, LayerMask.GetMask("Player", "Level"));
         Color color = Color.green;
@@ -110,8 +110,8 @@ public class EnemyTank : Tank
                 break;
 
            case State.Alert:
-                float angleInRadians = MoveBarrel(CalculateLead(player.transform.position, player.GetComponent<Rigidbody2D>().velocity, CalculateProjectileSpeed(projectile))) * Mathf.Deg2Rad;
-                barrel.rotation = Quaternion.Euler(new Vector3(0, 0, MoveBarrel(CalculateLead(player.transform.position, player.GetComponent<Rigidbody2D>().velocity, CalculateProjectileSpeed(projectile)))));
+                float angleInRadians = MoveBarrel(CalculateLead(player.transform.position, player.GetComponent<Rigidbody2D>().velocity, CalculateProjectileSpeed(projectile, 1))) * Mathf.Deg2Rad;
+                barrel.rotation = Quaternion.Euler(new Vector3(0, 0, MoveBarrel(CalculateLead(player.transform.position, player.GetComponent<Rigidbody2D>().velocity, CalculateProjectileSpeed(projectile, 1)))));
                 if (Time.time > nextFire)
                 {
                     nextFire = Time.time + fireRate;
