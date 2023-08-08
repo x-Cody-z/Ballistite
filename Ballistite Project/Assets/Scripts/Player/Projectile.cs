@@ -1,4 +1,5 @@
 using Platformer.Mechanics;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -27,6 +28,8 @@ public class Projectile : MonoBehaviour
     private ParticleSystem.MainModule explosionsmoke;
     private ParticleSystem.MainModule explosionspark;
     public GameObject graphic;
+
+    public event EventHandler OnProjectileHitTerrain;
 
     // Start is called before the first frame update
     void Start()
@@ -79,22 +82,29 @@ public class Projectile : MonoBehaviour
         foreach (Collider2D collider in colliders)
         {
             Rigidbody2D rb = collider.GetComponent<Rigidbody2D>();
-
-            if (rb != null)
+            if (collider.CompareTag("Level"))
             {
-                // Calculate direction and distance from explosion center to collider
-                Vector2 direction = rb.transform.position - transform.position;
-                float distance = direction.magnitude;
+                collider.GetComponent<DestructibleTile>().GetProjectile(this);
+                OnProjectileHitTerrain?.Invoke(this, null);
+            }
+            else
+            {
+                if (rb != null)
+                {
+                    // Calculate direction and distance from explosion center to collider
+                    Vector2 direction = rb.transform.position - transform.position;
+                    float distance = direction.magnitude;
 
-                Debug.Log("Distance from explosion center: " + distance);
+                    Debug.Log("Distance from explosion center: " + distance);
 
-                if (distance < 0.5f)
-                    distance = 0f;
-                else
-                    distance -= 0.4f;
+                    if (distance < 0.5f)
+                        distance = 0f;
+                    else
+                        distance -= 0.4f;
 
-                // Apply impulse force to collider based on distance and explosion force
-                rb.AddForce(direction.normalized * calcExplosion(distance), ForceMode2D.Impulse);
+                    // Apply impulse force to collider based on distance and explosion force
+                    rb.AddForce(direction.normalized * calcExplosion(distance), ForceMode2D.Impulse);
+                }
             }
         }
 
