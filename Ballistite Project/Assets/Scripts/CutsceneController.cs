@@ -7,10 +7,11 @@ public class CutsceneController : MonoBehaviour
 {
     public GameEvent onCutsceneEndedEvent;
     public Animator cutsceneAnimator;
+    public GameObject cutsceneText;
 
     private string cutsceneName;
 
-    public void TriggerIntro()
+    public void CutsceneIntro()
     {
         //TODO: Change camera mode
         cutsceneName = "Intro";
@@ -23,5 +24,13 @@ public class CutsceneController : MonoBehaviour
         onCutsceneEndedEvent.Raise(eventData);
 
         // TODO: Change camera mode.
+    }
+    public void ActivateCutsceneText()
+    {
+        cutsceneText.SetActive(true);
+    }
+    public void RemoveCutsceneText()
+    {
+        cutsceneText.SetActive(false);
     }
 }
