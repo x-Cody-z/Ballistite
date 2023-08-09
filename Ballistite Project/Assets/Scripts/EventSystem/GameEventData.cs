@@ -10,12 +10,16 @@ public class ProgressEventData : GameEventData // You can expand the event syste
 {
     public float Goal { get; set; }
 }
+public class CutsceneEventData : GameEventData
+{
+    public string CutsceneName { get; set; }
+}
 public class PlayerEventData : GameEventData
 {
     public float BlastValue { get; set; }
 }
 
-public class CutsceneEventData : GameEventData
+public class ProjectileEventData : GameEventData
 {
-    public string CutsceneName { get; set; }
+    public Transform HitPosition { get; set; }
 }

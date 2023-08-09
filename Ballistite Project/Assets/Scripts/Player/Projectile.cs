@@ -28,6 +28,7 @@ public class Projectile : MonoBehaviour
     public GameObject graphic;
 
     public float chargeScale;
+    public GameEvent onProjectileHitTerrain;
 
     // Start is called before the first frame update
     void Start()
@@ -77,22 +78,28 @@ public class Projectile : MonoBehaviour
         foreach (Collider2D collider in colliders)
         {
             Rigidbody2D rb = collider.GetComponent<Rigidbody2D>();
-
-            if (rb != null)
+            if (collider.CompareTag("Level"))
             {
-                // Calculate direction and distance from explosion center to collider
-                Vector2 direction = rb.transform.position - transform.position;
-                float distance = direction.magnitude;
+                ProjectileEventData projEventData = new ProjectileEventData { Sender = this, HitPosition = transform };
+                onProjectileHitTerrain.Raise(projEventData);
+            } else
+            {
+                if (rb != null)
+                {
+                    // Calculate direction and distance from explosion center to collider
+                    Vector2 direction = rb.transform.position - transform.position;
+                    float distance = direction.magnitude;
 
-                Debug.Log("Distance from explosion center: " + distance);
+                    Debug.Log("Distance from explosion center: " + distance);
 
-                if (distance < 0.5f)
-                    distance = 0f;
-                else
-                    distance -= 0.4f;
+                    if (distance < 0.5f)
+                        distance = 0f;
+                    else
+                        distance -= 0.4f;
 
-                // Apply impulse force to collider based on distance and explosion force
-                rb.AddForce(direction.normalized * calcExplosion(distance), ForceMode2D.Impulse);
+                    // Apply impulse force to collider based on distance and explosion force
+                    rb.AddForce(direction.normalized * calcExplosion(distance), ForceMode2D.Impulse);
+                }
             }
         }
 
