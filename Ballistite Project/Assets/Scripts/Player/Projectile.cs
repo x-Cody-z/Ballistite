@@ -84,7 +84,6 @@ public class Projectile : MonoBehaviour
             Rigidbody2D rb = collider.GetComponent<Rigidbody2D>();
             if (collider.CompareTag("Level"))
             {
-                collider.GetComponent<DestructibleTile>().GetProjectile(this);
                 OnProjectileHitTerrain?.Invoke(this, null);
             }
             else
