@@ -17,15 +17,15 @@ namespace Platformer.Mechanics
         private GameObject chargeBar;
         private GameObject UIObject;
         private uiController UIScript;
-        
+
         [SerializeField] CinemachineVirtualCamera vcamMouse;
         [SerializeField] CinemachineVirtualCamera vcamPlayer;
-       
+
         //part of new reload function, this is the value that changes as the reload time progresses, old reloadTime is used as a target value.
         private float reloadTimeActive;
         private float reloadDelay;
         [SerializeField] private float volumeScale = 1;
-        
+
         public AudioClip gunAudio;
         public AudioClip reloadAudio;
         public AudioClip landingAudio;
@@ -33,7 +33,7 @@ namespace Platformer.Mechanics
         public Transform barrelPivot;
         public Transform muzzle;
         public GameObject projectile;
-        
+
         //bools used for toggling the charge indicators
         private bool charge1;
         private bool charge2;
@@ -64,12 +64,13 @@ namespace Platformer.Mechanics
 
         //timer stuff used for charging shot power
         public float Timer;
-        public float LastBlastValue;
+
         public bool paused = true;
 
         public AudioSource soundMachine;
 
-        public bool controlEnabled = true;
+        public bool controlEnabled = false;
+        public bool notInsideCutscene = false;
         public bool grounded = true;
         public bool reloading = false;
         public bool cooldown = false;
@@ -86,6 +87,9 @@ namespace Platformer.Mechanics
         private float barrelAngle;
         private Vector3 spawn;
         private Quaternion spawnRot;
+
+        private float blastValue;
+        public GameEvent onBlastEvent;
 
         private bool singlePower = false;
         private bool debug = false;
@@ -116,7 +120,15 @@ namespace Platformer.Mechanics
             }
         }
 
-        
+        public void EnableControl(GameEventData eventData)
+        {
+            if (eventData.Sender is CutsceneController)
+            {
+                notInsideCutscene = true;
+                controlEnabled = true;
+            }
+        }
+
         public void ToggleDebug()
         {
             debug = !debug; // toggle the debug variable
@@ -126,8 +138,8 @@ namespace Platformer.Mechanics
 
         void Update()
         {
-            //take control away when paused
-            if (Time.timeScale == 0)
+            //take control away when paused & not in cutscene
+            if (Time.timeScale == 0 || !notInsideCutscene)
             {
                 controlEnabled = false;
             } else
@@ -224,10 +236,15 @@ namespace Platformer.Mechanics
                                 shoot(angleInRadians, shotSpawnPos, power);
                                 break;
                         }
-                        LastBlastValue = Timer;
+
                     }
                     if (Input.GetButtonUp("Fire1") && shotCount > 0 && !cooldown && !shotCancel)
                     {
+                        blastValue = Timer;
+
+                        PlayerEventData eventData = new PlayerEventData { Sender = this, BlastValue = Timer };
+                        onBlastEvent.Raise(eventData);
+
                         shoot(angleInRadians, shotSpawnPos, power);
                     }
                     
@@ -292,6 +309,7 @@ namespace Platformer.Mechanics
             shotProjectile.transform.position = this.transform.position;
 
             shotProjectile.GetComponent<Projectile>().graphic.transform.rotation = muzzle.transform.rotation;
+            shotProjectile.GetComponent<Projectile>().chargeScale = blastValue;
             Rigidbody2D shotProjectileRB = shotProjectile.GetComponent<Rigidbody2D>();
             Vector2 forceDirection = new(Mathf.Cos(angle), Mathf.Sin(angle));
             shotProjectileRB.AddForce(forceDirection * calcForce() * powerMod, ForceMode2D.Impulse);

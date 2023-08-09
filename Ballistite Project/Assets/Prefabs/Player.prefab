@@ -1686,6 +1686,7 @@ GameObject:
   - component: {fileID: 8966696862554122415}
   - component: {fileID: 8864624024850247068}
   - component: {fileID: 4475686102729582358}
+  - component: {fileID: 62565143367484258}
   - component: {fileID: 1823391465}
   - component: {fileID: 1985222582}
   m_Layer: 3
@@ -1771,15 +1772,44 @@ MonoBehaviour:
   cooldownTime: 0.5
   shotNumber: 2
   Timer: 0
-  LastBlastValue: 0
   paused: 1
   soundMachine: {fileID: 0}
   controlEnabled: 1
+  cutsceneTriggered: 0
   grounded: 0
   reloading: 0
   cooldown: 0
   SlowdownTrigger: {fileID: 0}
+  onBlastEvent: {fileID: 11400000, guid: d711f105cc03f47468c8b3703bc7b1de, type: 2}
   power: 0
+--- !u!114 &62565143367484258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5692961899612229980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d20cf86ca41731f47af4168807a34a5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 4ae02edac0156e64baccaf01ff5f30bd, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4475686102729582358}
+        m_TargetAssemblyTypeName: Platformer.Mechanics.BespokePlayerController, Assembly-CSharp
+        m_MethodName: EnableControl
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
 --- !u!82 &1823391465
 AudioSource:
   m_ObjectHideFlags: 0

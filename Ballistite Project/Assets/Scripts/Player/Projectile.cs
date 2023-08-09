@@ -10,7 +10,6 @@ public class Projectile : MonoBehaviour
     public float explosionRadius = 2f;
     [Tooltip("every one increase in this value is one grid unit of vertical movement")]
     public float explosionForce = 2f;
-    private float chargeScale;
     public LayerMask explosionLayers;
     public AudioClip explosionSound;
 
@@ -28,13 +27,11 @@ public class Projectile : MonoBehaviour
     private ParticleSystem.MainModule explosionspark;
     public GameObject graphic;
 
+    public float chargeScale;
+
     // Start is called before the first frame update
     void Start()
     {
-        PlayerObject = GameObject.Find("Player");
-        if (PlayerObject) {
-            PlayerScript = PlayerObject.GetComponent<BespokePlayerController>();
-        }
         rb = GetComponent<Rigidbody2D>();
         bc = GetComponent<BoxCollider2D>();
         sp = GetComponentInChildren<SpriteRenderer>();
@@ -42,8 +39,18 @@ public class Projectile : MonoBehaviour
         explosionmain = explosionEffectSpark.main;
         explosionsmoke = explosionEffectSmoke.main;
         explosionspark = explosionEffectSpark.main;
-        chargeScale = PlayerScript.LastBlastValue;
-        Debug.Log("Timer = " + chargeScale);
+        if (chargeScale < 1)
+        {
+            explosionmain.startSize = 10;
+            explosionsmoke.startSize = 4;
+            explosionspark.startSize = 4;
+        }
+        else
+        {
+            explosionmain.startSize = 12;
+            explosionsmoke.startSize = 8;
+            explosionspark.startSize = 8;
+        }
     }
 
     // Update is called once per frame
@@ -58,15 +65,6 @@ public class Projectile : MonoBehaviour
         {
             Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, -flightDir);
             graphic.transform.rotation = Quaternion.Lerp(graphic.transform.rotation, targetRotation, Time.deltaTime * 0.6f);
-        }
-        if (chargeScale < 1) {
-            explosionmain.startSize = 10;
-            explosionsmoke.startSize = 4;
-            explosionspark.startSize = 4;
-        } else {
-            explosionmain.startSize = 12;
-            explosionsmoke.startSize = 8;
-            explosionspark.startSize = 8;
         }
     }
 
@@ -99,7 +97,6 @@ public class Projectile : MonoBehaviour
         }
 
         explosionEffectMain.Play();
-        Debug.Log(chargeScale);
         soundMachine.PlayOneShot(explosionSound);
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
         bc.enabled = false;

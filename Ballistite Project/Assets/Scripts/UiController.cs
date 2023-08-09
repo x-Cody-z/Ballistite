@@ -34,6 +34,8 @@ public class uiController : MonoBehaviour
 
     public GameObject winPanel;
 
+    public CutsceneController cutsceneController;
+
 
     // Start is called before the first frame update
     void Start()
@@ -86,7 +88,7 @@ public class uiController : MonoBehaviour
 
         }
 
-        switch(ammoCountInt)
+            switch (ammoCountInt)
         {
             case 0:
                 CaseShellL.SetActive(false);
