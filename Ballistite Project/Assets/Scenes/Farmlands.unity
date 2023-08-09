@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.49237204, g: 0.62137693, b: 0.7326431, a: 1}
+  m_IndirectSpecularColor: {r: 0.49252352, g: 0.62015617, b: 0.7294667, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1342,7 +1342,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.996875}
+    oldSize: {x: 3.2, y: 3.19}
     newSize: {x: 1.0939479, y: 2.9753203}
     adaptiveTilingThreshold: 0.5
     drawMode: 2
@@ -1747,6 +1747,10 @@ PrefabInstance:
     - target: {fileID: 4475686102729582358, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
       propertyPath: mouseIndicator
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475686102729582358, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
+      propertyPath: notInsideCutscene
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5692961899612229980, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
       propertyPath: m_Name
@@ -118335,27 +118339,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1284084140543987491, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 78.37039
+      value: 131.99829
       objectReference: {fileID: 0}
     - target: {fileID: 1284084140543987491, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.039419174
+      value: -3.0269797
       objectReference: {fileID: 0}
     - target: {fileID: 1284084140543987491, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1979.9375
+      value: -22051.053
       objectReference: {fileID: 0}
     - target: {fileID: 4285311623418916066, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 78.37039
+      value: 65.999146
       objectReference: {fileID: 0}
     - target: {fileID: 4285311623418916066, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.039419174
+      value: -1.5134897
       objectReference: {fileID: 0}
     - target: {fileID: 4285311623418916066, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1969.9375
+      value: -11020.526
       objectReference: {fileID: 0}
     - target: {fileID: 4285311623418916067, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
       propertyPath: m_Targets.Array.data[1].target
@@ -118368,6 +118372,10 @@ PrefabInstance:
     - target: {fileID: 4285311623520382340, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
       propertyPath: m_LocalPosition.y
       value: -3.0269797
+      objectReference: {fileID: 0}
+    - target: {fileID: 4285311623520382340, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -22051.053
       objectReference: {fileID: 0}
     - target: {fileID: 4285311623520382363, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
       propertyPath: m_Follow
@@ -118459,7 +118467,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 2140447060}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
   m_Name: 
