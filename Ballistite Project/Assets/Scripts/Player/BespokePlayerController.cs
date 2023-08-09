@@ -17,11 +17,14 @@ namespace Platformer.Mechanics
         private GameObject chargeBar;
         private GameObject UIObject;
         private uiController UIScript;
+        
         [SerializeField] CinemachineVirtualCamera vcamMouse;
         [SerializeField] CinemachineVirtualCamera vcamPlayer;
+       
         //part of new reload function, this is the value that changes as the reload time progresses, old reloadTime is used as a target value.
         private float reloadTimeActive;
         private float reloadDelay;
+        [SerializeField] private float volumeScale = 1;
         
         public AudioClip gunAudio;
         public AudioClip reloadAudio;
@@ -30,9 +33,13 @@ namespace Platformer.Mechanics
         public Transform barrelPivot;
         public Transform muzzle;
         public GameObject projectile;
-        public GameObject indicator1;
-        public GameObject indicator2;
-        public GameObject indicator3;
+        
+        //bools used for toggling the charge indicators
+        private bool charge1;
+        private bool charge2;
+        private bool charge3;
+
+
 
         [SerializeField] private float shotPower = 1f;
         [SerializeField] private float shotMod = 0.5f;
@@ -43,11 +50,21 @@ namespace Platformer.Mechanics
         [Tooltip("every one increase in this value is one grid unit of horizontal movement")]
         public float shotRecoil = 1f;
 
+        [Tooltip("time in seconds for one shot to be reloaded")]
         public float reloadTime = 1f;
+
+        [Tooltip("minimum time in seconds between each shot, think of it as fire rate")]
         public float cooldownTime = 0.5f;
+
+        [Tooltip("the number of shots that can be loaded at once")]
         public int shotNumber = 1;
+
+        //this is what actually keeps track of the number of shots, shotNumber is more like a static variable that shotCount gets set to
         private int shotCount;
+
+        //timer stuff used for charging shot power
         public float Timer;
+        public float LastBlastValue;
         public bool paused = true;
 
         public AudioSource soundMachine;
@@ -56,6 +73,10 @@ namespace Platformer.Mechanics
         public bool grounded = true;
         public bool reloading = false;
         public bool cooldown = false;
+        private bool shotCancel = false;
+
+        [SerializeField] private GameObject SlowdownTrigger;
+        private SlowdownTrigger SlowmoScript;
 
         public static Vector3 mousePos;
 
@@ -65,6 +86,12 @@ namespace Platformer.Mechanics
         private float barrelAngle;
         private Vector3 spawn;
         private Quaternion spawnRot;
+
+        private bool singlePower = false;
+        private bool debug = false;
+
+        //should this be serialized?
+        [SerializeField] private float power;
 
         void Awake()
         {
@@ -80,35 +107,67 @@ namespace Platformer.Mechanics
             {
                 UIScript = UIObject.GetComponent<uiController>();
             }
+
             reloadTimeActive = reloadTime;
+
+            if (SlowdownTrigger != null)
+            {
+                SlowmoScript = SlowdownTrigger.GetComponent<SlowdownTrigger>();
+            }
         }
 
-        private bool singlePower = false;
-        private bool debug = false;
-        [SerializeField] private float power;
+        
         public void ToggleDebug()
         {
             debug = !debug; // toggle the debug variable
             Debug.Log("Debug mode is now " + debug);
         }
+        
 
         void Update()
         {
-            if (Input.GetKey(KeyCode.Mouse1))
+            //take control away when paused
+            if (Time.timeScale == 0)
             {
-                vcamMouse.m_Priority = 1;
-                vcamPlayer.m_Priority = 0;
-            }
-            else
+                controlEnabled = false;
+            } else
             {
-                vcamMouse.m_Priority = 0;
-                vcamPlayer.m_Priority = 1;
-            }
-                if (!paused)
-            {
-                Timer += Time.deltaTime;
+                controlEnabled = true;
             }
 
+            //pan camera when holding right click
+            if (vcamMouse != null && vcamPlayer != null)
+            { 
+                if (Input.GetKey(KeyCode.Mouse1))
+                {
+                    vcamMouse.m_Priority = 1;
+                    vcamPlayer.m_Priority = 0;
+                }
+                else
+                {
+                    vcamMouse.m_Priority = 0;
+                    vcamPlayer.m_Priority = 1;
+                }
+            }
+
+            //start timer when holding left click
+            if (!paused)
+            {
+                if (SlowmoScript != null)
+                {
+                    if (SlowmoScript.slowed)
+                    {
+                        Timer += Time.deltaTime * (0.5f / SlowmoScript.slowdownAmount);
+                    }
+                    else
+                        Timer += Time.deltaTime;
+                }
+
+                else
+                    Timer += Time.deltaTime;
+            }
+
+            //checks for starting reload
             if (grounded)
             {
                 if (shotCount < shotNumber && !reloading && reloadDelay <=0)
@@ -118,10 +177,6 @@ namespace Platformer.Mechanics
                 }
             }
             chargeBar.SetActive(!singlePower);
-            if (Input.GetKeyDown("1"))
-            {
-                singlePower = !singlePower;
-            }
             if (controlEnabled)
             {
                 mousePos = Input.mousePosition;
@@ -137,77 +192,81 @@ namespace Platformer.Mechanics
                 Vector3 shotSpawnPos = muzzle.transform.position;
                 if (!singlePower)
                 {
-                    if (Input.GetButton("Fire1") && shotCount > 0 && !cooldown)
+                    //this is for charging power
+                    if (Input.GetButton("Fire1") && shotCount > 0 && !cooldown && !shotCancel)
                     {
                         paused = false;
                         switch (Timer)
                         {
                             case < 1 :
-                                if (!indicator1.activeInHierarchy)
+                                //eventually this code needs to be refactored to not use the indicators if we arent gonna have them in games
+                                if (!charge1)
                                 {
                                     power = shotPower;
-                                    indicator1.SetActive(true);
+                                    charge1 = true;
                                 }
                                 break;
                             case >= 1 and < 2:
-                                if (!indicator2.activeInHierarchy)
+                                if (!charge2)
                                 {
                                     power = shotPower + shotMod;
-                                    indicator2.SetActive(true);
+                                    charge2 = true;
                                 }
                                 break;
                             case >= 2 and < 3:
-                                if (!indicator3.activeInHierarchy)
+                                if (!charge3)
                                 {
                                     power = shotPower + 2*shotMod;
-                                    indicator3.SetActive(true);
+                                    charge3 = true;
                                 }
                                 break;
                             case > 6:
                                 shoot(angleInRadians, shotSpawnPos, power);
                                 break;
                         }
-
+                        LastBlastValue = Timer;
                     }
-                    if (Input.GetButtonUp("Fire1") && shotCount > 0 && !cooldown)
+                    if (Input.GetButtonUp("Fire1") && shotCount > 0 && !cooldown && !shotCancel)
                     {
                         shoot(angleInRadians, shotSpawnPos, power);
                     }
+                    
+
+                    //cancel shot
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        Timer = 0;
+                        paused = true;
+                        //StartCoroutine(Cooldown(0.2f));
+                        shotCancel = true;
+
+                        charge1 = false;
+                        charge2 = false;
+                        charge3 = false;
+                    }
+
+                    if (Input.GetButtonUp("Fire1"))
+                    {
+                        shotCancel = false;
+                    }
+
                 } else
                 {
+                    //This is for single shot
                     if (Input.GetButtonDown("Fire1") && shotCount > 0 && !cooldown)
                     {
                         shoot(angleInRadians, shotSpawnPos, 1);
                     }
                 }
 
-                if (Input.GetButtonDown("Jump"))
+                //key zero respawns player back at the beginning of level
+                if (Input.GetKeyDown(KeyCode.Alpha0))
                 {
                     transform.position = spawn;
                     transform.rotation = spawnRot;
+                    GameObject.Find("win panel").SetActive(false);
                 }
-                /*
-                if (Input.GetKeyDown(KeyCode.RightArrow))
-                {
-                    shoot(0f, this.transform.position);
-                }
-                if (Input.GetKeyDown(KeyCode.UpArrow))
-                {
-                    shoot(1.57079f, this.transform.position);
-                }
-                if (Input.GetKeyDown(KeyCode.LeftArrow))
-                {
-                    shoot(3.14159f, this.transform.position);
-                }
-                if (Input.GetKeyDown(KeyCode.DownArrow))
-                {
-                    shoot(4.71238f, this.transform.position);
-                }
-                if (Input.GetKeyDown(KeyCode.Alpha1))
-                {
-                    shoot(0.785398f, this.transform.position);
-                }
-                */
+                
             }
             UpdateUIValues();
         }
@@ -217,16 +276,17 @@ namespace Platformer.Mechanics
             //functionality for reload
             StartCoroutine(ReloadDelay());
 
-            soundMachine.PlayOneShot(gunAudio);
-            StartCoroutine(Cooldown());
+
+            soundMachine.PlayOneShot(gunAudio, volumeScale);
+            StartCoroutine(Cooldown(cooldownTime));
             shotCount--;
             Rigidbody2D tankRB = GetComponent<Rigidbody2D>();
             GameObject shotProjectile = Instantiate(projectile);
             Timer = 0;
             paused = true;
-            indicator1.SetActive(false);
-            indicator2.SetActive(false);
-            indicator3.SetActive(false);
+            charge1 = false;
+            charge2 = false;
+            charge3 = false;
 
             //shotProjectile.transform.position = spawnPos;
             shotProjectile.transform.position = this.transform.position;
@@ -242,6 +302,10 @@ namespace Platformer.Mechanics
         private float calcRecoil()
         {
             float adjustmentFactor = Mathf.Pow(shotRecoil, 0.5f);
+            //increases force if slow-mo is enabled
+            if (SlowmoScript != null)
+                if (SlowmoScript.slowed)
+                    adjustmentFactor *= 1.5f;
             return -adjustmentFactor * 2.83f;
         }
 
@@ -255,7 +319,7 @@ namespace Platformer.Mechanics
         {
             if (collision.gameObject.CompareTag("Level"))
             {
-                soundMachine.PlayOneShot(landingAudio);
+                soundMachine.PlayOneShot(landingAudio, volumeScale);
                 grounded = true;
             }
         }
@@ -266,33 +330,6 @@ namespace Platformer.Mechanics
                 grounded = false;
             }
         }
-        //The reload function has been updated so that reload can be displayed in the UI
-        /*
-        IEnumerator GunReload()
-        {
-
-            yield return new WaitForSeconds(reloadTime);
-            shotCount++;
-
-            if (shotCount < shotNumber && grounded)
-            {
-                soundMachine.PlayOneShot(reloadAudio);
-                StartCoroutine(GunReload());
-            }
-            else if (shotCount < shotNumber)
-            {
-                yield return new WaitUntil(() => grounded);
-                soundMachine.PlayOneShot(reloadAudio);
-                StartCoroutine(GunReload());
-            }
-            if (shotCount == shotNumber)
-            {
-                soundMachine.PlayOneShot(reloadAudio);
-                reloading = false;
-                //Debug.LogError("CLICK");
-            }
-        }
-        */
 
         IEnumerator GunReloadV2()
         {
@@ -310,7 +347,7 @@ namespace Platformer.Mechanics
             else if (shotCount < shotNumber)
             {
                 yield return new WaitUntil(() => grounded);
-                soundMachine.PlayOneShot(reloadAudio);
+                soundMachine.PlayOneShot(reloadAudio, volumeScale);
                 StartCoroutine(GunReloadV2());
             }
             if (shotCount == shotNumber)
@@ -330,11 +367,11 @@ namespace Platformer.Mechanics
         }
 
 
-            IEnumerator Cooldown()
+        IEnumerator Cooldown(float cd)
         {
             //Debug.Log("Start Cooldown");
             cooldown = true;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(cd);
             cooldown = false;
             //Debug.Log("End Cooldown");
         }
@@ -346,6 +383,7 @@ namespace Platformer.Mechanics
             {
                 UIScript.updateAmmoValues(shotCount, reloadTimeActive);
                 UIScript.updateVelocityValues(this.GetComponent<Rigidbody2D>().velocity.magnitude, this.GetComponent<Rigidbody2D>().velocity.x, this.GetComponent<Rigidbody2D>().velocity.y);
+                UIScript.updateChargeValues(charge1, charge2, charge3);
             }
         }
     }

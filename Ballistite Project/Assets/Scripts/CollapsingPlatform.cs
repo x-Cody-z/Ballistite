@@ -7,9 +7,9 @@ public class CollapsingPlatform : MonoBehaviour
     private bool triggered = false;
     public bool respawnable = false;
 
-    [SerializeField] private float collapseDelay = 3f;
+    [SerializeField] private float collapseDelay = 1f;
     private float cdTimer;
-    [SerializeField] private float respawnTime = 3f;
+    [SerializeField] private float respawnTime = 1f;
     private float rtTimer;
 
     [SerializeField] private GameObject objectToRespawn;
@@ -36,8 +36,6 @@ public class CollapsingPlatform : MonoBehaviour
         if (!triggered)
         {
             triggered = true;
-            cdTimer = collapseDelay;
-            rtTimer = respawnTime;
             StartCoroutine(DestroyObject());
         }
         
@@ -48,7 +46,7 @@ public class CollapsingPlatform : MonoBehaviour
         SpriteRenderer render = spawnedObject.GetComponent<SpriteRenderer>();
         render.color = Color.blue;
         // Wait for the specified amount of time
-        for (cdTimer = 1f; cdTimer > 0; cdTimer -= Time.deltaTime)
+        for (cdTimer = collapseDelay; cdTimer > 0; cdTimer -= Time.deltaTime)
             yield return null;
 
         // Destroy the existing object
@@ -61,7 +59,7 @@ public class CollapsingPlatform : MonoBehaviour
     private IEnumerator RespawnObject()
     {
         // Wait for the specified amount of time
-        for (rtTimer = 1f; rtTimer > 0; rtTimer -= Time.deltaTime)
+        for (rtTimer = respawnTime; rtTimer > 0; rtTimer -= Time.deltaTime)
             yield return null;
 
         // Spawn a new instance of the object

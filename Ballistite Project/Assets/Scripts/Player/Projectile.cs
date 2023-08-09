@@ -1,3 +1,5 @@
+using Platformer.Mechanics;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -9,24 +11,42 @@ public class Projectile : MonoBehaviour
     public float explosionRadius = 2f;
     [Tooltip("every one increase in this value is one grid unit of vertical movement")]
     public float explosionForce = 2f;
+    private float chargeScale;
     public LayerMask explosionLayers;
     public AudioClip explosionSound;
 
     private AudioSource soundMachine;
-    private ParticleSystem explosionEffect;
+    public ParticleSystem explosionEffectMain;
+    public ParticleSystem explosionEffectSmoke;
+    public ParticleSystem explosionEffectSpark;
+    private GameObject PlayerObject;
+    private BespokePlayerController PlayerScript;
     private Rigidbody2D rb;
     private BoxCollider2D bc;
     private SpriteRenderer sp;
+    private ParticleSystem.MainModule explosionmain;
+    private ParticleSystem.MainModule explosionsmoke;
+    private ParticleSystem.MainModule explosionspark;
     public GameObject graphic;
+
+    public event EventHandler OnProjectileHitTerrain;
 
     // Start is called before the first frame update
     void Start()
     {
-        explosionEffect = GetComponentInChildren<ParticleSystem>();
+        PlayerObject = GameObject.Find("Player");
+        if (PlayerObject) {
+            PlayerScript = PlayerObject.GetComponent<BespokePlayerController>();
+        }
         rb = GetComponent<Rigidbody2D>();
         bc = GetComponent<BoxCollider2D>();
         sp = GetComponentInChildren<SpriteRenderer>();
         soundMachine = GetComponent<AudioSource>();
+        explosionmain = explosionEffectSpark.main;
+        explosionsmoke = explosionEffectSmoke.main;
+        explosionspark = explosionEffectSpark.main;
+        chargeScale = PlayerScript.LastBlastValue;
+        Debug.Log("Timer = " + chargeScale);
     }
 
     // Update is called once per frame
@@ -42,6 +62,15 @@ public class Projectile : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, -flightDir);
             graphic.transform.rotation = Quaternion.Lerp(graphic.transform.rotation, targetRotation, Time.deltaTime * 0.6f);
         }
+        if (chargeScale < 1) {
+            explosionmain.startSize = 10;
+            explosionsmoke.startSize = 4;
+            explosionspark.startSize = 4;
+        } else {
+            explosionmain.startSize = 12;
+            explosionsmoke.startSize = 8;
+            explosionspark.startSize = 8;
+        }
     }
 
 
@@ -53,30 +82,39 @@ public class Projectile : MonoBehaviour
         foreach (Collider2D collider in colliders)
         {
             Rigidbody2D rb = collider.GetComponent<Rigidbody2D>();
-
-            if (rb != null)
+            if (collider.CompareTag("Level"))
             {
-                // Calculate direction and distance from explosion center to collider
-                Vector2 direction = rb.transform.position - transform.position;
-                float distance = direction.magnitude;
+                collider.GetComponent<DestructibleTile>().GetProjectile(this);
+                OnProjectileHitTerrain?.Invoke(this, null);
+            }
+            else
+            {
+                if (rb != null)
+                {
+                    // Calculate direction and distance from explosion center to collider
+                    Vector2 direction = rb.transform.position - transform.position;
+                    float distance = direction.magnitude;
 
-                Debug.Log("Distance from explosion center: " + distance);
+                    Debug.Log("Distance from explosion center: " + distance);
 
-                if (distance < 0.5f)
-                    distance = 0f;
-                else
-                    distance -= 0.4f;
+                    if (distance < 0.5f)
+                        distance = 0f;
+                    else
+                        distance -= 0.4f;
 
-                // Apply impulse force to collider based on distance and explosion force
-                rb.AddForce(direction.normalized * calcExplosion(distance), ForceMode2D.Impulse);
+                    // Apply impulse force to collider based on distance and explosion force
+                    rb.AddForce(direction.normalized * calcExplosion(distance), ForceMode2D.Impulse);
+                }
             }
         }
-        explosionEffect.Play();
+
+        explosionEffectMain.Play();
+        Debug.Log(chargeScale);
         soundMachine.PlayOneShot(explosionSound);
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
         bc.enabled = false;
         sp.enabled = false;
-        Destroy(gameObject, explosionEffect.main.duration);
+        Destroy(gameObject, explosionEffectMain.main.duration);
     }
 
     private float calcExplosion(float dist)
