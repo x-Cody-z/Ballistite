@@ -5,26 +5,16 @@ using UnityEngine;
 public class ObjectDestruction : MonoBehaviour
 {
     [SerializeField] private GameObject piecesPrefab;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+
+    public void DestroySelf(GameEventData eventData)
     {
-        if (Input.GetKeyDown(KeyCode.Alpha9))
+        if (eventData is ProjectileEventData projectileData) // TODO: Break only when projectileData.HitPosition is close to the object
         {
-            DestroySelf();
+            GameObject pieces = (GameObject)Instantiate(piecesPrefab);
+            pieces.transform.position = this.transform.position;
+            //pieces.transform.localScale = this.transform.localScale;
+            Destroy(gameObject);
         }
-    }
-
-    private void DestroySelf()
-    {
-        GameObject pieces = (GameObject)Instantiate(piecesPrefab);
-        pieces.transform.position = this.transform.position;
-        //pieces.transform.localScale = this.transform.localScale;
-        Destroy(gameObject);
     }
 }
