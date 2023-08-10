@@ -77,17 +77,17 @@ public class Projectile : MonoBehaviour
 
         foreach (Collider2D collider in colliders)
         {
-            Rigidbody2D rb = collider.GetComponent<Rigidbody2D>();
+            Rigidbody2D crb = collider.GetComponent<Rigidbody2D>();
             if (collider.CompareTag("Level"))
             {
-                ProjectileEventData projEventData = new ProjectileEventData { Sender = this, HitPosition = transform };
+                ProjectileEventData projEventData = new ProjectileEventData { Sender = this, HitPosition = transform, velocity = rb.velocity };
                 onProjectileHitTerrain.Raise(projEventData);
             } else
             {
-                if (rb != null)
+                if (crb != null)
                 {
                     // Calculate direction and distance from explosion center to collider
-                    Vector2 direction = rb.transform.position - transform.position;
+                    Vector2 direction = crb.transform.position - transform.position;
                     float distance = direction.magnitude;
 
                     Debug.Log("Distance from explosion center: " + distance);
@@ -98,7 +98,7 @@ public class Projectile : MonoBehaviour
                         distance -= 0.4f;
 
                     // Apply impulse force to collider based on distance and explosion force
-                    rb.AddForce(direction.normalized * calcExplosion(distance), ForceMode2D.Impulse);
+                    crb.AddForce(direction.normalized * calcExplosion(distance), ForceMode2D.Impulse);
                 }
             }
         }

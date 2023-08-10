@@ -240,9 +240,7 @@ namespace Platformer.Mechanics
                     }
                     if (Input.GetButtonUp("Fire1") && shotCount > 0 && !cooldown && !shotCancel)
                     {
-                        blastValue = Timer;
-
-                        PlayerEventData eventData = new PlayerEventData { Sender = this, BlastValue = Timer };
+                        PlayerEventData eventData = new PlayerEventData { Sender = this, BlastValue = power };
                         onBlastEvent.Raise(eventData);
 
                         shoot(angleInRadians, shotSpawnPos, power);

@@ -22,4 +22,5 @@ public class PlayerEventData : GameEventData
 public class ProjectileEventData : GameEventData
 {
     public Transform HitPosition { get; set; }
+    public Vector2 velocity { get; set; }
 }
