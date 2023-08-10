@@ -3,7 +3,19 @@ guid: b766b02c2faee4a42a8b8d5e3f72c0b0
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - vcamMouse: {instanceID: 0}
+  - vcamPlayer: {instanceID: 0}
+  - gunAudio: {instanceID: 0}
+  - reloadAudio: {instanceID: 0}
+  - landingAudio: {instanceID: 0}
+  - barrel: {instanceID: 0}
+  - barrelPivot: {instanceID: 0}
+  - muzzle: {instanceID: 0}
+  - projectile: {instanceID: 0}
+  - soundMachine: {instanceID: 0}
+  - SlowdownTrigger: {instanceID: 0}
+  - onBlastEvent: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

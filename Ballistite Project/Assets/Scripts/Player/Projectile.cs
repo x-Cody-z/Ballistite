@@ -13,12 +13,14 @@ public class Projectile : MonoBehaviour
     public LayerMask explosionLayers;
     public AudioClip explosionSound;
 
+    public float radiusModifier;
+    public float radius;
+    public float radiusMax;
+
     private AudioSource soundMachine;
     public ParticleSystem explosionEffectMain;
     public ParticleSystem explosionEffectSmoke;
     public ParticleSystem explosionEffectSpark;
-    private GameObject PlayerObject;
-    private BespokePlayerController PlayerScript;
     private Rigidbody2D rb;
     private BoxCollider2D bc;
     private SpriteRenderer sp;
@@ -69,6 +71,15 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    public void CalcRadius(GameEventData eventData)
+    {
+        if (eventData is PlayerEventData playerData)
+        {
+            radiusModifier = playerData.BlastValue;
+            chargeScale = playerData.BlastValue;
+        }
+    }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -80,7 +91,8 @@ public class Projectile : MonoBehaviour
             Rigidbody2D crb = collider.GetComponent<Rigidbody2D>();
             if (collider.CompareTag("Level"))
             {
-                ProjectileEventData projEventData = new ProjectileEventData { Sender = this, HitPosition = transform, velocity = rb.velocity };
+                radius = Mathf.Clamp(radiusModifier, 0, radiusMax); // Blast amount adds to radius
+                ProjectileEventData projEventData = new ProjectileEventData { Sender = this, HitPosition = transform, velocity = rb.velocity, radius = radius };
                 onProjectileHitTerrain.Raise(projEventData);
             } else
             {

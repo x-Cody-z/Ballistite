@@ -233,6 +233,7 @@ namespace Platformer.Mechanics
                                 }
                                 break;
                             case > 6:
+                                blastValue = power;
                                 shoot(angleInRadians, shotSpawnPos, power);
                                 break;
                         }
@@ -240,10 +241,11 @@ namespace Platformer.Mechanics
                     }
                     if (Input.GetButtonUp("Fire1") && shotCount > 0 && !cooldown && !shotCancel)
                     {
-                        PlayerEventData eventData = new PlayerEventData { Sender = this, BlastValue = power };
+                        shoot(angleInRadians, shotSpawnPos, power);
+                        blastValue = power;
+                        PlayerEventData eventData = new PlayerEventData { Sender = this, BlastValue = blastValue };
                         onBlastEvent.Raise(eventData);
 
-                        shoot(angleInRadians, shotSpawnPos, power);
                     }
                     
 
@@ -307,7 +309,6 @@ namespace Platformer.Mechanics
             shotProjectile.transform.position = this.transform.position;
 
             shotProjectile.GetComponent<Projectile>().graphic.transform.rotation = muzzle.transform.rotation;
-            shotProjectile.GetComponent<Projectile>().chargeScale = blastValue;
             Rigidbody2D shotProjectileRB = shotProjectile.GetComponent<Rigidbody2D>();
             Vector2 forceDirection = new(Mathf.Cos(angle), Mathf.Sin(angle));
             shotProjectileRB.AddForce(forceDirection * calcForce() * powerMod, ForceMode2D.Impulse);
