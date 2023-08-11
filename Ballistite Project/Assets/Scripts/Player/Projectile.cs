@@ -77,7 +77,6 @@ public class Projectile : MonoBehaviour
         {
             radiusModifier = playerData.BlastValue;
             chargeScale = playerData.BlastValue;
-            Debug.Log("Calculated radius:" + radiusModifier + " chargeScale: " + chargeScale);
         }
     }
 
@@ -102,8 +101,6 @@ public class Projectile : MonoBehaviour
                     // Calculate direction and distance from explosion center to collider
                     Vector2 direction = crb.transform.position - transform.position;
                     float distance = direction.magnitude;
-
-                    Debug.Log("Distance from explosion center: " + distance);
 
                     if (distance < 0.5f)
                         distance = 0f;

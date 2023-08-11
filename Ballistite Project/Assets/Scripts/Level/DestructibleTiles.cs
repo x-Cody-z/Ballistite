@@ -16,10 +16,6 @@ public class DestructibleTiles : MonoBehaviour
             Vector2 velocity = projectileData.velocity;
             float radius = projectileData.radius;
 
-            Debug.Log("radius: " + radius);
-            Debug.Log("velocity: " + velocity);
-            Debug.Log("projectilePos: " + projectilePos);
-
             GameObject mask = new GameObject("craterMask");
             mask.AddComponent<SpriteMask>().sprite = sprite;
             mask.transform.position = projectilePos.position;

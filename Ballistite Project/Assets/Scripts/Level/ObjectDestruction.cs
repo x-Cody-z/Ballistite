@@ -9,7 +9,7 @@ public class ObjectDestruction : MonoBehaviour
     {
         if (eventData is ProjectileEventData projectileData) // TODO: Break only when projectileData.HitPosition is close to the object
         {
-            if ((projectileData.HitPosition.position - this.transform.position).magnitude < projectileData.radius)
+            if ((transform.position - projectileData.HitPosition.position).magnitude < projectileData.radius*2)
             {
                 GameObject pieces = (GameObject)Instantiate(piecesPrefab);
                 pieces.transform.position = this.transform.position;
