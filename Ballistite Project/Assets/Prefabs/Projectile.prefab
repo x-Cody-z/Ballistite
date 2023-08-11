@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 6425388640759641715}
   - component: {fileID: 6425388640759641714}
   - component: {fileID: 3788818477918640064}
+  - component: {fileID: 8053204568586952294}
   - component: {fileID: 4388822916004649983}
   m_Layer: 0
   m_Name: Projectile
@@ -211,12 +212,43 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 63
   explosionSound: {fileID: 8300000, guid: d1565c45acb0c4c4f8ca74d0b1cac8bd, type: 3}
+  radiusModifier: 0
+  radius: 0
+  radiusMax: 6
   explosionEffectMain: {fileID: 1336992743854364684}
   explosionEffectSmoke: {fileID: 9070898060886746670}
   explosionEffectSpark: {fileID: 2748376668869832416}
   graphic: {fileID: 433997715138457908}
   chargeScale: 0
   onProjectileHitTerrain: {fileID: 11400000, guid: 717d0aef951b0154f9f0251a21f73afb, type: 2}
+--- !u!114 &8053204568586952294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6425388640759641725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d20cf86ca41731f47af4168807a34a5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: d711f105cc03f47468c8b3703bc7b1de, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3788818477918640064}
+        m_TargetAssemblyTypeName: Projectile, Assembly-CSharp
+        m_MethodName: CalcRadius
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!82 &4388822916004649983
 AudioSource:
   m_ObjectHideFlags: 0

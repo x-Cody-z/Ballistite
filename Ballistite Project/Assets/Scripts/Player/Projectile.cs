@@ -10,6 +10,10 @@ public class Projectile : MonoBehaviour
     public LayerMask explosionLayers;
     public AudioClip explosionSound;
 
+    public float radiusModifier;
+    public float radius;
+    public float radiusMax;
+
     private AudioSource soundMachine;
     public ParticleSystem explosionEffectMain;
     public ParticleSystem explosionEffectSmoke;
@@ -64,6 +68,15 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    public void CalcRadius(GameEventData eventData)
+    {
+        if (eventData is PlayerEventData playerData)
+        {
+            radiusModifier = playerData.BlastValue;
+            chargeScale = playerData.BlastValue;
+        }
+    }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -75,7 +88,8 @@ public class Projectile : MonoBehaviour
             Rigidbody2D crb = collider.GetComponent<Rigidbody2D>();
             if (collider.CompareTag("Level"))
             {
-                ProjectileEventData projEventData = new ProjectileEventData { Sender = this, HitPosition = transform, velocity = rb.velocity };
+                radius = Mathf.Clamp(radiusModifier, 0, radiusMax); // Blast amount adds to radius
+                ProjectileEventData projEventData = new ProjectileEventData { Sender = this, HitPosition = transform, velocity = rb.velocity, radius = radius };
                 onProjectileHitTerrain.Raise(projEventData);
             } else
             {
@@ -84,8 +98,6 @@ public class Projectile : MonoBehaviour
                     // Calculate direction and distance from explosion center to collider
                     Vector2 direction = crb.transform.position - transform.position;
                     float distance = direction.magnitude;
-
-                    Debug.Log("Distance from explosion center: " + distance);
 
                     if (distance < 0.5f)
                         distance = 0f;
@@ -117,5 +129,7 @@ public class Projectile : MonoBehaviour
         // Draw a wire sphere around the explosion object to visualize the explosion radius in the editor
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, explosionRadius);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
 }
