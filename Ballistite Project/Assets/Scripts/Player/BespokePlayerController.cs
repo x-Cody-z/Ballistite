@@ -242,10 +242,6 @@ namespace Platformer.Mechanics
                     if (Input.GetButtonUp("Fire1") && shotCount > 0 && !cooldown && !shotCancel)
                     {
                         shoot(angleInRadians, shotSpawnPos, power);
-                        blastValue = power;
-                        PlayerEventData eventData = new PlayerEventData { Sender = this, BlastValue = blastValue };
-                        onBlastEvent.Raise(eventData);
-
                     }
                     
 
@@ -314,6 +310,9 @@ namespace Platformer.Mechanics
             shotProjectileRB.AddForce(forceDirection * calcForce() * powerMod, ForceMode2D.Impulse);
             //tankRB.AddForce(forceDirection * calcRecoil() * powerMod, ForceMode2D.Impulse);
             tankRB.velocity = tankRB.velocity + forceDirection * calcRecoil() * powerMod;
+            blastValue = power;
+            PlayerEventData eventData = new PlayerEventData { Sender = this, BlastValue = blastValue };
+            onBlastEvent.Raise(eventData);
         }
 
         private float calcRecoil()

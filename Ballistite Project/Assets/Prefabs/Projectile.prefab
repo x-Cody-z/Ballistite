@@ -214,7 +214,7 @@ MonoBehaviour:
   explosionSound: {fileID: 8300000, guid: d1565c45acb0c4c4f8ca74d0b1cac8bd, type: 3}
   radiusModifier: 0
   radius: 0
-  radiusMax: 0
+  radiusMax: 6
   explosionEffectMain: {fileID: 1336992743854364684}
   explosionEffectSmoke: {fileID: 9070898060886746670}
   explosionEffectSpark: {fileID: 2748376668869832416}
@@ -237,7 +237,7 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6425388640759641725}
+      - m_Target: {fileID: 3788818477918640064}
         m_TargetAssemblyTypeName: Projectile, Assembly-CSharp
         m_MethodName: CalcRadius
         m_Mode: 0

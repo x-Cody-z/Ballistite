@@ -77,6 +77,7 @@ public class Projectile : MonoBehaviour
         {
             radiusModifier = playerData.BlastValue;
             chargeScale = playerData.BlastValue;
+            Debug.Log("Calculated radius:" + radiusModifier + " chargeScale: " + chargeScale);
         }
     }
 
@@ -134,5 +135,7 @@ public class Projectile : MonoBehaviour
         // Draw a wire sphere around the explosion object to visualize the explosion radius in the editor
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, explosionRadius);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
 }

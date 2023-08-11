@@ -16,11 +16,14 @@ public class DestructibleTiles : MonoBehaviour
             Vector2 velocity = projectileData.velocity;
             float radius = projectileData.radius;
 
+            Debug.Log("radius: " + radius);
+            Debug.Log("velocity: " + velocity);
+            Debug.Log("projectilePos: " + projectilePos);
+
             GameObject mask = new GameObject("craterMask");
             mask.AddComponent<SpriteMask>().sprite = sprite;
             mask.transform.position = projectilePos.position;
             mask.transform.localScale = new Vector2(radius + Mathf.Abs(velocity.x /12), radius + Mathf.Abs(velocity.y /12));
-            Debug.Log("Projectile Hit Terrain at " + projectilePos.position + " and radius x:" + radius + velocity.x +" and radius y:" + radius + velocity.y);
         }
     }
 }
