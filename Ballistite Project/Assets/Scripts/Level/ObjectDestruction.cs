@@ -5,6 +5,8 @@ using UnityEngine;
 public class ObjectDestruction : MonoBehaviour
 {
     [SerializeField] private GameObject piecesPrefab;
+    [SerializeField] private int destructionValue;
+    public GameEvent onObjectDestroyed;
     public void DestroySelf(GameEventData eventData)
     {
         if (eventData is ProjectileEventData projectileData) // TODO: Break only when projectileData.HitPosition is close to the object
@@ -15,6 +17,8 @@ public class ObjectDestruction : MonoBehaviour
                 updateChildrenData(pieces, projectileData.HitPosition.position);
                 pieces.transform.position = this.transform.position;
                 //pieces.transform.localScale = this.transform.localScale;
+                ObjectDesotryedEventData eData = new ObjectDesotryedEventData { Sender = this, destructionValue = destructionValue };
+                onObjectDestroyed.Raise(eData);
                 Destroy(gameObject);
             }
         }

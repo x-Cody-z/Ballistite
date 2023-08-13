@@ -25,3 +25,8 @@ public class ProjectileEventData : GameEventData
     public Vector2 velocity { get; set; }
     public float radius { get; set; }
 }
+
+public class ObjectDesotryedEventData : GameEventData
+{
+    public int destructionValue { get; set; }
+}
