@@ -12,6 +12,8 @@ public class ObjectDestructibleForce : MonoBehaviour
     [SerializeField] private GameObject parentObj;
     private Vector2 distFromParent;
 
+    private float animTimer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,5 +23,15 @@ public class ObjectDestructibleForce : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.AddForce(forceBase*forceMultiplier);
         //rb.AddTorque(torqueBase);
+
+        StartCoroutine(AnimWait());
+    }
+
+    private IEnumerator AnimWait()
+    {
+        for (animTimer = 4f; animTimer > 0; animTimer -= Time.deltaTime)
+            yield return null;
+
+        Destroy(gameObject);
     }
 }

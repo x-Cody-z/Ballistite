@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8221168405353625196}
   - component: {fileID: 4762927749620783776}
   - component: {fileID: 1098178251838025027}
+  - component: {fileID: 1468763667859677471}
   m_Layer: 7
   m_Name: BOULDER Destroyed (1)_1
   m_TagString: Untagged
@@ -99,7 +100,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 5
+  m_Mass: 0.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -126,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a754cb6abf07b92418ea0396fbbdbb4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceMultiplier: 500
+  forceMultiplier: 50
   parentObj: {fileID: 2210551910995195317}
 --- !u!111 &1098178251838025027
 Animation:
@@ -144,6 +145,51 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!61 &1468763667859677471
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156892600026736193}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.4, y: 3.73}
+    newSize: {x: 4.4, y: 3.73}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.4, y: 3.73}
+  m_EdgeRadius: 0
 --- !u!1 &328338186123353838
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,6 +203,7 @@ GameObject:
   - component: {fileID: 1063379289494833863}
   - component: {fileID: 6913415799173056472}
   - component: {fileID: 5228393151066814161}
+  - component: {fileID: 1617754626219685946}
   m_Layer: 7
   m_Name: BOULDER Destroyed (1)_7
   m_TagString: Untagged
@@ -243,7 +290,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 5
+  m_Mass: 0.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -270,7 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a754cb6abf07b92418ea0396fbbdbb4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceMultiplier: 500
+  forceMultiplier: 50
   parentObj: {fileID: 2210551910995195317}
 --- !u!111 &5228393151066814161
 Animation:
@@ -288,6 +335,51 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!61 &1617754626219685946
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328338186123353838}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.54, y: 2.39}
+    newSize: {x: 2.54, y: 2.39}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.54, y: 2.39}
+  m_EdgeRadius: 0
 --- !u!1 &1991713388115288034
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,6 +393,7 @@ GameObject:
   - component: {fileID: 4953915474360184333}
   - component: {fileID: 8758921489509748603}
   - component: {fileID: 199169650056451539}
+  - component: {fileID: 6648698609679622374}
   m_Layer: 7
   m_Name: BOULDER Destroyed (1)_4
   m_TagString: Untagged
@@ -387,7 +480,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 5
+  m_Mass: 0.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -414,7 +507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a754cb6abf07b92418ea0396fbbdbb4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceMultiplier: 500
+  forceMultiplier: 50
   parentObj: {fileID: 2210551910995195317}
 --- !u!111 &199169650056451539
 Animation:
@@ -432,6 +525,51 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!61 &6648698609679622374
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991713388115288034}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.24, y: 2.76}
+    newSize: {x: 3.24, y: 2.76}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.24, y: 2.76}
+  m_EdgeRadius: 0
 --- !u!1 &2210551910995195317
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,6 +623,7 @@ GameObject:
   - component: {fileID: 5149738866409011437}
   - component: {fileID: 7693074821813335565}
   - component: {fileID: 7966872470324542960}
+  - component: {fileID: 2278338951190573717}
   m_Layer: 7
   m_Name: BOULDER Destroyed (1)_9
   m_TagString: Untagged
@@ -571,7 +710,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 5
+  m_Mass: 0.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -598,7 +737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a754cb6abf07b92418ea0396fbbdbb4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceMultiplier: 500
+  forceMultiplier: 50
   parentObj: {fileID: 2210551910995195317}
 --- !u!111 &7966872470324542960
 Animation:
@@ -616,6 +755,51 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!61 &2278338951190573717
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3046802738178484915}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.88, y: 2.29}
+    newSize: {x: 1.88, y: 2.29}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.88, y: 2.29}
+  m_EdgeRadius: 0
 --- !u!1 &3773724538395809881
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,6 +813,7 @@ GameObject:
   - component: {fileID: 8489372943066453247}
   - component: {fileID: 532572237905019446}
   - component: {fileID: 3174509750012827435}
+  - component: {fileID: 1416558570948033498}
   m_Layer: 7
   m_Name: BOULDER Destroyed (1)_3
   m_TagString: Untagged
@@ -715,7 +900,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 5
+  m_Mass: 0.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -742,7 +927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a754cb6abf07b92418ea0396fbbdbb4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceMultiplier: 500
+  forceMultiplier: 50
   parentObj: {fileID: 2210551910995195317}
 --- !u!111 &3174509750012827435
 Animation:
@@ -760,6 +945,51 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!61 &1416558570948033498
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3773724538395809881}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.74, y: 1.76}
+    newSize: {x: 2.74, y: 1.76}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.74, y: 1.76}
+  m_EdgeRadius: 0
 --- !u!1 &4551351920224255096
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,6 +1003,7 @@ GameObject:
   - component: {fileID: 7484625316552494087}
   - component: {fileID: 3028213933176199977}
   - component: {fileID: 2491302030346438137}
+  - component: {fileID: 2725787132096728690}
   m_Layer: 7
   m_Name: BOULDER Destroyed (1)_0
   m_TagString: Untagged
@@ -859,7 +1090,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 5
+  m_Mass: 0.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -886,7 +1117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a754cb6abf07b92418ea0396fbbdbb4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceMultiplier: 500
+  forceMultiplier: 50
   parentObj: {fileID: 2210551910995195317}
 --- !u!111 &2491302030346438137
 Animation:
@@ -904,6 +1135,51 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!61 &2725787132096728690
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4551351920224255096}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.23, y: 1.45}
+    newSize: {x: 2.23, y: 1.45}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.23, y: 1.45}
+  m_EdgeRadius: 0
 --- !u!1 &5593139188678596144
 GameObject:
   m_ObjectHideFlags: 0
@@ -917,6 +1193,7 @@ GameObject:
   - component: {fileID: 3146951459119635044}
   - component: {fileID: 1132449181122594604}
   - component: {fileID: 8121902766508426663}
+  - component: {fileID: 1184088618004257114}
   m_Layer: 7
   m_Name: BOULDER Destroyed (1)_8
   m_TagString: Untagged
@@ -1003,7 +1280,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 5
+  m_Mass: 0.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -1030,7 +1307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a754cb6abf07b92418ea0396fbbdbb4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceMultiplier: 500
+  forceMultiplier: 50
   parentObj: {fileID: 2210551910995195317}
 --- !u!111 &8121902766508426663
 Animation:
@@ -1048,6 +1325,51 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!61 &1184088618004257114
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5593139188678596144}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 11.17, y: 3.62}
+    newSize: {x: 11.17, y: 3.62}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 11.17, y: 3.62}
+  m_EdgeRadius: 0
 --- !u!1 &6117828306716611791
 GameObject:
   m_ObjectHideFlags: 0
@@ -1061,6 +1383,7 @@ GameObject:
   - component: {fileID: 8635349188382236796}
   - component: {fileID: 4187615860987204343}
   - component: {fileID: 976085212724129985}
+  - component: {fileID: 1615786004473311091}
   m_Layer: 7
   m_Name: BOULDER Destroyed (1)_5
   m_TagString: Untagged
@@ -1147,7 +1470,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 5
+  m_Mass: 0.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -1174,7 +1497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a754cb6abf07b92418ea0396fbbdbb4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceMultiplier: 500
+  forceMultiplier: 50
   parentObj: {fileID: 2210551910995195317}
 --- !u!111 &976085212724129985
 Animation:
@@ -1192,6 +1515,51 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!61 &1615786004473311091
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6117828306716611791}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.65, y: 2.27}
+    newSize: {x: 2.65, y: 2.27}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.65, y: 2.27}
+  m_EdgeRadius: 0
 --- !u!1 &8849844421944430788
 GameObject:
   m_ObjectHideFlags: 0
@@ -1205,6 +1573,7 @@ GameObject:
   - component: {fileID: 2346282313222684442}
   - component: {fileID: 4974674264881151881}
   - component: {fileID: 7648265976984484860}
+  - component: {fileID: 1333032576575429068}
   m_Layer: 7
   m_Name: BOULDER Destroyed (1)_10
   m_TagString: Untagged
@@ -1291,7 +1660,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 5
+  m_Mass: 0.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -1318,7 +1687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a754cb6abf07b92418ea0396fbbdbb4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceMultiplier: 500
+  forceMultiplier: 50
   parentObj: {fileID: 2210551910995195317}
 --- !u!111 &7648265976984484860
 Animation:
@@ -1336,3 +1705,48 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!61 &1333032576575429068
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8849844421944430788}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 1.54}
+    newSize: {x: 2, y: 1.54}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1.54}
+  m_EdgeRadius: 0
