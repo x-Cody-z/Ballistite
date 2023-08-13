@@ -14,14 +14,23 @@ public class ObjectDestructibleForce : MonoBehaviour
 
     private float animTimer;
 
+    public Vector3 projectilePos;
+    private Vector2 distFromProj;
+    private Vector2 forceExplosion;
+
     // Start is called before the first frame update
     void Start()
     {
         distFromParent = this.transform.position - parentObj.transform.position;
         forceBase = distFromParent.normalized;
 
+        distFromProj = this.transform.position - projectilePos;
+        forceExplosion = distFromProj.normalized;
+
+        Vector2 forceTotal = ((forceExplosion * 1.5f) + forceBase) * forceMultiplier;
+
         rb = GetComponent<Rigidbody2D>();
-        rb.AddForce(forceBase*forceMultiplier);
+        rb.AddForce(forceTotal);
         //rb.AddTorque(torqueBase);
 
         StartCoroutine(AnimWait());
