@@ -39,18 +39,8 @@ public class Projectile : MonoBehaviour
         explosionmain = explosionEffectSpark.main;
         explosionsmoke = explosionEffectSmoke.main;
         explosionspark = explosionEffectSpark.main;
-        if (chargeScale < 1)
-        {
-            explosionmain.startSize = 10;
-            explosionsmoke.startSize = 4;
-            explosionspark.startSize = 4;
-        }
-        else
-        {
-            explosionmain.startSize = 12;
-            explosionsmoke.startSize = 8;
-            explosionspark.startSize = 8;
-        }
+
+        setVisuals();
     }
 
     // Update is called once per frame
@@ -74,6 +64,8 @@ public class Projectile : MonoBehaviour
         {
             radiusModifier = playerData.BlastValue;
             chargeScale = playerData.BlastValue;
+            Debug.Log("blast value and charge scale is " + playerData.BlastValue);
+             
         }
     }
 
@@ -131,5 +123,33 @@ public class Projectile : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, explosionRadius);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, radius);
+    }
+
+    //this will change the size of the explosion visual effect based on the charge power when shot
+    //the value for change scale is 1.0 for low, 1.6 for medium, 2.2 for high
+    private void setVisuals()
+    {
+        //low power shot
+        if (chargeScale < 1.6)
+        {
+            explosionmain.startSize = 10;
+            explosionsmoke.startSize = 4;
+            explosionspark.startSize = 4;
+        }
+        //medium power shot
+        else if (chargeScale < 2.2)
+        {
+            explosionmain.startSize = 11;
+            explosionsmoke.startSize = 6;
+            explosionspark.startSize = 6;
+        }
+
+        //high power shot
+        else
+        {
+            explosionmain.startSize = 12;
+            explosionsmoke.startSize = 8;
+            explosionspark.startSize = 8;
+        }
     }
 }
