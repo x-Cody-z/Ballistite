@@ -16,7 +16,7 @@ public class ObjectDestruction : MonoBehaviour
                 GameObject pieces = (GameObject)Instantiate(piecesPrefab);
                 updateChildrenData(pieces, projectileData.HitPosition.position);
                 pieces.transform.position = this.transform.position;
-                //pieces.transform.localScale = this.transform.localScale;
+                pieces.transform.localScale = this.transform.localScale;
                 ObjectDesotryedEventData eData = new ObjectDesotryedEventData { Sender = this, destructionValue = destructionValue };
                 onObjectDestroyed.Raise(eData);
                 Destroy(gameObject);
