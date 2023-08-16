@@ -10,6 +10,7 @@ public class ForegroundFade : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        foregroundImage.Play("Fade_In_Image");
         inBuilding = false;   
     }
 
