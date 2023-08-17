@@ -10,6 +10,7 @@ namespace Platformer.Mechanics
     /// This is the main class used to implement control of the player.
     /// It is a superset of the AnimationController class, but is inlined to allow for any kind of customisation.
     /// </summary>
+    [RequireComponent(typeof(TrajectoryPredictor))]
     public class BespokePlayerController : MonoBehaviour
     {
         //UI object and script, probably easier than linking every text field in the UI
@@ -33,6 +34,7 @@ namespace Platformer.Mechanics
         public Transform barrelPivot;
         public Transform muzzle;
         public GameObject projectile;
+        private TrajectoryPredictor trajectoryPredictor;
 
         //bools used for toggling the charge indicators
         private bool charge1;
@@ -102,6 +104,9 @@ namespace Platformer.Mechanics
 
         void Awake()
         {
+            if (trajectoryPredictor == null)
+                trajectoryPredictor = GetComponent<TrajectoryPredictor>();
+
             shotCount = shotNumber;
             spawn = transform.position;
             spawnRot = transform.rotation;
@@ -137,10 +142,24 @@ namespace Platformer.Mechanics
             debug = !debug; // toggle the debug variable
             Debug.Log("Debug mode is now " + debug);
         }
+
+        ProjectileData projectileData() {
+            ProjectileData data = new ProjectileData();
+            Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+
+            data.direction = muzzle.transform.right;
+            data.initialPosition = muzzle.position;
+            data.initialSpeed = calcForce();
+            data.mass = rb.mass;
+            data.drag = 0;
+
+            return data;
+        }
         
 
         void Update()
         {
+            trajectoryPredictor.CalculateTrajectory(projectileData());
             //take control away when paused & not in cutscene
             if (Time.timeScale == 0 || !notInsideCutscene)
             {

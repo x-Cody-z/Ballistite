@@ -41,6 +41,7 @@ public class Projectile : MonoBehaviour
         explosionspark = explosionEffectSpark.main;
 
         setVisuals();
+        //Debug.Log("Timer = " + chargeScale);
     }
 
     // Update is called once per frame

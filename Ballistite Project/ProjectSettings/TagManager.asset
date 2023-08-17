@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bullet
   - Level
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
