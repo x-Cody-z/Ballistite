@@ -64,6 +64,8 @@ namespace Platformer.Mechanics
         [Tooltip("the rate at which the charge bar fills (higher is faster)")]
         public float chargeRate = 1;
 
+        
+
         //this is what actually keeps track of the number of shots, shotNumber is more like a static variable that shotCount gets set to
         private int shotCount;
 
@@ -71,6 +73,7 @@ namespace Platformer.Mechanics
         public float Timer;
 
         public bool paused = true;
+        private bool firstShot = true; //Boolean to disable start tutorial
 
         public AudioSource soundMachine;
 
@@ -101,6 +104,10 @@ namespace Platformer.Mechanics
 
         //should this be serialized?
         [SerializeField] private float power;
+
+        [Header("Tutorial GameObjects")]
+        [Tooltip("Basic shooting tutorial")]
+        public GameObject shootingTutorial;
 
         void Awake()
         {
@@ -311,6 +318,18 @@ namespace Platformer.Mechanics
             //functionality for reload
             StartCoroutine(ReloadDelay());
 
+            if (firstShot)
+            {
+                firstShot = false;
+                if (shootingTutorial != null)
+                {
+                    shootingTutorial.SetActive(false);
+                }
+                else
+                {
+                    Debug.LogWarning("No basic shooting tutorial is loaded into the bespoke player controller, disregard if not on the first level.");
+                }
+            }
 
             soundMachine.PlayOneShot(gunAudio, volumeScale);
             StartCoroutine(Cooldown(cooldownTime));
