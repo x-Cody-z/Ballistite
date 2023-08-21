@@ -34,6 +34,8 @@ public class LevelController : MonoBehaviour
         levelStartTime = Time.time;
         startPoint = startPointObject.transform.position;
         finishPoint = finishPointObject.transform.position;
+        GameTime timeController = GetComponent<GameTime>();
+        timeController.PauseGameTime();
     }
 
     private void Update()

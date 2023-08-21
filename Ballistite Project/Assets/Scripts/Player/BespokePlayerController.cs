@@ -61,6 +61,11 @@ namespace Platformer.Mechanics
         [Tooltip("the number of shots that can be loaded at once")]
         public int shotNumber = 1;
 
+        [Tooltip("the rate at which the charge bar fills (higher is faster)")]
+        public float chargeRate = 1;
+
+        
+
         //this is what actually keeps track of the number of shots, shotNumber is more like a static variable that shotCount gets set to
         private int shotCount;
 
@@ -68,6 +73,7 @@ namespace Platformer.Mechanics
         public float Timer;
 
         public bool paused = true;
+        private bool firstShot = true; //Boolean to disable start tutorial
 
         public AudioSource soundMachine;
 
@@ -98,6 +104,10 @@ namespace Platformer.Mechanics
 
         //should this be serialized?
         [SerializeField] private float power;
+
+        [Header("Tutorial GameObjects")]
+        [Tooltip("Basic shooting tutorial")]
+        public GameObject shootingTutorial;
 
         void Awake()
         {
@@ -188,14 +198,14 @@ namespace Platformer.Mechanics
                 {
                     if (SlowmoScript.slowed)
                     {
-                        Timer += Time.deltaTime * (0.5f / SlowmoScript.slowdownAmount);
+                        Timer += Time.deltaTime * chargeRate * (0.5f / SlowmoScript.slowdownAmount);
                     }
                     else
-                        Timer += Time.deltaTime;
+                        Timer += Time.deltaTime * chargeRate;
                 }
 
                 else
-                    Timer += Time.deltaTime;
+                    Timer += Time.deltaTime * chargeRate;
             }
 
             //checks for starting reload
@@ -308,6 +318,18 @@ namespace Platformer.Mechanics
             //functionality for reload
             StartCoroutine(ReloadDelay());
 
+            if (firstShot)
+            {
+                firstShot = false;
+                if (shootingTutorial != null)
+                {
+                    shootingTutorial.SetActive(false);
+                }
+                else
+                {
+                    Debug.LogWarning("No basic shooting tutorial is loaded into the bespoke player controller, disregard if not on the first level.");
+                }
+            }
 
             soundMachine.PlayOneShot(gunAudio, volumeScale);
             StartCoroutine(Cooldown(cooldownTime));
@@ -368,7 +390,7 @@ namespace Platformer.Mechanics
 
         IEnumerator GunReloadV2()
         {
-            for (reloadTimeActive = 1f; reloadTimeActive > 0; reloadTimeActive -= Time.deltaTime)
+            for (reloadTimeActive = reloadTime; reloadTimeActive > 0; reloadTimeActive -= Time.deltaTime)
                 yield return null;
             shotCount++;
             reloadTimeActive = reloadTime;
