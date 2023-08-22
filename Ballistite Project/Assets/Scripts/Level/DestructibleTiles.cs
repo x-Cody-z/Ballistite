@@ -14,12 +14,12 @@ public class DestructibleTiles : MonoBehaviour
         {
             Transform projectilePos = projectileData.HitPosition; // gets position of event's projectile
             Vector2 velocity = projectileData.velocity;
-            float radius = projectileData.radius;
+            float radius = projectileData.radius/5;
 
             GameObject mask = new GameObject("craterMask");
             mask.AddComponent<SpriteMask>().sprite = sprite;
             mask.transform.position = projectilePos.position;
-            mask.transform.localScale = new Vector2(radius + Mathf.Abs(velocity.x /12), radius + Mathf.Abs(velocity.y /12));
+            mask.transform.localScale = new Vector2(radius, radius);
         }
     }
 }

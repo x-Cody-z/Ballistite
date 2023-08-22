@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Runtime.InteropServices;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
+
 
 [RequireComponent(typeof(LineRenderer))]
 public class Tank : MonoBehaviour

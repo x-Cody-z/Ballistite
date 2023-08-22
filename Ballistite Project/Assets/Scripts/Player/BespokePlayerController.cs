@@ -263,14 +263,14 @@ namespace Platformer.Mechanics
                                 break;
                             case > 6:
                                 blastValue = power;
-                                shoot(angleInRadians, shotSpawnPos, power);
+                                Shoot(angleInRadians, shotSpawnPos, power);
                                 break;
                         }
 
                     }
                     if (Input.GetButtonUp("Fire1") && shotCount > 0 && !cooldown && !shotCancel)
                     {
-                        shoot(angleInRadians, shotSpawnPos, power);
+                        Shoot(angleInRadians, shotSpawnPos, power);
                     }
                     
 
@@ -297,7 +297,7 @@ namespace Platformer.Mechanics
                     //This is for single shot
                     if (Input.GetButtonDown("Fire1") && shotCount > 0 && !cooldown)
                     {
-                        shoot(angleInRadians, shotSpawnPos, 1);
+                        Shoot(angleInRadians, shotSpawnPos, 1);
                     }
                 }
 
@@ -313,7 +313,7 @@ namespace Platformer.Mechanics
             UpdateUIValues();
         }
 
-        private void shoot(float angle, Vector3 spawnPos, float powerMod)
+        private void Shoot(float angle, Vector3 spawnPos, float powerMod)
         {
             //functionality for reload
             StartCoroutine(ReloadDelay());
