@@ -8,7 +8,7 @@ public class SetSceneCommand : Command
 {
     public override string[] ids
     {
-        get { return new string[] { "set_scene", "setscene", "set-scene", "scene_set", "sceneset", "scene-set", "scene"}; }
+        get { return new string[] { "set_scene", "setscene", "set-scene", "scene_set", "sceneset", "scene-set", "scene", "ss" }; }
         set { }
     }
 

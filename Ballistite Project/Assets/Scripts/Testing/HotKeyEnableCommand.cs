@@ -7,7 +7,7 @@ public class HotKeyEnableCommand : Command
 {
     public override string[] ids
     {
-        get { return new string[] { "hotkey", "hotkey_toggle", "hotkey_enable", "toggle_hotkey", "enable_hotkey" }; }
+        get { return new string[] { "hotkey", "hotkey_toggle", "hotkey_enable", "toggle_hotkey", "enable_hotkey", "eh", "hotkeys" }; }
         set { }
     }
     public override string description

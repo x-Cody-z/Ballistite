@@ -8,7 +8,7 @@ public class ListScenesCommand : Command
 {
     public override string[] ids
     {
-        get { return new string[] { "list_scenes", "list-scenes", "listscenes", "scenes" }; }
+        get { return new string[] { "list_scenes", "list-scenes", "listscenes", "scenes", "ls" }; }
         set { }
     }
     public override string description

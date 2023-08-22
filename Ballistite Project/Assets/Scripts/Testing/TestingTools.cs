@@ -18,10 +18,16 @@ public class TestingTools : MonoBehaviour
 
     public bool hotkeysEnabled = false;
 
+    private List<string> inputLog = new List<string>();
+    private int logIndex = 0;
+    private List<string> outputLog = new List<string>();
+
     private void Awake()
     {
+        //lets the testing object persist across scenes
         DontDestroyOnLoad(gameObject);
 
+        //stops duplicate testing objects being created when scene gets reloaded
         if (testingInstance == null)
             testingInstance = this;
         else
@@ -31,7 +37,6 @@ public class TestingTools : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sceneCount = SceneManager.sceneCountInBuildSettings;
         canvas.enabled = false;
         commandSetup();
     }
@@ -39,18 +44,49 @@ public class TestingTools : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //displays the console if its not visible and vice versa
         if (Input.GetKeyUp(KeyCode.Tab))
         {
             consoleToggle();
         }
 
+        //submits the current text in the console
         if (canvas.enabled == true && Input.GetKeyDown(KeyCode.Return))
         {
+            //adds the input to a log so we can backtrack commands
+            inputLog.Add(consoleInput.text);
+            logIndex = inputLog.Count;
+
+            //start processing the input and reset the input field
             resultText.text = processInput();
             consoleInput.text = "";
             consoleInput.ActivateInputField();
+
+            //adds the result text to a list for logging
+            outputLog.Add(resultText.text);
         }
 
+        //increments through the input log to autofill the input field with a previous command
+        if (canvas.enabled == true && Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            logIndex -= 1;
+            //wraps around when out of range
+            if (logIndex < 0)
+                logIndex = inputLog.Count - 1;
+            consoleInput.text = inputLog[logIndex];
+        }
+        //same as above but in opposite direction
+        if (canvas.enabled == true && Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            logIndex += 1;
+            if (logIndex > inputLog.Count - 1)
+                logIndex = 0;
+            consoleInput.text = inputLog[logIndex];
+        }
+
+
+
+        //hotkeys for changing scene and teleporting
         if (canvas.enabled == false && hotkeysEnabled == true)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1) && SceneManager.sceneCountInBuildSettings > 0)
@@ -76,11 +112,13 @@ public class TestingTools : MonoBehaviour
         }
     }
 
+    //enables or disables the console's canvas object, resets input text when closed
     private void consoleToggle()
     {
         if (canvas.enabled == false)
         {
             canvas.enabled = true;
+            //so you don't have to click in the text box
             consoleInput.ActivateInputField();
         }
         else
@@ -91,6 +129,7 @@ public class TestingTools : MonoBehaviour
         
     }
 
+    //splits the input string and compares the first word with all command ids
     private string processInput()
     {
         inputString = consoleInput.text.ToLower();
@@ -108,6 +147,7 @@ public class TestingTools : MonoBehaviour
         return "Invalid command. Type \"help\" to get a list of possible commands.";
     }
 
+    //create an array of commands, 1 of each type of command
     private void commandSetup()
     {
         commandArray = new Command[]
@@ -115,17 +155,43 @@ public class TestingTools : MonoBehaviour
             new HelpCommand(),
             new SetSceneCommand(),
             new ListScenesCommand(),
-            new HotKeyEnableCommand()
+            new HotKeyEnableCommand(),
+            new GetPosCommand(),
+            new SetPosCommand(),
+            new LogCommand()
         };
     }
 
+    //function used by the help command to list the description of all commands
     public string help()
     {
         string s = "";
         foreach (Command c in commandArray)
         {
-            s += c.description + "\n";
+            s += " - " + c.description + "\n\n";
         }
         return s;
+    }
+
+    //function used by log command to get all the input and output text
+    public string logtext()
+    {
+        string result = "";
+        string[] combinedLog = new string[inputLog.Count + outputLog.Count + 1];
+        for (int i = 0; i < inputLog.Count; i++)
+        {
+            combinedLog[i * 2] = "INPUT (" + i.ToString() + "): " + inputLog[i];
+        }
+        for (int j = 0; j < outputLog.Count; j++)
+        {
+            combinedLog[(j * 2) + 1] = "OUTPUT (" + j.ToString() + "): " + outputLog[j] + "\n";
+        }
+
+        foreach (string s in combinedLog)
+        {
+            result += s + "\n";
+        }
+
+        return result;
     }
 }

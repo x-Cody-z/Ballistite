@@ -381,7 +381,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00022888, y: -83.39197}
+  m_AnchoredPosition: {x: 0.00022888, y: -181}
   m_SizeDelta: {x: 340.96, y: 24.931}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1513344559
@@ -555,8 +555,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.6354, y: 12.464}
-  m_SizeDelta: {x: 335.6891, y: 166.79}
+  m_AnchoredPosition: {x: 2.633, y: 12.811}
+  m_SizeDelta: {x: 335.69, y: 362.69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2108547503
 CanvasRenderer:
@@ -596,7 +596,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 2164260863
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0.5}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -619,7 +619,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 2
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -692,8 +692,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -275.02295, y: 154.64252}
-  m_SizeDelta: {x: -550.0459, y: -309.285}
+  m_AnchoredPosition: {x: -275.02295, y: 56.34503}
+  m_SizeDelta: {x: -550.0459, y: -112.69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &636087043718237706
 CanvasRenderer:
@@ -716,7 +716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.9019608}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.92156863}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -883,3 +883,4 @@ MonoBehaviour:
   consoleInput: {fileID: 1513344560}
   canvas: {fileID: 636087044023916667}
   resultText: {fileID: 2108547502}
+  hotkeysEnabled: 0

@@ -7,7 +7,7 @@ public class HelpCommand : Command
 {
     public override string[] ids
     {
-        get { return new string[] { "help" }; }
+        get { return new string[] { "help", "h" }; }
         set { }
     }
     public override string description
