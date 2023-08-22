@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class LeadPredictor : MonoBehaviour
 {
-    public float CalculateProjectileSpeed(GameObject projectile, float power)
-    {
-        return (/*calcForce() **/ power / projectile.GetComponent<Rigidbody2D>().mass);
-    }
 
     /// <summary>
     /// Calculates the position the projectile should be fired at to hit a moving target
@@ -23,5 +19,9 @@ public class LeadPredictor : MonoBehaviour
         float timeToTarget = distance / projectileSpeed;
 
         return targetPosition + targetVelocity * timeToTarget;
+    }
+    public float CalculateProjectileSpeed(GameObject projectile, float power)
+    {
+        return (/*calcForce() **/ power / projectile.GetComponent<Rigidbody2D>().mass);
     }
 }
