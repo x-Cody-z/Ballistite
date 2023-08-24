@@ -9,7 +9,8 @@ namespace Platformer.Mechanics
     /// <summary>
     /// This is the main class used to implement control of the player.
     /// It is a superset of the AnimationController class, but is inlined to allow for any kind of customisation.
-    /// </summary>
+    /// </summary>]
+    [RequireComponent(typeof(Shooter))]
     [RequireComponent(typeof(TrajectoryPredictor))]
     public class BespokePlayerController : MonoBehaviour
     {
@@ -41,16 +42,10 @@ namespace Platformer.Mechanics
         private bool charge2;
         private bool charge3;
 
-
+        private Shooter shooter;
 
         [SerializeField] private float shotPower = 1f;
         [SerializeField] private float shotMod = 0.5f;
-
-        [Tooltip("every one increase in this value is one grid unit of vertical height to the shot")]
-        public float shotForce = 4f;
-
-        [Tooltip("every one increase in this value is one grid unit of horizontal movement")]
-        public float shotRecoil = 1f;
 
         [Tooltip("time in seconds for one shot to be reloaded")]
         public float reloadTime = 1f;
@@ -96,9 +91,6 @@ namespace Platformer.Mechanics
         private Vector3 spawn;
         private Quaternion spawnRot;
 
-        private float blastValue;
-        public GameEvent onBlastEvent;
-
         private bool singlePower = false;
         private bool debug = false;
 
@@ -114,6 +106,9 @@ namespace Platformer.Mechanics
             power = 1;
             if (trajectoryPredictor == null)
                 trajectoryPredictor = GetComponent<TrajectoryPredictor>();
+
+            if (shooter == null)
+                shooter = GetComponent<Shooter>();
 
             shotCount = shotNumber;
             spawn = transform.position;
@@ -157,7 +152,7 @@ namespace Platformer.Mechanics
 
             data.direction = muzzle.transform.right;
             data.initialPosition = muzzle.position;
-            data.initialSpeed = calcForce() * power;
+            data.initialSpeed = shooter.calcForce() * power;
             data.mass = rb.mass;
             data.drag = 0;
 
@@ -232,75 +227,76 @@ namespace Platformer.Mechanics
 
                 
                 Vector3 shotSpawnPos = muzzle.transform.position;
-                if (!singlePower)
+                //this is for charging power
+                if (Input.GetButton("Fire1") && shotCount > 0 && !cooldown && !shotCancel)
                 {
-                    //this is for charging power
-                    if (Input.GetButton("Fire1") && shotCount > 0 && !cooldown && !shotCancel)
+                    paused = false;
+                    switch (Timer)
                     {
-                        paused = false;
-                        switch (Timer)
-                        {
-                            case < 1 :
-                                //eventually this code needs to be refactored to not use the indicators if we arent gonna have them in games
-                                if (!charge1)
-                                {
-                                    power = shotPower;
-                                    charge1 = true;
-                                }
-                                break;
-                            case >= 1 and < 2:
-                                if (!charge2)
-                                {
-                                    power = shotPower + shotMod;
-                                    charge2 = true;
-                                }
-                                break;
-                            case >= 2 and < 3:
-                                if (!charge3)
-                                {
-                                    power = shotPower + 2*shotMod;
-                                    charge3 = true;
-                                }
-                                break;
-                            case > 6:
-                                blastValue = power;
-                                Shoot(angleInRadians, shotSpawnPos, power);
-                                break;
-                        }
+                        case < 1 :
+                            //eventually this code needs to be refactored to not use the indicators if we arent gonna have them in games
+                            if (!charge1)
+                            {
+                                power = shotPower;
+                                charge1 = true;
+                            }
+                            break;
+                        case >= 1 and < 2:
+                            if (!charge2)
+                            {
+                                power = shotPower + shotMod;
+                                charge2 = true;
+                            }
+                            break;
+                        case >= 2 and < 3:
+                            if (!charge3)
+                            {
+                                power = shotPower + 2*shotMod;
+                                charge3 = true;
+                            }
+                            break;
+                        case > 6:
+                            shooter.Shoot(angleInRadians, shotSpawnPos, power, projectile);
+                            StartCoroutine(ReloadDelay());
+                            StartCoroutine(Cooldown(cooldownTime));
+                            FirstShot();
+                            ResetCharge();
+                            shotCount--;
+                            power = 1;
+                            break;
+                    }
 
-                    }
-                    if (Input.GetButtonUp("Fire1") && shotCount > 0 && !cooldown && !shotCancel)
-                    {
-                        Shoot(angleInRadians, shotSpawnPos, power);
-                    }
+                }
+                if (Input.GetButtonUp("Fire1") && shotCount > 0 && !cooldown && !shotCancel)
+                {
+                    shooter.Shoot(angleInRadians, shotSpawnPos, power, projectile);
+                    StartCoroutine(ReloadDelay());
+                    StartCoroutine(Cooldown(cooldownTime));
+                    ResetCharge();
+                    FirstShot();
+                    shotCount--;
+                    power = 1;
+                }
                     
 
-                    //cancel shot
-                    if (Input.GetKeyDown(KeyCode.Space))
-                    {
-                        Timer = 0;
-                        paused = true;
-                        //StartCoroutine(Cooldown(0.2f));
-                        shotCancel = true;
-
-                        charge1 = false;
-                        charge2 = false;
-                        charge3 = false;
-                    }
-
-                    if (Input.GetButtonUp("Fire1"))
-                    {
-                        shotCancel = false;
-                    }
-
-                } else
+                //cancel shot
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    //This is for single shot
-                    if (Input.GetButtonDown("Fire1") && shotCount > 0 && !cooldown)
-                    {
-                        Shoot(angleInRadians, shotSpawnPos, 1);
-                    }
+                    Timer = 0;
+                    paused = true;
+                    //StartCoroutine(Cooldown(0.2f));
+                    shotCancel = true;
+
+                    charge1 = false;
+                    charge2 = false;
+                    charge3 = false;
                 }
+
+                if (Input.GetButtonUp("Fire1"))
+                {
+                    shotCancel = false;
+                }
+
 
                 //key zero respawns player back at the beginning of level
                 if (Input.GetKeyDown(KeyCode.Alpha0))
@@ -314,11 +310,17 @@ namespace Platformer.Mechanics
             UpdateUIValues();
         }
 
-        private void Shoot(float angle, Vector3 spawnPos, float powerMod)
+        void ResetCharge()
         {
-            //functionality for reload
-            StartCoroutine(ReloadDelay());
+            Timer = 0;
+            paused = true;
+            charge1 = false;
+            charge2 = false;
+            charge3 = false;
+        }
 
+        void FirstShot()
+        {
             if (firstShot)
             {
                 firstShot = false;
@@ -331,58 +333,6 @@ namespace Platformer.Mechanics
                     Debug.LogWarning("No basic shooting tutorial is loaded into the bespoke player controller, disregard if not on the first level.");
                 }
             }
-
-            soundMachine.PlayOneShot(gunAudio, volumeScale);
-            StartCoroutine(Cooldown(cooldownTime));
-            shotCount--;
-            Rigidbody2D tankRB = GetComponent<Rigidbody2D>();
-            GameObject shotProjectile = Instantiate(projectile);
-            Timer = 0;
-            paused = true;
-            charge1 = false;
-            charge2 = false;
-            charge3 = false;
-
-            LayerMask mask = LayerMask.GetMask("Level");
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, spawnPos-barrelPivot.position,5, mask);
-            
-            if (hit.collider != null && hit.collider.CompareTag("Level"))
-            {
-                Debug.DrawRay(transform.position, spawnPos - barrelPivot.position, Color.red, hit.distance);
-                shotProjectile.transform.position = hit.point;
-            }
-            else
-            {
-                Debug.DrawRay(transform.position, spawnPos - barrelPivot.position, Color.green, 5);
-                shotProjectile.transform.position = spawnPos;
-            }   
-
-            shotProjectile.GetComponent<Projectile>().graphic.transform.rotation = muzzle.transform.rotation;
-            Rigidbody2D shotProjectileRB = shotProjectile.GetComponent<Rigidbody2D>();
-            Vector2 forceDirection = new(Mathf.Cos(angle), Mathf.Sin(angle));
-            shotProjectileRB.AddForce(forceDirection * calcForce() * powerMod, ForceMode2D.Impulse);
-            //tankRB.AddForce(forceDirection * calcRecoil() * powerMod, ForceMode2D.Impulse);
-            tankRB.velocity = tankRB.velocity + forceDirection * calcRecoil() * powerMod;
-            blastValue = power;
-            PlayerEventData eventData = new PlayerEventData { Sender = this, BlastValue = blastValue };
-            onBlastEvent.Raise(eventData);
-            power = 1;
-        }
-
-        private float calcRecoil()
-        {
-            float adjustmentFactor = Mathf.Pow(shotRecoil, 0.5f);
-            //increases force if slow-mo is enabled
-            if (SlowmoScript != null)
-                if (SlowmoScript.slowed)
-                    adjustmentFactor *= 1.5f;
-            return -adjustmentFactor * 2.83f;
-        }
-
-        private float calcForce()
-        {
-            float adjustmentFactor = Mathf.Pow(shotForce, 0.5f);
-            return adjustmentFactor * 0.48f;
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
