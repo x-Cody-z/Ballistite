@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChargeTutorial : MonoBehaviour
 {
     public Collider2D trigger;
-    private GameTime timeController;
+    private LevelController levelController;
     private bool playedBefore;
     private bool restoreControl;
     public Platformer.Mechanics.BespokePlayerController playerObject;
@@ -15,7 +15,7 @@ public class ChargeTutorial : MonoBehaviour
     void Start()
     {
         playedBefore = false;
-        timeController = FindObjectOfType<GameTime>();
+        levelController = FindObjectOfType<LevelController>();
         playerObject = FindObjectOfType<Platformer.Mechanics.BespokePlayerController>();
         playerCollider = playerObject.GetComponent<Collider2D>();
     }
@@ -28,11 +28,7 @@ public class ChargeTutorial : MonoBehaviour
             if (!playedBefore)
             {
                 playedBefore = true;
-
-            }
-            if (Time.timeScale > 0)
-            {
-                
+                //levelController.PauseGameTime();
             }
         }
     }

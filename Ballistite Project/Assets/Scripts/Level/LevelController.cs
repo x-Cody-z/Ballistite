@@ -29,13 +29,19 @@ public class LevelController : MonoBehaviour
 
     public Transform tank;
 
+    private float startTime;
+
+    void Awake()
+    {
+        startTime = Time.timeScale;
+    }
+
     private void Start()
     {
         levelStartTime = Time.time;
         startPoint = startPointObject.transform.position;
         finishPoint = finishPointObject.transform.position;
-        GameTime timeController = GetComponent<GameTime>();
-        timeController.PauseGameTime();
+        PauseGameTime();
     }
 
     private void Update()
@@ -87,5 +93,14 @@ public class LevelController : MonoBehaviour
     public void OnEnvironmentDestroyed()
     {
         enviroDestroyCount++;
+    }
+    public void PauseGameTime()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void PlayGameTime()
+    {
+        Time.timeScale = startTime;
     }
 }
