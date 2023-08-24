@@ -343,8 +343,19 @@ namespace Platformer.Mechanics
             charge2 = false;
             charge3 = false;
 
-            //shotProjectile.transform.position = spawnPos;
-            shotProjectile.transform.position = this.transform.position;
+            LayerMask mask = LayerMask.GetMask("Level");
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, spawnPos-barrelPivot.position,5, mask);
+            
+            if (hit.collider != null && hit.collider.CompareTag("Level"))
+            {
+                Debug.DrawRay(transform.position, spawnPos - barrelPivot.position, Color.red, hit.distance);
+                shotProjectile.transform.position = hit.point;
+            }
+            else
+            {
+                Debug.DrawRay(transform.position, spawnPos - barrelPivot.position, Color.green, 5);
+                shotProjectile.transform.position = spawnPos;
+            }   
 
             shotProjectile.GetComponent<Projectile>().graphic.transform.rotation = muzzle.transform.rotation;
             Rigidbody2D shotProjectileRB = shotProjectile.GetComponent<Rigidbody2D>();
