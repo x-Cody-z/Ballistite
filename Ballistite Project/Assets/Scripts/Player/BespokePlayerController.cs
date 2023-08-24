@@ -20,21 +20,26 @@ namespace Platformer.Mechanics
         private GameObject UIObject;
         private uiController UIScript;
 
+        [Header("VCams")]
         [SerializeField] CinemachineVirtualCamera vcamMouse;
         [SerializeField] CinemachineVirtualCamera vcamPlayer;
 
         //part of new reload function, this is the value that changes as the reload time progresses, old reloadTime is used as a target value.
         private float reloadTimeActive;
         private float reloadDelay;
-        [SerializeField] private float volumeScale = 1;
 
+        [Header("Audio")]
         public AudioClip gunAudio;
         public AudioClip reloadAudio;
         public AudioClip landingAudio;
+        [SerializeField] private float volumeScale = 1;
+
+        [Header("Game objects")]
         public Transform barrel;
         public Transform barrelPivot;
         public Transform muzzle;
         public GameObject projectile;
+
         private TrajectoryPredictor trajectoryPredictor;
 
         //bools used for toggling the charge indicators
@@ -44,6 +49,7 @@ namespace Platformer.Mechanics
 
         private Shooter shooter;
 
+        [Header("Reload Params")]
         [SerializeField] private float shotPower = 1f;
         [SerializeField] private float shotMod = 0.5f;
 
@@ -51,7 +57,7 @@ namespace Platformer.Mechanics
         public float reloadTime = 1f;
 
         [Tooltip("minimum time in seconds between each shot, think of it as fire rate")]
-        public float cooldownTime = 0.5f;
+        public float fireRate = 0.5f;
 
         [Tooltip("the number of shots that can be loaded at once")]
         public int shotNumber = 1;
@@ -94,8 +100,7 @@ namespace Platformer.Mechanics
         private bool singlePower = false;
         private bool debug = false;
 
-        //should this be serialized?
-        [SerializeField] private float power;
+        private float power;
 
         [Header("Tutorial GameObjects")]
         [Tooltip("Basic shooting tutorial")]
@@ -216,16 +221,9 @@ namespace Platformer.Mechanics
             chargeBar.SetActive(!singlePower);
             if (controlEnabled)
             {
-                mousePos = Input.mousePosition;
-                mousePos.z = Camera.main.nearClipPlane;
-                Worldpos = Camera.main.ScreenToWorldPoint(mousePos);
-                Worldpos2D = new Vector2(Worldpos.x, Worldpos.y);
-                mouse.transform.position = Worldpos2D;
-                barrelAngle = Mathf.Atan2(Worldpos2D.y - barrelPivot.position.y, Worldpos2D.x - barrelPivot.position.x) * Mathf.Rad2Deg;
-                barrel.rotation = Quaternion.Euler(new Vector3(0, 0, barrelAngle));
-                float angleInRadians = barrelAngle * Mathf.Deg2Rad;
 
-                
+                barrel.rotation = Quaternion.Euler(new Vector3(0, 0, GetBarrelAngle()* Mathf.Rad2Deg));
+
                 Vector3 shotSpawnPos = muzzle.transform.position;
                 //this is for charging power
                 if (Input.GetButton("Fire1") && shotCount > 0 && !cooldown && !shotCancel)
@@ -233,8 +231,7 @@ namespace Platformer.Mechanics
                     paused = false;
                     switch (Timer)
                     {
-                        case < 1 :
-                            //eventually this code needs to be refactored to not use the indicators if we arent gonna have them in games
+                        case < 1:
                             if (!charge1)
                             {
                                 power = shotPower;
@@ -256,9 +253,9 @@ namespace Platformer.Mechanics
                             }
                             break;
                         case > 6:
-                            shooter.Shoot(angleInRadians, shotSpawnPos, power, projectile);
+                            shooter.Shoot(GetBarrelAngle(), shotSpawnPos, power, projectile);
                             StartCoroutine(ReloadDelay());
-                            StartCoroutine(Cooldown(cooldownTime));
+                            StartCoroutine(FireDelay(fireRate));
                             FirstShot();
                             ResetCharge();
                             shotCount--;
@@ -269,9 +266,9 @@ namespace Platformer.Mechanics
                 }
                 if (Input.GetButtonUp("Fire1") && shotCount > 0 && !cooldown && !shotCancel)
                 {
-                    shooter.Shoot(angleInRadians, shotSpawnPos, power, projectile);
+                    shooter.Shoot(GetBarrelAngle(), shotSpawnPos, power, projectile);
                     StartCoroutine(ReloadDelay());
-                    StartCoroutine(Cooldown(cooldownTime));
+                    StartCoroutine(FireDelay(fireRate));
                     ResetCharge();
                     FirstShot();
                     shotCount--;
@@ -282,14 +279,9 @@ namespace Platformer.Mechanics
                 //cancel shot
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    Timer = 0;
-                    paused = true;
                     //StartCoroutine(Cooldown(0.2f));
                     shotCancel = true;
-
-                    charge1 = false;
-                    charge2 = false;
-                    charge3 = false;
+                    ResetCharge();
                 }
 
                 if (Input.GetButtonUp("Fire1"))
@@ -303,7 +295,7 @@ namespace Platformer.Mechanics
                 {
                     transform.position = spawn;
                     transform.rotation = spawnRot;
-                    GameObject.Find("win panel").SetActive(false);
+                    GameObject.Find("win panel")?.SetActive(false);
                 }
                 
             }
@@ -319,6 +311,17 @@ namespace Platformer.Mechanics
             charge3 = false;
         }
 
+        float GetBarrelAngle()
+        {
+            mousePos = Input.mousePosition;
+            mousePos.z = Camera.main.nearClipPlane;
+            Worldpos = Camera.main.ScreenToWorldPoint(mousePos);
+            Worldpos2D = new Vector2(Worldpos.x, Worldpos.y);
+            mouse.transform.position = Worldpos2D;
+            barrelAngle = Mathf.Atan2(Worldpos2D.y - barrelPivot.position.y, Worldpos2D.x - barrelPivot.position.x) * Mathf.Rad2Deg;
+            barrel.rotation = Quaternion.Euler(new Vector3(0, 0, barrelAngle));
+            return barrelAngle * Mathf.Deg2Rad;
+        }
         void FirstShot()
         {
             if (firstShot)
@@ -387,7 +390,7 @@ namespace Platformer.Mechanics
         }
 
 
-        IEnumerator Cooldown(float cd)
+        IEnumerator FireDelay(float cd)
         {
             //Debug.Log("Start Cooldown");
             cooldown = true;

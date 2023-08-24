@@ -1385,6 +1385,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &524953022 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5197845457302251699, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
+  m_PrefabInstance: {fileID: 1194087620}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &527810176
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3315,7 +3320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dac0a9f4c4f101a4c9a3e0aebb0b564f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 6629de7f7b220924f909f523f120fb11, type: 3}
+  sprite: {fileID: 21300000, guid: f0104c741ff9e734192e13c0b7d8bbc5, type: 3}
 --- !u!114 &682446562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4832,6 +4837,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 732533707}
     m_Modifications:
+    - target: {fileID: 1016075928834900212, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
+      propertyPath: muzzle
+      value: 
+      objectReference: {fileID: 524953022}
+    - target: {fileID: 1016075928834900212, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
+      propertyPath: barrelPivot
+      value: 
+      objectReference: {fileID: 1702492317}
+    - target: {fileID: 1016075928834900212, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
+      propertyPath: onBlastEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: d711f105cc03f47468c8b3703bc7b1de, type: 2}
     - target: {fileID: 4475686102729582358, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
       propertyPath: vcamMouse
       value: 
@@ -6855,6 +6872,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 38311137}
   m_SourcePrefab: {fileID: 100100000, guid: d97ac73f77068b54d965f773d06de3ba, type: 3}
+--- !u!4 &1702492317 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8962347402026695018, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
+  m_PrefabInstance: {fileID: 1194087620}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1716121119
 GameObject:
   m_ObjectHideFlags: 0
