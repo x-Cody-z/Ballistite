@@ -22,6 +22,10 @@ public class TestingTools : MonoBehaviour
     private int logIndex = 0;
     private List<string> outputLog = new List<string>();
 
+    
+    private List<float> frameTimes = new List<float>();
+    public bool fpsLogging = false;
+
     private void Awake()
     {
         //lets the testing object persist across scenes
@@ -109,6 +113,13 @@ public class TestingTools : MonoBehaviour
                 GameObject.Find("Player").transform.position += new Vector3(0, 10, 0);
             if (Input.GetKeyDown(KeyCode.DownArrow) && GameObject.Find("Player"))
                 GameObject.Find("Player").transform.position += new Vector3(0, -10, 0);
+
+            
+        }
+
+        if (fpsLogging)
+        {
+            frameTimes.Add(Time.deltaTime);
         }
     }
 
@@ -158,7 +169,8 @@ public class TestingTools : MonoBehaviour
             new HotKeyEnableCommand(),
             new GetPosCommand(),
             new SetPosCommand(),
-            new LogCommand()
+            new LogCommand(),
+            new PerformanceLogCommand()            
         };
     }
 
@@ -193,5 +205,18 @@ public class TestingTools : MonoBehaviour
         }
 
         return result;
+    }
+
+    //function used by performance log command
+    public void logFpsStart()
+    {
+        frameTimes.Clear();
+        fpsLogging = true;
+    }
+
+    public List<float> logFpsStop()
+    {
+        fpsLogging = false;
+        return frameTimes;
     }
 }
