@@ -111,6 +111,7 @@ namespace Platformer.Mechanics
 
         void Awake()
         {
+            power = 1;
             if (trajectoryPredictor == null)
                 trajectoryPredictor = GetComponent<TrajectoryPredictor>();
 
@@ -156,7 +157,7 @@ namespace Platformer.Mechanics
 
             data.direction = muzzle.transform.right;
             data.initialPosition = muzzle.position;
-            data.initialSpeed = calcForce();
+            data.initialSpeed = calcForce() * power;
             data.mass = rb.mass;
             data.drag = 0;
 
@@ -354,6 +355,7 @@ namespace Platformer.Mechanics
             blastValue = power;
             PlayerEventData eventData = new PlayerEventData { Sender = this, BlastValue = blastValue };
             onBlastEvent.Raise(eventData);
+            power = 1;
         }
 
         private float calcRecoil()
