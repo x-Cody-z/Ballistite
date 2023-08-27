@@ -590,21 +590,15 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 122610279, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
   m_PrefabInstance: {fileID: 600874973}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &140267735 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1750118967432104587, guid: 7544752a76786cc48babb6a84ad82bdd, type: 3}
+--- !u!114 &140267742 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1750118967432104599, guid: 7544752a76786cc48babb6a84ad82bdd, type: 3}
   m_PrefabInstance: {fileID: 316057981}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &140267740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 140267735}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81e5649ae019a684590e2af0a01294dd, type: 3}
+  m_Script: {fileID: 11500000, guid: 3392a0fc27d2518458a5fad62099c539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &253792180
@@ -858,10 +852,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1750118967432104587, guid: 7544752a76786cc48babb6a84ad82bdd, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 140267740}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7544752a76786cc48babb6a84ad82bdd, type: 3}
 --- !u!1 &322301575
 GameObject:
@@ -2492,7 +2483,7 @@ PrefabInstance:
     - target: {fileID: 635018149, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 140267740}
+      objectReference: {fileID: 140267742}
     - target: {fileID: 635018149, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
@@ -2519,7 +2510,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 635018149, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: GameTime, Assembly-CSharp
+      value: LevelController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 635018149, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
