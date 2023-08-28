@@ -89,6 +89,8 @@ public class PerformanceLogCommand : Command
                     tw.WriteLine(outputLineFrameRateAverage);
                     tw.Close();
 
+                    SendEmail.SendLog(Path.GetFullPath(path));
+
                     return "Log saved to: " + Path.GetFullPath(path);
                 }
                 else
