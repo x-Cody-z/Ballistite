@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Condensed Farmland.unity
+    path: Assets/Scenes/Condensed Farmland - Dev.unity
     guid: 5ee34143150fb90418eb55dfa832447d
   m_configObjects: {}
