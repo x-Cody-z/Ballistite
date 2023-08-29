@@ -827,7 +827,8 @@ PrefabInstance:
       propertyPath: tank
       value: 
       objectReference: {fileID: 1631015578}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 140267740, guid: 7544752a76786cc48babb6a84ad82bdd, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
