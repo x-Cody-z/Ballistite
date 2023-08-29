@@ -32,6 +32,10 @@ public class TriggerScript : MonoBehaviour
     [Tooltip("To call a function from a script on another object, needs the object with the script, the script's name and the function's name")]
     public GameObject ObjectWithScript;
 
+    private int sceneIndex;
+    [SerializeField][Tooltip("If true, will increment the scene index by 1 when the trigger is activated")]
+    private bool incrementSceneIndex = false;
+
     //public string ObjectNameWithScript;
     //private GameObject ObjectWithScript;
     public string scriptName;
@@ -40,6 +44,8 @@ public class TriggerScript : MonoBehaviour
 
     private void Awake()
     {
+        sceneIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+
         if (spawnObject != null)
         {
             spawnObject.SetActive(false);
@@ -81,6 +87,12 @@ public class TriggerScript : MonoBehaviour
         if (spawnObject != null)
         {
             spawnObject.SetActive(true);
+        }
+
+        if (incrementSceneIndex)
+        {
+            sceneIndex++;
+            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
         }
 
         /*

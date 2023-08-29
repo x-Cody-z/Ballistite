@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class LevelController : MonoBehaviour
@@ -41,7 +42,10 @@ public class LevelController : MonoBehaviour
         levelStartTime = Time.time;
         startPoint = startPointObject.transform.position;
         finishPoint = finishPointObject.transform.position;
-        PauseGameTime();
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            PauseGameTime();
+        }
     }
 
     private void Update()
