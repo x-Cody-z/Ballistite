@@ -26,12 +26,12 @@ namespace Platformer.Mechanics
 
         //part of new reload function, this is the value that changes as the reload time progresses, old reloadTime is used as a target value.
         private float reloadTimeActive;
-        private float reloadDelay;
 
         [Header("Audio")]
         public AudioClip gunAudio;
         public AudioClip reloadAudio;
         public AudioClip landingAudio;
+        public AudioSource soundMachine;
         [SerializeField] private float volumeScale = 1;
 
         [Header("Game objects")]
@@ -65,30 +65,28 @@ namespace Platformer.Mechanics
         [Tooltip("the rate at which the charge bar fills (higher is faster)")]
         public float chargeRate = 1;
 
-        
-
         //this is what actually keeps track of the number of shots, shotNumber is more like a static variable that shotCount gets set to
         private int shotCount;
 
         //timer stuff used for charging shot power
-        public float Timer;
+        public float chargeTimer;
+        
+        private float power;
 
-        public bool paused = true;
+        public bool chargePaused = true;
         private bool firstShot = true; //Boolean to disable start tutorial
 
-        public AudioSource soundMachine;
 
         public bool controlEnabled = false;
         public bool notInsideCutscene = false;
-        public bool grounded = true;
-        public bool reloading = false;
-        public bool cooldown = false;
+        private bool grounded = true;
+        private bool reloading = false;
         private bool shotCancel = false;
 
         [SerializeField] private GameObject SlowdownTrigger;
         private SlowdownTrigger SlowmoScript;
 
-        public static Vector3 mousePos;
+        private static Vector3 mousePos;
 
         private GameObject mouse;
         private Vector3 Worldpos;
@@ -97,10 +95,8 @@ namespace Platformer.Mechanics
         private Vector3 spawn;
         private Quaternion spawnRot;
 
-        private bool singlePower = false;
         private bool debug = false;
 
-        private float power;
 
         [Header("Tutorial GameObjects")]
         [Tooltip("Basic shooting tutorial")]
@@ -193,32 +189,31 @@ namespace Platformer.Mechanics
             }
 
             //start timer when holding left click
-            if (!paused)
+            if (!chargePaused)
             {
                 if (SlowmoScript != null)
                 {
                     if (SlowmoScript.slowed)
                     {
-                        Timer += Time.deltaTime * chargeRate * (0.5f / SlowmoScript.slowdownAmount);
+                        chargeTimer += Time.deltaTime * chargeRate * (0.5f / SlowmoScript.slowdownAmount);
                     }
                     else
-                        Timer += Time.deltaTime * chargeRate;
+                        chargeTimer += Time.deltaTime * chargeRate;
                 }
 
                 else
-                    Timer += Time.deltaTime * chargeRate;
+                    chargeTimer += Time.deltaTime * chargeRate;
             }
 
             //checks for starting reload
             if (grounded)
             {
-                if (shotCount < shotNumber && !reloading && reloadDelay <=0)
+                if (shotCount < shotNumber && !reloading && shooter.ReloadDelay <=0)
                 {
                     reloading = true;
                     StartCoroutine(GunReloadV2());
                 }
             }
-            chargeBar.SetActive(!singlePower);
             if (controlEnabled)
             {
 
@@ -226,10 +221,10 @@ namespace Platformer.Mechanics
 
                 Vector3 shotSpawnPos = muzzle.transform.position;
                 //this is for charging power
-                if (Input.GetButton("Fire1") && shotCount > 0 && !cooldown && !shotCancel)
+                if (Input.GetButton("Fire1") && shotCount > 0 && !shooter.ShotCooldown && !shotCancel)
                 {
-                    paused = false;
-                    switch (Timer)
+                    chargePaused = false;
+                    switch (chargeTimer)
                     {
                         case < 1:
                             if (!charge1)
@@ -254,8 +249,8 @@ namespace Platformer.Mechanics
                             break;
                         case > 6:
                             shooter.Shoot(GetBarrelAngle(), shotSpawnPos, power, projectile);
-                            StartCoroutine(ReloadDelay());
-                            StartCoroutine(FireDelay(fireRate));
+                            StartCoroutine(shooter.StartReloadDelay());
+                            StartCoroutine(shooter.StartFireDelay(fireRate));
                             FirstShot();
                             ResetCharge();
                             shotCount--;
@@ -264,11 +259,11 @@ namespace Platformer.Mechanics
                     }
 
                 }
-                if (Input.GetButtonUp("Fire1") && shotCount > 0 && !cooldown && !shotCancel)
+                if (Input.GetButtonUp("Fire1") && shotCount > 0 && !shooter.ShotCooldown && !shotCancel)
                 {
                     shooter.Shoot(GetBarrelAngle(), shotSpawnPos, power, projectile);
-                    StartCoroutine(ReloadDelay());
-                    StartCoroutine(FireDelay(fireRate));
+                    StartCoroutine(shooter.StartReloadDelay());
+                    StartCoroutine(shooter.StartFireDelay(fireRate));
                     ResetCharge();
                     FirstShot();
                     shotCount--;
@@ -304,8 +299,8 @@ namespace Platformer.Mechanics
 
         void ResetCharge()
         {
-            Timer = 0;
-            paused = true;
+            chargeTimer = 0;
+            chargePaused = true;
             charge1 = false;
             charge2 = false;
             charge3 = false;
@@ -379,24 +374,6 @@ namespace Platformer.Mechanics
                 reloading = false;
                 //Debug.LogError("CLICK");
             }
-        }
-
-        IEnumerator ReloadDelay()
-        {
-
-            for (reloadDelay = 0.05f; reloadDelay > 0; reloadDelay -= Time.deltaTime)
-                yield return null;
-
-        }
-
-
-        IEnumerator FireDelay(float cd)
-        {
-            //Debug.Log("Start Cooldown");
-            cooldown = true;
-            yield return new WaitForSeconds(cd);
-            cooldown = false;
-            //Debug.Log("End Cooldown");
         }
 
         //calls functions from the UI's script to update values. Is called in update

@@ -1690,9 +1690,9 @@ GameObject:
   - component: {fileID: 1823391466}
   - component: {fileID: 1823391465}
   - component: {fileID: 1985222582}
-  - component: {fileID: 3398628785000322285}
   - component: {fileID: 1823391467}
   - component: {fileID: 1631015587}
+  - component: {fileID: 1016075928834900212}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -1760,20 +1760,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vcamMouse: {fileID: 0}
   vcamPlayer: {fileID: 0}
-  volumeScale: 0.01
   gunAudio: {fileID: 8300000, guid: dbe29fdb85b67b047be6483b363b3e89, type: 3}
   reloadAudio: {fileID: 8300000, guid: 5f6ca32ae83928540b67e4ba4b8f1b05, type: 3}
   landingAudio: {fileID: 8300000, guid: d9281b1779cc9684ba465aaf01f86b42, type: 3}
+  volumeScale: 0.01
   barrel: {fileID: 1555745146874365634}
   barrelPivot: {fileID: 8962347402026695018}
   muzzle: {fileID: 1900594786463767661}
   projectile: {fileID: 6425388640759641725, guid: 7e67086ad6e974c4e888260b0c4b41fc, type: 3}
   shotPower: 1
   shotMod: 0.6
-  shotForce: 4
-  shotRecoil: 1
   reloadTime: 0.05
-  cooldownTime: 0.1
+  fireRate: 0.5
   shotNumber: 2
   chargeRate: 2.5
   Timer: 0
@@ -1785,8 +1783,6 @@ MonoBehaviour:
   reloading: 0
   cooldown: 0
   SlowdownTrigger: {fileID: 0}
-  onBlastEvent: {fileID: 11400000, guid: d711f105cc03f47468c8b3703bc7b1de, type: 2}
-  power: 0
   shootingTutorial: {fileID: 0}
 --- !u!114 &62565143367484258
 MonoBehaviour:
@@ -1989,20 +1985,6 @@ PolygonCollider2D:
       - {x: 0.5214373, y: 0.26778078}
       - {x: 0.517858, y: 0.3695358}
   m_UseDelaunayMesh: 0
---- !u!114 &3398628785000322285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5692961899612229980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9eebc6f48a8b6b84391757b462eea8bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resolution: 50
-  sampleRate: 0.1
 --- !u!120 &1823391467
 LineRenderer:
   serializedVersion: 2
@@ -2121,6 +2103,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseCursor: {fileID: 2800000, guid: 30206a80e0fbc3d4ea3a039d678cd3a6, type: 3}
   hotSpot: {x: 420, y: 420}
+--- !u!114 &1016075928834900212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5692961899612229980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a495d394bfde1e547a0be739dc76c160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotForce: 4
+  shotRecoil: 1
+  muzzle: {fileID: 5197845457302251699}
+  barrelPivot: {fileID: 8962347402026695018}
+  onBlastEvent: {fileID: 11400000, guid: d711f105cc03f47468c8b3703bc7b1de, type: 2}
 --- !u!1 &6076884873503302242
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
@@ -8,9 +9,22 @@ public class Shooter : MonoBehaviour
 {
     [Header("Shooting params")]
     [SerializeField][Tooltip("every one increase in this value is one grid unit of vertical height to the shot")]
+    [Range(1f, 20f)] 
     float shotForce = 4f;
     [SerializeField][Tooltip("every one increase in this value is one grid unit of horizontal movement")]
+    [Range(1f, 20f)]
     float shotRecoil = 1f;
+    public bool ShotCooldown
+    {
+        get { return shotCooldown; }
+    }
+    private bool shotCooldown = false;
+
+    public float ReloadDelay
+    {
+        get { return reloadDelay; }
+    }
+    private float reloadDelay;
 
     [Header("Transforms")]
     [SerializeField] GameObject muzzle;
@@ -23,6 +37,23 @@ public class Shooter : MonoBehaviour
     void Start()
     {
         
+    }
+
+    public IEnumerator StartFireDelay(float cd)
+    {
+        //Debug.Log("Start Cooldown");
+        shotCooldown = true;
+        yield return new WaitForSeconds(cd);
+        shotCooldown = false;
+        //Debug.Log("End Cooldown");
+    }
+
+    public IEnumerator StartReloadDelay()
+    {
+
+        for (reloadDelay = 0.05f; reloadDelay > 0; reloadDelay -= Time.deltaTime)
+            yield return null;
+
     }
 
     public void Shoot(float angle, Vector3 spawnPos, float powerMod, GameObject projectile)

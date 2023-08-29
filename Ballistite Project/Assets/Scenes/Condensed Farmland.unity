@@ -1385,11 +1385,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &524953022 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5197845457302251699, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
-  m_PrefabInstance: {fileID: 1194087620}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &527810176
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4701,15 +4696,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1284084140543987491, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.17999268
+      value: 0.35998535
       objectReference: {fileID: 0}
     - target: {fileID: 1284084140543987491, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.28500032
+      value: -0.5699997
       objectReference: {fileID: 0}
     - target: {fileID: 1284084140543987491, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.5
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 4285311623418916067, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
       propertyPath: m_Targets.Array.data[1].target
@@ -4838,17 +4833,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 732533707}
     m_Modifications:
     - target: {fileID: 1016075928834900212, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
-      propertyPath: muzzle
-      value: 
-      objectReference: {fileID: 524953022}
-    - target: {fileID: 1016075928834900212, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
-      propertyPath: barrelPivot
-      value: 
-      objectReference: {fileID: 1702492317}
-    - target: {fileID: 1016075928834900212, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
-      propertyPath: onBlastEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: d711f105cc03f47468c8b3703bc7b1de, type: 2}
+      propertyPath: shotForce
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4475686102729582358, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
       propertyPath: vcamMouse
       value: 
@@ -6872,11 +6859,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 38311137}
   m_SourcePrefab: {fileID: 100100000, guid: d97ac73f77068b54d965f773d06de3ba, type: 3}
---- !u!4 &1702492317 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8962347402026695018, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
-  m_PrefabInstance: {fileID: 1194087620}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1716121119
 GameObject:
   m_ObjectHideFlags: 0
