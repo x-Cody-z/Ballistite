@@ -111,6 +111,7 @@ namespace Platformer.Mechanics
 
         void Awake()
         {
+            power = 1;
             if (trajectoryPredictor == null)
                 trajectoryPredictor = GetComponent<TrajectoryPredictor>();
 
@@ -156,7 +157,7 @@ namespace Platformer.Mechanics
 
             data.direction = muzzle.transform.right;
             data.initialPosition = muzzle.position;
-            data.initialSpeed = calcForce();
+            data.initialSpeed = calcForce() * power;
             data.mass = rb.mass;
             data.drag = 0;
 
@@ -263,14 +264,14 @@ namespace Platformer.Mechanics
                                 break;
                             case > 6:
                                 blastValue = power;
-                                shoot(angleInRadians, shotSpawnPos, power);
+                                Shoot(angleInRadians, shotSpawnPos, power);
                                 break;
                         }
 
                     }
                     if (Input.GetButtonUp("Fire1") && shotCount > 0 && !cooldown && !shotCancel)
                     {
-                        shoot(angleInRadians, shotSpawnPos, power);
+                        Shoot(angleInRadians, shotSpawnPos, power);
                     }
                     
 
@@ -297,7 +298,7 @@ namespace Platformer.Mechanics
                     //This is for single shot
                     if (Input.GetButtonDown("Fire1") && shotCount > 0 && !cooldown)
                     {
-                        shoot(angleInRadians, shotSpawnPos, 1);
+                        Shoot(angleInRadians, shotSpawnPos, 1);
                     }
                 }
 
@@ -313,7 +314,7 @@ namespace Platformer.Mechanics
             UpdateUIValues();
         }
 
-        private void shoot(float angle, Vector3 spawnPos, float powerMod)
+        private void Shoot(float angle, Vector3 spawnPos, float powerMod)
         {
             //functionality for reload
             StartCoroutine(ReloadDelay());
@@ -342,8 +343,19 @@ namespace Platformer.Mechanics
             charge2 = false;
             charge3 = false;
 
-            //shotProjectile.transform.position = spawnPos;
-            shotProjectile.transform.position = this.transform.position;
+            LayerMask mask = LayerMask.GetMask("Level");
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, spawnPos-barrelPivot.position,5, mask);
+            
+            if (hit.collider != null && hit.collider.CompareTag("Level"))
+            {
+                Debug.DrawRay(transform.position, spawnPos - barrelPivot.position, Color.red, hit.distance);
+                shotProjectile.transform.position = hit.point;
+            }
+            else
+            {
+                Debug.DrawRay(transform.position, spawnPos - barrelPivot.position, Color.green, 5);
+                shotProjectile.transform.position = spawnPos;
+            }   
 
             shotProjectile.GetComponent<Projectile>().graphic.transform.rotation = muzzle.transform.rotation;
             Rigidbody2D shotProjectileRB = shotProjectile.GetComponent<Rigidbody2D>();
@@ -354,6 +366,7 @@ namespace Platformer.Mechanics
             blastValue = power;
             PlayerEventData eventData = new PlayerEventData { Sender = this, BlastValue = blastValue };
             onBlastEvent.Raise(eventData);
+            power = 1;
         }
 
         private float calcRecoil()

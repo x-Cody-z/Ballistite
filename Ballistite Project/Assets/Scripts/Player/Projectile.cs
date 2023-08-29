@@ -61,7 +61,7 @@ public class Projectile : MonoBehaviour
 
     public void CalcRadius(GameEventData eventData)
     {
-        if (eventData is PlayerEventData playerData)
+        if (eventData is PlayerEventData playerData && radiusModifier == 0)
         {
             radiusModifier = playerData.BlastValue;
             chargeScale = playerData.BlastValue;

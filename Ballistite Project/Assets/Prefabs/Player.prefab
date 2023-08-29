@@ -223,7 +223,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0.008087824, y: -0.31}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.010509742
+  m_Distance: 0.010509928
   m_MaxDistanceOnly: 0
 --- !u!58 &40855730
 CircleCollider2D:
@@ -507,7 +507,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 12
   m_Sprite: {fileID: 21300000, guid: 1b52aae7c53db284e9e0a954c42bab94, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -651,7 +651,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: -0.41366225, y: -0.31}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.010521319
+  m_Distance: 0.010521154
   m_MaxDistanceOnly: 0
 --- !u!58 &1104304337
 CircleCollider2D:
@@ -1020,7 +1020,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 12
   m_Sprite: {fileID: 21300000, guid: 55509b8534ca73a49831616066aa6c06, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1240,7 +1240,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0.42831486, y: -0.31}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.010501506
+  m_Distance: 0.010501118
   m_MaxDistanceOnly: 0
 --- !u!58 &1959380588
 CircleCollider2D:
@@ -1563,7 +1563,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 1.4}
   m_SizeDelta: {x: 955, y: 537}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5858711221859044334
@@ -1692,6 +1692,7 @@ GameObject:
   - component: {fileID: 1985222582}
   - component: {fileID: 3398628785000322285}
   - component: {fileID: 1823391467}
+  - component: {fileID: 1631015587}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -1771,9 +1772,10 @@ MonoBehaviour:
   shotMod: 0.6
   shotForce: 4
   shotRecoil: 1
-  reloadTime: 1
-  cooldownTime: 0.5
+  reloadTime: 0.05
+  cooldownTime: 0.1
   shotNumber: 2
+  chargeRate: 2.5
   Timer: 0
   paused: 1
   soundMachine: {fileID: 0}
@@ -1785,6 +1787,7 @@ MonoBehaviour:
   SlowdownTrigger: {fileID: 0}
   onBlastEvent: {fileID: 11400000, guid: d711f105cc03f47468c8b3703bc7b1de, type: 2}
   power: 0
+  shootingTutorial: {fileID: 0}
 --- !u!114 &62565143367484258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2021,7 +2024,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2052,8 +2055,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.0055236816
-        value: 0.028572083
+        time: 0
+        value: 0.19208527
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -2090,13 +2093,13 @@ LineRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: -1
+      m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 0
+    textureMode: 4
     textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
@@ -2104,6 +2107,20 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &1631015587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5692961899612229980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c943d7f6fe24aa4192e4f8fa222bcbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseCursor: {fileID: 2800000, guid: 30206a80e0fbc3d4ea3a039d678cd3a6, type: 3}
+  hotSpot: {x: 420, y: 420}
 --- !u!1 &6076884873503302242
 GameObject:
   m_ObjectHideFlags: 0

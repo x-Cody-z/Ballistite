@@ -23,7 +23,7 @@ public class uiController : MonoBehaviour
     private float vVelocityFloat;
 
     public GameObject slowdownEffect;
-    private GameObject player;
+    public GameObject player;
     public GameObject ReloadIndicator;
     public GameObject CaseShellL;
     public GameObject CaseShellR;
@@ -40,7 +40,6 @@ public class uiController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player");
         visisble = false;
         if (hideToggle != null)
         {
@@ -51,8 +50,8 @@ public class uiController : MonoBehaviour
             winPanel.SetActive(false);
         }
     }
-
     private bool exitactive = false;
+    
     // Update is called once per frame
     void Update()
     {
