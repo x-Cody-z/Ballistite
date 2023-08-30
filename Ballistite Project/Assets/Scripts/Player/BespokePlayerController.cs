@@ -37,9 +37,9 @@ namespace Platformer.Mechanics
         private TrajectoryPredictor trajectoryPredictor;
 
         //bools used for toggling the charge indicators
-        private bool charge1;
-        private bool charge2;
-        private bool charge3;
+        public bool charge1;
+        public bool charge2;
+        public bool charge3;
 
 
 
@@ -67,7 +67,7 @@ namespace Platformer.Mechanics
         
 
         //this is what actually keeps track of the number of shots, shotNumber is more like a static variable that shotCount gets set to
-        private int shotCount;
+        public int shotCount;
 
         //timer stuff used for charging shot power
         public float Timer;
@@ -82,7 +82,7 @@ namespace Platformer.Mechanics
         public bool grounded = true;
         public bool reloading = false;
         public bool cooldown = false;
-        private bool shotCancel = false;
+        public bool shotCancel = false;
 
         [SerializeField] private GameObject SlowdownTrigger;
         private SlowdownTrigger SlowmoScript;
