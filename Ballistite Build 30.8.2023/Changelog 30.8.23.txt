@@ -1,0 +1,21 @@
+Changes live on build 30.8.23
+
+Levels:
+    Added draft of city and graveyard Levels
+    disabled the start button on city and graveyard Levels
+    victory trigger on farmland and city load the next scene, on graveyard brings up victory panel
+
+Mechanics:
+    Trajectory predictor is more accurate
+    Developer tools are implemented:
+        Console commands for teleporting, changing scenes, e.t.c.
+        Performance logging Added
+    shots firerate on the ground is 0.05 seconds
+    time to full charge reduced to 1 second
+    shooting tutorial added at beginning of farmland
+
+Art:
+    Trajectory predictor line is now a dotted line
+    Spriteshapes are now used for terrain instead of tiles on farmland
+    scorch marks appear on the ground when a projectile hit
+    pink grass now used on farmland scene
