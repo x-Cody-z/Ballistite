@@ -23,12 +23,15 @@ public class SendEmail : MonoBehaviour
         message.To.Add(new MailboxAddress("Email Receiver", receiverEmailAddress));
         message.Subject = "Ballistite Performance Logs";
 
-        
+        SystemSpecs ss = new SystemSpecs();
+
+
         var multipartBody = new Multipart("mixed");
         {
             var textPart = new TextPart("plain")
             {
-                Text = @"Logs sent on " + DateTime.Now.ToString("dd MMMM yyyy") + " at " + DateTime.Now.ToString("h:mm tt") + " from " + Environment.MachineName
+                Text = @"Logs sent on " + DateTime.Now.ToString("dd MMMM yyyy") + " at " + DateTime.Now.ToString("h:mm tt") + "\n\n" + ss.getSpecs()
+
             };
             multipartBody.Add(textPart);
 
