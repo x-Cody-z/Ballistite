@@ -4696,15 +4696,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1284084140543987491, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.35998535
+      value: 0.17999268
       objectReference: {fileID: 0}
     - target: {fileID: 1284084140543987491, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5699997
+      value: -0.28500032
       objectReference: {fileID: 0}
     - target: {fileID: 1284084140543987491, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9
+      value: -9.5
       objectReference: {fileID: 0}
     - target: {fileID: 4285311623418916067, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
       propertyPath: m_Targets.Array.data[1].target
@@ -4835,6 +4835,14 @@ PrefabInstance:
     - target: {fileID: 1016075928834900212, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
       propertyPath: shotForce
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016075928834900212, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
+      propertyPath: reloadTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016075928834900212, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
+      propertyPath: shotNumber
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4475686102729582358, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
       propertyPath: vcamMouse

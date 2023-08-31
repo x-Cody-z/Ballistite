@@ -1686,13 +1686,13 @@ GameObject:
   - component: {fileID: 8966696862554122415}
   - component: {fileID: 8864624024850247068}
   - component: {fileID: 4475686102729582358}
+  - component: {fileID: 1016075928834900212}
   - component: {fileID: 62565143367484258}
   - component: {fileID: 1823391466}
   - component: {fileID: 1823391465}
   - component: {fileID: 1985222582}
   - component: {fileID: 1823391467}
   - component: {fileID: 1631015587}
-  - component: {fileID: 1016075928834900212}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -1763,6 +1763,7 @@ MonoBehaviour:
   gunAudio: {fileID: 8300000, guid: dbe29fdb85b67b047be6483b363b3e89, type: 3}
   reloadAudio: {fileID: 8300000, guid: 5f6ca32ae83928540b67e4ba4b8f1b05, type: 3}
   landingAudio: {fileID: 8300000, guid: d9281b1779cc9684ba465aaf01f86b42, type: 3}
+  soundMachine: {fileID: 0}
   volumeScale: 0.01
   barrel: {fileID: 1555745146874365634}
   barrelPivot: {fileID: 8962347402026695018}
@@ -1770,20 +1771,30 @@ MonoBehaviour:
   projectile: {fileID: 6425388640759641725, guid: 7e67086ad6e974c4e888260b0c4b41fc, type: 3}
   shotPower: 1
   shotMod: 0.6
-  reloadTime: 0.05
   fireRate: 0.5
-  shotNumber: 2
   chargeRate: 2.5
-  Timer: 0
-  paused: 1
-  soundMachine: {fileID: 0}
   controlEnabled: 1
   notInsideCutscene: 0
-  grounded: 0
-  reloading: 0
-  cooldown: 0
   SlowdownTrigger: {fileID: 0}
   shootingTutorial: {fileID: 0}
+--- !u!114 &1016075928834900212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5692961899612229980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a495d394bfde1e547a0be739dc76c160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotForce: 4
+  shotRecoil: 1
+  reloadTime: 1
+  muzzle: {fileID: 5197845457302251699}
+  barrelPivot: {fileID: 8962347402026695018}
+  onBlastEvent: {fileID: 11400000, guid: d711f105cc03f47468c8b3703bc7b1de, type: 2}
 --- !u!114 &62565143367484258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2103,23 +2114,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseCursor: {fileID: 2800000, guid: 30206a80e0fbc3d4ea3a039d678cd3a6, type: 3}
   hotSpot: {x: 420, y: 420}
---- !u!114 &1016075928834900212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5692961899612229980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a495d394bfde1e547a0be739dc76c160, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shotForce: 4
-  shotRecoil: 1
-  muzzle: {fileID: 5197845457302251699}
-  barrelPivot: {fileID: 8962347402026695018}
-  onBlastEvent: {fileID: 11400000, guid: d711f105cc03f47468c8b3703bc7b1de, type: 2}
 --- !u!1 &6076884873503302242
 GameObject:
   m_ObjectHideFlags: 0

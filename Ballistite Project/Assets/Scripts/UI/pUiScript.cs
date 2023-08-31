@@ -66,14 +66,14 @@ public class pUiScript : MonoBehaviour
     //keeps the entire bar the same colour, changing when different segments are reached, a mix between old and new
     private void calculateChargeNew2()
     {
-        if (PlayerScript.chargeTimer <= 1)
+        if (PlayerScript.ChargeTimer <= 1)
         {
-            setValues(PlayerScript.chargeTimer * 100, 0, Color.white, redOff);
+            setValues(PlayerScript.ChargeTimer * 100, 0, Color.white, redOff);
         }
 
-        else if (PlayerScript.chargeTimer > 1)
+        else if (PlayerScript.ChargeTimer > 1)
         {
-            setValues(100, (PlayerScript.chargeTimer - 1) * 100, orangeOn, orangeOn);
+            setValues(100, (PlayerScript.ChargeTimer - 1) * 100, orangeOn, orangeOn);
         }
 
         if (chargeScale2 >= 100)
@@ -87,14 +87,14 @@ public class pUiScript : MonoBehaviour
     //once a segment is completely filled, it becomes brighter and the next segments starts filling in a different colour
     private void calculateChargeNew()
     {
-        if (PlayerScript.chargeTimer <= 1)
+        if (PlayerScript.ChargeTimer <= 1)
         {
-            setValues(PlayerScript.chargeTimer * 100, 0, orangeOff, redOff);
+            setValues(PlayerScript.ChargeTimer * 100, 0, orangeOff, redOff);
         }
 
-        else if (PlayerScript.chargeTimer > 1)
+        else if (PlayerScript.ChargeTimer > 1)
         {
-            setValues(100, (PlayerScript.chargeTimer - 1) * 100, orangeOn, redOff);
+            setValues(100, (PlayerScript.ChargeTimer - 1) * 100, orangeOn, redOff);
         }
         
         if (chargeScale2 >= 100)
@@ -106,17 +106,17 @@ public class pUiScript : MonoBehaviour
     //rainbow
     private void calculateChargeThree()
     {
-        float hue = (Mathf.Cos(3.14f * PlayerScript.chargeTimer) + 1) / 2;
+        float hue = (Mathf.Cos(3.14f * PlayerScript.ChargeTimer) + 1) / 2;
         Color dark = Color.HSVToRGB(hue, 1f, 0.6f);
         Color light = Color.HSVToRGB(hue, 1f, 1f);
-        if (PlayerScript.chargeTimer <= 1)
+        if (PlayerScript.ChargeTimer <= 1)
         {
-            setValues(PlayerScript.chargeTimer * 100, 0, dark, dark);
+            setValues(PlayerScript.ChargeTimer * 100, 0, dark, dark);
         }
 
-        else if (PlayerScript.chargeTimer > 1)
+        else if (PlayerScript.ChargeTimer > 1)
         {
-            setValues(100, (PlayerScript.chargeTimer - 1) * 100, light, dark);
+            setValues(100, (PlayerScript.ChargeTimer - 1) * 100, light, dark);
         }
 
         if (chargeScale2 >= 100)

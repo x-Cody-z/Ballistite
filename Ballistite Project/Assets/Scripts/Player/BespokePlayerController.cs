@@ -24,9 +24,6 @@ namespace Platformer.Mechanics
         [SerializeField] CinemachineVirtualCamera vcamMouse;
         [SerializeField] CinemachineVirtualCamera vcamPlayer;
 
-        //part of new reload function, this is the value that changes as the reload time progresses, old reloadTime is used as a target value.
-        private float reloadTimeActive;
-
         [Header("Audio")]
         public AudioClip gunAudio;
         public AudioClip reloadAudio;
@@ -49,38 +46,30 @@ namespace Platformer.Mechanics
 
         private Shooter shooter;
 
-        [Header("Reload Params")]
+        [Header("Shot Params")]
         [SerializeField] private float shotPower = 1f;
         [SerializeField] private float shotMod = 0.5f;
 
-        [Tooltip("time in seconds for one shot to be reloaded")]
-        public float reloadTime = 1f;
-
-        [Tooltip("minimum time in seconds between each shot, think of it as fire rate")]
-        public float fireRate = 0.5f;
-
-        [Tooltip("the number of shots that can be loaded at once")]
-        public int shotNumber = 1;
-
-        [Tooltip("the rate at which the charge bar fills (higher is faster)")]
-        public float chargeRate = 1;
-
-        //this is what actually keeps track of the number of shots, shotNumber is more like a static variable that shotCount gets set to
-        private int shotCount;
+        [Header("Reload Params")]
+        [SerializeField] [Tooltip("minimum time in seconds between each shot, think of it as fire rate")]
+        private float fireRate = 0.5f;
+        [SerializeField][Tooltip("the rate at which the charge bar fills (higher is faster)")]
+        private float chargeRate = 1;
 
         //timer stuff used for charging shot power
-        public float chargeTimer;
-        
+        private float chargeTimer;
         private float power;
 
-        public bool chargePaused = true;
+        private bool chargePaused = true;
         private bool firstShot = true; //Boolean to disable start tutorial
 
-
-        public bool controlEnabled = false;
-        public bool notInsideCutscene = false;
+        [Header("control enablers")]
+        [SerializeField]
+        private bool controlEnabled = false;
+        [SerializeField]
+        private bool notInsideCutscene = false;
         private bool grounded = true;
-        private bool reloading = false;
+
         private bool shotCancel = false;
 
         [SerializeField] private GameObject SlowdownTrigger;
@@ -101,6 +90,16 @@ namespace Platformer.Mechanics
         [Header("Tutorial GameObjects")]
         [Tooltip("Basic shooting tutorial")]
         public GameObject shootingTutorial;
+        public bool isGrounded
+        {
+            get { return grounded; }
+        }
+
+        public float ChargeTimer
+        {
+            get { return chargeTimer; }
+            set { chargeTimer = value; }
+        }
 
         void Awake()
         {
@@ -111,7 +110,7 @@ namespace Platformer.Mechanics
             if (shooter == null)
                 shooter = GetComponent<Shooter>();
 
-            shotCount = shotNumber;
+            shooter.ShotCount = shooter.ShotNumber;
             spawn = transform.position;
             spawnRot = transform.rotation;
             soundMachine = GetComponent<AudioSource>();
@@ -124,7 +123,7 @@ namespace Platformer.Mechanics
                 UIScript = UIObject.GetComponent<uiController>();
             }
 
-            reloadTimeActive = reloadTime;
+            shooter.ReloadTimer = shooter.ReloadTime;
 
             if (SlowdownTrigger != null)
             {
@@ -208,10 +207,10 @@ namespace Platformer.Mechanics
             //checks for starting reload
             if (grounded)
             {
-                if (shotCount < shotNumber && !reloading && shooter.ReloadDelay <=0)
+                if (shooter.ShotCount < shooter.ShotNumber && !shooter.Reloading && shooter.ReloadDelay <=0)
                 {
-                    reloading = true;
-                    StartCoroutine(GunReloadV2());
+                    shooter.Reloading = true;
+                    StartCoroutine(shooter.GunReloadV2());
                 }
             }
             if (controlEnabled)
@@ -221,7 +220,7 @@ namespace Platformer.Mechanics
 
                 Vector3 shotSpawnPos = muzzle.transform.position;
                 //this is for charging power
-                if (Input.GetButton("Fire1") && shotCount > 0 && !shooter.ShotCooldown && !shotCancel)
+                if (Input.GetButton("Fire1") && shooter.ShotCount > 0 && !shooter.ShotCooldown && !shotCancel)
                 {
                     chargePaused = false;
                     switch (chargeTimer)
@@ -253,20 +252,20 @@ namespace Platformer.Mechanics
                             StartCoroutine(shooter.StartFireDelay(fireRate));
                             FirstShot();
                             ResetCharge();
-                            shotCount--;
+                            shooter.ShotCount--;
                             power = 1;
                             break;
                     }
 
                 }
-                if (Input.GetButtonUp("Fire1") && shotCount > 0 && !shooter.ShotCooldown && !shotCancel)
+                if (Input.GetButtonUp("Fire1") && shooter.ShotCount > 0 && !shooter.ShotCooldown && !shotCancel)
                 {
                     shooter.Shoot(GetBarrelAngle(), shotSpawnPos, power, projectile);
                     StartCoroutine(shooter.StartReloadDelay());
                     StartCoroutine(shooter.StartFireDelay(fireRate));
                     ResetCharge();
                     FirstShot();
-                    shotCount--;
+                    shooter.ShotCount--;
                     power = 1;
                 }
                     
@@ -349,39 +348,12 @@ namespace Platformer.Mechanics
             }
         }
 
-        IEnumerator GunReloadV2()
-        {
-            for (reloadTimeActive = reloadTime; reloadTimeActive > 0; reloadTimeActive -= Time.deltaTime)
-                yield return null;
-            shotCount++;
-            reloadTimeActive = reloadTime;
-
-
-            if (shotCount < shotNumber && grounded)
-            {
-                soundMachine.PlayOneShot(reloadAudio);
-                StartCoroutine(GunReloadV2());
-            }
-            else if (shotCount < shotNumber)
-            {
-                yield return new WaitUntil(() => grounded);
-                soundMachine.PlayOneShot(reloadAudio, volumeScale);
-                StartCoroutine(GunReloadV2());
-            }
-            if (shotCount == shotNumber)
-            {
-                soundMachine.PlayOneShot(reloadAudio);
-                reloading = false;
-                //Debug.LogError("CLICK");
-            }
-        }
-
         //calls functions from the UI's script to update values. Is called in update
         private void UpdateUIValues()
         {
             if (UIScript != null)
             {
-                UIScript.updateAmmoValues(shotCount, reloadTimeActive);
+                UIScript.updateAmmoValues(shooter.ShotCount, shooter.ReloadTimer);
                 UIScript.updateVelocityValues(this.GetComponent<Rigidbody2D>().velocity.magnitude, this.GetComponent<Rigidbody2D>().velocity.x, this.GetComponent<Rigidbody2D>().velocity.y);
                 UIScript.updateChargeValues(charge1, charge2, charge3);
             }

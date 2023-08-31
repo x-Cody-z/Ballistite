@@ -1,3 +1,4 @@
+using Platformer.Mechanics;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -14,29 +15,97 @@ public class Shooter : MonoBehaviour
     [SerializeField][Tooltip("every one increase in this value is one grid unit of horizontal movement")]
     [Range(1f, 20f)]
     float shotRecoil = 1f;
-    public bool ShotCooldown
-    {
-        get { return shotCooldown; }
-    }
     private bool shotCooldown = false;
 
-    public float ReloadDelay
-    {
-        get { return reloadDelay; }
-    }
+
+    [Header("Reload params")]
+    [SerializeField][Tooltip("time in seconds for one shot to be reloaded")]
+    private float reloadTime = 1f;
+    [SerializeField][Tooltip("the number of shots that can be loaded at once")]
+    private int shotNumber = 1;
     private float reloadDelay;
+    //this is what actually keeps track of the number of shots, shotNumber is more like a static variable that shotCount gets set to
+    private int shotCount;
+    //part of new reload function, this is the value that changes as the reload time progresses, old reloadTime is used as a target value.
+    private float reloadTimer;
+    private bool reloading = false;
 
     [Header("Transforms")]
     [SerializeField] GameObject muzzle;
     [SerializeField] Transform barrelPivot;
+    BespokePlayerController playerController;
 
     [Header("Event Data")]
     public GameEvent onBlastEvent;
     float blastValue;
+
+    //These are just properties for the variables above
+    public bool Reloading
+    {
+        get { return reloading; }
+        set { reloading = value; }
+    }
+    public int ShotNumber
+    {
+        get { return shotNumber; }
+        set { shotNumber = value; }
+    }
+    public int ShotCount
+    {
+        get { return shotCount; }
+        set { shotCount = value; }
+    }
+    public bool ShotCooldown
+    {
+        get { return shotCooldown; }
+    }
+    public float ReloadDelay
+    {
+        get { return reloadDelay; }
+    }
+
+    public float ReloadTime
+    {
+        get { return reloadTime; }
+    }
+
+    public float ReloadTimer
+    {
+        get { return reloadTimer; }
+        set { reloadTimer = value; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerController = GetComponent<BespokePlayerController>();
+    }
+
+    public IEnumerator GunReloadV2()
+    {
+        for (reloadTimer = reloadTime; reloadTimer > 0; reloadTimer -= Time.deltaTime)
+            yield return null;
+        shotCount++;
+        reloadTimer = reloadTime;
+
+
+        if (shotCount < shotNumber && playerController.isGrounded)
+        {
+            //soundMachine.PlayOneShot(reloadAudio);
+            StartCoroutine(GunReloadV2());
+        }
+        else if (shotCount < shotNumber)
+        {
+            yield return new WaitUntil(() => playerController.isGrounded);
+            //soundMachine.PlayOneShot(reloadAudio, volumeScale);
+            StartCoroutine(GunReloadV2());
+        }
+        if (shotCount == shotNumber)
+        {
+            //soundMachine.PlayOneShot(reloadAudio);
+            reloading = false;
+            //Debug.LogError("CLICK");
+        }
     }
 
     public IEnumerator StartFireDelay(float cd)
