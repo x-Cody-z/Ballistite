@@ -75,7 +75,7 @@ public class Projectile : MonoBehaviour
     {
         // Get all colliders within explosion radius
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius, explosionLayers);
-
+        
         foreach (Collider2D collider in colliders)
         {
             Rigidbody2D crb = collider.GetComponent<Rigidbody2D>();
