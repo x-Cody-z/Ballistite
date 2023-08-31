@@ -29,6 +29,8 @@ public class Projectile : MonoBehaviour
     public float chargeScale;
     public GameEvent onProjectileHitTerrain;
 
+    private bool isColliding;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +49,7 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        isColliding = false;
         Vector2 flightDir = rb.velocity.normalized;
         if(flightDir.x > 0 )
         {
@@ -73,6 +76,9 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (isColliding)
+            return;
+        isColliding = true;
         // Get all colliders within explosion radius
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius, explosionLayers);
         
