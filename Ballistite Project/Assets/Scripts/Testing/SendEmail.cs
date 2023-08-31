@@ -6,6 +6,8 @@ using System.IO;
 using MailKit.Net.Smtp;
 using MailKit.Security;
 using System;
+using System.Management;
+using Microsoft.Win32;
 
 public class SendEmail : MonoBehaviour
 {
@@ -29,18 +31,6 @@ public class SendEmail : MonoBehaviour
                 Text = @"Logs sent on " + DateTime.Now.ToString("dd MMMM yyyy") + " at " + DateTime.Now.ToString("h:mm tt") + " from " + Environment.MachineName
             };
             multipartBody.Add(textPart);
-
-            /*
-            string attachmentPath = IMAGE_PATH;
-            var attachmentPart = new MimePart("image/png")
-            {
-                Content = new MimeContent(File.OpenRead(attachmentPath), ContentEncoding.Default),
-                ContentDisposition = new ContentDisposition(ContentDisposition.Attachment),
-                ContentTransferEncoding = ContentEncoding.Base64,
-                FileName = Path.GetFileName(attachmentPath)
-            };
-            multipartBody.Add(attachmentPart);
-            */
 
             string logPath = LOG_PATH;
             var logPart = new MimePart("text/plain")
