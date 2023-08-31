@@ -8,12 +8,10 @@ public class ChargeTutorial : MonoBehaviour
     private LevelController levelController;
     private TutorialState state;
     private Rigidbody2D playerRB;
+    private bool maxPower;
 
-    public Collider2D trigger;
     public Platformer.Mechanics.BespokePlayerController playerObject;
     public Collider2D playerCollider;
-    public float pSlowdownRate;
-
 
     enum TutorialState
     {
@@ -32,14 +30,16 @@ public class ChargeTutorial : MonoBehaviour
         playerObject = FindObjectOfType<Platformer.Mechanics.BespokePlayerController>();
         playerCollider = playerObject.GetComponent<Collider2D>();
         playerRB = playerObject.GetComponentInParent<Rigidbody2D>();
+        maxPower = false;
+        StartCoroutine(StateUpdate());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (state == TutorialState.Activated || state == TutorialState.Grounded || state == TutorialState.Charging)
+        if (playerObject.charge3 == true)
         {
-            playerObject.shotCount = playerObject.shotNumber;
+            maxPower = true;
         }
         if (state == TutorialState.Activated)
         {
@@ -60,23 +60,25 @@ public class ChargeTutorial : MonoBehaviour
         {
             if(Input.GetButtonUp("Fire1"))
             {
-                if (playerObject.charge3)
+                Debug.LogWarning("Charging button up");
+                if (maxPower)
                 {
+                    Debug.LogWarning("Released");
                     state = TutorialState.Released;
-                    playerRB.constraints = 0| 0;
+                    playerRB.constraints = 0 | 0;
                 }
                 else
                 {
+                    Debug.LogWarning("Not charged");
                     playerObject.Timer = 0;
                     playerObject.paused = true;
-                    //StartCoroutine(Cooldown(0.2f));
                     playerObject.shotCancel = true;
-
                     playerObject.charge1 = false;
                     playerObject.charge2 = false;
                     playerObject.charge3 = false;
-                    state = TutorialState.Charging;
+                    state = TutorialState.Grounded;
                 }
+                playerObject.shotCancel = false;
             }
         }
     }
@@ -87,5 +89,13 @@ public class ChargeTutorial : MonoBehaviour
         {
             state = TutorialState.Activated;
         }
+    }
+
+    IEnumerator StateUpdate()
+    {
+        Debug.Log("ChargeTutorial: " + state);
+        Debug.Log("Charge 3 State: " + playerObject.charge3);
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(StateUpdate());
     }
 }
