@@ -68,8 +68,6 @@ public class Projectile : MonoBehaviour
         {
             radiusModifier = playerData.BlastValue;
             chargeScale = playerData.BlastValue;
-            Debug.Log("blast value and charge scale is " + playerData.BlastValue);
-             
         }
     }
 
@@ -88,6 +86,7 @@ public class Projectile : MonoBehaviour
             if (collider.CompareTag("Level"))
             {
                 radius = Mathf.Clamp(radiusModifier, 0, radiusMax); // Blast amount adds to radius
+                Debug.Log("Radius = " + radius);
                 ProjectileEventData projEventData = new ProjectileEventData { Sender = this, HitPosition = transform, velocity = rb.velocity, radius = radius };
                 onProjectileHitTerrain.Raise(projEventData);
             } else
