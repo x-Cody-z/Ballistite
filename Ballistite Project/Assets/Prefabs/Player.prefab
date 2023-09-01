@@ -1760,10 +1760,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vcamMouse: {fileID: 0}
   vcamPlayer: {fileID: 0}
-  gunAudio: {fileID: 8300000, guid: dbe29fdb85b67b047be6483b363b3e89, type: 3}
-  reloadAudio: {fileID: 8300000, guid: 5f6ca32ae83928540b67e4ba4b8f1b05, type: 3}
   landingAudio: {fileID: 8300000, guid: d9281b1779cc9684ba465aaf01f86b42, type: 3}
-  soundMachine: {fileID: 0}
+  soundMachine: {fileID: 1823391465}
   volumeScale: 0.01
   barrel: {fileID: 1555745146874365634}
   barrelPivot: {fileID: 8962347402026695018}
@@ -1771,7 +1769,6 @@ MonoBehaviour:
   projectile: {fileID: 6425388640759641725, guid: 7e67086ad6e974c4e888260b0c4b41fc, type: 3}
   shotPower: 1
   shotMod: 0.6
-  fireRate: 0.5
   chargeRate: 2.5
   controlEnabled: 1
   notInsideCutscene: 0
@@ -1791,10 +1788,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shotForce: 4
   shotRecoil: 1
-  reloadTime: 1
+  reloadTime: 0.5
+  shotNumber: 2
+  fireRate: 0.5
   muzzle: {fileID: 5197845457302251699}
   barrelPivot: {fileID: 8962347402026695018}
+  gunAudio: {fileID: 8300000, guid: dbe29fdb85b67b047be6483b363b3e89, type: 3}
+  reloadAudio: {fileID: 8300000, guid: 5f6ca32ae83928540b67e4ba4b8f1b05, type: 3}
+  soundMachine: {fileID: 1823391465}
+  volumeScale: 1
   onBlastEvent: {fileID: 11400000, guid: d711f105cc03f47468c8b3703bc7b1de, type: 2}
+  SlowdownTrigger: {fileID: 0}
 --- !u!114 &62565143367484258
 MonoBehaviour:
   m_ObjectHideFlags: 0

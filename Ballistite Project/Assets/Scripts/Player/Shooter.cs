@@ -6,6 +6,9 @@ using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
+/// <summary>
+/// This class contains logic relating to shooting and reloading
+/// </summary>
 public class Shooter : MonoBehaviour
 {
     [Header("Shooting params")]
@@ -23,6 +26,8 @@ public class Shooter : MonoBehaviour
     private float reloadTime = 1f;
     [SerializeField][Tooltip("the number of shots that can be loaded at once")]
     private int shotNumber = 1;
+    [SerializeField][Tooltip("minimum time in seconds between each shot, think of it as fire rate")]
+    private float fireRate = 0.5f;
     private float reloadDelay;
     //this is what actually keeps track of the number of shots, shotNumber is more like a static variable that shotCount gets set to
     private int shotCount;
@@ -35,9 +40,19 @@ public class Shooter : MonoBehaviour
     [SerializeField] Transform barrelPivot;
     BespokePlayerController playerController;
 
+    [Header("Audio")]
+    public AudioClip gunAudio;
+    public AudioClip reloadAudio;
+    public AudioSource soundMachine;
+    [SerializeField] private float volumeScale = 1;
+
     [Header("Event Data")]
     public GameEvent onBlastEvent;
     float blastValue;
+
+    [Header("Scripts")]
+    [SerializeField] private GameObject SlowdownTrigger;
+    private SlowdownTrigger SlowmoScript;
 
     //These are just properties for the variables above
     public bool Reloading
@@ -78,7 +93,23 @@ public class Shooter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (playerController == null)
         playerController = GetComponent<BespokePlayerController>();
+
+        if (soundMachine == null)
+        soundMachine = GetComponent<AudioSource>();
+
+        if (SlowdownTrigger != null)
+            SlowmoScript = SlowdownTrigger.GetComponent<SlowdownTrigger>();
+    }
+
+    public void StartReload()
+    {
+        if (ShotCount < ShotNumber && !Reloading && ReloadDelay <= 0)
+        {
+            Reloading = true;
+            StartCoroutine(GunReloadV2());
+        }
     }
 
     public IEnumerator GunReloadV2()
@@ -91,30 +122,27 @@ public class Shooter : MonoBehaviour
 
         if (shotCount < shotNumber && playerController.isGrounded)
         {
-            //soundMachine.PlayOneShot(reloadAudio);
+            soundMachine.PlayOneShot(reloadAudio);
             StartCoroutine(GunReloadV2());
         }
         else if (shotCount < shotNumber)
         {
             yield return new WaitUntil(() => playerController.isGrounded);
-            //soundMachine.PlayOneShot(reloadAudio, volumeScale);
+            soundMachine.PlayOneShot(reloadAudio, volumeScale);
             StartCoroutine(GunReloadV2());
         }
         if (shotCount == shotNumber)
         {
-            //soundMachine.PlayOneShot(reloadAudio);
+            soundMachine.PlayOneShot(reloadAudio);
             reloading = false;
-            //Debug.LogError("CLICK");
         }
     }
 
-    public IEnumerator StartFireDelay(float cd)
+    public IEnumerator StartFireDelay()
     {
-        //Debug.Log("Start Cooldown");
         shotCooldown = true;
-        yield return new WaitForSeconds(cd);
+        yield return new WaitForSeconds(fireRate);
         shotCooldown = false;
-        //Debug.Log("End Cooldown");
     }
 
     public IEnumerator StartReloadDelay()
@@ -127,7 +155,7 @@ public class Shooter : MonoBehaviour
 
     public void Shoot(float angle, Vector3 spawnPos, float powerMod, GameObject projectile)
     {
-        //soundMachine.PlayOneShot(gunAudio, volumeScale);
+        soundMachine.PlayOneShot(gunAudio, volumeScale);
         Rigidbody2D tankRB = GetComponent<Rigidbody2D>();
         GameObject shotProjectile = Instantiate(projectile);
 
@@ -161,10 +189,10 @@ public class Shooter : MonoBehaviour
     public float calcRecoil()
     {
         float adjustmentFactor = Mathf.Pow(shotRecoil, 0.5f);
-        //increases force if slow-mo is enabled
-        //if (SlowmoScript != null)
-        //    if (SlowmoScript.slowed)
-        //        adjustmentFactor *= 1.5f;
+        //increases force if slow - mo is enabled
+        if (SlowmoScript != null)
+                if (SlowmoScript.slowed)
+                    adjustmentFactor *= 1.5f;
         return -adjustmentFactor * 2.83f;
     }
 

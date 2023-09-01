@@ -8,8 +8,7 @@ namespace Platformer.Mechanics
 {
     /// <summary>
     /// This is the main class used to implement control of the player.
-    /// It is a superset of the AnimationController class, but is inlined to allow for any kind of customisation.
-    /// </summary>]
+    /// </summary>
     [RequireComponent(typeof(Shooter))]
     [RequireComponent(typeof(TrajectoryPredictor))]
     public class BespokePlayerController : MonoBehaviour
@@ -25,8 +24,6 @@ namespace Platformer.Mechanics
         [SerializeField] CinemachineVirtualCamera vcamPlayer;
 
         [Header("Audio")]
-        public AudioClip gunAudio;
-        public AudioClip reloadAudio;
         public AudioClip landingAudio;
         public AudioSource soundMachine;
         [SerializeField] private float volumeScale = 1;
@@ -47,12 +44,12 @@ namespace Platformer.Mechanics
         private Shooter shooter;
 
         [Header("Shot Params")]
-        [SerializeField] private float shotPower = 1f;
-        [SerializeField] private float shotMod = 0.5f;
+        [SerializeField][Tooltip("base power of the shot")] 
+        private float shotPower = 1f;
+        [SerializeField][Tooltip("value that modifies power per charge")] 
+        private float shotMod = 0.5f;
 
-        [Header("Reload Params")]
-        [SerializeField] [Tooltip("minimum time in seconds between each shot, think of it as fire rate")]
-        private float fireRate = 0.5f;
+        [Header("Charge Params")]
         [SerializeField][Tooltip("the rate at which the charge bar fills (higher is faster)")]
         private float chargeRate = 1;
 
@@ -72,24 +69,19 @@ namespace Platformer.Mechanics
 
         private bool shotCancel = false;
 
+        [Header("sloMo")]
         [SerializeField] private GameObject SlowdownTrigger;
         private SlowdownTrigger SlowmoScript;
 
-        private static Vector3 mousePos;
-
-        private GameObject mouse;
-        private Vector3 Worldpos;
-        private Vector2 Worldpos2D;
-        private float barrelAngle;
         private Vector3 spawn;
         private Quaternion spawnRot;
-
         private bool debug = false;
 
 
         [Header("Tutorial GameObjects")]
         [Tooltip("Basic shooting tutorial")]
         public GameObject shootingTutorial;
+
         public bool isGrounded
         {
             get { return grounded; }
@@ -103,66 +95,39 @@ namespace Platformer.Mechanics
 
         void Awake()
         {
-            power = 1;
             if (trajectoryPredictor == null)
                 trajectoryPredictor = GetComponent<TrajectoryPredictor>();
 
             if (shooter == null)
                 shooter = GetComponent<Shooter>();
 
+            if (SlowdownTrigger != null)
+                SlowmoScript = SlowdownTrigger.GetComponent<SlowdownTrigger>();
+            
+            if (UIObject != null)
+                UIScript = UIObject.GetComponent<uiController>();
+
+            if (soundMachine == null)
+                soundMachine = GetComponent<AudioSource>();
+
+            if (UIObject == null)
+                UIObject = GameObject.Find("UI");
+
+            if (chargeBar == null)
+                chargeBar = GameObject.Find("chargePanel");
+            
+            power = 1;
             shooter.ShotCount = shooter.ShotNumber;
+            shooter.ReloadTimer = shooter.ReloadTime;
             spawn = transform.position;
             spawnRot = transform.rotation;
-            soundMachine = GetComponent<AudioSource>();
-
-            mouse = GameObject.Find("mousePos");
-            UIObject = GameObject.Find("UI");
-            chargeBar = GameObject.Find("chargePanel");
-            if (UIObject != null)
-            {
-                UIScript = UIObject.GetComponent<uiController>();
-            }
-
-            shooter.ReloadTimer = shooter.ReloadTime;
-
-            if (SlowdownTrigger != null)
-            {
-                SlowmoScript = SlowdownTrigger.GetComponent<SlowdownTrigger>();
-            }
         }
 
-        public void EnableControl(GameEventData eventData)
-        {
-            if (eventData.Sender is CutsceneController)
-            {
-                notInsideCutscene = true;
-                controlEnabled = true;
-            }
-        }
-
-        public void ToggleDebug()
-        {
-            debug = !debug; // toggle the debug variable
-            Debug.Log("Debug mode is now " + debug);
-        }
-
-        ProjectileData projectileData() {
-            ProjectileData data = new ProjectileData();
-            Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-
-            data.direction = muzzle.transform.right;
-            data.initialPosition = muzzle.position;
-            data.initialSpeed = shooter.calcForce() * power;
-            data.mass = rb.mass;
-            data.drag = 0;
-
-            return data;
-        }
-        
 
         void Update()
         {
             trajectoryPredictor.CalculateTrajectory(projectileData());
+
             //take control away when paused & not in cutscene
             if (Time.timeScale == 0 || !notInsideCutscene)
             {
@@ -207,62 +172,24 @@ namespace Platformer.Mechanics
             //checks for starting reload
             if (grounded)
             {
-                if (shooter.ShotCount < shooter.ShotNumber && !shooter.Reloading && shooter.ReloadDelay <=0)
-                {
-                    shooter.Reloading = true;
-                    StartCoroutine(shooter.GunReloadV2());
-                }
+                shooter.StartReload();
             }
             if (controlEnabled)
             {
 
                 barrel.rotation = Quaternion.Euler(new Vector3(0, 0, GetBarrelAngle()* Mathf.Rad2Deg));
-
                 Vector3 shotSpawnPos = muzzle.transform.position;
+
                 //this is for charging power
                 if (Input.GetButton("Fire1") && shooter.ShotCount > 0 && !shooter.ShotCooldown && !shotCancel)
                 {
-                    chargePaused = false;
-                    switch (chargeTimer)
-                    {
-                        case < 1:
-                            if (!charge1)
-                            {
-                                power = shotPower;
-                                charge1 = true;
-                            }
-                            break;
-                        case >= 1 and < 2:
-                            if (!charge2)
-                            {
-                                power = shotPower + shotMod;
-                                charge2 = true;
-                            }
-                            break;
-                        case >= 2 and < 3:
-                            if (!charge3)
-                            {
-                                power = shotPower + 2*shotMod;
-                                charge3 = true;
-                            }
-                            break;
-                        case > 6:
-                            shooter.Shoot(GetBarrelAngle(), shotSpawnPos, power, projectile);
-                            StartCoroutine(shooter.StartReloadDelay());
-                            StartCoroutine(shooter.StartFireDelay(fireRate));
-                            FirstShot();
-                            ResetCharge();
-                            shooter.ShotCount--;
-                            power = 1;
-                            break;
-                    }
-
+                    ChargeShot(shotSpawnPos);
                 }
                 if (Input.GetButtonUp("Fire1") && shooter.ShotCount > 0 && !shooter.ShotCooldown && !shotCancel)
                 {
                     shooter.Shoot(GetBarrelAngle(), shotSpawnPos, power, projectile);
                     StartCoroutine(shooter.StartReloadDelay());
-                    StartCoroutine(shooter.StartFireDelay(fireRate));
+                    StartCoroutine(shooter.StartFireDelay());
                     ResetCharge();
                     FirstShot();
                     shooter.ShotCount--;
@@ -273,7 +200,6 @@ namespace Platformer.Mechanics
                 //cancel shot
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    //StartCoroutine(Cooldown(0.2f));
                     shotCancel = true;
                     ResetCharge();
                 }
@@ -295,6 +221,71 @@ namespace Platformer.Mechanics
             }
             UpdateUIValues();
         }
+        public void EnableControl(GameEventData eventData)
+        {
+            if (eventData.Sender is CutsceneController)
+            {
+                notInsideCutscene = true;
+                controlEnabled = true;
+            }
+        }
+
+        public void ToggleDebug()
+        {
+            debug = !debug; // toggle the debug variable
+            Debug.Log("Debug mode is now " + debug);
+        }
+
+        ProjectileData projectileData() {
+            ProjectileData data = new ProjectileData();
+            Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+
+            data.direction = muzzle.transform.right;
+            data.initialPosition = muzzle.position;
+            data.initialSpeed = shooter.calcForce() * power;
+            data.mass = rb.mass;
+            data.drag = 0;
+
+            return data;
+        }
+
+        void ChargeShot(Vector3 shotSpawn)
+        {
+            chargePaused = false;
+            switch (chargeTimer)
+            {
+                case < 1:
+                    if (!charge1)
+                    {
+                        power = shotPower;
+                        charge1 = true;
+                    }
+                    break;
+                case >= 1 and < 2:
+                    if (!charge2)
+                    {
+                        power = shotPower + shotMod;
+                        charge2 = true;
+                    }
+                    break;
+                case >= 2 and < 3:
+                    if (!charge3)
+                    {
+                        power = shotPower + 2 * shotMod;
+                        charge3 = true;
+                    }
+                    break;
+                case > 6:
+                    shooter.Shoot(GetBarrelAngle(), shotSpawn, power, projectile);
+                    StartCoroutine(shooter.StartReloadDelay());
+                    StartCoroutine(shooter.StartFireDelay());
+                    FirstShot();
+                    ResetCharge();
+                    shooter.ShotCount--;
+                    power = 1;
+                    break;
+            }
+        }
 
         void ResetCharge()
         {
@@ -307,13 +298,11 @@ namespace Platformer.Mechanics
 
         float GetBarrelAngle()
         {
-            mousePos = Input.mousePosition;
+            Vector3 mousePos = Input.mousePosition;
             mousePos.z = Camera.main.nearClipPlane;
-            Worldpos = Camera.main.ScreenToWorldPoint(mousePos);
-            Worldpos2D = new Vector2(Worldpos.x, Worldpos.y);
-            mouse.transform.position = Worldpos2D;
-            barrelAngle = Mathf.Atan2(Worldpos2D.y - barrelPivot.position.y, Worldpos2D.x - barrelPivot.position.x) * Mathf.Rad2Deg;
-            barrel.rotation = Quaternion.Euler(new Vector3(0, 0, barrelAngle));
+            Vector3 Worldpos = Camera.main.ScreenToWorldPoint(mousePos);
+            Vector2 Worldpos2D = new Vector2(Worldpos.x, Worldpos.y);
+            float barrelAngle = Mathf.Atan2(Worldpos2D.y - barrelPivot.position.y, Worldpos2D.x - barrelPivot.position.x) * Mathf.Rad2Deg;
             return barrelAngle * Mathf.Deg2Rad;
         }
         void FirstShot()
