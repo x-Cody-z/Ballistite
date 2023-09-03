@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -56,6 +57,8 @@ public class PerformanceLogCommand : Command
                     string outputLineSeconds = "Seconds,";
                     string outputLineFrameRateAverage = "Average Frame Rate,";
 
+                    string infoText = "Log Information,";
+
                     float addedFrameTime = 0f;
                     int addedFrameCount = 0;
                     int addedIndex = 0;
@@ -81,15 +84,23 @@ public class PerformanceLogCommand : Command
                         }
                     }
 
+                    SystemSpecs ss = new SystemSpecs();
+                    infoText += "Logs sent on " + DateTime.Now.ToString("dd MMMM yyyy") + " at " + DateTime.Now.ToString("h:mm tt") + "\n\n" + ss.getSpecs();
+
+
                     TextWriter tw = new StreamWriter(path);
                     tw.WriteLine(outputLineFrameCount);
                     tw.WriteLine(outputLineFrameTime);
                     tw.WriteLine(outputLineFrameRate);
                     tw.WriteLine(outputLineSeconds);
                     tw.WriteLine(outputLineFrameRateAverage);
+                    tw.WriteLine(infoText);
                     tw.Close();
 
-                    SendEmail.SendLog(Path.GetFullPath(path));
+                    if (Application.internetReachability != NetworkReachability.NotReachable)
+                        SendEmail.SendLog(Path.GetFullPath(path), infoText);
+                    else
+                        Debug.Log("no internet, email not sent");
 
                     return "Log saved to: " + Path.GetFullPath(path);
                 }

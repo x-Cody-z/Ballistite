@@ -5,14 +5,11 @@ using MimeKit;
 using System.IO;
 using MailKit.Net.Smtp;
 using MailKit.Security;
-using System;
-using System.Management;
-using Microsoft.Win32;
 
 public class SendEmail : MonoBehaviour
 {
     
-    public static void SendLog(string LOG_PATH)
+    public static void SendLog(string LOG_PATH, string text)
     {
         string senderEmailAddress = "ballistitelogs@outlook.com";
         string senderEmailPassword = "3$X2@K&5m%9Y";
@@ -23,14 +20,13 @@ public class SendEmail : MonoBehaviour
         message.To.Add(new MailboxAddress("Email Receiver", receiverEmailAddress));
         message.Subject = "Ballistite Performance Logs";
 
-        SystemSpecs ss = new SystemSpecs();
 
 
         var multipartBody = new Multipart("mixed");
         {
             var textPart = new TextPart("plain")
             {
-                Text = @"Logs sent on " + DateTime.Now.ToString("dd MMMM yyyy") + " at " + DateTime.Now.ToString("h:mm tt") + "\n\n" + ss.getSpecs()
+                Text = text
 
             };
             multipartBody.Add(textPart);
