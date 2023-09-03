@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Condensed Farmland.unity
-    guid: 5ee34143150fb90418eb55dfa832447d
+    path: Assets/Scenes/Condensed Farmland - Tutorial-Level.unity
+    guid: 997fc3d1b6f35de4898ec37d2342d7b5
+  - enabled: 1
+    path: Assets/Scenes/DraftCity.unity
+    guid: ea26b0ce1f6032244aff8079fbed759f
+  - enabled: 1
+    path: Assets/Scenes/DraftGraveyard.unity
+    guid: 65038a189b49ed14786aa4005e02095c
   m_configObjects: {}

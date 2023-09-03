@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class pUiScript : MonoBehaviour
 {
     private GameObject PlayerObject;
+    private Shooter shooter;
     private BespokePlayerController PlayerScript;
     public Image chargeBar;
     public Image chargeBar1;
@@ -34,6 +35,7 @@ public class pUiScript : MonoBehaviour
         if (PlayerObject)
         {
             PlayerScript = PlayerObject.GetComponent<BespokePlayerController>();
+            shooter = PlayerObject.GetComponent<Shooter>();
         }
 
         //setting a few colour to use for the charge bar
@@ -64,14 +66,14 @@ public class pUiScript : MonoBehaviour
     //keeps the entire bar the same colour, changing when different segments are reached, a mix between old and new
     private void calculateChargeNew2()
     {
-        if (PlayerScript.Timer <= 1)
+        if (PlayerScript.ChargeTimer <= 1)
         {
-            setValues(PlayerScript.Timer * 100, 0, Color.white, redOff);
+            setValues(PlayerScript.ChargeTimer * 100, 0, Color.white, redOff);
         }
 
-        else if (PlayerScript.Timer > 1)
+        else if (PlayerScript.ChargeTimer > 1)
         {
-            setValues(100, (PlayerScript.Timer - 1) * 100, orangeOn, orangeOn);
+            setValues(100, (PlayerScript.ChargeTimer - 1) * 100, orangeOn, orangeOn);
         }
 
         if (chargeScale2 >= 100)
@@ -85,14 +87,14 @@ public class pUiScript : MonoBehaviour
     //once a segment is completely filled, it becomes brighter and the next segments starts filling in a different colour
     private void calculateChargeNew()
     {
-        if (PlayerScript.Timer <= 1)
+        if (PlayerScript.ChargeTimer <= 1)
         {
-            setValues(PlayerScript.Timer * 100, 0, orangeOff, redOff);
+            setValues(PlayerScript.ChargeTimer * 100, 0, orangeOff, redOff);
         }
 
-        else if (PlayerScript.Timer > 1)
+        else if (PlayerScript.ChargeTimer > 1)
         {
-            setValues(100, (PlayerScript.Timer - 1) * 100, orangeOn, redOff);
+            setValues(100, (PlayerScript.ChargeTimer - 1) * 100, orangeOn, redOff);
         }
         
         if (chargeScale2 >= 100)
@@ -104,17 +106,17 @@ public class pUiScript : MonoBehaviour
     //rainbow
     private void calculateChargeThree()
     {
-        float hue = (Mathf.Cos(3.14f * PlayerScript.Timer) + 1) / 2;
+        float hue = (Mathf.Cos(3.14f * PlayerScript.ChargeTimer) + 1) / 2;
         Color dark = Color.HSVToRGB(hue, 1f, 0.6f);
         Color light = Color.HSVToRGB(hue, 1f, 1f);
-        if (PlayerScript.Timer <= 1)
+        if (PlayerScript.ChargeTimer <= 1)
         {
-            setValues(PlayerScript.Timer * 100, 0, dark, dark);
+            setValues(PlayerScript.ChargeTimer * 100, 0, dark, dark);
         }
 
-        else if (PlayerScript.Timer > 1)
+        else if (PlayerScript.ChargeTimer > 1)
         {
-            setValues(100, (PlayerScript.Timer - 1) * 100, light, dark);
+            setValues(100, (PlayerScript.ChargeTimer - 1) * 100, light, dark);
         }
 
         if (chargeScale2 >= 100)
@@ -132,40 +134,5 @@ public class pUiScript : MonoBehaviour
         chargeBar2.color = bar2;
         chargeBar1.rectTransform.sizeDelta = new Vector2(chargeScale1 * 2, 100);
         chargeBar2.rectTransform.sizeDelta = new Vector2(chargeScale2 * 2, 100);
-    }
-
-
-
-
-
-
-
-
-
-
-    //old
-    private void calculateChargeOld()
-    {
-        if (PlayerScript.Timer <= 1)
-        {
-            chargeScale = PlayerScript.Timer * 100;
-            chargeBar.color = Color.white;
-        }
-
-        else if (PlayerScript.Timer > 1)
-        {
-            chargeScale = (PlayerScript.Timer - 1) * 100;
-            chargeBar.color = Color.yellow;
-        }
-        /*
-        else if (PlayerScript.Timer > 2)
-            chargeScale = (PlayerScript.Timer - 2) * 100;
-        */
-
-        if (chargeScale >= 100)
-        {
-            chargeScale = 100;
-            chargeBar.color = Color.red;
-        }
     }
 }

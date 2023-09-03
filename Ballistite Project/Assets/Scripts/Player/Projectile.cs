@@ -29,6 +29,8 @@ public class Projectile : MonoBehaviour
     public float chargeScale;
     public GameEvent onProjectileHitTerrain;
 
+    private bool isColliding;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +49,7 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        isColliding = false;
         Vector2 flightDir = rb.velocity.normalized;
         if(flightDir.x > 0 )
         {
@@ -65,23 +68,25 @@ public class Projectile : MonoBehaviour
         {
             radiusModifier = playerData.BlastValue;
             chargeScale = playerData.BlastValue;
-            Debug.Log("blast value and charge scale is " + playerData.BlastValue);
-             
         }
     }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (isColliding)
+            return;
+        isColliding = true;
         // Get all colliders within explosion radius
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius, explosionLayers);
-
+        
         foreach (Collider2D collider in colliders)
         {
             Rigidbody2D crb = collider.GetComponent<Rigidbody2D>();
             if (collider.CompareTag("Level"))
             {
                 radius = Mathf.Clamp(radiusModifier, 0, radiusMax); // Blast amount adds to radius
+                Debug.Log("Radius = " + radius);
                 ProjectileEventData projEventData = new ProjectileEventData { Sender = this, HitPosition = transform, velocity = rb.velocity, radius = radius };
                 onProjectileHitTerrain.Raise(projEventData);
             } else
