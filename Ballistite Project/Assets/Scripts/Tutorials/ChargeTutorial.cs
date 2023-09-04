@@ -10,10 +10,9 @@ public class ChargeTutorial : MonoBehaviour
     private TutorialState state;
     private Rigidbody2D playerRB;
     private bool maxPower;
-    
+    private Platformer.Mechanics.BespokePlayerController playerObject;
+    private Collider2D playerCollider;
 
-    public Platformer.Mechanics.BespokePlayerController playerObject;
-    public Collider2D playerCollider;
     public GameObject tutorialWindow;
     public Animator mouseAnimator;
     public TextMeshProUGUI textBox;
