@@ -8,6 +8,7 @@ public class CameraZoom : MonoBehaviour
     private GameObject player;
     [SerializeField] CinemachineVirtualCamera vcamMouse;
     [SerializeField] CinemachineVirtualCamera vcamPlayer;
+
     private float orthoTargetSize = 4f;
     private float orthoCurrentSize;
 
