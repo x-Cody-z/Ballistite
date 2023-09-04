@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ChargeTutorial : MonoBehaviour
@@ -9,9 +10,13 @@ public class ChargeTutorial : MonoBehaviour
     private TutorialState state;
     private Rigidbody2D playerRB;
     private bool maxPower;
+    
 
     public Platformer.Mechanics.BespokePlayerController playerObject;
     public Collider2D playerCollider;
+    public GameObject tutorialWindow;
+    public Animator mouseAnimator;
+    public TextMeshProUGUI textBox;
 
     enum TutorialState
     {
@@ -19,6 +24,7 @@ public class ChargeTutorial : MonoBehaviour
         Activated,
         Grounded,
         Charging,
+        Charged,
         Released,
     }
 
@@ -30,55 +36,65 @@ public class ChargeTutorial : MonoBehaviour
         playerObject = FindObjectOfType<Platformer.Mechanics.BespokePlayerController>();
         playerCollider = playerObject.GetComponent<Collider2D>();
         playerRB = playerObject.GetComponentInParent<Rigidbody2D>();
+        tutorialWindow.SetActive(false);
         maxPower = false;
-        StartCoroutine(StateUpdate());
+        //StartCoroutine(StateUpdate());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playerObject.charge3 == true)
+        if (playerObject.ChargeTimer >= 5 && (state != TutorialState.Untouched || state != TutorialState.Released))
         {
-            maxPower = true;
+            playerObject.ChargeTimer = 5;
+        }
+        if (playerObject.charge3 == true && tutorialWindow.activeSelf)
+        {
+            state = TutorialState.Charged;
+            textBox.text = "Release";
+            mouseAnimator.Play("Release");
         }
         if (state == TutorialState.Activated)
         {
-            if(playerObject.grounded == true)
+            if (playerObject.grounded == true)
             {
-                playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+                playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | 0;
                 state = TutorialState.Grounded;
+                textBox.text = "Press";
+                mouseAnimator.Play("Prompt");
             }
         }
         if (state == TutorialState.Grounded)
         {
             if (Input.GetButtonDown("Fire1") && !playerObject.charge3)
             {
+                playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
                 state = TutorialState.Charging;
+                textBox.text = "Hold";
+                mouseAnimator.Play("Charging");
             }
         }
         if (state == TutorialState.Charging)
         {
-            if(Input.GetButtonUp("Fire1"))
+            if (Input.GetButtonUp("Fire1"))
             {
-                Debug.LogWarning("Charging button up");
-                if (maxPower)
-                {
-                    Debug.LogWarning("Released");
-                    state = TutorialState.Released;
-                    playerRB.constraints = 0 | 0;
-                }
-                else
-                {
-                    Debug.LogWarning("Not charged");
-                    playerObject.Timer = 0;
-                    playerObject.paused = true;
-                    playerObject.shotCancel = true;
-                    playerObject.charge1 = false;
-                    playerObject.charge2 = false;
-                    playerObject.charge3 = false;
-                    state = TutorialState.Grounded;
-                }
+                playerObject.shotCancel = true;
+                //Debug.LogWarning("Not charged");
+                playerObject.ResetCharge();
+                state = TutorialState.Grounded;
+                mouseAnimator.Play("Prompt");
+                textBox.text = "Press";
                 playerObject.shotCancel = false;
+            }
+        }
+        if (state == TutorialState.Charged)
+        {
+            if (Input.GetButtonUp("Fire1"))
+            {
+                //Debug.LogWarning("Released");
+                state = TutorialState.Released;
+                playerRB.constraints = 0 | 0;
+                tutorialWindow.SetActive(false);
             }
         }
     }
@@ -87,7 +103,9 @@ public class ChargeTutorial : MonoBehaviour
     {
         if (state == TutorialState.Untouched)
         {
+            playerObject.charge3 = false;
             state = TutorialState.Activated;
+            tutorialWindow.SetActive(true);
         }
     }
 

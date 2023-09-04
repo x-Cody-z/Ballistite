@@ -37,9 +37,9 @@ namespace Platformer.Mechanics
         private TrajectoryPredictor trajectoryPredictor;
 
         //bools used for toggling the charge indicators
-        private bool charge1;
-        private bool charge2;
-        private bool charge3;
+        [HideInInspector] public bool charge1;
+        [HideInInspector] public bool charge2;
+        [HideInInspector] public bool charge3;
 
         private Shooter shooter;
 
@@ -65,9 +65,9 @@ namespace Platformer.Mechanics
         private bool controlEnabled = false;
         [SerializeField]
         private bool notInsideCutscene = false;
-        private bool grounded = true;
+        [HideInInspector] public bool grounded = true;
 
-        private bool shotCancel = false;
+        [HideInInspector] public bool shotCancel = false;
 
         [Header("sloMo")]
         [SerializeField] private GameObject SlowdownTrigger;
@@ -287,7 +287,7 @@ namespace Platformer.Mechanics
             }
         }
 
-        void ResetCharge()
+        public void ResetCharge()
         {
             chargeTimer = 0;
             chargePaused = true;
