@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 40432699}
   m_Layer: 0
   m_Name: Girder
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -169,12 +169,12 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2147483647
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
   m_SurfaceArc: 180
-  m_UseSideFriction: 0
+  m_UseSideFriction: 1
   m_UseSideBounce: 0
   m_SideArc: 1
 --- !u!61 &40432700
@@ -1726,7 +1726,7 @@ GameObject:
   - component: {fileID: 598524759}
   m_Layer: 0
   m_Name: Girder (2)
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1797,7 +1797,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 48.157524, y: 0.019161224}
+  m_Offset: {x: 48.157524, y: -1.3138642}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1808,7 +1808,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 88.44048, y: 10.838318}
+  m_Size: {x: 88.440475, y: 8.86345}
   m_EdgeRadius: 0
 --- !u!114 &598524761
 MonoBehaviour:
@@ -2661,11 +2661,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1284084140543987491, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.17999649
+      value: 49.47501
       objectReference: {fileID: 0}
     - target: {fileID: 1284084140543987491, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.28499985
+      value: 2.3950024
       objectReference: {fileID: 0}
     - target: {fileID: 1284084140543987491, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2673,11 +2673,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4285311623418916066, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.17999649
+      value: 49.47501
       objectReference: {fileID: 0}
     - target: {fileID: 4285311623418916066, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.28499985
+      value: 2.3950024
       objectReference: {fileID: 0}
     - target: {fileID: 4285311623418916067, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
       propertyPath: m_Targets.Array.data[1].target
@@ -2685,11 +2685,11 @@ PrefabInstance:
       objectReference: {fileID: 1631015578}
     - target: {fileID: 4285311623520382340, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.35998917
+      value: 98.95
       objectReference: {fileID: 0}
     - target: {fileID: 4285311623520382340, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5699997
+      value: 4.790001
       objectReference: {fileID: 0}
     - target: {fileID: 4285311623520382341, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
       propertyPath: m_BoundingShape2D
@@ -2709,11 +2709,11 @@ PrefabInstance:
       objectReference: {fileID: 1631015578}
     - target: {fileID: 4285311624902182028, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.17999649
+      value: 49.47501
       objectReference: {fileID: 0}
     - target: {fileID: 4285311624902182028, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.28499985
+      value: 2.3950024
       objectReference: {fileID: 0}
     - target: {fileID: 4285311625214936822, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
       propertyPath: m_Name
@@ -3033,11 +3033,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8966696862554122415, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 32.80999
+      value: 131.4
       objectReference: {fileID: 0}
     - target: {fileID: 8966696862554122415, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 23.24
+      value: 28.6
       objectReference: {fileID: 0}
     - target: {fileID: 8966696862554122415, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3735,7 +3735,7 @@ GameObject:
   - component: {fileID: 1706272478}
   m_Layer: 0
   m_Name: Girder (4)
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3806,7 +3806,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 48.157524, y: 0.019161224}
+  m_Offset: {x: 73.45486, y: -1.4095498}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3817,7 +3817,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 88.44048, y: 10.838318}
+  m_Size: {x: 162.86812, y: 9.672358}
   m_EdgeRadius: 0
 --- !u!114 &1706272480
 MonoBehaviour:
@@ -3952,7 +3952,7 @@ GameObject:
   - component: {fileID: 1896111623}
   m_Layer: 0
   m_Name: Girder (3)
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4023,7 +4023,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 48.157524, y: 0.019161224}
+  m_Offset: {x: 36.33139, y: -1.3943827}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4034,7 +4034,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 88.44048, y: 10.838318}
+  m_Size: {x: 87.216644, y: 9.433748}
   m_EdgeRadius: 0
 --- !u!114 &1896111625
 MonoBehaviour:
@@ -4180,7 +4180,7 @@ GameObject:
   - component: {fileID: 2048211171}
   m_Layer: 0
   m_Name: Girder (1)
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4251,7 +4251,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 48.157524, y: 0.019161224}
+  m_Offset: {x: 48.157524, y: -1.6591096}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4262,7 +4262,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 88.44048, y: 10.838318}
+  m_Size: {x: 88.440475, y: 10.069563}
   m_EdgeRadius: 0
 --- !u!114 &2048211173
 MonoBehaviour:
