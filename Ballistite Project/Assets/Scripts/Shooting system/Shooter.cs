@@ -1,9 +1,5 @@
 using Platformer.Mechanics;
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using Unity.VisualScripting;
-using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 /// <summary>
@@ -103,6 +99,20 @@ public class Shooter : MonoBehaviour
             SlowmoScript = SlowdownTrigger.GetComponent<SlowdownTrigger>();
     }
 
+    /// <summary>
+    /// Calculates the angle of the barrel pivot to hit a target
+    /// </summary>
+    /// <param name="target"></param>
+    /// <returns>Returns an angle in radians for the barrel to pivot to</returns>
+    public float GetBarrelAngle(Vector2 target)
+    {
+        float barrelAngle = Mathf.Atan2(target.y - barrelPivot.position.y, target.x - barrelPivot.position.x) * Mathf.Rad2Deg;
+        return barrelAngle * Mathf.Deg2Rad;
+    }
+
+    /// <summary>
+    /// Starts the reload process if there are no shots left
+    /// </summary>
     public void StartReload()
     {
         if (ShotCount < ShotNumber && !Reloading && ReloadDelay <= 0)
@@ -122,22 +132,25 @@ public class Shooter : MonoBehaviour
 
         if (shotCount < shotNumber && playerController.isGrounded)
         {
-            soundMachine.PlayOneShot(reloadAudio);
+            soundMachine?.PlayOneShot(reloadAudio);
             StartCoroutine(GunReloadV2());
         }
         else if (shotCount < shotNumber)
         {
             yield return new WaitUntil(() => playerController.isGrounded);
-            soundMachine.PlayOneShot(reloadAudio, volumeScale);
+            soundMachine?.PlayOneShot(reloadAudio, volumeScale);
             StartCoroutine(GunReloadV2());
         }
         if (shotCount == shotNumber)
         {
-            soundMachine.PlayOneShot(reloadAudio);
+            soundMachine?.PlayOneShot(reloadAudio);
             reloading = false;
         }
     }
 
+    /// <summary>
+    /// Starts the timer to control fire rate
+    /// </summary>
     public IEnumerator StartFireDelay()
     {
         shotCooldown = true;
@@ -145,6 +158,9 @@ public class Shooter : MonoBehaviour
         shotCooldown = false;
     }
 
+    /// <summary>
+    /// Starts a timer to delay the start of the reload process
+    /// </summary>
     public IEnumerator StartReloadDelay()
     {
 
@@ -153,9 +169,16 @@ public class Shooter : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Shoots a projectile
+    /// </summary>
+    /// <param name="angle"></param>
+    /// <param name="spawnPos"></param>
+    /// <param name="powerMod"></param>
+    /// <param name="projectile"></param>
     public void Shoot(float angle, Vector3 spawnPos, float powerMod, GameObject projectile)
     {
-        soundMachine.PlayOneShot(gunAudio, volumeScale);
+        soundMachine?.PlayOneShot(gunAudio, volumeScale);
         Rigidbody2D tankRB = GetComponent<Rigidbody2D>();
         GameObject shotProjectile = Instantiate(projectile);
 

@@ -11,7 +11,7 @@ public class LeadPredictor : MonoBehaviour
     /// <param name="targetPosition"></param>
     /// <param name="targetVelocity"></param>
     /// <param name="projectileSpeed"></param>
-    /// <returns>Returns a vector3 representing the position that should be aimed at to hit target</returns>
+    /// <returns>Returns a vector2 representing the position that should be aimed at to hit target</returns>
     public Vector2 CalculateLead(Vector2 targetPosition, Vector2 targetVelocity, float projectileSpeed)
     {
         Vector2 targetDirection = new Vector2(targetPosition.x - transform.position.x, targetPosition.y - transform.position.y);
@@ -20,8 +20,15 @@ public class LeadPredictor : MonoBehaviour
 
         return targetPosition + targetVelocity * timeToTarget;
     }
-    public float CalculateProjectileSpeed(GameObject projectile, float power)
+
+    /// <summary>
+    /// Calculates the speed of a projectile
+    /// </summary>
+    /// <param name="projectile"></param>
+    /// <param name="power"></param>
+    /// <returns>a float representing projectile speed</returns>
+    public float CalculateProjectileSpeed(ProjectileData projectile)
     {
-        return (/*calcForce() **/ power / projectile.GetComponent<Rigidbody2D>().mass);
+        return (projectile.initialSpeed / projectile.mass);
     }
 }

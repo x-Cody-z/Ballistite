@@ -1119,6 +1119,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chargeBar: {fileID: 2533353765901420949}
+  chargeBar1: {fileID: 0}
+  chargeBar2: {fileID: 0}
+  visualMode: 1
 --- !u!1 &5225052779572582493
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,10 +1165,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6964368226141164176}
-  - component: {fileID: 7481336446546810787}
   - component: {fileID: 2077975035814528707}
+  - component: {fileID: 1840760833278242340}
+  - component: {fileID: 8328144609155931165}
   - component: {fileID: 2077975036079244502}
   - component: {fileID: 2077975036510645641}
+  - component: {fileID: 7481336446546810787}
   m_Layer: 7
   m_Name: enemy
   m_TagString: Level
@@ -1190,35 +1195,8 @@ Transform:
   - {fileID: 6648349531755069825}
   - {fileID: 317169747840355293}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &7481336446546810787
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6041303911266315107}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 1
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: f2b08f1f0bf4a4d4c9e200a207c80e00, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 1
-  m_SleepingMode: 0
-  m_CollisionDetection: 1
-  m_Constraints: 7
 --- !u!114 &2077975035814528707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1231,35 +1209,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 842654eda278b0d4a85621f4d3bc2d1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barrel: {fileID: 666935984858905853}
-  barrelPivot: {fileID: 6968990789086905173}
+  m_State: 0
+  maxRange: 10
+  projectile: {fileID: 6425388640759641725, guid: e613b6c737ed4924c85792d45c67f359, type: 3}
   muzzle: {fileID: 483635214282483282}
-  projectile: {fileID: 6425388640759641725, guid: 7e67086ad6e974c4e888260b0c4b41fc, type: 3}
-  Timer: 0
-  LastBlastValue: 0
-  paused: 1
-  shotPower: 1
-  shotMod: 0.5
+  barrel: {fileID: 666935984858905853}
+--- !u!114 &1840760833278242340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6041303911266315107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a495d394bfde1e547a0be739dc76c160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   shotForce: 4
   shotRecoil: 1
   reloadTime: 1
-  cooldownTime: 0.5
   shotNumber: 1
-  shotCount: 0
-  reloadTimeActive: 0
-  reloadDelay: 0
-  controlEnabled: 1
-  grounded: 1
-  reloading: 0
-  cooldown: 0
-  shotCancel: 0
-  m_State: 0
-  aimPoint: {fileID: 0}
-  player: {fileID: 0}
-  fireRate: 0
-  maxRange: 10
-  normalizedDirection: {x: 0, y: 0, z: 0}
-  distance: 0
+  fireRate: 1
+  muzzle: {fileID: 6121526238062072460}
+  barrelPivot: {fileID: 6968990789086905173}
+  gunAudio: {fileID: 0}
+  reloadAudio: {fileID: 0}
+  soundMachine: {fileID: 0}
+  volumeScale: 1
+  onBlastEvent: {fileID: 11400000, guid: d711f105cc03f47468c8b3703bc7b1de, type: 2}
+  SlowdownTrigger: {fileID: 0}
+--- !u!114 &8328144609155931165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6041303911266315107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2856ae2ff4c500d40b962b8c2fba89bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &2077975036079244502
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1419,6 +1410,33 @@ PolygonCollider2D:
       - {x: 0.5214373, y: 0.26778078}
       - {x: 0.517858, y: 0.3695358}
   m_UseDelaunayMesh: 0
+--- !u!50 &7481336446546810787
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6041303911266315107}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 1
+  m_Material: {fileID: 6200000, guid: f2b08f1f0bf4a4d4c9e200a207c80e00, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 1
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
+  m_Constraints: 7
 --- !u!1 &6121526238062072460
 GameObject:
   m_ObjectHideFlags: 0
