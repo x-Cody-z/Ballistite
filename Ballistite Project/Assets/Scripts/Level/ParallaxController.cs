@@ -18,6 +18,8 @@ public class ParallaxController : MonoBehaviour
     [Range(0f, 30f)]
     public float backgroundHeight;
 
+    public bool ScrollerMode;
+
     void Start()
     {
         cam = Camera.main.transform;
@@ -57,18 +59,19 @@ public class ParallaxController : MonoBehaviour
 
     private void LateUpdate() //TODO: clean this up, im doing unnecessary math
     {
-        distance = cam.position - camStartPos;
+        if (!ScrollerMode) {
 
-        transform.position = new Vector3(cam.position.x, transform.position.y, 0);
+            distance = cam.position - camStartPos;
 
-        for (int i = 0; i < backgrounds.Length; i++)
-        {
-            float speedX = backSpeed[i] * parallaxSpeed;
-            float speedY = speedX / 0.3f;
-            mat[i].SetTextureOffset("_MainTex", new Vector2(distance.x * speedX, 0));
-            backgrounds[i].transform.position = new Vector3(transform.position.x, 0 - ((distance.y * speedY) - backgroundHeight), 6);
+            transform.position = new Vector3(cam.position.x, transform.position.y, 0);
+
+            for (int i = 0; i < backgrounds.Length; i++)
+            {
+                float speedX = backSpeed[i] * parallaxSpeed;
+                float speedY = speedX / 0.3f;
+                mat[i].SetTextureOffset("_MainTex", new Vector2(distance.x * speedX, 0));
+                backgrounds[i].transform.position = new Vector3(transform.position.x, 0 - ((distance.y * speedY) - backgroundHeight), 6);
+            }
         }
     }
-
-
 }

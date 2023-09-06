@@ -2771,9 +2771,9 @@ RectTransform:
   - {fileID: 8396086900107872568}
   - {fileID: 5816386022061763437}
   - {fileID: 122610282}
-  - {fileID: 676435628}
   - {fileID: 1531496936}
   - {fileID: 1433221318}
+  - {fileID: 676435628}
   - {fileID: 635018148}
   m_Father: {fileID: 0}
   m_RootOrder: 0

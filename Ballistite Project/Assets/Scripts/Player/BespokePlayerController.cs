@@ -137,21 +137,6 @@ namespace Platformer.Mechanics
                 controlEnabled = true;
             }
 
-            //pan camera when holding right click
-            if (vcamMouse != null && vcamPlayer != null)
-            { 
-                if (Input.GetKey(KeyCode.Mouse1))
-                {
-                    vcamMouse.m_Priority = 1;
-                    vcamPlayer.m_Priority = 0;
-                }
-                else
-                {
-                    vcamMouse.m_Priority = 0;
-                    vcamPlayer.m_Priority = 1;
-                }
-            }
-
             //start timer when holding left click
             if (!chargePaused)
             {

@@ -8,6 +8,7 @@ public class CutsceneController : MonoBehaviour
     public GameEvent onCutsceneEndedEvent;
     public Animator cutsceneAnimator;
     public Animator letterboxAnimator;
+    public ParallaxController parallaxObject;
 
     private string cutsceneName;
 
@@ -22,6 +23,7 @@ public class CutsceneController : MonoBehaviour
     {
         CutsceneEventData eventData = new CutsceneEventData { Sender = this, CutsceneName = cutsceneName };
         onCutsceneEndedEvent.Raise(eventData);
+        parallaxObject.ScrollerMode = false;
 
         // TODO: Change camera mode.
     }
