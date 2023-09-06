@@ -2065,6 +2065,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 242183032, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
+      propertyPath: m_Name
+      value: Letterbox-Lower
+      objectReference: {fileID: 0}
+    - target: {fileID: 242183032, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 242183034, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 635018149, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2080,6 +2092,26 @@ PrefabInstance:
     - target: {fileID: 1433221317, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
       propertyPath: m_Name
       value: Letterbox
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433221318, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4004318
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433221318, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -95.927
+      objectReference: {fileID: 0}
+    - target: {fileID: 1558028931, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
+      propertyPath: m_Name
+      value: Letterbox-Upper
+      objectReference: {fileID: 0}
+    - target: {fileID: 1558028931, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1558028933, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8396086900887245132, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
       propertyPath: m_Name
