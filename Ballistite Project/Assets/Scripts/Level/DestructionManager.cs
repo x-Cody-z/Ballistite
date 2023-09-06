@@ -7,9 +7,9 @@ public class DestructionManager : MonoBehaviour
     public float destructionScore = 0;
 
     private float craterRadius = 4.2f;
-    private float lowCraterScale = 0.2f;
-    private float medCraterScale = 0.32f;
-    private float highCraterScale = 0.44f;
+    // private float lowCraterScale = 0.2f;
+    // private float medCraterScale = 0.32f;
+    // private float highCraterScale = 0.44f;
     private GameObject[] craterMasks;
 
     // Start is called before the first frame update

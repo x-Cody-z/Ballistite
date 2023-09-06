@@ -212,6 +212,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &242183032 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 242183032, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
+  m_PrefabInstance: {fileID: 600874973}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &253792180
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,6 +397,22 @@ PrefabInstance:
       propertyPath: cutsceneText
       value: 
       objectReference: {fileID: 600874974}
+    - target: {fileID: 656767053, guid: 7544752a76786cc48babb6a84ad82bdd, type: 3}
+      propertyPath: cutsceneIntro
+      value: 
+      objectReference: {fileID: 600874974}
+    - target: {fileID: 656767053, guid: 7544752a76786cc48babb6a84ad82bdd, type: 3}
+      propertyPath: cutsceneLetterUp
+      value: 
+      objectReference: {fileID: 242183032}
+    - target: {fileID: 656767053, guid: 7544752a76786cc48babb6a84ad82bdd, type: 3}
+      propertyPath: cutsceneLetterLow
+      value: 
+      objectReference: {fileID: 1558028931}
+    - target: {fileID: 656767053, guid: 7544752a76786cc48babb6a84ad82bdd, type: 3}
+      propertyPath: letterboxAnimator
+      value: 
+      objectReference: {fileID: 600874978}
     - target: {fileID: 1750118967432104587, guid: 7544752a76786cc48babb6a84ad82bdd, type: 3}
       propertyPath: m_Name
       value: EventSystem
@@ -682,7 +703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxSpeed: 0.1
-  backgroundHeight: 5.5
+  backgroundHeight: 7.1
 --- !u!4 &416330270
 Transform:
   m_ObjectHideFlags: 0
@@ -2044,14 +2065,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 122610282, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 635018147, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 635018149, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2064,34 +2077,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 1804943392}
-    - target: {fileID: 635018149, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: PlayGameTime
-      objectReference: {fileID: 0}
-    - target: {fileID: 635018149, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: LevelController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 676435627, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 676435628, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1480990144, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1531496934, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1781204879, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8396086900887245132, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
       propertyPath: m_Name
       value: UI
@@ -2192,6 +2177,11 @@ PrefabInstance:
 --- !u!1 &600874974 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1433221317, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
+  m_PrefabInstance: {fileID: 600874973}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &600874978 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 600874978, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
   m_PrefabInstance: {fileID: 600874973}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &680609600 stripped
@@ -5373,6 +5363,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1558028931 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1558028931, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
+  m_PrefabInstance: {fileID: 600874973}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1606765325
 GameObject:
   m_ObjectHideFlags: 0
@@ -6301,7 +6296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1764722846
 Transform:
   m_ObjectHideFlags: 0

@@ -7,7 +7,8 @@ public class CutsceneController : MonoBehaviour
 {
     public GameEvent onCutsceneEndedEvent;
     public Animator cutsceneAnimator;
-    public GameObject cutsceneText;
+    public GameObject cutsceneIntro;
+    public Animator letterboxAnimator;
 
     private string cutsceneName;
 
@@ -27,10 +28,11 @@ public class CutsceneController : MonoBehaviour
     }
     public void ActivateCutsceneText()
     {
-        cutsceneText.SetActive(true);
+        cutsceneIntro.SetActive(true);
     }
-    public void RemoveCutsceneText()
+
+    public void RemoveLetterbox()
     {
-        cutsceneText.SetActive(false);
+        letterboxAnimator.SetTrigger("Exit");
     }
 }
