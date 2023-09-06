@@ -693,7 +693,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxSpeed: 0.1
-  backgroundHeight: 7.1
+  backgroundHeight: 5
   ScrollerMode: 0
 --- !u!4 &416330270
 Transform:
