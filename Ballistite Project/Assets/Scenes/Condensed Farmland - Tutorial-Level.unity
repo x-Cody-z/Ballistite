@@ -2077,6 +2077,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 1804943392}
+    - target: {fileID: 1433221317, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
+      propertyPath: m_Name
+      value: Letterbox
+      objectReference: {fileID: 0}
     - target: {fileID: 8396086900887245132, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
       propertyPath: m_Name
       value: UI

@@ -7,7 +7,6 @@ public class CutsceneController : MonoBehaviour
 {
     public GameEvent onCutsceneEndedEvent;
     public Animator cutsceneAnimator;
-    public GameObject cutsceneIntro;
     public Animator letterboxAnimator;
 
     private string cutsceneName;
@@ -26,9 +25,9 @@ public class CutsceneController : MonoBehaviour
 
         // TODO: Change camera mode.
     }
-    public void ActivateCutsceneText()
+    public void AddLetterbox()
     {
-        cutsceneIntro.SetActive(true);
+        letterboxAnimator.SetTrigger("Entry");
     }
 
     public void RemoveLetterbox()
