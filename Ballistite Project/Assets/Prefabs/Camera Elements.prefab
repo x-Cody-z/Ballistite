@@ -926,6 +926,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vcamMouse: {fileID: 4285311624902182019}
   vcamPlayer: {fileID: 4285311623520382363}
+  veloScaling: 0.15
 --- !u!1001 &4285311623912852623
 PrefabInstance:
   m_ObjectHideFlags: 0

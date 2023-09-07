@@ -18,6 +18,11 @@ public class DestructionManager : MonoBehaviour
         
     }
 
+    private void OnDestroy()
+    {
+        Debug.Log("Destruction Score: " + destructionScore);
+    }
+
     // Update is called once per frame
     void Update()
     {

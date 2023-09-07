@@ -12,7 +12,7 @@ public class CameraZoom : MonoBehaviour
     private float orthoTargetSize = 4f;
     private float orthoCurrentSize;
 
-    private float veloScaling = 0.1f;
+    [SerializeField] private float veloScaling = 0.1f;
     private float baseZoom = 4f;
 
     private float zoomVelo = 0f;
