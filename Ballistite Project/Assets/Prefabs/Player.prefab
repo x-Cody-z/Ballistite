@@ -445,6 +445,7 @@ GameObject:
   m_Component:
   - component: {fileID: 417231224}
   - component: {fileID: 417231225}
+  - component: {fileID: 244012833}
   m_Layer: 3
   m_Name: barrelGraphic (1)
   m_TagString: Untagged
@@ -519,6 +520,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &244012833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417231223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -1.6199951, y: -0.47499847, z: 0}
+  - {x: -1.6199951, y: 0.4750023, z: 0}
+  - {x: 1.6200256, y: 0.4750023, z: 0}
+  - {x: 1.6200256, y: -0.47499847, z: 0}
+  m_ShapePathHash: 0
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -1095936
 --- !u!1 &1104304328
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,6 +818,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1542091727}
   - component: {fileID: 1542091728}
+  - component: {fileID: 2084433482}
   m_Layer: 3
   m_Name: TankHull
   m_TagString: Untagged
@@ -864,6 +893,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2084433482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542091726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -4.649994, y: -1.3450012, z: 0}
+  - {x: -4.649994, y: 1.3449936, z: 0}
+  - {x: 4.6500244, y: 1.3449936, z: 0}
+  - {x: 4.6500244, y: -1.3450012, z: 0}
+  m_ShapePathHash: 0
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -1095330
 --- !u!1 &1574269106
 GameObject:
   m_ObjectHideFlags: 0
@@ -874,6 +930,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1574269107}
   - component: {fileID: 1574269108}
+  - component: {fileID: 1872196520}
   m_Layer: 3
   m_Name: TankTurret
   m_TagString: Untagged
@@ -948,6 +1005,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1872196520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574269106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -2.769989, y: -1.4749985, z: 0}
+  - {x: -2.769989, y: 1.4749985, z: 0}
+  - {x: 2.769989, y: 1.4749985, z: 0}
+  - {x: 2.769989, y: -1.4749985, z: 0}
+  m_ShapePathHash: 0
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -1095022
 --- !u!1 &1802866734
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,6 +1042,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1802866735}
   - component: {fileID: 1802866736}
+  - component: {fileID: 1597018122}
   m_Layer: 3
   m_Name: barrelGraphic
   m_TagString: Untagged
@@ -1032,6 +1117,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1597018122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802866734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -1.7149963, y: -0.63500214, z: 0}
+  - {x: -1.7149963, y: 0.63500214, z: 0}
+  - {x: 1.7150269, y: 0.63500214, z: 0}
+  - {x: 1.7150269, y: -0.63500214, z: 0}
+  m_ShapePathHash: 0
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -1095708
 --- !u!1 &1899606906
 GameObject:
   m_ObjectHideFlags: 0
