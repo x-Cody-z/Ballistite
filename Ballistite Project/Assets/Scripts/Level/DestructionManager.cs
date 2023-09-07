@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+
 
 public class DestructionManager : MonoBehaviour
 {
@@ -12,10 +15,27 @@ public class DestructionManager : MonoBehaviour
     // private float highCraterScale = 0.44f;
     private GameObject[] craterMasks;
 
+
+    // Each of the override components
+    private Volume v;
+    private ColorAdjustments v_colorAdjustments;
+    private FilmGrain v_filmGrain;
+    private ChannelMixer v_channelMixer;
+    private LiftGammaGain v_liftGammaGain;
+    private Vignette v_vignette;
+
+    
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        v = GetComponent<Volume>();
+        v.profile.TryGet(out v_colorAdjustments);
+        v.profile.TryGet(out v_filmGrain);
+        v.profile.TryGet(out v_channelMixer);
+        v.profile.TryGet(out v_liftGammaGain);
+        v.profile.TryGet(out v_vignette);
     }
 
     private void OnDestroy()
@@ -26,7 +46,11 @@ public class DestructionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //at 100 score the postprocessing will take full effect
+        v.weight = destructionScore / 100;
+
+        //how to do individual components
+        //v_colorAdjustments.saturation.value = -60 * destructionScore / 10;
     }
 
     public void getCraterScore(GameEventData eventData)
@@ -74,4 +98,6 @@ public class DestructionManager : MonoBehaviour
             destructionScore += objDestroyedEventData.destructionValue;
         }
     }
+
+    
 }
