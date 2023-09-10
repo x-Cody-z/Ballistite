@@ -40,6 +40,9 @@ public class EnemyTank : MonoBehaviour
     [SerializeField] private Transform muzzle;
     [SerializeField] private Transform barrel;
 
+    [Header("Graphics")]
+    [SerializeField] private SpriteRenderer[] tankGraphics;
+
     private Shooter shooter;
     private LeadPredictor leadPredictor;
 
@@ -55,7 +58,7 @@ public class EnemyTank : MonoBehaviour
         data.initialPosition = muzzle.position;
         data.initialSpeed = shooter.calcForce();
         data.mass = rb.mass;
-        data.drag = 0;
+        data.drag = rb.drag;
 
         return data;
     }
@@ -63,7 +66,7 @@ public class EnemyTank : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(leadPredictor.CalculateLead(GameObject.Find("Player").transform.position, GameObject.Find("Player").GetComponent<Rigidbody2D>().velocity, leadPredictor.CalculateProjectileSpeed(projectileData())), 0.5f);
+        Gizmos.DrawWireSphere(leadPredictor.CalculateLead(GameObject.Find("Player").transform.position, GameObject.Find("Player").GetComponent<Rigidbody2D>().velocity, leadPredictor.CalculateProjectileSpeed(projectileData(), power)), 0.5f);
     }
 
 
@@ -121,7 +124,6 @@ public class EnemyTank : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            Debug.Log("Enemy hit by projectile");
             OnEnemyDestroyed?.Invoke(this, EventArgs.Empty);
         }
     }
@@ -133,7 +135,7 @@ public class EnemyTank : MonoBehaviour
             shooter.GetBarrelAngle(leadPredictor.CalculateLead(
                     player.transform.position,
                     player.GetComponent<Rigidbody2D>().velocity,
-                    leadPredictor.CalculateProjectileSpeed(projectileData())));
+                    leadPredictor.CalculateProjectileSpeed(projectileData(), power)));
 
         switch (m_State)
         {
@@ -172,6 +174,10 @@ public class EnemyTank : MonoBehaviour
                 break;
 
             case State.Destroyed:
+                foreach (SpriteRenderer graphic in tankGraphics)
+                {
+                    graphic.color = Color.gray;
+                }
                 break;
         }
     }

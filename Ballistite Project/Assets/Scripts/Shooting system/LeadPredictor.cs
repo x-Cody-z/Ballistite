@@ -27,8 +27,8 @@ public class LeadPredictor : MonoBehaviour
     /// <param name="projectile"></param>
     /// <param name="power"></param>
     /// <returns>a float representing projectile speed</returns>
-    public float CalculateProjectileSpeed(ProjectileData projectile)
+    public float CalculateProjectileSpeed(ProjectileData projectile, float power)
     {
-        return (projectile.initialSpeed / projectile.mass);
+        return power / projectile.mass;
     }
 }

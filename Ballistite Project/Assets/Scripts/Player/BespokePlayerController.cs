@@ -229,7 +229,7 @@ namespace Platformer.Mechanics
             data.initialPosition = muzzle.position;
             data.initialSpeed = shooter.calcForce() * power;
             data.mass = rb.mass;
-            data.drag = 0;
+            data.drag = rb.drag;
 
             return data;
         }

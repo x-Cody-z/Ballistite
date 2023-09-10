@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(LineRenderer))]
@@ -12,9 +13,10 @@ public class TrajectoryPredictor : MonoBehaviour
     [SerializeField] float sampleRate = 0.1f;
 
     //Time in this case is the time in the future that the script is calculating the velocity for
-    public Vector2 CalculateProjectileVelocity(Vector2 velocity, float time)
+    public Vector2 CalculateProjectileVelocity(Vector2 velocity, float time, float drag)
     {
         velocity += Physics2D.gravity * time;
+        velocity *= Mathf.Clamp01(1f - drag * time);
         return velocity;
     }
 
@@ -34,7 +36,7 @@ public class TrajectoryPredictor : MonoBehaviour
         UpdateLineRenderer(resolution, (0, pos));
         for (int i = 1; i < resolution; i++)
         {
-            velocity = CalculateProjectileVelocity(velocity, sampleRate);
+            velocity = CalculateProjectileVelocity(velocity, sampleRate, data.drag);
             nextPos = pos + velocity * sampleRate;
 
             //if collision is detected, draw a line to the point of collision and stop drawing the line
