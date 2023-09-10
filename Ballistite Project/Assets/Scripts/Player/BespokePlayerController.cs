@@ -54,7 +54,7 @@ namespace Platformer.Mechanics
         private float chargeRate = 1;
 
         //timer stuff used for charging shot power
-        private float chargeTimer;
+        private float chargeTimer = 0;
         private float power;
 
         private bool chargePaused = true;
@@ -93,7 +93,7 @@ namespace Platformer.Mechanics
             set { chargeTimer = value; }
         }
 
-        void Awake()
+        void Start()
         {
             if (trajectoryPredictor == null)
                 trajectoryPredictor = GetComponent<TrajectoryPredictor>();
@@ -137,21 +137,6 @@ namespace Platformer.Mechanics
                 controlEnabled = true;
             }
 
-            //pan camera when holding right click
-            if (vcamMouse != null && vcamPlayer != null)
-            { 
-                if (Input.GetKey(KeyCode.Mouse1))
-                {
-                    vcamMouse.m_Priority = 1;
-                    vcamPlayer.m_Priority = 0;
-                }
-                else
-                {
-                    vcamMouse.m_Priority = 0;
-                    vcamPlayer.m_Priority = 1;
-                }
-            }
-
             //start timer when holding left click
             if (!chargePaused)
             {
@@ -177,7 +162,7 @@ namespace Platformer.Mechanics
             if (controlEnabled)
             {
 
-                barrel.rotation = Quaternion.Euler(new Vector3(0, 0, GetBarrelAngle()* Mathf.Rad2Deg));
+                barrel.rotation = Quaternion.Euler(new Vector3(0, 0, shooter.GetBarrelAngle(GetMousePos2d()) * Mathf.Rad2Deg));
                 Vector3 shotSpawnPos = muzzle.transform.position;
 
                 //this is for charging power
@@ -187,7 +172,7 @@ namespace Platformer.Mechanics
                 }
                 if (Input.GetButtonUp("Fire1") && shooter.ShotCount > 0 && !shooter.ShotCooldown && !shotCancel)
                 {
-                    shooter.Shoot(GetBarrelAngle(), shotSpawnPos, power, projectile);
+                    shooter.Shoot(shooter.GetBarrelAngle(GetMousePos2d()), shotSpawnPos, power, projectile);
                     StartCoroutine(shooter.StartReloadDelay());
                     StartCoroutine(shooter.StartFireDelay());
                     ResetCharge();
@@ -244,7 +229,7 @@ namespace Platformer.Mechanics
             data.initialPosition = muzzle.position;
             data.initialSpeed = shooter.calcForce() * power;
             data.mass = rb.mass;
-            data.drag = 0;
+            data.drag = rb.drag;
 
             return data;
         }
@@ -276,7 +261,7 @@ namespace Platformer.Mechanics
                     }
                     break;
                 case > 6:
-                    shooter.Shoot(GetBarrelAngle(), shotSpawn, power, projectile);
+                    shooter.Shoot(shooter.GetBarrelAngle(GetMousePos2d()), shotSpawn, power, projectile);
                     StartCoroutine(shooter.StartReloadDelay());
                     StartCoroutine(shooter.StartFireDelay());
                     FirstShot();
@@ -296,15 +281,15 @@ namespace Platformer.Mechanics
             charge3 = false;
         }
 
-        float GetBarrelAngle()
+        Vector2 GetMousePos2d()
         {
             Vector3 mousePos = Input.mousePosition;
             mousePos.z = Camera.main.nearClipPlane;
             Vector3 Worldpos = Camera.main.ScreenToWorldPoint(mousePos);
             Vector2 Worldpos2D = new Vector2(Worldpos.x, Worldpos.y);
-            float barrelAngle = Mathf.Atan2(Worldpos2D.y - barrelPivot.position.y, Worldpos2D.x - barrelPivot.position.x) * Mathf.Rad2Deg;
-            return barrelAngle * Mathf.Deg2Rad;
+            return Worldpos2D;
         }
+
         void FirstShot()
         {
             if (firstShot)

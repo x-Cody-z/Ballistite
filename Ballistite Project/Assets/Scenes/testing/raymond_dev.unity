@@ -160,7 +160,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -219,6 +219,8 @@ GameObject:
   - component: {fileID: 537941140}
   - component: {fileID: 537941139}
   - component: {fileID: 537941138}
+  - component: {fileID: 537941143}
+  - component: {fileID: 537941142}
   m_Layer: 0
   m_Name: enemyTank
   m_TagString: Untagged
@@ -239,11 +241,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_State: 0
-  projectile: {fileID: 0}
-  aimPoint: {fileID: 0}
-  player: {fileID: 0}
-  fireRate: 0
   maxRange: 0
+  power: 0
+  projectile: {fileID: 0}
+  muzzle: {fileID: 0}
+  barrel: {fileID: 0}
 --- !u!60 &537941139
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -322,7 +324,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -369,6 +371,43 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &537941142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537941137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2856ae2ff4c500d40b962b8c2fba89bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &537941143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537941137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a495d394bfde1e547a0be739dc76c160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotForce: 4
+  shotRecoil: 1
+  reloadTime: 1
+  shotNumber: 1
+  fireRate: 0.5
+  muzzle: {fileID: 0}
+  barrelPivot: {fileID: 0}
+  gunAudio: {fileID: 0}
+  reloadAudio: {fileID: 0}
+  soundMachine: {fileID: 0}
+  volumeScale: 1
+  onBlastEvent: {fileID: 0}
+  SlowdownTrigger: {fileID: 0}
 --- !u!1 &1055994081
 GameObject:
   m_ObjectHideFlags: 0

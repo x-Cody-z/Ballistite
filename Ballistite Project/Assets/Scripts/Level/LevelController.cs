@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 
 public class LevelController : MonoBehaviour
@@ -28,28 +27,24 @@ public class LevelController : MonoBehaviour
     private float levelStartTime;
     private float progress = 0.0f;
 
+    private bool gameStarted;
+    private bool timeMet = false;
+
     public Transform tank;
-
-    private float startTime;
-
-    void Awake()
-    {
-        startTime = Time.timeScale;
-    }
 
     private void Start()
     {
-        levelStartTime = Time.time;
         startPoint = startPointObject.transform.position;
         finishPoint = finishPointObject.transform.position;
-        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == 0)
-        {
-            PauseGameTime();
-        }
+        gameStarted = false;
     }
 
     private void Update()
     {
+        if (gameStarted)
+        {
+            levelStartTime += Time.deltaTime;
+        }
         float totalDistance = Vector2.Distance(startPoint, finishPoint);
         float currentDistance = Vector2.Distance(tank.position, finishPoint);
         progress = 1.0f - (currentDistance / totalDistance);
@@ -66,9 +61,10 @@ public class LevelController : MonoBehaviour
             enemyDestroyedEvent.Raise(eventData);
         }
 
-        if (Time.time - levelStartTime >= timeGoal)
+        if (levelStartTime >= timeGoal && !timeMet)
         {
             levelStartTime = float.MaxValue;
+            timeMet = true;
             timeMetEvent.Raise(eventData);
         }
 
@@ -98,13 +94,10 @@ public class LevelController : MonoBehaviour
     {
         enviroDestroyCount++;
     }
-    public void PauseGameTime()
-    {
-        Time.timeScale = 0;
-    }
 
     public void PlayGameTime()
     {
-        Time.timeScale = startTime;
+        gameStarted = true;
+        levelStartTime = 0.0f;
     }
 }

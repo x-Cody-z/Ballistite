@@ -4,7 +4,7 @@ using UnityEngine.UIElements;
 
 public class uiController : MonoBehaviour
 {
-    private bool visisble;
+    private bool visible;
     public GameObject hideToggle;
 
     public TMP_Text ammoCountText;
@@ -36,19 +36,19 @@ public class uiController : MonoBehaviour
 
     public CutsceneController cutsceneController;
 
-
     // Start is called before the first frame update
     void Start()
     {
-        visisble = false;
+        visible = false;
         if (hideToggle != null)
         {
-            hideToggle.SetActive(visisble);
+            hideToggle.SetActive(visible);
         }
         if (winPanel != null)
         {
             winPanel.SetActive(false);
         }
+
     }
     private bool exitactive = false;
     
@@ -77,13 +77,7 @@ public class uiController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            exitactive = !exitactive;
-            quitmenu.SetActive(exitactive);
-            
-            if (exitactive)
-                Time.timeScale = 0;
-            else
-                Time.timeScale = 1;
+            togglePauseMenu();
 
         }
 
@@ -103,6 +97,16 @@ public class uiController : MonoBehaviour
                 break;
         }
         
+    }
+
+
+
+    void togglePauseMenu()
+    {
+        exitactive = !exitactive;
+        quitmenu.SetActive(exitactive);
+
+        Time.timeScale = exitactive ? 0 : 1;
     }
 
     private void setText()
@@ -143,7 +147,6 @@ public class uiController : MonoBehaviour
 
     public void CloseMenu()
     {
-        exitactive = !exitactive;
-        quitmenu.SetActive(exitactive);
+        togglePauseMenu();
     }
 }

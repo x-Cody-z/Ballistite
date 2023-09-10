@@ -18,6 +18,8 @@ public class ParallaxController : MonoBehaviour
     [Range(0f, 30f)]
     public float backgroundHeight;
 
+    public bool ScrollerMode;
+
     void Start()
     {
         cam = Camera.main.transform;
@@ -54,7 +56,6 @@ public class ParallaxController : MonoBehaviour
     }
 
 
-
     private void LateUpdate() //TODO: clean this up, im doing unnecessary math
     {
         distance = cam.position - camStartPos;
@@ -69,6 +70,4 @@ public class ParallaxController : MonoBehaviour
             backgrounds[i].transform.position = new Vector3(transform.position.x, 0 - ((distance.y * speedY) - backgroundHeight), 6);
         }
     }
-
-
 }

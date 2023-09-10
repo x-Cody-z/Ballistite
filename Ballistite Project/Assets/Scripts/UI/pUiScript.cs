@@ -9,19 +9,24 @@ public class pUiScript : MonoBehaviour
     private GameObject PlayerObject;
     private Shooter shooter;
     private BespokePlayerController PlayerScript;
+
     public Image chargeBar;
     public Image chargeBar1;
     public Image chargeBar2;
+
     private float chargeScale;
     private float chargeScale1;
     private float chargeScale2;
 
-    private Color orangeOff;
-    private Color orangeOn;
-    private Color redOff;
-    private Color redOn;
+    //setting a few colour to use for the charge bar
+    Color orangeOff = new Color(0.58f, 0.39f, 0f);
+    Color orangeOn = new Color(1f, 0.68f, 0f);
+    Color redOff = new Color(0.54f, 0f, 0.1f);
+    Color redOn = new Color(1f, 0f, 0.2f);
+
 
     [Tooltip("1 for the new charge bar, 2 for a mix of old and new, 3 for fun")]
+    [Range(1, 3)]
     public int visualMode = 1;
     private float x;
     private float y;
@@ -31,19 +36,19 @@ public class pUiScript : MonoBehaviour
     void Start()
     {
         //gets the player controller script for access to charge timer values
-        PlayerObject = GameObject.Find("Player");
+        PlayerObject = transform.parent.gameObject;
         if (PlayerObject)
         {
             PlayerScript = PlayerObject.GetComponent<BespokePlayerController>();
+            if (PlayerScript == null)
+                throw new System.Exception("Player script not found");
+
             shooter = PlayerObject.GetComponent<Shooter>();
+        } else
+        {
+            throw new System.Exception("Player object not found");
         }
 
-        //setting a few colour to use for the charge bar
-        orangeOff = new Color(0.58f, 0.39f, 0f);
-        orangeOn = new Color(1f, 0.68f, 0f);
-        redOff = new Color(0.54f, 0f, 0.1f);
-        redOn = new Color(1f, 0f, 0.2f);
-        
     }
 
     // Update is called once per frame
@@ -58,8 +63,8 @@ public class pUiScript : MonoBehaviour
             calculateChargeNew();
 
         //stops the bar from rotating with the tank and offsets its position
-        this.transform.rotation = Quaternion.Euler(0, 0, 180);
-        this.transform.position = (PlayerObject.transform.position) + new Vector3(0, 1, 0);
+        transform.rotation = Quaternion.Euler(0, 0, 180);
+        transform.position = (PlayerObject.transform.position) + new Vector3(0, 1, 0);
 
     }
 

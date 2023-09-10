@@ -2,9 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
+using Unity.Mathematics;
 using UnityEngine;
 
-public class EnemyTank : Tank
+
+[RequireComponent(typeof(Shooter))]
+[RequireComponent(typeof(LeadPredictor))]
+public class EnemyTank : MonoBehaviour
 {
     // requirements: Cannot see player through wall, have a raycast with the player and a certain distance specified in order to 'detect' the player and change phases.
     //               Have an empty gameObject to represent what it is aiming at and have that slowly follow the player while it is in detect mode.
@@ -14,7 +18,7 @@ public class EnemyTank : Tank
 
     //TODO:
     //      - Complete code for other states
-    //           - Add code for search pattern
+    //      - Add code for search pattern
     //      DONE - Add code to control fire rate
     //      DONE - add code to control shooting and target lead prediction
     //      Optional? - add code to control accuracy
@@ -25,21 +29,46 @@ public class EnemyTank : Tank
     private enum State {Idle, Alert, Search, Destroyed}
     [SerializeField] private State m_State;
 
-    [SerializeField] private GameObject player;
-    [SerializeField] private float fireRate = 3f;
-    [SerializeField] private float nextFire;
-    [SerializeField] private float maxRange;
+    [Header("Enemy Settings")]
+    [SerializeField][Tooltip("The max range at which the enemy can detect the player")] private float maxRange;
+    [SerializeField][Tooltip("power of enemy shot")]private float power;
     public event EventHandler OnEnemyDestroyed;
+
+    private GameObject player;
+    [Header("Game objects")]
+    [SerializeField] private GameObject projectile;
+    [SerializeField] private Transform muzzle;
+    [SerializeField] private Transform barrel;
+
+    [Header("Graphics")]
+    [SerializeField] private SpriteRenderer[] tankGraphics;
+
+    private Shooter shooter;
+    private LeadPredictor leadPredictor;
 
     private int layerMask;
     private List<Collider2D> ignoreColliders = new List<Collider2D>();
 
+    ProjectileData projectileData()
+    {
+        ProjectileData data = new ProjectileData();
+        Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+
+        data.direction = muzzle.transform.right;
+        data.initialPosition = muzzle.position;
+        data.initialSpeed = shooter.calcForce();
+        data.mass = rb.mass;
+        data.drag = rb.drag;
+
+        return data;
+    }
+
     private void OnDrawGizmos()
     {
-        // Draw a wire sphere around the explosion object to visualize the explosion radius in the editor
         Gizmos.color = Color.red;
-        //Gizmos.DrawWireSphere(CalculateLead(GameObject.Find("Player").transform.position, GameObject.Find("Player").GetComponent<Rigidbody2D>().velocity, CalculateProjectileSpeed(projectile, 1)), 0.5f);
+        Gizmos.DrawWireSphere(leadPredictor.CalculateLead(GameObject.Find("Player").transform.position, GameObject.Find("Player").GetComponent<Rigidbody2D>().velocity, leadPredictor.CalculateProjectileSpeed(projectileData(), power)), 0.5f);
     }
+
 
     private RaycastHit2D DetectPlayer()
     {
@@ -74,6 +103,12 @@ public class EnemyTank : Tank
         m_State = State.Idle;
         player = GameObject.Find("Player");
 
+        if (shooter == null)
+            shooter = GetComponent<Shooter>();
+
+        if (leadPredictor == null)
+            leadPredictor = GetComponent<LeadPredictor>();
+
         // To avoid raycasting on the Cinemachine collider
         layerMask = ~LayerMask.GetMask("IgnoreRaycast");
         OnEnemyDestroyed += EnemyTank_OnEnemyDestroyed;
@@ -89,7 +124,6 @@ public class EnemyTank : Tank
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            Debug.Log("Enemy hit by projectile");
             OnEnemyDestroyed?.Invoke(this, EventArgs.Empty);
         }
     }
@@ -97,6 +131,11 @@ public class EnemyTank : Tank
     void Update() //fixedupdate?
     {
         RaycastHit2D hit = DetectPlayer();
+        float leadAngle =
+            shooter.GetBarrelAngle(leadPredictor.CalculateLead(
+                    player.transform.position,
+                    player.GetComponent<Rigidbody2D>().velocity,
+                    leadPredictor.CalculateProjectileSpeed(projectileData(), power)));
 
         switch (m_State)
         {
@@ -110,14 +149,14 @@ public class EnemyTank : Tank
                 break;
 
            case State.Alert:
-                //float angleInRadians = MoveBarrel(CalculateLead(player.transform.position, player.GetComponent<Rigidbody2D>().velocity, CalculateProjectileSpeed(projectile, 1))) * Mathf.Deg2Rad;
-                //barrel.rotation = Quaternion.Euler(new Vector3(0, 0, MoveBarrel(CalculateLead(player.transform.position, player.GetComponent<Rigidbody2D>().velocity, CalculateProjectileSpeed(projectile, 1)))));
-                if (Time.time > nextFire)
+                barrel.rotation = Quaternion.Euler(new Vector3(0,0,leadAngle * Mathf.Rad2Deg));
+
+                if (!shooter.ShotCooldown)
                 {
-                    nextFire = Time.time + fireRate;
-                //    Shoot(angleInRadians, muzzle.transform.position, 1f);
+                    shooter.Shoot(leadAngle, muzzle.transform.position, power, projectile);
+                    StartCoroutine(shooter.StartFireDelay());
                 }
-                if (hit.distance > maxRange)
+                if (!hit)
                 {
                     m_State = State.Search;
                 }
@@ -135,11 +174,11 @@ public class EnemyTank : Tank
                 break;
 
             case State.Destroyed:
+                foreach (SpriteRenderer graphic in tankGraphics)
+                {
+                    graphic.color = Color.gray;
+                }
                 break;
-
-            default:
-                break;
-
         }
     }
 }

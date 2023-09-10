@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -211,10 +211,15 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 63
   explosionSound: {fileID: 8300000, guid: d1565c45acb0c4c4f8ca74d0b1cac8bd, type: 3}
+  radiusModifier: 0
+  radius: 0
+  radiusMax: 0
   explosionEffectMain: {fileID: 1336992743854364684}
   explosionEffectSmoke: {fileID: 9070898060886746670}
   explosionEffectSpark: {fileID: 2748376668869832416}
   graphic: {fileID: 433997715138457908}
+  chargeScale: 0
+  onProjectileHitTerrain: {fileID: 0}
 --- !u!82 &4388822916004649983
 AudioSource:
   m_ObjectHideFlags: 0
