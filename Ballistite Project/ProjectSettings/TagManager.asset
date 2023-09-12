@@ -45,3 +45,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Level
+    uniqueID: 3704686409
+    locked: 0
+  - name: Player
+    uniqueID: 4216062143
+    locked: 0
+  - name: Interactables
+    uniqueID: 915936271
+    locked: 0
