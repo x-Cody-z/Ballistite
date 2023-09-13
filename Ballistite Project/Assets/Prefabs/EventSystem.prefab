@@ -112,8 +112,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onCutsceneEndedEvent: {fileID: 11400000, guid: 4ae02edac0156e64baccaf01ff5f30bd, type: 2}
   cutsceneAnimator: {fileID: 656767054}
+  armyPathAnimator: {fileID: 0}
+  tankPathAnimator: {fileID: 0}
+  backgroundAnimator: {fileID: 0}
+  tankPlayerAnimator: {fileID: 0}
   letterboxAnimator: {fileID: 0}
   parallaxObject: {fileID: 0}
+  introObjects: {fileID: 0}
+  mineObject: {fileID: 0}
+  playerGun_Main: {fileID: 0}
+  playerGun_Fake: {fileID: 0}
+  chargeUI: {fileID: 0}
+  playerObj: {fileID: 0}
+  grasslandMusic: {fileID: 0}
+  isLevel1: 0
+  explosionEffectMain: {fileID: 0}
 --- !u!1 &905180825
 GameObject:
   m_ObjectHideFlags: 0

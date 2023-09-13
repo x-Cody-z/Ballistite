@@ -23,6 +23,8 @@ public class CutsceneController : MonoBehaviour
     public GameObject playerObj;
     public GameObject grasslandMusic;
 
+    public bool isLevel1;
+
     public ParticleSystem explosionEffectMain;
 
     private string cutsceneName;
@@ -32,6 +34,11 @@ public class CutsceneController : MonoBehaviour
         //TODO: Change camera mode
         cutsceneName = "Intro";
         cutsceneAnimator.SetTrigger("PlayIntro");
+    }
+    
+    public void Start() 
+    {
+        if (isLevel1) cutsceneAnimator.SetTrigger("MainMenu");
     }
 
     public void IntroCutsceneEnded()
