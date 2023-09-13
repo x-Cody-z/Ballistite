@@ -86,8 +86,11 @@ public class Projectile : MonoBehaviour
             if (collider.CompareTag("Level"))
             {
                 radius = Mathf.Clamp(radiusModifier, 0, radiusMax); // Blast amount adds to radius
+
+                Vector2 hitNormal = collision.contacts[0].normal;
+
                 Debug.Log("Radius = " + radius);
-                ProjectileEventData projEventData = new ProjectileEventData { Sender = this, HitPosition = transform, velocity = rb.velocity, radius = radius };
+                ProjectileEventData projEventData = new ProjectileEventData { Sender = this, HitPosition = transform, velocity = rb.velocity, radius = radius, hitNormal = hitNormal };
                 onProjectileHitTerrain.Raise(projEventData);
             } else
             {

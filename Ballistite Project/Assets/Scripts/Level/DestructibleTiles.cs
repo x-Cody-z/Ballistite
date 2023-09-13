@@ -20,6 +20,7 @@ public class DestructibleTiles : MonoBehaviour
             mask.AddComponent<SpriteMask>().sprite = sprite;
             mask.transform.position = projectilePos.position;
             mask.transform.localScale = new Vector2(radius, radius);
+            mask.transform.rotation = Quaternion.FromToRotation(Vector3.up, projectileData.hitNormal);
             mask.tag = "Crater";
         }
     }
