@@ -23,17 +23,20 @@ public class CutsceneController : MonoBehaviour
     {
         CutsceneEventData eventData = new CutsceneEventData { Sender = this, CutsceneName = cutsceneName };
         onCutsceneEndedEvent.Raise(eventData);
-        parallaxObject.ScrollerMode = false;
+        if (parallaxObject != null)
+            parallaxObject.ScrollerMode = false;
 
         // TODO: Change camera mode.
     }
     public void AddLetterbox()
     {
-        letterboxAnimator.SetTrigger("Entry");
+        if (letterboxAnimator != null)
+            letterboxAnimator.SetTrigger("Entry");
     }
 
     public void RemoveLetterbox()
     {
-        letterboxAnimator.SetTrigger("Exit");
+        if (letterboxAnimator != null)
+            letterboxAnimator.SetTrigger("Exit");
     }
 }
