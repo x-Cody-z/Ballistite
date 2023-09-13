@@ -166,7 +166,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 11
   m_Sprite: {fileID: 21300000, guid: 198897551b996e44682db0a8c7e30e5e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -223,7 +223,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0.008087824, y: -0.31}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.010509928
+  m_Distance: 0.010510166
   m_MaxDistanceOnly: 0
 --- !u!58 &40855730
 CircleCollider2D:
@@ -423,7 +423,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: c6a03580d32abb64cb0f3b8a172d8775, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -546,7 +546,7 @@ MonoBehaviour:
   - {x: 1.6200256, y: -0.47499847, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1095936
+  m_InstanceId: 66440
 --- !u!1 &1104304328
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,7 +622,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 11
   m_Sprite: {fileID: 21300000, guid: 3744686a02b24e34bac5de4bc1914402, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -679,7 +679,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: -0.41366225, y: -0.31}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.010521154
+  m_Distance: 0.010521392
   m_MaxDistanceOnly: 0
 --- !u!58 &1104304337
 CircleCollider2D:
@@ -881,7 +881,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 11
   m_Sprite: {fileID: 21300000, guid: 24882e49356be754ea4c37bcc0a94c31, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -919,7 +919,7 @@ MonoBehaviour:
   - {x: 4.6500244, y: -1.3450012, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1095330
+  m_InstanceId: 66998
 --- !u!1 &1574269106
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,7 +993,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 11
   m_Sprite: {fileID: 21300000, guid: 47dc08f6d24321740b43b79336f14181, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1031,7 +1031,7 @@ MonoBehaviour:
   - {x: 2.769989, y: -1.4749985, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1095022
+  m_InstanceId: 66888
 --- !u!1 &1802866734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,7 +1143,7 @@ MonoBehaviour:
   - {x: 1.7150269, y: -0.63500214, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1095708
+  m_InstanceId: 66810
 --- !u!1 &1899606906
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,7 +1295,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 11
   m_Sprite: {fileID: 21300000, guid: 6da0c0ec19d87ef4688737cd5ce3003e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1352,7 +1352,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0.42831486, y: -0.31}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.010501118
+  m_Distance: 0.010501358
   m_MaxDistanceOnly: 0
 --- !u!58 &1959380588
 CircleCollider2D:
@@ -1879,11 +1879,16 @@ MonoBehaviour:
   barrelPivot: {fileID: 8962347402026695018}
   muzzle: {fileID: 1900594786463767661}
   projectile: {fileID: 6425388640759641725, guid: 7e67086ad6e974c4e888260b0c4b41fc, type: 3}
+  charge1: 0
+  charge2: 0
+  charge3: 0
   shotPower: 1
   shotMod: 0.6
   chargeRate: 2.5
   controlEnabled: 1
   notInsideCutscene: 0
+  grounded: 1
+  shotCancel: 0
   SlowdownTrigger: {fileID: 0}
   shootingTutorial: {fileID: 0}
 --- !u!114 &1016075928834900212

@@ -24,6 +24,8 @@ public class ProjectileEventData : GameEventData
     public Transform HitPosition { get; set; }
     public Vector2 velocity { get; set; }
     public float radius { get; set; }
+
+    public Vector2 hitNormal { get; set; }
 }
 
 public class ObjectDesotryedEventData : GameEventData
