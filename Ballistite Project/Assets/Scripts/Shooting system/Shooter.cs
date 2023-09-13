@@ -183,7 +183,7 @@ public class Shooter : MonoBehaviour
         GameObject shotProjectile = Instantiate(projectile);
 
         LayerMask mask = LayerMask.GetMask("Level");
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, spawnPos - barrelPivot.position, 5, mask);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, spawnPos - barrelPivot.position, 1, mask);
 
         if (hit.collider != null && hit.collider.CompareTag("Level"))
         {

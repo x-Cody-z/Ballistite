@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Reflection;
 using System;
+using Org.BouncyCastle.Bcpg.OpenPgp;
 
 public class TriggerScript : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class TriggerScript : MonoBehaviour
 
     [Tooltip("Delay before any of the other actions happen. Use for stuff getting shot so the bullet actually explodes")]
     public float delay;
+    [Tooltip("Add an object here if you want it to be activated before the delay")]
+    public GameObject activateObject;
     private float delayActive;
 
     [Tooltip("If you want an object to be destroyed when the trigger activates, add it here")]
@@ -61,6 +64,19 @@ public class TriggerScript : MonoBehaviour
 
         checkTriggers();
         
+
+    }
+
+    private IEnumerator startDelayAfter(Delegate function)
+    {
+
+        // Wait for the specified amount of time
+        for (delayActive = delay; delayActive > 0; delayActive -= Time.deltaTime)
+            function.DynamicInvoke();
+            yield return null;
+
+        checkTriggers();
+
 
     }
 
@@ -153,11 +169,15 @@ public class TriggerScript : MonoBehaviour
         {
             Debug.Log("Trigger entered by object with tag: " + requiredTag);
             
-            if(delay > 0f)
+            if(delay > 0f && activateObject != null)
             {
+                activateObject.SetActive(true);
                 StartCoroutine(startDelay());
             }
-            else
+            else if (delay > 0f)
+            {
+                StartCoroutine(startDelay());
+            }else
             {
                 checkTriggers();
             }
