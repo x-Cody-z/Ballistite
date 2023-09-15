@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ChargeTutorial : MonoBehaviour
+public class CancelTutorial : MonoBehaviour
 {
-
     private LevelController levelController;
     private TutorialState state;
     private Rigidbody2D playerRB;
-    private bool maxPower;
     private Platformer.Mechanics.BespokePlayerController playerObject;
     private Collider2D playerCollider;
 
@@ -36,7 +34,6 @@ public class ChargeTutorial : MonoBehaviour
         playerCollider = playerObject.GetComponent<Collider2D>();
         playerRB = playerObject.GetComponentInParent<Rigidbody2D>();
         tutorialWindow.SetActive(false);
-        maxPower = false;
         //StartCoroutine(StateUpdate());
     }
 
@@ -46,10 +43,12 @@ public class ChargeTutorial : MonoBehaviour
         if (playerObject.ChargeTimer >= 5 && (state != TutorialState.Untouched || state != TutorialState.Released))
         {
             playerObject.ChargeTimer = 5;
+
         }
         if (playerObject.charge3 == true && tutorialWindow.activeSelf)
         {
             state = TutorialState.Charged;
+            
             textBox.text = "Release";
             mouseAnimator.Play("Release");
         }
@@ -77,13 +76,13 @@ public class ChargeTutorial : MonoBehaviour
         {
             if (Input.GetButtonUp("Fire1"))
             {
-                playerObject.shotCancel = true;
+                /*playerObject.shotCancel = true;
                 //Debug.LogWarning("Not charged");
                 playerObject.ResetCharge();
                 state = TutorialState.Grounded;
                 mouseAnimator.Play("Prompt");
                 textBox.text = "Press";
-                playerObject.shotCancel = false;
+                playerObject.shotCancel = false;*/
             }
         }
         if (state == TutorialState.Charged)
@@ -91,9 +90,9 @@ public class ChargeTutorial : MonoBehaviour
             if (Input.GetButtonUp("Fire1"))
             {
                 //Debug.LogWarning("Released");
-                state = TutorialState.Released;
+                /*state = TutorialState.Released;
                 playerRB.constraints = 0 | 0;
-                tutorialWindow.SetActive(false);
+                tutorialWindow.SetActive(false);*/
             }
         }
     }

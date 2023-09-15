@@ -62,7 +62,7 @@ namespace Platformer.Mechanics
 
         [Header("control enablers")]
         [SerializeField]
-        private bool controlEnabled = false;
+        public bool controlEnabled = false;
         [SerializeField]
         private bool notInsideCutscene = false;
         [HideInInspector] public bool grounded = true;
@@ -213,6 +213,11 @@ namespace Platformer.Mechanics
                 notInsideCutscene = true;
                 controlEnabled = true;
             }
+        }
+
+        public void EnableControl(bool controlState)
+        {
+            controlEnabled = controlState;
         }
 
         public void ToggleDebug()
