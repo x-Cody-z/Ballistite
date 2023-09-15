@@ -57,7 +57,7 @@ namespace Platformer.Mechanics
         private float chargeTimer = 0;
         private float power;
 
-        private bool chargePaused = true;
+        public bool chargePaused = true;
         private bool firstShot = true; //Boolean to disable start tutorial
 
         [Header("control enablers")]

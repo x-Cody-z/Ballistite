@@ -48,7 +48,8 @@ public class CancelTutorial : MonoBehaviour
         if (playerObject.charge3 == true && tutorialWindow.activeSelf)
         {
             state = TutorialState.Charged;
-            
+            playerObject.EnableControl(false);
+            playerObject.chargePaused = true;
             textBox.text = "Release";
             mouseAnimator.Play("Release");
         }
