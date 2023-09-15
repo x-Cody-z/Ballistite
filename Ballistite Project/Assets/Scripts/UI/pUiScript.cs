@@ -10,9 +10,12 @@ public class pUiScript : MonoBehaviour
     private Shooter shooter;
     private BespokePlayerController PlayerScript;
 
-    public Image chargeBar;
-    public Image chargeBar1;
-    public Image chargeBar2;
+    [SerializeField] private Image chargeBar;
+    [SerializeField] private Image chargeBar1;
+    [SerializeField] private Image chargeBar2;
+
+    [SerializeField] private ParticleSystem chargeParticle1;
+    [SerializeField] private ParticleSystem chargeParticle2;
 
     private float chargeScale;
     private float chargeScale1;
@@ -74,11 +77,13 @@ public class pUiScript : MonoBehaviour
         if (PlayerScript.ChargeTimer <= 1)
         {
             setValues(PlayerScript.ChargeTimer * 100, 0, Color.white, redOff);
+            
         }
 
         else if (PlayerScript.ChargeTimer > 1)
         {
             setValues(100, (PlayerScript.ChargeTimer - 1) * 100, orangeOn, orangeOn);
+            
         }
 
         if (chargeScale2 >= 100)
@@ -95,16 +100,28 @@ public class pUiScript : MonoBehaviour
         if (PlayerScript.ChargeTimer <= 1)
         {
             setValues(PlayerScript.ChargeTimer * 100, 0, orangeOff, redOff);
+            if (chargeParticle1.isPlaying)
+                chargeParticle1.Stop();
+            if (chargeParticle2.isPlaying)
+                chargeParticle2.Stop();
         }
 
-        else if (PlayerScript.ChargeTimer > 1)
+        else if (PlayerScript.ChargeTimer > 1  && PlayerScript.ChargeTimer < 2)
         {
             setValues(100, (PlayerScript.ChargeTimer - 1) * 100, orangeOn, redOff);
+            if (chargeParticle1.isStopped)
+                chargeParticle1.Play();
+            if (chargeParticle2.isPlaying)
+                chargeParticle2.Stop();
         }
         
-        if (chargeScale2 >= 100)
+        else
         {
             setValues(100, 100, orangeOn, redOn);
+            if (chargeParticle1.isStopped)
+                chargeParticle1.Play();
+            if (chargeParticle2.isStopped)
+                chargeParticle2.Play();
         }
     }
 
