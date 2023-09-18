@@ -16,15 +16,17 @@ public class pUiScript : MonoBehaviour
 
     [SerializeField] private ParticleSystem chargeParticle1;
     [SerializeField] private ParticleSystem chargeParticle2;
+    //[SerializeField] private ParticleSystem chargeParticleSecondary1;
+    //[SerializeField] private ParticleSystem chargeParticleSecondary2;
 
     private float chargeScale;
     private float chargeScale1;
     private float chargeScale2;
 
     //setting a few colour to use for the charge bar
-    Color orangeOff = new Color(0.58f, 0.39f, 0f);
+    Color orangeOff = new Color(0.40f, 0.31f, 0.12f);
     Color orangeOn = new Color(1f, 0.68f, 0f);
-    Color redOff = new Color(0.54f, 0f, 0.1f);
+    Color redOff = new Color(0.43f, 0.13f, 0.19f);
     Color redOn = new Color(1f, 0f, 0.2f);
 
 
@@ -101,27 +103,45 @@ public class pUiScript : MonoBehaviour
         {
             setValues(PlayerScript.ChargeTimer * 100, 0, orangeOff, redOff);
             if (chargeParticle1.isPlaying)
+            {
                 chargeParticle1.Stop();
+                //chargeParticleSecondary1.Stop();
+            }
             if (chargeParticle2.isPlaying)
+            {
                 chargeParticle2.Stop();
+                //chargeParticleSecondary2.Stop();
+            }
         }
 
         else if (PlayerScript.ChargeTimer > 1  && PlayerScript.ChargeTimer < 2)
         {
             setValues(100, (PlayerScript.ChargeTimer - 1) * 100, orangeOn, redOff);
             if (chargeParticle1.isStopped)
+            {
                 chargeParticle1.Play();
+                //chargeParticleSecondary1.Play();
+            }
             if (chargeParticle2.isPlaying)
+            {
                 chargeParticle2.Stop();
+                //chargeParticleSecondary2.Stop();
+            }
         }
         
         else
         {
             setValues(100, 100, orangeOn, redOn);
             if (chargeParticle1.isStopped)
+            {
                 chargeParticle1.Play();
+                //chargeParticleSecondary1.Play();
+            }
             if (chargeParticle2.isStopped)
+            {
                 chargeParticle2.Play();
+                //chargeParticleSecondary2.Play();
+            }
         }
     }
 
