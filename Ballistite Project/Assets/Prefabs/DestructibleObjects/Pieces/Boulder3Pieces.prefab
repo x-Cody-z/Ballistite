@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4542926013856570218}
   - component: {fileID: 4167256426843116890}
   - component: {fileID: 4837583881194346989}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BOULDER (2) Destroyed_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 4837281271261300365}
   - component: {fileID: 2872127521236083682}
   - component: {fileID: 2612795666304660411}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BOULDER (2) Destroyed_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +396,7 @@ GameObject:
   - component: {fileID: 2490889733610259880}
   - component: {fileID: 7725398001188412069}
   - component: {fileID: 3474988900092058836}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BOULDER (2) Destroyed_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -587,7 +587,7 @@ GameObject:
   - component: {fileID: 2110211061521422562}
   - component: {fileID: 8056880810205621586}
   - component: {fileID: 4263772410129857381}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BOULDER (2) Destroyed_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -778,7 +778,7 @@ GameObject:
   - component: {fileID: 5383488527885192335}
   - component: {fileID: 7643292229909446281}
   - component: {fileID: 7161725801498525691}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BOULDER (2) Destroyed_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -969,7 +969,7 @@ GameObject:
   - component: {fileID: 4604961607877241266}
   - component: {fileID: 532195887673449992}
   - component: {fileID: 7837795202862013734}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BOULDER (2) Destroyed_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1160,7 +1160,7 @@ GameObject:
   - component: {fileID: 1252703185190163607}
   - component: {fileID: 1674852803658648141}
   - component: {fileID: 5707090142169889634}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BOULDER (2) Destroyed_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1377,7 +1377,7 @@ Transform:
   - {fileID: 7809027128241780967}
   - {fileID: 961004086926939004}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8060888718495406829
 GameObject:
@@ -1393,7 +1393,7 @@ GameObject:
   - component: {fileID: 6867755248154225903}
   - component: {fileID: 5984232744866959015}
   - component: {fileID: 7331713958090460019}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BOULDER (2) Destroyed_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1584,7 +1584,7 @@ GameObject:
   - component: {fileID: 2401647871356145378}
   - component: {fileID: 5450952345639812324}
   - component: {fileID: 3050796836363937465}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BOULDER (2) Destroyed_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1775,7 +1775,7 @@ GameObject:
   - component: {fileID: 4257192985308083771}
   - component: {fileID: 739661761901861123}
   - component: {fileID: 225492040731477729}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BOULDER (2) Destroyed_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1966,7 +1966,7 @@ GameObject:
   - component: {fileID: 5405104830601471295}
   - component: {fileID: 6329906863345580368}
   - component: {fileID: 2164833315945300173}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BOULDER (2) Destroyed_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
