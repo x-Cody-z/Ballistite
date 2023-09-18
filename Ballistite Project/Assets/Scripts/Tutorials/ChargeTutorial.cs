@@ -9,7 +9,6 @@ public class ChargeTutorial : MonoBehaviour
     private LevelController levelController;
     private TutorialState state;
     private Rigidbody2D playerRB;
-    private bool maxPower;
     private Platformer.Mechanics.BespokePlayerController playerObject;
     private Collider2D playerCollider;
 
@@ -36,13 +35,13 @@ public class ChargeTutorial : MonoBehaviour
         playerCollider = playerObject.GetComponent<Collider2D>();
         playerRB = playerObject.GetComponentInParent<Rigidbody2D>();
         tutorialWindow.SetActive(false);
-        maxPower = false;
         //StartCoroutine(StateUpdate());
     }
 
     // Update is called once per frame
     void Update()
     {
+        playerObject.controlEnabled = true;
         if (playerObject.ChargeTimer >= 5 && (state != TutorialState.Untouched || state != TutorialState.Released))
         {
             playerObject.ChargeTimer = 5;
@@ -75,22 +74,22 @@ public class ChargeTutorial : MonoBehaviour
         }
         if (state == TutorialState.Charging)
         {
+            playerObject.controlEnabled = false;
             if (Input.GetButtonUp("Fire1"))
             {
                 playerObject.shotCancel = true;
-                //Debug.LogWarning("Not charged");
                 playerObject.ResetCharge();
                 state = TutorialState.Grounded;
                 mouseAnimator.Play("Prompt");
                 textBox.text = "Press";
                 playerObject.shotCancel = false;
             }
+            
         }
         if (state == TutorialState.Charged)
         {
             if (Input.GetButtonUp("Fire1"))
             {
-                //Debug.LogWarning("Released");
                 state = TutorialState.Released;
                 playerRB.constraints = 0 | 0;
                 tutorialWindow.SetActive(false);
@@ -111,8 +110,7 @@ public class ChargeTutorial : MonoBehaviour
     IEnumerator StateUpdate()
     {
         Debug.Log("ChargeTutorial: " + state);
-        Debug.Log("Charge 3 State: " + playerObject.charge3);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         StartCoroutine(StateUpdate());
     }
 }

@@ -43,7 +43,6 @@ public class CancelTutorial : MonoBehaviour
         if (playerObject.ChargeTimer >= 5 && (state != TutorialState.Untouched || state != TutorialState.Released))
         {
             playerObject.ChargeTimer = 5;
-
         }
         if (playerObject.charge3 == true && tutorialWindow.activeSelf)
         {
