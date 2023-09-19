@@ -1,13 +1,12 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.Burst.CompilerServices;
-using Unity.Mathematics;
+using UnityEngine.UI;
 using UnityEngine;
 
 
 [RequireComponent(typeof(Shooter))]
 [RequireComponent(typeof(LeadPredictor))]
+[RequireComponent(typeof(TrajectoryPredictor))]
 public class EnemyTank : MonoBehaviour
 {
     // requirements: Cannot see player through wall, have a raycast with the player and a certain distance specified in order to 'detect' the player and change phases.
@@ -27,27 +26,30 @@ public class EnemyTank : MonoBehaviour
     //      DONE- add code to control enemy health/destruction
     //      DONE - update projectile to hit player if enemy has shot
     private enum State {Idle, Alert, Search, Destroyed}
-    [SerializeField] private State m_State;
+    [SerializeField] State m_State;
 
     [Header("Enemy Settings")]
-    [SerializeField][Tooltip("The max range at which the enemy can detect the player")] private float maxRange;
-    [SerializeField][Tooltip("power of enemy shot")]private float power;
+    [SerializeField][Tooltip("The max range at which the enemy can detect the player")] float maxRange;
+    [SerializeField][Tooltip("power of enemy shot")] float power;
+    [SerializeField][Tooltip("Time before enemy starts firing upon detecting player")] float firstShotDelay = 2f;
+    float firstShotTimer = 0f;
     public event EventHandler OnEnemyDestroyed;
 
-    private GameObject player;
+    GameObject player;
     [Header("Game objects")]
-    [SerializeField] private GameObject projectile;
-    [SerializeField] private Transform muzzle;
-    [SerializeField] private Transform barrel;
+    [SerializeField] GameObject projectile;
+    [SerializeField] Transform muzzle;
+    [SerializeField] Transform barrel;
 
     [Header("Graphics")]
-    [SerializeField] private SpriteRenderer[] tankGraphics;
+    [SerializeField] SpriteRenderer[] tankGraphics;
 
-    private Shooter shooter;
-    private LeadPredictor leadPredictor;
+    Shooter shooter;
+    LeadPredictor leadPredictor;
+    TrajectoryPredictor trajectoryPredictor;
 
-    private int layerMask;
-    private List<Collider2D> ignoreColliders = new List<Collider2D>();
+    int layerMask;
+    List<Collider2D> ignoreColliders = new List<Collider2D>();
 
     ProjectileData projectileData()
     {
@@ -56,7 +58,7 @@ public class EnemyTank : MonoBehaviour
 
         data.direction = muzzle.transform.right;
         data.initialPosition = muzzle.position;
-        data.initialSpeed = shooter.calcForce();
+        data.initialSpeed = shooter.calcForce() * power;
         data.mass = rb.mass;
         data.drag = rb.drag;
 
@@ -109,6 +111,9 @@ public class EnemyTank : MonoBehaviour
         if (leadPredictor == null)
             leadPredictor = GetComponent<LeadPredictor>();
 
+        if (trajectoryPredictor == null)
+            trajectoryPredictor = GetComponent<TrajectoryPredictor>();
+
         // To avoid raycasting on the Cinemachine collider
         layerMask = ~LayerMask.GetMask("IgnoreRaycast");
         OnEnemyDestroyed += EnemyTank_OnEnemyDestroyed;
@@ -131,12 +136,19 @@ public class EnemyTank : MonoBehaviour
     void Update() //fixedupdate?
     {
         RaycastHit2D hit = DetectPlayer();
-        float leadAngle =
-            shooter.GetBarrelAngle(leadPredictor.CalculateLead(
+        Debug.Log(hit.distance);
+
+        Vector2 leadPos = leadPredictor.CalculateLead(
                     player.transform.position,
                     player.GetComponent<Rigidbody2D>().velocity,
-                    leadPredictor.CalculateProjectileSpeed(projectileData(), power)));
+                    leadPredictor.CalculateProjectileSpeed(projectileData(), power));
+        float leadAngle =
+            shooter.GetBarrelAngle(leadPos);
 
+        if (hit.transform != null && hit.transform.tag == "Player")
+            trajectoryPredictor.Resolution = (int)Mathf.Clamp(hit.distance, 1 , maxRange * 100);
+        trajectoryPredictor.CalculateTrajectory(projectileData());
+        calculateBar();
         switch (m_State)
         {
             case State.Idle:
@@ -150,11 +162,12 @@ public class EnemyTank : MonoBehaviour
 
            case State.Alert:
                 barrel.rotation = Quaternion.Euler(new Vector3(0,0,leadAngle * Mathf.Rad2Deg));
-
-                if (!shooter.ShotCooldown)
+                firstShotTimer += Time.deltaTime;
+                leadPredictor.GetComponent<LineRenderer>().enabled = true;
+                if (!shooter.ShotCooldown && firstShotTimer > firstShotDelay)
                 {
-                    shooter.Shoot(leadAngle, muzzle.transform.position, power, projectile);
                     StartCoroutine(shooter.StartFireDelay());
+                    shooter.Shoot(leadAngle, muzzle.transform.position, power, projectile);
                 }
                 if (!hit)
                 {
@@ -167,6 +180,8 @@ public class EnemyTank : MonoBehaviour
                 break;
 
             case State.Search:
+                leadPredictor.GetComponent<LineRenderer>().enabled = false;
+                firstShotTimer = 0f;
                 if (hit.transform != null && hit.transform.tag == "Player")
                 {
                     m_State = State.Alert;
@@ -176,9 +191,35 @@ public class EnemyTank : MonoBehaviour
             case State.Destroyed:
                 foreach (SpriteRenderer graphic in tankGraphics)
                 {
+                    chargeUI.gameObject.SetActive(false);
+                    leadPredictor.GetComponent<LineRenderer>().enabled = false;
                     graphic.color = Color.gray;
                 }
                 break;
         }
+    }
+
+    Color orangeOff = new Color(0.40f, 0.31f, 0.12f);
+    Color redOn = new Color(1f, 0f, 0.2f);
+    [SerializeField] private GameObject chargeUI;
+    [SerializeField] private Image chargeBar1;
+    private float chargeScale1;
+
+    private void calculateBar()
+    {
+        if (firstShotTimer < firstShotDelay)
+        {
+            setValues(firstShotTimer * 100, orangeOff);
+        }
+        else
+        {
+            setValues(firstShotTimer * 100, redOn);
+        }
+    }
+    private void setValues(float scale1, Color bar1)
+    {
+        chargeScale1 = scale1;
+        chargeBar1.color = bar1;
+        chargeBar1.rectTransform.sizeDelta = new Vector2(chargeScale1 * 4/firstShotDelay, 100);
     }
 }
