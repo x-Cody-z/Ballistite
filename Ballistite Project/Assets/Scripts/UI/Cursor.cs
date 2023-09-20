@@ -6,7 +6,7 @@ public class CustomMouseCursor : MonoBehaviour
 {
     public Texture2D mouseCursor;
 
-    public Vector2 hotSpot;
+    public Vector2 hotSpot = Vector2.zero;
 
     CursorMode cursorMode = CursorMode.Auto;
 
