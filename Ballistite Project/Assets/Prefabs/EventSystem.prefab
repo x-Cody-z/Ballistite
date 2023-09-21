@@ -125,7 +125,7 @@ MonoBehaviour:
   chargeUI: {fileID: 0}
   playerObj: {fileID: 0}
   grasslandMusic: {fileID: 0}
-  isLevel1: 0
+  isLevel1: 1
   explosionEffectMain: {fileID: 0}
 --- !u!1 &905180825
 GameObject:
@@ -137,6 +137,7 @@ GameObject:
   m_Component:
   - component: {fileID: 905180826}
   - component: {fileID: 905180828}
+  - component: {fileID: 2099611877}
   m_Layer: 0
   m_Name: Virtual Camera Cutscene
   m_TagString: Untagged
@@ -199,6 +200,18 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 592048202}
+--- !u!114 &2099611877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905180825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bf55a6566c7b6b46bbafb8d7bfe1e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &622879454086619020
 GameObject:
   m_ObjectHideFlags: 0
