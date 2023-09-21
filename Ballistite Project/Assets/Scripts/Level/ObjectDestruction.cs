@@ -6,12 +6,13 @@ public class ObjectDestruction : MonoBehaviour
 {
     [SerializeField] private GameObject piecesPrefab;
     [SerializeField] private int destructionValue;
+    [SerializeField] private float explosionDetectionRangeModifier = 2f;
     public GameEvent onObjectDestroyed;
     public void DestroySelf(GameEventData eventData)
     {
         if (eventData is ProjectileEventData projectileData) // TODO: Break only when projectileData.HitPosition is close to the object
         {
-            if ((transform.position - projectileData.HitPosition.position).magnitude < projectileData.radius*2 * (transform.localScale.x * 15))
+            if ((transform.position - projectileData.HitPosition.position).magnitude < projectileData.radius * explosionDetectionRangeModifier)
             {
                 GameObject pieces = (GameObject)Instantiate(piecesPrefab);
                 updateChildrenData(pieces, projectileData.HitPosition.position);
