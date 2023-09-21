@@ -293,7 +293,7 @@ MonoBehaviour:
   - {x: 4.6500244, y: -1.3450012, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -2328
+  m_InstanceId: 48464
 --- !u!1 &980755757
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +405,7 @@ MonoBehaviour:
   - {x: 1.7150269, y: -0.63500214, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -2202
+  m_InstanceId: 48474
 --- !u!1 &1066884562
 GameObject:
   m_ObjectHideFlags: 0
@@ -5884,7 +5884,7 @@ Transform:
   - {fileID: 4653869769868049342}
   - {fileID: 1779101613307916770}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &8864624024850247068
 Rigidbody2D:
@@ -5940,6 +5940,7 @@ MonoBehaviour:
   shotPower: 1
   shotMod: 0.6
   chargeRate: 2.5
+  chargePaused: 1
   controlEnabled: 1
   notInsideCutscene: 1
   grounded: 1
@@ -6269,7 +6270,7 @@ LineRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 4
-    textureScale: {x: 1.5, y: 1}
+    textureScale: {x: 1.75, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
   m_MaskInteraction: 0
