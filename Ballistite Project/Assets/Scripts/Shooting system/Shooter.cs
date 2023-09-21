@@ -188,7 +188,14 @@ public class Shooter : MonoBehaviour
         if (hit.collider != null && hit.collider.CompareTag("Level"))
         {
             Debug.DrawRay(transform.position, spawnPos - barrelPivot.position, Color.red, hit.distance);
-            shotProjectile.transform.position = hit.point;
+            //shotProjectile.transform.position = hit.point;
+            
+            //using the players position for point blank shots instead of the raycast hitpoint since that was causing issue with teleporting proj
+            if (GameObject.Find("Player") != null)
+                shotProjectile.transform.position = GameObject.Find("Player").transform.position;
+            else
+                shotProjectile.transform.position = hit.point;
+
         }
         else
         {
