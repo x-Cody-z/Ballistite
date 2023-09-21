@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ChargeTutorial : MonoBehaviour
+public class CancelTutorial : MonoBehaviour
 {
-
     private LevelController levelController;
     private TutorialState state;
     private Rigidbody2D playerRB;
@@ -41,7 +40,6 @@ public class ChargeTutorial : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerObject.controlEnabled = true;
         if (playerObject.ChargeTimer >= 5 && (state != TutorialState.Untouched || state != TutorialState.Released))
         {
             playerObject.ChargeTimer = 5;
@@ -49,6 +47,8 @@ public class ChargeTutorial : MonoBehaviour
         if (playerObject.charge3 == true && tutorialWindow.activeSelf)
         {
             state = TutorialState.Charged;
+            playerObject.EnableControl(false);
+            playerObject.chargePaused = true;
             textBox.text = "Release";
             mouseAnimator.Play("Release");
         }
@@ -74,25 +74,25 @@ public class ChargeTutorial : MonoBehaviour
         }
         if (state == TutorialState.Charging)
         {
-            playerObject.controlEnabled = false;
             if (Input.GetButtonUp("Fire1"))
             {
-                playerObject.shotCancel = true;
+                /*playerObject.shotCancel = true;
+                //Debug.LogWarning("Not charged");
                 playerObject.ResetCharge();
                 state = TutorialState.Grounded;
                 mouseAnimator.Play("Prompt");
                 textBox.text = "Press";
-                playerObject.shotCancel = false;
+                playerObject.shotCancel = false;*/
             }
-            
         }
         if (state == TutorialState.Charged)
         {
             if (Input.GetButtonUp("Fire1"))
             {
-                state = TutorialState.Released;
+                //Debug.LogWarning("Released");
+                /*state = TutorialState.Released;
                 playerRB.constraints = 0 | 0;
-                tutorialWindow.SetActive(false);
+                tutorialWindow.SetActive(false);*/
             }
         }
     }
@@ -110,7 +110,8 @@ public class ChargeTutorial : MonoBehaviour
     IEnumerator StateUpdate()
     {
         Debug.Log("ChargeTutorial: " + state);
-        yield return new WaitForSeconds(0.5f);
+        Debug.Log("Charge 3 State: " + playerObject.charge3);
+        yield return new WaitForSeconds(1f);
         StartCoroutine(StateUpdate());
     }
 }
