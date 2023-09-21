@@ -80,40 +80,38 @@ public class Projectile : MonoBehaviour
         // Get all colliders within explosion radius
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius, explosionLayers);
         
+        if (collision.collider.CompareTag("Level"))
+        {
+            radius = Mathf.Clamp(radiusModifier, 0, radiusMax); // Blast amount adds to radius
+            //Debug.Log("collision: " + collision.gameObject.name + "\ncollider: " + collider.gameObject.name);
+
+            Vector2 hitNormal;
+            hitNormal = collision.contacts[0].normal;
+
+            Debug.Log("Radius = " + radius);
+            ProjectileEventData projEventData = new ProjectileEventData { Sender = this, HitPosition = transform, velocity = rb.velocity, radius = radius, hitNormal = hitNormal };
+            onProjectileHitTerrain.Raise(projEventData);
+        }
+
         foreach (Collider2D collider in colliders)
         {
             Rigidbody2D crb = collider.GetComponent<Rigidbody2D>();
-            if (collider.CompareTag("Level"))
+            
+            if (crb != null)
             {
-                radius = Mathf.Clamp(radiusModifier, 0, radiusMax); // Blast amount adds to radius
-                //Debug.Log("collision: " + collision.gameObject.name + "\ncollider: " + collider.gameObject.name);
+                // Calculate direction and distance from explosion center to collider
+                Vector2 direction = crb.transform.position - transform.position;
+                float distance = direction.magnitude;
 
-                Vector2 hitNormal;
-                if (collision.contacts.Length > 0)
-                    hitNormal = collision.contacts[0].normal;
+                if (distance < 0.5f)
+                    distance = 0f;
                 else
-                    hitNormal = new Vector2 (transform.position.x, transform.position.y);
+                    distance -= 0.4f;
 
-                Debug.Log("Radius = " + radius);
-                ProjectileEventData projEventData = new ProjectileEventData { Sender = this, HitPosition = transform, velocity = rb.velocity, radius = radius, hitNormal = hitNormal };
-                onProjectileHitTerrain.Raise(projEventData);
-            } else
-            {
-                if (crb != null)
-                {
-                    // Calculate direction and distance from explosion center to collider
-                    Vector2 direction = crb.transform.position - transform.position;
-                    float distance = direction.magnitude;
-
-                    if (distance < 0.5f)
-                        distance = 0f;
-                    else
-                        distance -= 0.4f;
-
-                    // Apply impulse force to collider based on distance and explosion force
-                    crb.AddForce(direction.normalized * calcExplosion(distance), ForceMode2D.Impulse);
-                }
+                // Apply impulse force to collider based on distance and explosion force
+                crb.AddForce(direction.normalized * calcExplosion(distance), ForceMode2D.Impulse);
             }
+            
         }
 
         explosionEffectMain.Play();
