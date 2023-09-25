@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class ChargeTutorial : MonoBehaviour
 {
-
-    private LevelController levelController;
     private TutorialState state;
     private Rigidbody2D playerRB;
     private Platformer.Mechanics.BespokePlayerController playerObject;
@@ -30,7 +28,6 @@ public class ChargeTutorial : MonoBehaviour
     void Start()
     {
         state = TutorialState.Untouched;
-        levelController = FindObjectOfType<LevelController>();
         playerObject = FindObjectOfType<Platformer.Mechanics.BespokePlayerController>();
         playerCollider = playerObject.GetComponent<Collider2D>();
         playerRB = playerObject.GetComponentInParent<Rigidbody2D>();
@@ -99,7 +96,7 @@ public class ChargeTutorial : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (state == TutorialState.Untouched && collision.tag == "Player")
+        if (state == TutorialState.Untouched && collision.CompareTag("Player"))
         {
             playerObject.charge3 = false;
             state = TutorialState.Activated;
