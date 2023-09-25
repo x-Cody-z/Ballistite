@@ -54,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -143,8 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3638d5dbfe1d304491eea0ff8b42d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerObject: {fileID: 0}
-  playerCollider: {fileID: 0}
   tutorialWindow: {fileID: 0}
   mouseAnimator: {fileID: 0}
   textBox: {fileID: 0}
