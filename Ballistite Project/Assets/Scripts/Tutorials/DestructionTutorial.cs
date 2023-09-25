@@ -11,6 +11,7 @@ public class DestructionTutorial : MonoBehaviour
 
     public GameObject tutorialWindow;
     public GameObject destructElement;
+    public Animation siloOutside;
     //public Animator mouseAnimator;
     //public TextMeshProUGUI textBox;
 
@@ -47,11 +48,12 @@ public class DestructionTutorial : MonoBehaviour
         {
             playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
         }
-        if (destructElement == null)
+        if (destructElement == null && state != TutorialState.Released)
         {
             playerRB.constraints = 0 | 0;
             state = TutorialState.Released;
             tutorialWindow.SetActive(false);
+            siloOutside.Play();
         }
     }
 
