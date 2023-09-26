@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ParticleController : MonoBehaviour
+public class SkidParticleController : MonoBehaviour
 {
     [Header("Particle Systems")]
     [SerializeField] ParticleSystem skid;
