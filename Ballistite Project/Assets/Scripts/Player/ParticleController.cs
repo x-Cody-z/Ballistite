@@ -12,9 +12,14 @@ public class ParticleController : MonoBehaviour
     [SerializeField] float skidSpeed = 1f;
     [SerializeField] float skidVolumeModifier = 5f;
     [SerializeField] float skidAmountModifier = 10f;
+    [SerializeField] float emitRate = 0.1f;
 
     [Header("Debug")]
-    [SerializeField] bool isSkidding = false;
+    [SerializeField] bool particlesPlaying = false;
+    [SerializeField] bool particlesPaused = false;
+    [SerializeField] bool particlesStopped = false;
+
+    float emitTimer = 0f;
     Rigidbody2D playerRB;
     BespokePlayerController playerController;
     // Start is called before the first frame update
@@ -25,9 +30,13 @@ public class ParticleController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        skid.gameObject.transform.position = playerRB.ClosestPoint(playerRB.position + new Vector2(14, 7));
+        RaycastHit2D hit = Physics2D.Raycast(playerRB.position, Vector2.down, 2);
+        particlesPlaying = skid.isPlaying;
+        particlesPaused = skid.isPaused;
+        particlesStopped = skid.isStopped;
+        emitTimer += Time.deltaTime;
         if (playerRB.velocity.normalized.x > 0)
         {
             skid.gameObject.transform.rotation = Quaternion.Euler(-150f, 90, 90);
@@ -38,18 +47,13 @@ public class ParticleController : MonoBehaviour
             skid.gameObject.transform.rotation = Quaternion.Euler(-24.46f, 90, 90);
             skid.gameObject.transform.position = playerRB.ClosestPoint(playerRB.position + new Vector2(-14, 7));
         }
-        if (playerRB.velocity.magnitude > skidSpeed && playerController.isGrounded)
+        if (playerRB.velocity.magnitude > skidSpeed && playerController.isGrounded && emitTimer > emitRate)
         {
-            skid.gameObject.SetActive(true);
             var main = skid.main;
+            skid.Emit(1);
             main.startSpeed = playerRB.velocity.magnitude/skidVolumeModifier;
             main.maxParticles = (int)(playerRB.velocity.magnitude * skidAmountModifier);
-            isSkidding = true;
-        }
-        else
-        {
-            skid.gameObject.SetActive(false);
-            isSkidding = false;
+            emitTimer = 0f;
         }
     }
 }
