@@ -293,7 +293,7 @@ MonoBehaviour:
   - {x: 4.6500244, y: -1.3450012, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 48464
+  m_InstanceId: 64784
 --- !u!1 &980755757
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +405,7 @@ MonoBehaviour:
   - {x: 1.7150269, y: -0.63500214, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 48474
+  m_InstanceId: 64794
 --- !u!1 &1066884562
 GameObject:
   m_ObjectHideFlags: 0
@@ -10850,7 +10850,7 @@ Transform:
   - {fileID: 5334999453043408496}
   - {fileID: 8569042038723073391}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &8864624024850247068
 Rigidbody2D:
@@ -11108,7 +11108,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.09}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
