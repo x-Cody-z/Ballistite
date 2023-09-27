@@ -7,6 +7,8 @@ public class SkidParticleController : MonoBehaviour
 {
     [Header("Particle Systems")]
     [SerializeField] ParticleSystem skid;
+    [SerializeField] ParticleSystem land1;
+    [SerializeField] ParticleSystem land2;
 
     [Header("Parameters")]
     [SerializeField] float skidSpeed = 1f;
@@ -53,7 +55,17 @@ public class SkidParticleController : MonoBehaviour
             skid.Emit(1);
             main.startSpeed = playerRB.velocity.magnitude/skidVolumeModifier;
             main.maxParticles = (int)(playerRB.velocity.magnitude * skidAmountModifier);
+            main.startSize = playerRB.velocity.magnitude/80;
             emitTimer = 0f;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Level"))
+        {
+            land1.Emit(20);
+            land2.Emit(20);
         }
     }
 }
