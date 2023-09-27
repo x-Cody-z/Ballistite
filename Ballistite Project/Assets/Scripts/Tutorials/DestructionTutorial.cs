@@ -41,12 +41,13 @@ public class DestructionTutorial : MonoBehaviour
             if (playerObject.grounded == true)
             {
                 playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | 0;
-                state = TutorialState.Grounded;
+                state = TutorialState.Activated;
             }
         }
-        if (state == TutorialState.Grounded)
+        if (playerObject.isGrounded && state == TutorialState.Activated)
         {
             playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+            state = TutorialState.Grounded;
         }
         if (destructElement == null && state != TutorialState.Released)
         {

@@ -41,7 +41,7 @@ namespace Platformer.Mechanics
         [HideInInspector] public bool charge2;
         [HideInInspector] public bool charge3;
 
-        private Shooter shooter;
+        public Shooter shooter;
 
         [Header("Shot Params")]
         [SerializeField][Tooltip("base power of the shot")] 
