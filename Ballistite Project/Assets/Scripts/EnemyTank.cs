@@ -43,7 +43,7 @@ public class EnemyTank : MonoBehaviour
 
     [Header("Graphics")]
     [SerializeField] SpriteRenderer[] tankGraphics;
-
+    
     Shooter shooter;
     LeadPredictor leadPredictor;
     TrajectoryPredictor trajectoryPredictor;
@@ -65,12 +65,13 @@ public class EnemyTank : MonoBehaviour
         return data;
     }
 
+#if UNITY_EDITOR == false
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(leadPredictor.CalculateLead(GameObject.Find("Player").transform.position, GameObject.Find("Player").GetComponent<Rigidbody2D>().velocity, leadPredictor.CalculateProjectileSpeed(projectileData(), power)), 0.5f);
     }
-
+#endif
 
     private RaycastHit2D DetectPlayer()
     {

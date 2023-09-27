@@ -219,7 +219,7 @@ MonoBehaviour:
   explosionEffectSpark: {fileID: 2748376668869832416}
   graphic: {fileID: 433997715138457908}
   chargeScale: 0
-  onProjectileHitTerrain: {fileID: 0}
+  onProjectileHitTerrain: {fileID: 11400000, guid: 717d0aef951b0154f9f0251a21f73afb, type: 2}
 --- !u!82 &4388822916004649983
 AudioSource:
   m_ObjectHideFlags: 0
@@ -232,7 +232,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
