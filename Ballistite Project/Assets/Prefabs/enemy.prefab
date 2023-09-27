@@ -14934,7 +14934,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 837916407
   m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!114 &994835333
@@ -15382,7 +15382,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: -0.41366225, y: -0.31}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.010521154
+  m_Distance: 0.010521397
   m_MaxDistanceOnly: 0
 --- !u!1 &2077975035764984305
 GameObject:
@@ -15767,7 +15767,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0.42831486, y: -0.31}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.010501118
+  m_Distance: 0.0105015505
   m_MaxDistanceOnly: 0
 --- !u!1 &2077975036712702614
 GameObject:
@@ -15900,7 +15900,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0.008087824, y: -0.31}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.010509928
+  m_Distance: 0.0105086425
   m_MaxDistanceOnly: 0
 --- !u!1 &2077975036820638536
 GameObject:
@@ -16145,7 +16145,7 @@ Transform:
   - {fileID: 317169747840355293}
   - {fileID: 994835331}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2077975035814528707
 MonoBehaviour:

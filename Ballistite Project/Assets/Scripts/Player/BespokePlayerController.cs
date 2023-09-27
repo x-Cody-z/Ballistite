@@ -121,6 +121,19 @@ namespace Platformer.Mechanics
             shooter.ReloadTimer = shooter.ReloadTime;
             spawn = transform.position;
             spawnRot = transform.rotation;
+
+            if (notInsideCutscene)
+            {
+                controlEnabled = true;
+                GameObject.Find("barrelGraphic")?.SetActive(true);
+                GameObject.Find("barrelGraphicFake")?.SetActive(false);
+            }
+            else
+            {
+                controlEnabled = false;
+                GameObject.Find("barrelGraphic")?.SetActive(false);
+                GameObject.Find("barrelGraphicFake")?.SetActive(true);
+            }
         }
 
 
