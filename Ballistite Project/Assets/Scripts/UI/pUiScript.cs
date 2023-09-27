@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+
 
 public class pUiScript : MonoBehaviour
 {
@@ -18,6 +21,12 @@ public class pUiScript : MonoBehaviour
     [SerializeField] private ParticleSystem chargeParticle2;
     //[SerializeField] private ParticleSystem chargeParticleSecondary1;
     //[SerializeField] private ParticleSystem chargeParticleSecondary2;
+
+    //volume effect variables
+    private GameObject chargeFX;
+    private Volume chargeVolume;
+    private bool medBool;
+    private bool highBool;
 
     private float chargeScale;
     private float chargeScale1;
@@ -53,6 +62,12 @@ public class pUiScript : MonoBehaviour
         {
             throw new System.Exception("Player object not found");
         }
+        chargeFX = GameObject.Find("ChargeEffect");
+        if (chargeFX != null)
+        {
+            Debug.Log("getting volume");
+            chargeVolume = chargeFX.GetComponent<Volume>();
+        }
 
     }
 
@@ -70,6 +85,19 @@ public class pUiScript : MonoBehaviour
         //stops the bar from rotating with the tank and offsets its position
         transform.rotation = Quaternion.Euler(0, 0, 180);
         transform.position = (PlayerObject.transform.position) + new Vector3(0, 1, 0);
+
+        //update volume weight
+        if (chargeVolume != null)
+        {
+
+            if (chargeVolume.weight > 0)
+            {
+                chargeVolume.weight -= 1.6f * Time.deltaTime;
+            }
+            if (chargeVolume.weight < 0)
+                chargeVolume.weight = 0;
+            setVolume();
+        }
 
     }
 
@@ -101,17 +129,19 @@ public class pUiScript : MonoBehaviour
     {
         if (PlayerScript.ChargeTimer <= 1)
         {
+            //set colours and size
             setValues(PlayerScript.ChargeTimer * 100, 0, orangeOff, redOff);
+            
+            //toggle particle effects
             if (chargeParticle1.isPlaying)
             {
                 chargeParticle1.Stop();
-                //chargeParticleSecondary1.Stop();
             }
             if (chargeParticle2.isPlaying)
             {
                 chargeParticle2.Stop();
-                //chargeParticleSecondary2.Stop();
             }
+
         }
 
         else if (PlayerScript.ChargeTimer > 1  && PlayerScript.ChargeTimer < 2)
@@ -120,15 +150,14 @@ public class pUiScript : MonoBehaviour
             if (chargeParticle1.isStopped)
             {
                 chargeParticle1.Play();
-                //chargeParticleSecondary1.Play();
             }
             if (chargeParticle2.isPlaying)
             {
                 chargeParticle2.Stop();
-                //chargeParticleSecondary2.Stop();
             }
+
         }
-        
+
         else
         {
             setValues(100, 100, orangeOn, redOn);
@@ -176,5 +205,28 @@ public class pUiScript : MonoBehaviour
         chargeBar2.color = bar2;
         chargeBar1.rectTransform.sizeDelta = new Vector2(chargeScale1 * 2, 100);
         chargeBar2.rectTransform.sizeDelta = new Vector2(chargeScale2 * 2, 100);
+    }
+
+    private void setVolume()
+    {
+        if (PlayerScript.ChargeTimer > 2 && highBool == false)
+        {
+            highBool = true;
+            chargeVolume.weight = 0.5f;
+        }
+
+        else if (PlayerScript.ChargeTimer > 1 && medBool == false)
+        {
+            medBool = true;
+            chargeVolume.weight = 0.4f;
+        }
+
+        else if (medBool == true && PlayerScript.ChargeTimer < 1)
+        {
+            medBool = false;
+            highBool = false;
+        }
+
+
     }
 }
