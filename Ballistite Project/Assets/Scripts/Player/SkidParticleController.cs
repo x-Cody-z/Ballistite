@@ -55,6 +55,7 @@ public class SkidParticleController : MonoBehaviour
             skid.Emit(1);
             main.startSpeed = playerRB.velocity.magnitude/skidVolumeModifier;
             main.maxParticles = (int)(playerRB.velocity.magnitude * skidAmountModifier);
+            main.startSize = playerRB.velocity.magnitude/80;
             emitTimer = 0f;
         }
     }
