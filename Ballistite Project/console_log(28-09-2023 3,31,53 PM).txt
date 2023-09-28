@@ -1,0 +1,17 @@
+INPUT (0): log
+
+
+
+Shooter Debug Info:
+
+shot force: 4
+shot recoil: 1
+shot cooldown (bool): False
+reload time: 0.5
+shot number: 2
+fire rate: 0.5
+reload delay: -0.002915299
+shot count: 0
+reload timer: 0.5
+reloading (bool): False
+
