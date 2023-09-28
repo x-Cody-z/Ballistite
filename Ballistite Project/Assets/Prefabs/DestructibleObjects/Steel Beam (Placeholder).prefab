@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -590280887
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 51a12ad4d6c92b7419d73028ac5d332e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   piecesPrefab: {fileID: 1569918489922263848, guid: 05c64b1d32265b2498fd25a9ffddf165, type: 3}
   destructionValue: 1
+  explosionDetectionRangeModifier: 2
   onObjectDestroyed: {fileID: 11400000, guid: 0e0918fb6e3378b46ae71ed19a8b5b00, type: 2}
 --- !u!114 &1059900383144793235
 MonoBehaviour:
