@@ -51,7 +51,7 @@ public class AirShotTutorial : MonoBehaviour
             state = TutorialState.Activated;
             tutorialWindow.SetActive(true);
             StartCoroutine(WaitToFreeze());
-            playerObject.shooter.ShotCount = playerObject.shooter.ShotNumber;
+            playerObject.shooter.ShotCount = 1;
         }
     }
 
