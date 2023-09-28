@@ -25,8 +25,8 @@ public class Shooter : MonoBehaviour
     [SerializeField][Tooltip("minimum time in seconds between each shot, think of it as fire rate")]
     private float fireRate = 0.5f;
     private float reloadDelay;
-    //this is what actually keeps track of the number of shots, shotNumber is more like a static variable that shotCount gets set to
-    private int shotCount;
+    [Tooltip("this is an internal value used by the script, do not update in inspector")]
+    public int shotCount;
     //part of new reload function, this is the value that changes as the reload time progresses, old reloadTime is used as a target value.
     private float reloadTimer;
     private bool reloading = false;
@@ -230,5 +230,21 @@ public class Shooter : MonoBehaviour
     {
         float adjustmentFactor = Mathf.Pow(shotForce, 0.5f);
         return adjustmentFactor * 0.48f;
+    }
+
+    public string getShooterState()
+    {
+        string result = "";
+        result += "shot force: " + shotForce.ToString() + "\n";
+        result += "shot recoil: " + shotRecoil.ToString() + "\n";
+        result += "shot cooldown (bool): " + shotCooldown.ToString() + "\n";
+        result += "reload time: " + reloadTime.ToString() + "\n";
+        result += "shot number: " + shotNumber.ToString() + "\n";
+        result += "fire rate: " + fireRate.ToString() + "\n";
+        result += "reload delay: " + reloadDelay.ToString() + "\n";
+        result += "shot count: " + shotCount.ToString() + "\n";
+        result += "reload timer: " + reloadTimer.ToString() + "\n";
+        result += "reloading (bool): " + reloading.ToString() + "\n";
+        return result;
     }
 }
