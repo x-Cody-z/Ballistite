@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -21,8 +22,10 @@ public class LogCommand : Command
     {
         GameObject ttObj = GameObject.Find("TestingTools");
         TestingTools ttScript = ttObj.GetComponent<TestingTools>();
-
-        string path = @"console_log.txt";
+        string date = DateTime.Now.ToString();
+        date = date.Replace("/", "-");
+        date = date.Replace(":", ",");
+        string path = @"console_log(" + date + ").txt";
 
 
         if (!File.Exists(path))
@@ -34,6 +37,15 @@ public class LogCommand : Command
 
         TextWriter tw = new StreamWriter(path);
         tw.WriteLine(ttScript.logtext());
+        if (GameObject.Find("Player"))
+        {
+            GameObject p = GameObject.Find("Player");
+            Shooter psh = p.GetComponent<Shooter>();
+
+            tw.WriteLine("\nShooter Debug Info:\n");
+            tw.WriteLine(psh.getShooterState());
+        }
+
         tw.Close();
 
         return "Log saved to: " + Path.GetFullPath(path);

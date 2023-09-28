@@ -231,4 +231,20 @@ public class Shooter : MonoBehaviour
         float adjustmentFactor = Mathf.Pow(shotForce, 0.5f);
         return adjustmentFactor * 0.48f;
     }
+
+    public string getShooterState()
+    {
+        string result = "";
+        result += "shot force: " + shotForce.ToString() + "\n";
+        result += "shot recoil: " + shotRecoil.ToString() + "\n";
+        result += "shot cooldown (bool): " + shotCooldown.ToString() + "\n";
+        result += "reload time: " + reloadTime.ToString() + "\n";
+        result += "shot number: " + shotNumber.ToString() + "\n";
+        result += "fire rate: " + fireRate.ToString() + "\n";
+        result += "reload delay: " + reloadDelay.ToString() + "\n";
+        result += "shot count: " + shotCount.ToString() + "\n";
+        result += "reload timer: " + reloadTimer.ToString() + "\n";
+        result += "reloading (bool): " + reloading.ToString() + "\n";
+        return result;
+    }
 }
