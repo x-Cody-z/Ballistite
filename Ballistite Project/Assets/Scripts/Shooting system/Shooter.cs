@@ -25,8 +25,8 @@ public class Shooter : MonoBehaviour
     [SerializeField][Tooltip("minimum time in seconds between each shot, think of it as fire rate")]
     private float fireRate = 0.5f;
     private float reloadDelay;
-    //this is what actually keeps track of the number of shots, shotNumber is more like a static variable that shotCount gets set to
-    private int shotCount;
+    [Tooltip("this is an internal value used by the script, do not update in inspector")]
+    public int shotCount;
     //part of new reload function, this is the value that changes as the reload time progresses, old reloadTime is used as a target value.
     private float reloadTimer;
     private bool reloading = false;
