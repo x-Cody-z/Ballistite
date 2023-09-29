@@ -14,20 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   postExposure:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 1.04
   contrast:
-    m_OverrideState: 0
-    m_Value: 20
+    m_OverrideState: 1
+    m_Value: 60
   colorFilter:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
   hueShift:
     m_OverrideState: 1
-    m_Value: -10
+    m_Value: 13
   saturation:
     m_OverrideState: 1
-    m_Value: -90
+    m_Value: -75
 --- !u!114 &-3255714418513935513
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -113,27 +113,27 @@ MonoBehaviour:
   active: 1
   redOutRedIn:
     m_OverrideState: 1
-    m_Value: 200
+    m_Value: 61
   redOutGreenIn:
     m_OverrideState: 1
-    m_Value: -50
+    m_Value: 9
   redOutBlueIn:
-    m_OverrideState: 0
-    m_Value: 20
+    m_OverrideState: 1
+    m_Value: 0
   greenOutRedIn:
     m_OverrideState: 1
-    m_Value: -10
+    m_Value: 0
   greenOutGreenIn:
     m_OverrideState: 1
-    m_Value: 66
-  greenOutBlueIn:
-    m_OverrideState: 0
     m_Value: 0
+  greenOutBlueIn:
+    m_OverrideState: 1
+    m_Value: -32
   blueOutRedIn:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   blueOutGreenIn:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   blueOutBlueIn:
     m_OverrideState: 1
