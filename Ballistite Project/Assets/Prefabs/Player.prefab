@@ -293,7 +293,7 @@ MonoBehaviour:
   - {x: 4.6500244, y: -1.3450012, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 261886
+  m_InstanceId: 138100
 --- !u!1 &980755757
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +405,7 @@ MonoBehaviour:
   - {x: 1.7150269, y: -0.63500214, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 261896
+  m_InstanceId: 138110
 --- !u!1 &1066884562
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,7 +517,7 @@ MonoBehaviour:
   - {x: 1.7150269, y: -0.63500214, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 261904
+  m_InstanceId: 138118
 --- !u!1 &1345445950
 GameObject:
   m_ObjectHideFlags: 0
@@ -10615,7 +10615,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 30
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -35671,7 +35671,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 30
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
