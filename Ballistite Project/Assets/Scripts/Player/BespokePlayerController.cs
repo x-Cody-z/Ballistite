@@ -66,7 +66,7 @@ namespace Platformer.Mechanics
         [SerializeField]
         private bool notInsideCutscene = false;
         [HideInInspector] public bool grounded = true;
-
+        //used to stop charging a second shot after canceling before re-pressing m1
         [HideInInspector] public bool shotCancel = false;
 
         [Header("sloMo")]
@@ -349,6 +349,25 @@ namespace Platformer.Mechanics
                 UIScript.updateVelocityValues(this.GetComponent<Rigidbody2D>().velocity.magnitude, this.GetComponent<Rigidbody2D>().velocity.x, this.GetComponent<Rigidbody2D>().velocity.y);
                 UIScript.updateChargeValues(charge1, charge2, charge3);
             }
+        }
+
+        public string getPlayerValues()
+        {
+            string result = "";
+
+            result += "shotPower: " + shotPower.ToString() + "\n";
+            result += "shotMod: " + shotMod.ToString() + "\n";
+            result += "chargeRate: " + chargeRate.ToString() + "\n";
+            result += "chargeTimer: " + chargeTimer.ToString() + "\n";
+            result += "power: " + power.ToString() + "\n";
+            result += "chargePaused: " + chargePaused.ToString() + "\n";
+            result += "firstShot: " + firstShot.ToString() + "\n";
+            result += "controlEnabled: " + controlEnabled.ToString() + "\n";
+            result += "notInsideCutscene: " + notInsideCutscene.ToString() + "\n";
+            result += "grounded: " + grounded.ToString() + "\n";
+            result += "shotCancel: " + shotCancel.ToString() + "\n";
+
+            return result;
         }
     }
 }
