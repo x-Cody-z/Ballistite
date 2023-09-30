@@ -66,6 +66,7 @@ namespace Platformer.Mechanics
         [SerializeField]
         private bool notInsideCutscene = false;
         [HideInInspector] public bool grounded = true;
+        [SerializeField] private int groundedCounter = 0;
         //used to stop charging a second shot after canceling before re-pressing m1
         [HideInInspector] public bool shotCancel = false;
 
@@ -140,6 +141,11 @@ namespace Platformer.Mechanics
         void Update()
         {
             trajectoryPredictor.CalculateTrajectory(projectileData());
+
+            if (groundedCounter > 0)
+                grounded = true;
+            else
+                grounded = false;
 
             //take control away when paused & not in cutscene
             if (Time.timeScale == 0 || !notInsideCutscene)
@@ -329,14 +335,14 @@ namespace Platformer.Mechanics
             if (collision.gameObject.CompareTag("Level"))
             {
                 soundMachine.PlayOneShot(landingAudio, volumeScale);
-                grounded = true;
+                groundedCounter += 1;
             }
         }
         private void OnCollisionExit2D(Collision2D collision)
         {
             if (collision.gameObject.CompareTag("Level"))
             {
-                grounded = false;
+                groundedCounter -= 1;
             }
         }
 
