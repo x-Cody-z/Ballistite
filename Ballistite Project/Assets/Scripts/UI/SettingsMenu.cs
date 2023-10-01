@@ -25,7 +25,12 @@ public class SettingsMenu : MonoBehaviour
     // Called when we click the "Return" button.
     public void OnReturnButton()
     {
-        SceneManager.LoadScene(0);
+        gameObject.SetActive(false);
+    }
+
+    public void OnSettingsButton()
+    {
+        gameObject.SetActive(true);
     }
 
     public void SetMasterVolume(float volume)

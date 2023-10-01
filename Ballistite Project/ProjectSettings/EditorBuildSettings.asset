@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/DraftCity.unity
     guid: ea26b0ce1f6032244aff8079fbed759f
   - enabled: 1
-    path: Assets/Scenes/TempGraveyard.unity
-    guid: 65038a189b49ed14786aa4005e02095c
+    path: Assets/Scenes/DraftGraveyard.unity
+    guid: ce24f8702c5f0314f8af0144ef26b605
   m_configObjects: {}
