@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class TimeTracking : MonoBehaviour
 {
@@ -57,11 +58,28 @@ public class TimeTracking : MonoBehaviour
     private void storeLevelTime()
     {
         float t = levelEndTime - levelStartTime;
-        levelTimes.Add(t);
-        levelNames.Add(currentLevel);
+        bool replaced = false;
+
+        //if a time for the scene already exists, replace it
+        for (int i = 0; i < levelNames.Count; i++)
+        {
+            if(levelNames[i] == currentLevel)
+            {
+                levelTimes[i] = t;
+                replaced = true;
+            }
+        }
+
+        if(!replaced)
+        {
+            levelTimes.Add(t);
+            levelNames.Add(currentLevel);
+        }
+
+
     }
 
-    private float getTotalTime()
+    public float getTotalTime()
     {
         float totalTime = 0f;
 
@@ -102,7 +120,7 @@ public class TimeTracking : MonoBehaviour
             }
         }
     }
-
+    //debugging function
     private void getAllLevelTimes()
     {
         string result = "";
@@ -115,6 +133,30 @@ public class TimeTracking : MonoBehaviour
         result += "\nTotal time: " + getTotalTime().ToString() + " seconds";
 
         Debug.Log(result);
+    }
+
+    public void saveRun(string name)
+    {
+        string path = @"timeLogs.csv";
+
+        if (!File.Exists(path))
+        {
+            FileStream fs = new FileStream(path, FileMode.Create);
+            fs.Dispose();
+        }
+        //file format:
+        //player_name,farmland_time,city_time,graveyard_time,total_time
+        string output = name + ",";
+        foreach (float f in levelTimes)
+        {
+            output += f.ToString() + ",";
+        }
+        output += getTotalTime() + ",";
+
+        TextWriter tw = new StreamWriter(path, append: true);
+        tw.WriteLine(output);
+        tw.Close();
+        Debug.Log("time added to: " + Path.GetFullPath(path));
     }
 
 }
