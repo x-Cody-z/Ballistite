@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(LineRenderer))]
 public class TrajectoryPredictor : MonoBehaviour
@@ -27,6 +28,8 @@ public class TrajectoryPredictor : MonoBehaviour
         trajectoryLine.positionCount = count;
         trajectoryLine.SetPosition(pointPos.pointNum, pointPos.pos);
     }
+    ContactFilter2D filter
+        = new ContactFilter2D();
 
     public void CalculateTrajectory(ProjectileData data)
     {
@@ -41,8 +44,10 @@ public class TrajectoryPredictor : MonoBehaviour
             velocity = CalculateProjectileVelocity(velocity, sampleRate, data.drag);
             nextPos = pos + velocity * sampleRate;
 
+            LayerMask mask = LayerMask.GetMask("Level");
             //if collision is detected, draw a line to the point of collision and stop drawing the line
-            if (Physics.Raycast(pos, velocity.normalized, out RaycastHit hit, Vector2.Distance(pos, nextPos)))
+            RaycastHit2D hit = Physics2D.Raycast(pos, velocity.normalized, Vector2.Distance(pos, nextPos), mask);
+            if (hit.collider != null)
             {
                 UpdateLineRenderer(i, (i - 1, hit.point));
                 break;
