@@ -212,13 +212,13 @@ public class pUiScript : MonoBehaviour
         if (PlayerScript.ChargeTimer > 2 && highBool == false)
         {
             highBool = true;
-            chargeVolume.weight = 0.5f;
+            chargeVolume.weight = 0.3f;
         }
 
         else if (PlayerScript.ChargeTimer > 1 && medBool == false)
         {
             medBool = true;
-            chargeVolume.weight = 0.4f;
+            chargeVolume.weight = 0.25f;
         }
 
         else if (medBool == true && PlayerScript.ChargeTimer < 1)

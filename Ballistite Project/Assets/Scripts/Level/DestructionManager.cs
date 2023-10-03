@@ -46,8 +46,10 @@ public class DestructionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //at 100 score the postprocessing will take full effect
-        v.weight = destructionScore / 100;
+        //at 150 score the postprocessing will take full effect
+        v.weight = destructionScore / 150;
+        if (v.weight > 90)
+            v.weight = 90;
 
         //how to do individual components
         //v_colorAdjustments.saturation.value = -60 * destructionScore / 10;
