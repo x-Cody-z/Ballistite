@@ -15,7 +15,7 @@ public class ParallaxController : MonoBehaviour
     [Range(0f, 2f)]
     public float parallaxSpeed;
 
-    [Range(0f, 30f)]
+    [Range(-40f, 30f)]
     public float backgroundHeight;
 
     public bool ScrollerMode;
