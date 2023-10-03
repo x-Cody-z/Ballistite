@@ -77,6 +77,14 @@ public class DestructionManager : MonoBehaviour
 
                     float wiggleRoom = craterSize - selfSize; // gets the difference between self size and crater size
                     float distScaler = dist / (2 * selfSize); // 0 - 1 value, 0 being when dist is 0 (so the craters are on top of each other)
+                    
+                    //checks for when self size is broken
+                    if (distScaler > 1)
+                        distScaler = 1;
+                    else if (distScaler < 0)
+                        distScaler = 0;
+
+
                     float adjustedValue = (distScaler * startScore) - wiggleRoom; //uses scaler and wiggle room to create adjusted score value
                     if (adjustedValue < 0) // sets the floor to zero if dist falls within the wiggle room
                         adjustedValue = 0;
@@ -84,6 +92,10 @@ public class DestructionManager : MonoBehaviour
 
                 }
             }
+            //NaN value check
+            if (float.IsNaN(finalScore))
+                finalScore = 0;
+
             destructionScore += finalScore;
             Debug.Log("destruction score adjusted by: " + finalScore);
 
