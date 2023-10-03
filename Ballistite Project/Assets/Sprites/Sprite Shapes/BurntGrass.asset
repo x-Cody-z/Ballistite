@@ -17,7 +17,7 @@ MonoBehaviour:
     m_End: 50
     m_Order: 0
     m_Sprites:
-    - {fileID: 21300000, guid: 55fba21557386f44e8d6ec71188c4e21, type: 3}
+    - {fileID: 21300000, guid: 5a08f23fe4980bf4bb18ce08b0ba1810, type: 3}
   - m_Start: -221
     m_End: -131
     m_Order: 0
