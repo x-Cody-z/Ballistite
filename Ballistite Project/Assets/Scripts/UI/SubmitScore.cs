@@ -11,10 +11,15 @@ public class SubmitScore : MonoBehaviour
     [SerializeField] private TMPro.TMP_Text confirmationTmp;
     private GameObject timeTracker;
     private TimeTracking timeTrackerScript;
+    private bool enteredInput;
+    public LeaderboardRanking leaderboard;
+    public GameObject[] gameObjectsToDisable;
+    public GameObject[] gameObjectsToEnable;
 
     // Start is called before the first frame update
     void Start()
     {
+        enteredInput = false;
         confirmationTmp.text = "";
 
         if (GameObject.Find("TimeTracker"))
@@ -38,14 +43,36 @@ public class SubmitScore : MonoBehaviour
     void Update()
     {
         textInput.Select();
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (!enteredInput)
         {
-            //adds the input to a log so we can backtrack commands
-            submitName(textInput.text);
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                //adds the input to a log so we can backtrack commands
+                submitName(textInput.text);
+                DisableObjects();
+                EnableObjects();
+                leaderboard.GenerateLeaderboard();
+            }
         }
     }
 
-    private void submitName(string name)
+    public void EnableObjects()
+    {
+        foreach (GameObject o in gameObjectsToEnable)
+        {
+            o.SetActive(true);
+        }
+    }
+
+    public void DisableObjects()
+    {
+        foreach (GameObject o in gameObjectsToDisable)
+        {
+            o.SetActive(false);
+        }
+    }
+
+    public void submitName(string name)
     {
         if (timeTrackerScript != null)
         {
