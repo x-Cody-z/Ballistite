@@ -28,6 +28,10 @@ public class TimelineToControl : MonoBehaviour
         if (isStartingCutscene)
         {
             LetterboxAnim.SetTrigger("Default");
+        } else
+        {
+            LetterboxAnim.SetTrigger("Entry");
+
         }
 
         CutsceneCamera.Priority = 13;
