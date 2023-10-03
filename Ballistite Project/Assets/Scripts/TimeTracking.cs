@@ -108,6 +108,8 @@ public class TimeTracking : MonoBehaviour
                 OutroObject = GameObject.Find("win panel");
             else if (GameObject.Find("OutroCutscene"))
                 OutroObject = GameObject.Find("OutroCutscene");
+            else if (GameObject.Find("Ending Cutscene"))
+                OutroObject = GameObject.Find("Ending Cutscene");
         }
 
         if (OutroObject != null)
