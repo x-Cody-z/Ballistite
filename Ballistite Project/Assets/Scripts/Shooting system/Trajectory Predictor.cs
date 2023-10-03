@@ -28,9 +28,6 @@ public class TrajectoryPredictor : MonoBehaviour
         trajectoryLine.positionCount = count;
         trajectoryLine.SetPosition(pointPos.pointNum, pointPos.pos);
     }
-    ContactFilter2D filter
-        = new ContactFilter2D();
-
     public void CalculateTrajectory(ProjectileData data)
     {
         //calculate position of projectile over its flight time as a set of points

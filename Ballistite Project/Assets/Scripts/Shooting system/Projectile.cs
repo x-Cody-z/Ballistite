@@ -3,30 +3,36 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-
+    [Header("Explosion Settings")]
     public float explosionRadius = 2f;
     [Tooltip("every one increase in this value is one grid unit of vertical movement")]
     public float explosionForce = 2f;
-    public LayerMask explosionLayers;
-    public AudioClip explosionSound;
-
     public float radiusModifier;
     public float radius;
     public float radiusMax;
+    public LayerMask explosionLayers;
+    public bool canDestroy = false;
 
+    [Header("Explosion Sounds")]
+    public AudioClip explosionSound;
     private AudioSource soundMachine;
+
+    [Header("Explosion Effects")]
     public ParticleSystem explosionEffectMain;
     public ParticleSystem explosionEffectSmoke;
     public ParticleSystem explosionEffectSpark;
+
     private Rigidbody2D rb;
     private BoxCollider2D bc;
     private SpriteRenderer sp;
     private ParticleSystem.MainModule explosionmain;
     private ParticleSystem.MainModule explosionsmoke;
     private ParticleSystem.MainModule explosionspark;
+
+    [Header("Graphics")]
     public GameObject graphic;
 
-    public float chargeScale;
+    private float chargeScale;
     public GameEvent onProjectileHitTerrain;
 
     private bool isColliding;
@@ -64,7 +70,7 @@ public class Projectile : MonoBehaviour
 
     public void CalcRadius(GameEventData eventData)
     {
-        if (eventData is PlayerEventData playerData && radiusModifier == 0)
+        if (eventData is PlayerEventData playerData && radiusModifier == 0 && canDestroy)
         {
             radiusModifier = playerData.BlastValue;
             chargeScale = playerData.BlastValue;
@@ -80,7 +86,7 @@ public class Projectile : MonoBehaviour
         // Get all colliders within explosion radius
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius, explosionLayers);
         
-        if (collision.collider.CompareTag("Level"))
+        if (collision.collider.CompareTag("Level") && canDestroy)
         {
             radius = Mathf.Clamp(radiusModifier, 0, radiusMax); // Blast amount adds to radius
             //Debug.Log("collision: " + collision.gameObject.name + "\ncollider: " + collider.gameObject.name);

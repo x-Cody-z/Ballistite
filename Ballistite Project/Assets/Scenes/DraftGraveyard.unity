@@ -263,7 +263,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9018816}
   - component: {fileID: 9018817}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-MID
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 11064171}
   - component: {fileID: 11064173}
   - component: {fileID: 11064172}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TILE_WALL_PLATFORM (1)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -477,7 +477,7 @@ GameObject:
   m_Component:
   - component: {fileID: 20251668}
   - component: {fileID: 20251669}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-MID (6)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -561,7 +561,7 @@ GameObject:
   m_Component:
   - component: {fileID: 22182206}
   - component: {fileID: 22182207}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-1 (2)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -645,7 +645,7 @@ GameObject:
   m_Component:
   - component: {fileID: 22439445}
   - component: {fileID: 22439446}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-MID
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -730,7 +730,7 @@ GameObject:
   - component: {fileID: 31858106}
   - component: {fileID: 31858107}
   - component: {fileID: 31858109}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_10-MID
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -919,7 +919,6 @@ PolygonCollider2D:
       - {x: 1.49, y: 7.3399997}
       - {x: 1.49, y: 6.93}
       - {x: 1.51, y: 6.91}
-      - {x: 2.08, y: 6.91}
       - {x: 2.08, y: 3.37}
       - {x: -8.3, y: 3.37}
       - {x: -8.32, y: 3.35}
@@ -933,7 +932,7 @@ PolygonCollider2D:
       - {x: -9.45, y: 2.73}
       - {x: -9.45, y: 2.51}
       - {x: -9.429999, y: 2.49}
-      - {x: -8.809999, y: 2.49}
+      - {x: -8.859467, y: 0.9233753}
       - {x: -8.809999, y: -2.09}
       - {x: -8.78, y: -2.1499999}
       - {x: -8.74, y: -2.21}
@@ -1393,7 +1392,7 @@ GameObject:
   m_Component:
   - component: {fileID: 60786648}
   - component: {fileID: 60786649}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-1
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -1478,7 +1477,7 @@ GameObject:
   - component: {fileID: 60894619}
   - component: {fileID: 60894621}
   - component: {fileID: 60894620}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TILE_WALL_PLATFORM (5)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -1607,7 +1606,7 @@ GameObject:
   m_Component:
   - component: {fileID: 83680418}
   - component: {fileID: 83680417}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: army-heli
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1904,7 +1903,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 92478669}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Skyscaper (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2071,7 +2070,7 @@ GameObject:
   - component: {fileID: 96996256}
   - component: {fileID: 96996258}
   - component: {fileID: 96996257}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (16)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -2206,7 +2205,7 @@ GameObject:
   - component: {fileID: 97166364}
   - component: {fileID: 97166366}
   - component: {fileID: 97166365}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tankr3-extradamaged-main
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -2536,7 +2535,7 @@ GameObject:
   - component: {fileID: 104271973}
   - component: {fileID: 104271975}
   - component: {fileID: 104271974}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (5)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -2721,174 +2720,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f637a82c8f3ab14408f26ba6373b11ef, type: 3}
---- !u!1 &112680254
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 112680255}
-  - component: {fileID: 112680256}
-  m_Layer: 0
-  m_Name: WALL_MOUNTED_LIGHTS
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &112680255
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 112680254}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.944, y: 4.248, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 254211158}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &112680256
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 112680254}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -590280887
-  m_SortingLayer: 2
-  m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: f7fa40c0a9d1b63489d16b0f98639d99, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 2.71, y: 3.59}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!1 &114340828
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 114340829}
-  - component: {fileID: 114340830}
-  m_Layer: 0
-  m_Name: CEILING_LIGHTS (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &114340829
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 114340828}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -29.523, y: 20.857, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 254211158}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &114340830
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 114340828}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -590280887
-  m_SortingLayer: 2
-  m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: ca9f547255d529f4da27633045003b36, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 4.5, y: 9.14}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &116110988
 GameObject:
   m_ObjectHideFlags: 0
@@ -2900,7 +2731,7 @@ GameObject:
   - component: {fileID: 116110989}
   - component: {fileID: 116110991}
   - component: {fileID: 116110990}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (28)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -3035,7 +2866,7 @@ GameObject:
   - component: {fileID: 116430456}
   - component: {fileID: 116430458}
   - component: {fileID: 116430457}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-1 (2)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -3177,7 +3008,7 @@ GameObject:
   - component: {fileID: 120959065}
   - component: {fileID: 120959067}
   - component: {fileID: 120959066}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TILE_WALL_PLATFORM (3)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -3312,7 +3143,7 @@ GameObject:
   - component: {fileID: 129487280}
   - component: {fileID: 129487282}
   - component: {fileID: 129487281}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (37)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -3436,90 +3267,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
---- !u!1 &132262059
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 132262060}
-  - component: {fileID: 132262061}
-  m_Layer: 0
-  m_Name: CEILING_LIGHTS2 (9)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &132262060
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 132262059}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -30.941, y: 24.256, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 254211158}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &132262061
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 132262059}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -590280887
-  m_SortingLayer: 2
-  m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 530e24074020ec84f8275a3ccaa80424, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 4.32, y: 2.49}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!114 &140267742 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1750118967432104599, guid: 7544752a76786cc48babb6a84ad82bdd, type: 3}
@@ -3541,7 +3288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 143469959}
   - component: {fileID: 143469960}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_9-MIDDest
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -3760,7 +3507,7 @@ GameObject:
   m_Component:
   - component: {fileID: 156152954}
   - component: {fileID: 156152955}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-MID (2)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -3845,7 +3592,7 @@ GameObject:
   - component: {fileID: 156187837}
   - component: {fileID: 156187839}
   - component: {fileID: 156187838}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (13)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -3980,7 +3727,7 @@ GameObject:
   - component: {fileID: 161511968}
   - component: {fileID: 161511970}
   - component: {fileID: 161511969}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (28)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -4114,7 +3861,7 @@ GameObject:
   m_Component:
   - component: {fileID: 168854302}
   - component: {fileID: 168854303}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-1 (1)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -4199,7 +3946,7 @@ GameObject:
   - component: {fileID: 172474495}
   - component: {fileID: 172474497}
   - component: {fileID: 172474496}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (30)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -4334,7 +4081,7 @@ GameObject:
   - component: {fileID: 173724082}
   - component: {fileID: 173724081}
   - component: {fileID: 173724080}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_9-MID
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -4485,7 +4232,7 @@ GameObject:
   - component: {fileID: 174467263}
   - component: {fileID: 174467265}
   - component: {fileID: 174467264}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BUILDING_TOP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4857,7 +4604,7 @@ GameObject:
   m_Component:
   - component: {fileID: 179021309}
   - component: {fileID: 179021310}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-1 (1)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -4940,7 +4687,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 179087696}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BrokenBuilding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4981,7 +4728,7 @@ GameObject:
   - component: {fileID: 180582679}
   - component: {fileID: 180582681}
   - component: {fileID: 180582680}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (39)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -5246,7 +4993,7 @@ GameObject:
   - component: {fileID: 183497297}
   - component: {fileID: 183497299}
   - component: {fileID: 183497298}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TILE_WALL_PLATFORM (2)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -5376,7 +5123,7 @@ GameObject:
   - component: {fileID: 183902590}
   - component: {fileID: 183902592}
   - component: {fileID: 183902591}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (22)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -5640,7 +5387,7 @@ GameObject:
   m_Component:
   - component: {fileID: 197389948}
   - component: {fileID: 197389949}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-MIDDest
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -5714,171 +5461,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!43 &199752890
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 11
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 42
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 16
-    localAABB:
-      m_Center: {x: 0.000015258789, y: 0, z: 0}
-      m_Extent: {x: 1.7150116, y: 0.63500214, z: 0}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_BonesAABB: []
-  m_VariableBoneCountWeights:
-    m_Data: 
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 00000100020003000100000003000400010005000400030006000400050004000600070002000800000000000900030001000a00020004000b00010003000c00050007000d00040005000e00060006000f000700
-  m_VertexData:
-    serializedVersion: 3
-    m_VertexCount: 16
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 28
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 704
-    _typelessdata: 0086db3f808f22bf000000000000803f0000008000000080000000800086db3f808f22bf0086db3f808f22bf0086db3f808f223f00000000000000800000803f00000080000000800086db3f808f223f0086db3f808f223f0086db3f00000000000000000000803f0000008000000080000000800086db3f808f223f0086db3f808f22bf00008037808f22bf0000000000000080000080bf00000000000000800086db3f808f22bf0085dbbf808f22bf00008037808f223f00000000000000800000803f00000080000000800085dbbf808f223f0086db3f808f223f0085dbbf808f22bf0000000000000080000080bf00000000000000800085dbbf808f22bf0085dbbf808f22bf0085dbbf0000000000000000000080bf0000008000000080000000800085dbbf808f22bf0085dbbf808f223f0085dbbf808f223f00000000000080bf0000008000000080000000800085dbbf808f223f0085dbbf808f223f0086db3f00000000000000000000803f0000008000000080000000800086db3f808f223f0086db3f808f22bf0086db3f808f22bf0000000000000080000080bf00000000000000800086db3f808f22bf0086db3f808f22bf0086db3f808f223f000000000000803f0000008000000080000000800086db3f808f223f0086db3f808f223f00008037808f223f00000000000000800000803f00000080000000800085dbbf808f223f0086db3f808f223f00008037808f22bf0000000000000080000080bf00000000000000800086db3f808f22bf0085dbbf808f22bf0085dbbf808f223f00000000000000800000803f00000080000000800085dbbf808f223f0085dbbf808f223f0085dbbf808f22bf00000000000080bf0000008000000080000000800085dbbf808f22bf0085dbbf808f22bf0085dbbf0000000000000000000080bf0000008000000080000000800085dbbf808f22bf0085dbbf808f223f
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0.000015258789, y: 0, z: 0}
-    m_Extent: {x: 1.7150116, y: 0.63500214, z: 0}
-  m_MeshUsageFlags: 0
-  m_CookingOptions: 30
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshMetrics[0]: 1
-  m_MeshMetrics[1]: 1
-  m_MeshOptimizationFlags: 1
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1 &200572501
 GameObject:
   m_ObjectHideFlags: 0
@@ -5888,7 +5470,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 200572502}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BrokenBuilding_Dest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6064,7 +5646,7 @@ GameObject:
   - component: {fileID: 209509568}
   - component: {fileID: 209509570}
   - component: {fileID: 209509569}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TILE_WALL_PLATFORM (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6408,7 +5990,7 @@ GameObject:
   - component: {fileID: 217644060}
   - component: {fileID: 217644062}
   - component: {fileID: 217644061}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (15)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -6542,7 +6124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 221039379}
   - component: {fileID: 221039380}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_10-MID (1)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -6627,7 +6209,7 @@ GameObject:
   - component: {fileID: 224121835}
   - component: {fileID: 224121837}
   - component: {fileID: 224121836}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (12)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -6891,7 +6473,7 @@ GameObject:
   m_Component:
   - component: {fileID: 237767799}
   - component: {fileID: 237767798}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: army-5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6965,171 +6547,6 @@ Transform:
   m_Father: {fileID: 822318961}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -173.21}
---- !u!43 &239636993
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 11
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 42
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 16
-    localAABB:
-      m_Center: {x: 0.000015258789, y: -0.0000038146973, z: 0}
-      m_Extent: {x: 4.650009, y: 1.3449974, z: 0}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_BonesAABB: []
-  m_VariableBoneCountWeights:
-    m_Data: 
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 00000100020003000100000003000400010005000400030006000400050004000600070002000800000000000900030001000a00020004000b00010003000c00050007000d00040005000e00060006000f000700
-  m_VertexData:
-    serializedVersion: 3
-    m_VertexCount: 16
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 28
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 704
-    _typelessdata: 00cd94400029acbf000000000000803f00000080000000800000008000cd94400029acbf00cd94400029acbf00cd9440c028ac3f00000000000000800000803f000000800000008000cd9440c028ac3f00cd9440c028ac3f00cd9440000080b6000000000000803f00000080000000800000008000cd9440c028ac3f00cd94400029acbf000080370029acbf0000000000000080000080bf000000000000008000cd94400029acbfc0cc94c00029acbf00008037c028ac3f00000000000000800000803f0000008000000080c0cc94c0c028ac3f00cd9440c028ac3fc0cc94c00029acbf0000000000000080000080bf0000000000000080c0cc94c00029acbfc0cc94c00029acbfc0cc94c0000080b600000000000080bf000000800000008000000080c0cc94c00029acbfc0cc94c0c028ac3fc0cc94c0c028ac3f00000000000080bf000000800000008000000080c0cc94c0c028ac3fc0cc94c0c028ac3f00cd9440000080b6000000000000803f00000080000000800000008000cd9440c028ac3f00cd94400029acbf00cd94400029acbf0000000000000080000080bf000000000000008000cd94400029acbf00cd94400029acbf00cd9440c028ac3f000000000000803f00000080000000800000008000cd9440c028ac3f00cd9440c028ac3f00008037c028ac3f00000000000000800000803f0000008000000080c0cc94c0c028ac3f00cd9440c028ac3f000080370029acbf0000000000000080000080bf000000000000008000cd94400029acbfc0cc94c00029acbfc0cc94c0c028ac3f00000000000000800000803f0000008000000080c0cc94c0c028ac3fc0cc94c0c028ac3fc0cc94c00029acbf00000000000080bf000000800000008000000080c0cc94c00029acbfc0cc94c00029acbfc0cc94c0000080b600000000000080bf000000800000008000000080c0cc94c00029acbfc0cc94c0c028ac3f
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0.000015258789, y: -0.0000038146973, z: 0}
-    m_Extent: {x: 4.650009, y: 1.3449974, z: 0}
-  m_MeshUsageFlags: 0
-  m_CookingOptions: 30
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshMetrics[0]: 1
-  m_MeshMetrics[1]: 1
-  m_MeshOptimizationFlags: 1
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1 &241690820
 GameObject:
   m_ObjectHideFlags: 0
@@ -7141,7 +6558,7 @@ GameObject:
   - component: {fileID: 241690821}
   - component: {fileID: 241690823}
   - component: {fileID: 241690822}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-1
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -7283,7 +6700,7 @@ GameObject:
   - component: {fileID: 248702165}
   - component: {fileID: 248702167}
   - component: {fileID: 248702166}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (21)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -7407,55 +6824,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
---- !u!1 &254211157
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 254211158}
-  m_Layer: 0
-  m_Name: Lights
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &254211158
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 254211157}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 241.8, y: -16.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1157067099}
-  - {fileID: 112680255}
-  - {fileID: 2062338163}
-  - {fileID: 1889562896}
-  - {fileID: 1416814093}
-  - {fileID: 776621501}
-  - {fileID: 1598726537}
-  - {fileID: 1164714847}
-  - {fileID: 1202175150}
-  - {fileID: 1862520396}
-  - {fileID: 1825492574}
-  - {fileID: 2063537882}
-  - {fileID: 844323830}
-  - {fileID: 114340829}
-  - {fileID: 132262060}
-  - {fileID: 1071576922}
-  - {fileID: 1104068397}
-  - {fileID: 884383924}
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &257247972
 GameObject:
   m_ObjectHideFlags: 0
@@ -7467,7 +6835,7 @@ GameObject:
   - component: {fileID: 257247973}
   - component: {fileID: 257247975}
   - component: {fileID: 257247974}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (14)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -7733,7 +7101,7 @@ GameObject:
   - component: {fileID: 266073522}
   - component: {fileID: 266073521}
   - component: {fileID: 266073520}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MountainLava
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -8123,7 +7491,7 @@ GameObject:
   - component: {fileID: 285022866}
   - component: {fileID: 285022868}
   - component: {fileID: 285022867}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (25)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -8256,7 +7624,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 285083049}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingsDest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8435,7 +7803,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 289450016}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8470,7 +7838,7 @@ GameObject:
   - component: {fileID: 292671931}
   - component: {fileID: 292671933}
   - component: {fileID: 292671932}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (4)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -8605,7 +7973,7 @@ GameObject:
   - component: {fileID: 294257293}
   - component: {fileID: 294257295}
   - component: {fileID: 294257294}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (29)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -8738,7 +8106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 297122688}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EndBuildings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8779,7 +8147,7 @@ GameObject:
   - component: {fileID: 303307334}
   - component: {fileID: 303307336}
   - component: {fileID: 303307335}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TILE_WALL_PLATFORM
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -8994,7 +8362,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 56.605545, y: 27.655113, z: 0}
+    - position: {x: 56.484818, y: 28.681297, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -9146,8 +8514,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: 31.484745, y: 19.328253, z: 0}
-    m_Extent: {x: 26.99718, y: 13.014036, z: 0}
+    m_Center: {x: 31.448101, y: 19.328253, z: 0}
+    m_Extent: {x: 26.960537, y: 13.014036, z: 0}
   m_SpriteSortPoint: 0
 --- !u!1 &305427299
 GameObject:
@@ -9159,7 +8527,7 @@ GameObject:
   m_Component:
   - component: {fileID: 305427300}
   - component: {fileID: 305427301}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-1 (2)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -9243,7 +8611,7 @@ GameObject:
   m_Component:
   - component: {fileID: 310129629}
   - component: {fileID: 310129630}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_1-MID
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -9549,7 +8917,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 325020819}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SkyscaperDest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9715,7 +9083,7 @@ GameObject:
   m_Component:
   - component: {fileID: 331757396}
   - component: {fileID: 331757397}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (46)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -10014,7 +9382,7 @@ GameObject:
   - component: {fileID: 343453340}
   - component: {fileID: 343453342}
   - component: {fileID: 343453341}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (12)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -10149,7 +9517,7 @@ GameObject:
   - component: {fileID: 344438911}
   - component: {fileID: 344438913}
   - component: {fileID: 344438912}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (38)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -10414,7 +9782,7 @@ GameObject:
   - component: {fileID: 353849352}
   - component: {fileID: 353849354}
   - component: {fileID: 353849353}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (3)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -10548,7 +9916,7 @@ GameObject:
   m_Component:
   - component: {fileID: 354095383}
   - component: {fileID: 354095384}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-1 (2)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -10622,6 +9990,90 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &358956753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 358956754}
+  - component: {fileID: 358956755}
+  m_Layer: 9
+  m_Name: metalBeam (8)
+  m_TagString: Level
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &358956754
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358956753}
+  m_LocalRotation: {x: -0, y: -0, z: -0.68721426, w: 0.7264548}
+  m_LocalPosition: {x: -83.23, y: -2.2800007, z: 1.9}
+  m_LocalScale: {x: 0.21036002, y: 0.21036002, z: 0.21035999}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 825988221}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -86.82}
+--- !u!212 &358956755
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358956753}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 6ed981bd736c72245bf3b4c33bbb6172, type: 3}
+  m_Color: {r: 0.3137255, g: 0.3137255, b: 0.3137255, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 16.4, y: 2.05}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 2
+  m_SpriteSortPoint: 0
 --- !u!1 &363992934
 GameObject:
   m_ObjectHideFlags: 0
@@ -10633,7 +10085,7 @@ GameObject:
   - component: {fileID: 363992935}
   - component: {fileID: 363992937}
   - component: {fileID: 363992936}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (40)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -10766,7 +10218,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 372102698}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tank (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10800,7 +10252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 373991281}
   - component: {fileID: 373991280}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: army-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11015,7 +10467,7 @@ GameObject:
   - component: {fileID: 377335725}
   - component: {fileID: 377335727}
   - component: {fileID: 377335726}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-1 (1)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -11339,7 +10791,7 @@ GameObject:
   - component: {fileID: 395846519}
   - component: {fileID: 395846521}
   - component: {fileID: 395846520}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (18)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -11354,7 +10806,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 395846518}
   m_LocalRotation: {x: -0, y: -0, z: 0.93673617, w: 0.35003623}
-  m_LocalPosition: {x: 15.440002, y: -21.95, z: 2}
+  m_LocalPosition: {x: 15.58, y: -22.07, z: 2}
   m_LocalScale: {x: 0.29197, y: 0.19043003, z: 0.19765}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11474,7 +10926,7 @@ GameObject:
   - component: {fileID: 409293570}
   - component: {fileID: 409293572}
   - component: {fileID: 409293571}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-MID
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -11746,7 +11198,7 @@ GameObject:
   - component: {fileID: 413137400}
   - component: {fileID: 413137402}
   - component: {fileID: 413137401}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (33)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -11886,7 +11338,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &416330269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11900,7 +11352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxSpeed: 0.1
-  backgroundHeight: -33.3
+  backgroundHeight: -36
   ScrollerMode: 0
 --- !u!4 &416330270
 Transform:
@@ -12059,7 +11511,7 @@ GameObject:
   m_Component:
   - component: {fileID: 430450873}
   - component: {fileID: 430450872}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: army-3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12144,7 +11596,7 @@ GameObject:
   - component: {fileID: 431335455}
   - component: {fileID: 431335457}
   - component: {fileID: 431335456}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TILE_WALL_PLATFORM (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12274,7 +11726,7 @@ GameObject:
   - component: {fileID: 439061482}
   - component: {fileID: 439061484}
   - component: {fileID: 439061483}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (31)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -12409,7 +11861,7 @@ GameObject:
   - component: {fileID: 444211747}
   - component: {fileID: 444211749}
   - component: {fileID: 444211748}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (2)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -12628,7 +12080,7 @@ GameObject:
   - component: {fileID: 445114900}
   - component: {fileID: 445114902}
   - component: {fileID: 445114901}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (24)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -12761,7 +12213,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 450825686}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MetalBeams
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12822,6 +12274,7 @@ Transform:
   - {fileID: 1807476389}
   - {fileID: 453941668}
   - {fileID: 331757396}
+  - {fileID: 1952717469}
   m_Father: {fileID: 1467936328}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12835,7 +12288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 453941668}
   - component: {fileID: 453941669}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (45)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -12920,7 +12373,7 @@ GameObject:
   - component: {fileID: 463022715}
   - component: {fileID: 463022717}
   - component: {fileID: 463022716}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_1-MID
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -13199,7 +12652,7 @@ GameObject:
   m_Component:
   - component: {fileID: 464814448}
   - component: {fileID: 464814447}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: army-6 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13284,7 +12737,7 @@ GameObject:
   - component: {fileID: 465232827}
   - component: {fileID: 465232829}
   - component: {fileID: 465232828}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_9-MID
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -13765,7 +13218,7 @@ GameObject:
   - component: {fileID: 479092155}
   - component: {fileID: 479092157}
   - component: {fileID: 479092156}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -14083,6 +13536,46 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
+    - position: {x: -0.4724579, y: 2.1501808, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: 2.9273224, y: 1.3649559, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: 5.6235046, y: 1.5487862, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: 7.492447, y: 1.1198502, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: 9.085648, y: 1.5487862, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
     - position: {x: 14.449219, y: 1.0870514, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
@@ -14099,7 +13592,39 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 43.269714, y: -1.9280052, z: 0}
+    - position: {x: 29.154083, y: -2.0359306, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: 32.309845, y: -2.0665703, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: 36.23146, y: -1.6376762, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: 40.765945, y: -1.9746971, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: 42.810135, y: -1.744175, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -14203,8 +13728,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: 20.634857, y: -7.6202717, z: 0}
-    m_Extent: {x: 22.634857, y: 9.620272, z: 0}
+    m_Center: {x: 20.405067, y: -7.5451813, z: 0}
+    m_Extent: {x: 22.405067, y: 9.695362, z: 0}
   m_SpriteSortPoint: 0
 --- !u!1 &486983513
 GameObject:
@@ -14607,7 +14132,7 @@ GameObject:
   - component: {fileID: 489769202}
   - component: {fileID: 489769204}
   - component: {fileID: 489769203}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (32)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -14742,7 +14267,7 @@ GameObject:
   - component: {fileID: 492377996}
   - component: {fileID: 492377998}
   - component: {fileID: 492377997}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-1 (2)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -14882,7 +14407,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 493255460}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tank (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14917,7 +14442,7 @@ GameObject:
   - component: {fileID: 506608150}
   - component: {fileID: 506608152}
   - component: {fileID: 506608151}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (6)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -15051,7 +14576,7 @@ GameObject:
   m_Component:
   - component: {fileID: 517481923}
   - component: {fileID: 517481924}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-MID
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -16173,7 +15698,7 @@ GameObject:
   - component: {fileID: 530402720}
   - component: {fileID: 530402722}
   - component: {fileID: 530402721}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (40)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -16456,7 +15981,7 @@ GameObject:
   - component: {fileID: 536545106}
   - component: {fileID: 536545108}
   - component: {fileID: 536545107}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-1 (1)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -16598,7 +16123,7 @@ GameObject:
   - component: {fileID: 539412519}
   - component: {fileID: 539412521}
   - component: {fileID: 539412520}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (3)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -16835,7 +16360,7 @@ GameObject:
   m_Component:
   - component: {fileID: 574339333}
   - component: {fileID: 574339334}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-MID (1)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -16920,7 +16445,7 @@ GameObject:
   - component: {fileID: 585063734}
   - component: {fileID: 585063736}
   - component: {fileID: 585063735}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tankr3-extradamaged-main
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -17250,7 +16775,7 @@ GameObject:
   - component: {fileID: 591723668}
   - component: {fileID: 591723670}
   - component: {fileID: 591723669}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (25)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -17648,22 +17173,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8050193836911536165, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
-      propertyPath: playerObject
-      value: 
-      objectReference: {fileID: 1194087621}
-    - target: {fileID: 8050193836911536185, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8050193836945820872, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.009399414
-      objectReference: {fileID: 0}
-    - target: {fileID: 8050193836945820872, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -5.9779053
-      objectReference: {fileID: 0}
     - target: {fileID: 8396086900058548351, guid: 715dd813f14262b4dab72f5b7b434b30, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -72.40381
@@ -17801,7 +17310,7 @@ GameObject:
   - component: {fileID: 601917371}
   - component: {fileID: 601917373}
   - component: {fileID: 601917372}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-MID (3)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -17988,7 +17497,6 @@ PolygonCollider2D:
       - {x: -8.9, y: 4.21}
       - {x: -8.92, y: 4.18}
       - {x: -8.92, y: 2.23}
-      - {x: -8.67, y: 1.9799999}
       - {x: -8.67, y: -1.01}
       - {x: -8.639999, y: -1.06}
       - {x: -8.5, y: -1.35}
@@ -18071,7 +17579,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 605097622}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Buildings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18122,7 +17630,7 @@ GameObject:
   - component: {fileID: 607056884}
   - component: {fileID: 607056886}
   - component: {fileID: 607056885}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (17)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -18272,7 +17780,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 610337260}
   m_LocalRotation: {x: -0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: -0.023223877, y: -0.026572227, z: 16.1}
+  m_LocalPosition: {x: -0.023223877, y: 5.06, z: 16.1}
   m_LocalScale: {x: 4, y: 1, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18340,7 +17848,7 @@ GameObject:
   - component: {fileID: 611366202}
   - component: {fileID: 611366204}
   - component: {fileID: 611366203}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (1)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -18984,7 +18492,7 @@ GameObject:
   - component: {fileID: 617745844}
   - component: {fileID: 617745846}
   - component: {fileID: 617745845}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TILE_WALL_PLATFORM (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19114,7 +18622,7 @@ GameObject:
   - component: {fileID: 617845416}
   - component: {fileID: 617845418}
   - component: {fileID: 617845417}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (4)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -19318,7 +18826,7 @@ GameObject:
   - component: {fileID: 637227350}
   - component: {fileID: 637227352}
   - component: {fileID: 637227351}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (15)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -19452,7 +18960,7 @@ GameObject:
   m_Component:
   - component: {fileID: 648574239}
   - component: {fileID: 648574238}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: army-6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19537,7 +19045,7 @@ GameObject:
   - component: {fileID: 656696978}
   - component: {fileID: 656696980}
   - component: {fileID: 656696979}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (16)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -19672,7 +19180,7 @@ GameObject:
   - component: {fileID: 659169100}
   - component: {fileID: 659169102}
   - component: {fileID: 659169101}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -19937,7 +19445,7 @@ GameObject:
   - component: {fileID: 673809315}
   - component: {fileID: 673809317}
   - component: {fileID: 673809316}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (32)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -20286,7 +19794,7 @@ GameObject:
   - component: {fileID: 716947447}
   - component: {fileID: 716947449}
   - component: {fileID: 716947448}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-MID (2)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -20686,7 +20194,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 719360899}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EndBuildingsDest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20922,7 +20430,7 @@ GameObject:
   m_Component:
   - component: {fileID: 721979037}
   - component: {fileID: 721979038}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CRAFTSHOP_EMPTY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21006,7 +20514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 723980442}
   - component: {fileID: 723980443}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (41)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -21220,7 +20728,7 @@ GameObject:
   m_Component:
   - component: {fileID: 731701456}
   - component: {fileID: 731701457}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_1-MID (1)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -21466,7 +20974,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 738918537}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Skyscaper (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21792,7 +21300,7 @@ GameObject:
   - component: {fileID: 757952920}
   - component: {fileID: 757952922}
   - component: {fileID: 757952921}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (22)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -22125,90 +21633,6 @@ SpriteRenderer:
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!1 &776621500
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 776621501}
-  - component: {fileID: 776621502}
-  m_Layer: 0
-  m_Name: CEILING_LIGHTS2 (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &776621501
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 776621500}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -69.433, y: -1.251, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 254211158}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &776621502
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 776621500}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -590280887
-  m_SortingLayer: 2
-  m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 530e24074020ec84f8275a3ccaa80424, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 4.32, y: 2.49}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -22567,7 +21991,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 803821847}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TiltedBuildingDest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22872,7 +22296,7 @@ GameObject:
   - component: {fileID: 817246506}
   - component: {fileID: 817246508}
   - component: {fileID: 817246507}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (23)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -23089,7 +22513,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 822318961}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TankRemains
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23133,7 +22557,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 825988221}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MetalBeamsDest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23188,6 +22612,7 @@ Transform:
   - {fileID: 1459499838}
   - {fileID: 1181223381}
   - {fileID: 363992935}
+  - {fileID: 358956754}
   m_Father: {fileID: 1467936328}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -23332,7 +22757,7 @@ GameObject:
   - component: {fileID: 829594925}
   - component: {fileID: 829594927}
   - component: {fileID: 829594926}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-1
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -23602,90 +23027,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
---- !u!1 &844323829
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 844323830}
-  - component: {fileID: 844323831}
-  m_Layer: 0
-  m_Name: WALL_MOUNTED_LIGHTS (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &844323830
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 844323829}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.34, y: 10.05, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 254211158}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &844323831
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 844323829}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -590280887
-  m_SortingLayer: 2
-  m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: f7fa40c0a9d1b63489d16b0f98639d99, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 2.71, y: 3.59}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &854091360
 GameObject:
   m_ObjectHideFlags: 0
@@ -23697,7 +23038,7 @@ GameObject:
   - component: {fileID: 854091361}
   - component: {fileID: 854091363}
   - component: {fileID: 854091362}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tankr3-extradamaged-gun
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -24022,90 +23363,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &884383923
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 884383924}
-  - component: {fileID: 884383925}
-  m_Layer: 0
-  m_Name: CEILING_LIGHTS2 (12)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &884383924
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 884383923}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.112, y: 27.2585, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 254211158}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &884383925
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 884383923}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -590280887
-  m_SortingLayer: 2
-  m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 530e24074020ec84f8275a3ccaa80424, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 4.32, y: 2.49}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &889107636
 GameObject:
   m_ObjectHideFlags: 0
@@ -24117,7 +23374,7 @@ GameObject:
   - component: {fileID: 889107637}
   - component: {fileID: 889107639}
   - component: {fileID: 889107638}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (31)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -24512,7 +23769,7 @@ GameObject:
   - component: {fileID: 916684919}
   - component: {fileID: 916684921}
   - component: {fileID: 916684920}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tankr3-extradamaged-main
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -24842,7 +24099,7 @@ GameObject:
   - component: {fileID: 919899998}
   - component: {fileID: 919900000}
   - component: {fileID: 919899999}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TILE_WALL_PLATFORM (4)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -24972,7 +24229,7 @@ GameObject:
   - component: {fileID: 929071014}
   - component: {fileID: 929071016}
   - component: {fileID: 929071015}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-1 (1)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -25290,7 +24547,7 @@ GameObject:
   - component: {fileID: 940171056}
   - component: {fileID: 940171058}
   - component: {fileID: 940171057}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BUILDING_TOP
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -25449,7 +24706,7 @@ GameObject:
   - component: {fileID: 950662630}
   - component: {fileID: 950662632}
   - component: {fileID: 950662631}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (1)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -25584,7 +24841,7 @@ GameObject:
   - component: {fileID: 954692338}
   - component: {fileID: 954692340}
   - component: {fileID: 954692339}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-1 (1)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -25856,7 +25113,7 @@ GameObject:
   - component: {fileID: 964725597}
   - component: {fileID: 964725599}
   - component: {fileID: 964725598}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TILE_WALL_PLATFORM (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27015,7 +26272,7 @@ GameObject:
   - component: {fileID: 1003110177}
   - component: {fileID: 1003110179}
   - component: {fileID: 1003110178}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tankr3-extradamaged-main
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -27517,7 +26774,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1040619400}
   - component: {fileID: 1040619401}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-1 (1)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -27731,7 +26988,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1055724501}
   - component: {fileID: 1055724502}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BUILDING_BACK_WALLL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27817,7 +27074,7 @@ GameObject:
   - component: {fileID: 1066673927}
   - component: {fileID: 1066673926}
   - component: {fileID: 1066673925}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BurntDarkGrass
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -27916,8 +27173,8 @@ EdgeCollider2D:
   - {x: 53.080933, y: 22.609444}
   - {x: 53.899887, y: 23.805992}
   - {x: 54.74916, y: 25.246162}
-  - {x: 55.22144, y: 26.066147}
-  - {x: 55.852867, y: 27.244068}
+  - {x: 55.080585, y: 26.12651}
+  - {x: 55.63154, y: 27.666615}
   - {x: 56.375137, y: 6.3142166}
   - {x: 10.662064, y: 8.429806}
   m_AdjacentStartPoint: {x: 0, y: 0}
@@ -27987,7 +27244,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 56.605545, y: 27.655113, z: 0}
+    - position: {x: 56.404327, y: 28.721542, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -28139,92 +27396,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: 31.484745, y: 19.328253, z: 0}
-    m_Extent: {x: 26.99718, y: 13.014036, z: 0}
-  m_SpriteSortPoint: 0
---- !u!1 &1071576921
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1071576922}
-  - component: {fileID: 1071576923}
-  m_Layer: 0
-  m_Name: CEILING_LIGHTS2 (10)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1071576922
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1071576921}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -32.913, y: 27.2585, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 254211158}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1071576923
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1071576921}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -590280887
-  m_SortingLayer: 2
-  m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 530e24074020ec84f8275a3ccaa80424, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 4.32, y: 2.49}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+    m_Center: {x: 31.411318, y: 19.328253, z: 0}
+    m_Extent: {x: 26.923754, y: 13.014036, z: 0}
   m_SpriteSortPoint: 0
 --- !u!1 &1080361451
 GameObject:
@@ -28481,90 +27654,6 @@ SpriteRenderer:
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!1 &1104068396
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1104068397}
-  - component: {fileID: 1104068398}
-  m_Layer: 0
-  m_Name: CEILING_LIGHTS2 (11)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1104068397
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1104068396}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -27.534, y: 27.2585, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 254211158}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1104068398
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1104068396}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -590280887
-  m_SortingLayer: 2
-  m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 530e24074020ec84f8275a3ccaa80424, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 4.32, y: 2.49}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -29072,7 +28161,7 @@ GameObject:
   - component: {fileID: 1135370119}
   - component: {fileID: 1135370121}
   - component: {fileID: 1135370120}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (23)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -29290,7 +28379,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1139188448}
   - component: {fileID: 1139188449}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-1 (1)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -29374,7 +28463,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1140884819}
   - component: {fileID: 1140884820}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-MID (3)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -29610,7 +28699,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1149979179}
   - component: {fileID: 1149979180}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (42)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -29768,174 +28857,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1157067098
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1157067099}
-  - component: {fileID: 1157067100}
-  m_Layer: 0
-  m_Name: CEILING_LIGHTS
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1157067099
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1157067098}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.2470093, y: 0.7390003, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 254211158}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1157067100
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1157067098}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -590280887
-  m_SortingLayer: 2
-  m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: ca9f547255d529f4da27633045003b36, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 4.5, y: 9.14}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!1 &1164714846
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1164714847}
-  - component: {fileID: 1164714848}
-  m_Layer: 0
-  m_Name: CEILING_LIGHTS2 (5)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1164714847
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1164714846}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -33.957, y: -1.7399998, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 254211158}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1164714848
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1164714846}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -590280887
-  m_SortingLayer: 2
-  m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 530e24074020ec84f8275a3ccaa80424, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 4.32, y: 2.49}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &1168764742
 GameObject:
   m_ObjectHideFlags: 0
@@ -30083,7 +29004,7 @@ GameObject:
   - component: {fileID: 1181223381}
   - component: {fileID: 1181223383}
   - component: {fileID: 1181223382}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (39)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -30218,7 +29139,7 @@ GameObject:
   - component: {fileID: 1184323741}
   - component: {fileID: 1184323743}
   - component: {fileID: 1184323742}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tankr3-extradamaged-main
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -30548,7 +29469,7 @@ GameObject:
   - component: {fileID: 1191429911}
   - component: {fileID: 1191429912}
   - component: {fileID: 1191429913}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_2-MID
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -30866,11 +29787,19 @@ PrefabInstance:
     - target: {fileID: 409095590, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 239636993}
+      objectReference: {fileID: 1240246255}
+    - target: {fileID: 409095590, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
+      propertyPath: m_InstanceId
+      value: -34714
+      objectReference: {fileID: 0}
     - target: {fileID: 980755759, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1371283934}
+      objectReference: {fileID: 1972380122}
+    - target: {fileID: 980755759, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
+      propertyPath: m_InstanceId
+      value: -34588
+      objectReference: {fileID: 0}
     - target: {fileID: 2761207263777769527, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
       propertyPath: land1
       value: 
@@ -30948,17 +29877,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
---- !u!114 &1194087621 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1016075928834900212, guid: 2171fa45aa1370a48937597931d9718d, type: 3}
-  m_PrefabInstance: {fileID: 1194087620}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 205238985}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a495d394bfde1e547a0be739dc76c160, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1195199590
 GameObject:
   m_ObjectHideFlags: 0
@@ -31038,90 +29956,6 @@ SpriteRenderer:
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!1 &1202175149
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1202175150}
-  - component: {fileID: 1202175151}
-  m_Layer: 0
-  m_Name: CEILING_LIGHTS2 (6)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1202175150
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1202175149}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -30.11, y: -1.7399998, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 254211158}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1202175151
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1202175149}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -590280887
-  m_SortingLayer: 2
-  m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 530e24074020ec84f8275a3ccaa80424, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 4.32, y: 2.49}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -31249,7 +30083,7 @@ GameObject:
   - component: {fileID: 1204712080}
   - component: {fileID: 1204712082}
   - component: {fileID: 1204712081}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-1 (2)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -31521,7 +30355,7 @@ GameObject:
   - component: {fileID: 1207040498}
   - component: {fileID: 1207040500}
   - component: {fileID: 1207040499}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (27)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -31645,6 +30479,171 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
+--- !u!43 &1240246255
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 11
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 42
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 16
+    localAABB:
+      m_Center: {x: 0.000015258789, y: -0.0000038146973, z: 0}
+      m_Extent: {x: 4.650009, y: 1.3449974, z: 0}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 00000100020003000100000003000400010005000400030006000400050004000600070002000800000000000900030001000a00020004000b00010003000c00050007000d00040005000e00060006000f000700
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 16
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 28
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 704
+    _typelessdata: 00cd94400029acbf000000000000803f00000080000000800000008000cd94400029acbf00cd94400029acbf00cd9440c028ac3f00000000000000800000803f000000800000008000cd9440c028ac3f00cd9440c028ac3f00cd9440000080b6000000000000803f00000080000000800000008000cd9440c028ac3f00cd94400029acbf000080370029acbf0000000000000080000080bf000000000000008000cd94400029acbfc0cc94c00029acbf00008037c028ac3f00000000000000800000803f0000008000000080c0cc94c0c028ac3f00cd9440c028ac3fc0cc94c00029acbf0000000000000080000080bf0000000000000080c0cc94c00029acbfc0cc94c00029acbfc0cc94c0000080b600000000000080bf000000800000008000000080c0cc94c00029acbfc0cc94c0c028ac3fc0cc94c0c028ac3f00000000000080bf000000800000008000000080c0cc94c0c028ac3fc0cc94c0c028ac3f00cd9440000080b6000000000000803f00000080000000800000008000cd9440c028ac3f00cd94400029acbf00cd94400029acbf0000000000000080000080bf000000000000008000cd94400029acbf00cd94400029acbf00cd9440c028ac3f000000000000803f00000080000000800000008000cd9440c028ac3f00cd9440c028ac3f00008037c028ac3f00000000000000800000803f0000008000000080c0cc94c0c028ac3f00cd9440c028ac3f000080370029acbf0000000000000080000080bf000000000000008000cd94400029acbfc0cc94c00029acbfc0cc94c0c028ac3f00000000000000800000803f0000008000000080c0cc94c0c028ac3fc0cc94c0c028ac3fc0cc94c00029acbf00000000000080bf000000800000008000000080c0cc94c00029acbfc0cc94c00029acbfc0cc94c0000080b600000000000080bf000000800000008000000080c0cc94c00029acbfc0cc94c0c028ac3f
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0.000015258789, y: -0.0000038146973, z: 0}
+    m_Extent: {x: 4.650009, y: 1.3449974, z: 0}
+  m_MeshUsageFlags: 0
+  m_CookingOptions: 30
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!1 &1248639743
 GameObject:
   m_ObjectHideFlags: 0
@@ -31784,7 +30783,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1250717063}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tank (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31819,7 +30818,7 @@ GameObject:
   - component: {fileID: 1254382010}
   - component: {fileID: 1254382012}
   - component: {fileID: 1254382011}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (34)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -32084,7 +31083,7 @@ GameObject:
   - component: {fileID: 1289458935}
   - component: {fileID: 1289458937}
   - component: {fileID: 1289458936}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (34)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -32353,7 +31352,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1300350733}
   - component: {fileID: 1300350734}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BUILDING_BACK_WALLL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32912,7 +31911,7 @@ GameObject:
   - component: {fileID: 1326631938}
   - component: {fileID: 1326631940}
   - component: {fileID: 1326631939}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (27)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -33177,7 +32176,7 @@ GameObject:
   - component: {fileID: 1334234085}
   - component: {fileID: 1334234087}
   - component: {fileID: 1334234086}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TILE_WALL_PLATFORM (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33307,7 +32306,7 @@ GameObject:
   - component: {fileID: 1335669526}
   - component: {fileID: 1335669528}
   - component: {fileID: 1335669527}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (18)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -33322,7 +32321,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1335669525}
   m_LocalRotation: {x: -0, y: -0, z: 0.93673617, w: 0.35003623}
-  m_LocalPosition: {x: 15.440002, y: -21.95, z: 2}
+  m_LocalPosition: {x: 15.580002, y: -22.07, z: 2}
   m_LocalScale: {x: 0.29197, y: 0.19043003, z: 0.19765}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -33442,7 +32441,7 @@ GameObject:
   - component: {fileID: 1335731428}
   - component: {fileID: 1335731430}
   - component: {fileID: 1335731429}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_1-MID (1)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -33723,7 +32722,7 @@ GameObject:
   - component: {fileID: 1348249040}
   - component: {fileID: 1348249039}
   - component: {fileID: 1348249038}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BurntGrass (2)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -34274,7 +33273,7 @@ GameObject:
   - component: {fileID: 1353952287}
   - component: {fileID: 1353952289}
   - component: {fileID: 1353952288}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-MID
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -34676,7 +33675,7 @@ GameObject:
   - component: {fileID: 1359908370}
   - component: {fileID: 1359908372}
   - component: {fileID: 1359908371}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_2-MID
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -35122,7 +34121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1366185752}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingIsland
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35170,7 +34169,7 @@ GameObject:
   - component: {fileID: 1367298312}
   - component: {fileID: 1367298314}
   - component: {fileID: 1367298313}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (19)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -35305,7 +34304,7 @@ GameObject:
   - component: {fileID: 1370080195}
   - component: {fileID: 1370080197}
   - component: {fileID: 1370080196}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (13)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -35429,171 +34428,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
---- !u!43 &1371283934
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 11
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 42
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 16
-    localAABB:
-      m_Center: {x: 0.000015258789, y: 0, z: 0}
-      m_Extent: {x: 1.7150116, y: 0.63500214, z: 0}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_BonesAABB: []
-  m_VariableBoneCountWeights:
-    m_Data: 
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 00000100020003000100000003000400010005000400030006000400050004000600070002000800000000000900030001000a00020004000b00010003000c00050007000d00040005000e00060006000f000700
-  m_VertexData:
-    serializedVersion: 3
-    m_VertexCount: 16
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 28
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 704
-    _typelessdata: 0086db3f808f22bf000000000000803f0000008000000080000000800086db3f808f22bf0086db3f808f22bf0086db3f808f223f00000000000000800000803f00000080000000800086db3f808f223f0086db3f808f223f0086db3f00000000000000000000803f0000008000000080000000800086db3f808f223f0086db3f808f22bf00008037808f22bf0000000000000080000080bf00000000000000800086db3f808f22bf0085dbbf808f22bf00008037808f223f00000000000000800000803f00000080000000800085dbbf808f223f0086db3f808f223f0085dbbf808f22bf0000000000000080000080bf00000000000000800085dbbf808f22bf0085dbbf808f22bf0085dbbf0000000000000000000080bf0000008000000080000000800085dbbf808f22bf0085dbbf808f223f0085dbbf808f223f00000000000080bf0000008000000080000000800085dbbf808f223f0085dbbf808f223f0086db3f00000000000000000000803f0000008000000080000000800086db3f808f223f0086db3f808f22bf0086db3f808f22bf0000000000000080000080bf00000000000000800086db3f808f22bf0086db3f808f22bf0086db3f808f223f000000000000803f0000008000000080000000800086db3f808f223f0086db3f808f223f00008037808f223f00000000000000800000803f00000080000000800085dbbf808f223f0086db3f808f223f00008037808f22bf0000000000000080000080bf00000000000000800086db3f808f22bf0085dbbf808f22bf0085dbbf808f223f00000000000000800000803f00000080000000800085dbbf808f223f0085dbbf808f223f0085dbbf808f22bf00000000000080bf0000008000000080000000800085dbbf808f22bf0085dbbf808f22bf0085dbbf0000000000000000000080bf0000008000000080000000800085dbbf808f22bf0085dbbf808f223f
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0.000015258789, y: 0, z: 0}
-    m_Extent: {x: 1.7150116, y: 0.63500214, z: 0}
-  m_MeshUsageFlags: 0
-  m_CookingOptions: 30
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshMetrics[0]: 1
-  m_MeshMetrics[1]: 1
-  m_MeshOptimizationFlags: 1
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1 &1372448133
 GameObject:
   m_ObjectHideFlags: 0
@@ -35948,7 +34782,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1392694923}
   - component: {fileID: 1392694924}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-1
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -36031,7 +34865,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1401296047}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Skyscaper (3)Dest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36057,90 +34891,6 @@ Transform:
   m_Father: {fileID: 1366185752}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0.2}
---- !u!1 &1416814092
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1416814093}
-  - component: {fileID: 1416814094}
-  m_Layer: 0
-  m_Name: CEILING_LIGHTS2 (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1416814093
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1416814092}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -72.131, y: -1.251, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 254211158}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1416814094
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1416814092}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -590280887
-  m_SortingLayer: 2
-  m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 530e24074020ec84f8275a3ccaa80424, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 4.32, y: 2.49}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &1427094607
 GameObject:
   m_ObjectHideFlags: 0
@@ -36151,7 +34901,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1427094608}
   - component: {fileID: 1427094609}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-1
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -36236,7 +34986,7 @@ GameObject:
   - component: {fileID: 1442631474}
   - component: {fileID: 1442631476}
   - component: {fileID: 1442631475}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (21)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -36501,7 +35251,7 @@ GameObject:
   - component: {fileID: 1446641602}
   - component: {fileID: 1446641604}
   - component: {fileID: 1446641603}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-1 (2)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -36773,7 +35523,7 @@ GameObject:
   - component: {fileID: 1450248823}
   - component: {fileID: 1450248825}
   - component: {fileID: 1450248824}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (17)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -36908,7 +35658,7 @@ GameObject:
   - component: {fileID: 1459499838}
   - component: {fileID: 1459499840}
   - component: {fileID: 1459499839}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (38)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -37257,7 +36007,7 @@ GameObject:
   - component: {fileID: 1467130910}
   - component: {fileID: 1467130912}
   - component: {fileID: 1467130911}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_10-MID
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -37631,7 +36381,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1467204320}
   - component: {fileID: 1467204321}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-MID (5)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -37714,7 +36464,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1467936328}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LevelObjectsNew
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37760,7 +36510,7 @@ GameObject:
   - component: {fileID: 1469825666}
   - component: {fileID: 1469825668}
   - component: {fileID: 1469825667}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_10-MID (1)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -37897,7 +36647,6 @@ PolygonCollider2D:
       - {x: 1.49, y: 7.3399997}
       - {x: 1.49, y: 6.93}
       - {x: 1.51, y: 6.91}
-      - {x: 2.08, y: 6.91}
       - {x: 2.08, y: 3.37}
       - {x: -8.3, y: 3.37}
       - {x: -8.32, y: 3.35}
@@ -37911,7 +36660,6 @@ PolygonCollider2D:
       - {x: -9.45, y: 2.73}
       - {x: -9.45, y: 2.51}
       - {x: -9.429999, y: 2.49}
-      - {x: -8.809999, y: 2.49}
       - {x: -8.809999, y: -2.09}
       - {x: -8.78, y: -2.1499999}
       - {x: -8.74, y: -2.21}
@@ -38307,7 +37055,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 94e7d066a7a40274cbfa2debf2a11382, type: 2}
+  - {fileID: 2100000, guid: 61e2454ffce74fc43a049850b4298339, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -38478,7 +37226,7 @@ GameObject:
   - component: {fileID: 1492147997}
   - component: {fileID: 1492147998}
   - component: {fileID: 1492147999}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-MID (1)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -38750,7 +37498,7 @@ GameObject:
   - component: {fileID: 1512959330}
   - component: {fileID: 1512959332}
   - component: {fileID: 1512959331}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (14)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -38884,7 +37632,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1518272997}
   - component: {fileID: 1518272998}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-MID (4)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -39099,7 +37847,7 @@ GameObject:
   - component: {fileID: 1530182183}
   - component: {fileID: 1530182184}
   - component: {fileID: 1530182185}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-1
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -39161,7 +37909,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: d84ebb65ffa5b254394ffe17b2686c68, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -39241,7 +37989,7 @@ GameObject:
   - component: {fileID: 1530292725}
   - component: {fileID: 1530292727}
   - component: {fileID: 1530292726}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tankr3-extradamaged-gun
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -40040,7 +38788,7 @@ GameObject:
   - component: {fileID: 1545550340}
   - component: {fileID: 1545550342}
   - component: {fileID: 1545550341}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (30)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -40164,171 +38912,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
---- !u!43 &1545589958
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 11
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 42
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 16
-    localAABB:
-      m_Center: {x: 0.000015258789, y: -0.0000038146973, z: 0}
-      m_Extent: {x: 4.650009, y: 1.3449974, z: 0}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_BonesAABB: []
-  m_VariableBoneCountWeights:
-    m_Data: 
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 00000100020003000100000003000400010005000400030006000400050004000600070002000800000000000900030001000a00020004000b00010003000c00050007000d00040005000e00060006000f000700
-  m_VertexData:
-    serializedVersion: 3
-    m_VertexCount: 16
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 28
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 704
-    _typelessdata: 00cd94400029acbf000000000000803f00000080000000800000008000cd94400029acbf00cd94400029acbf00cd9440c028ac3f00000000000000800000803f000000800000008000cd9440c028ac3f00cd9440c028ac3f00cd9440000080b6000000000000803f00000080000000800000008000cd9440c028ac3f00cd94400029acbf000080370029acbf0000000000000080000080bf000000000000008000cd94400029acbfc0cc94c00029acbf00008037c028ac3f00000000000000800000803f0000008000000080c0cc94c0c028ac3f00cd9440c028ac3fc0cc94c00029acbf0000000000000080000080bf0000000000000080c0cc94c00029acbfc0cc94c00029acbfc0cc94c0000080b600000000000080bf000000800000008000000080c0cc94c00029acbfc0cc94c0c028ac3fc0cc94c0c028ac3f00000000000080bf000000800000008000000080c0cc94c0c028ac3fc0cc94c0c028ac3f00cd9440000080b6000000000000803f00000080000000800000008000cd9440c028ac3f00cd94400029acbf00cd94400029acbf0000000000000080000080bf000000000000008000cd94400029acbf00cd94400029acbf00cd9440c028ac3f000000000000803f00000080000000800000008000cd9440c028ac3f00cd9440c028ac3f00008037c028ac3f00000000000000800000803f0000008000000080c0cc94c0c028ac3f00cd9440c028ac3f000080370029acbf0000000000000080000080bf000000000000008000cd94400029acbfc0cc94c00029acbfc0cc94c0c028ac3f00000000000000800000803f0000008000000080c0cc94c0c028ac3fc0cc94c0c028ac3fc0cc94c00029acbf00000000000080bf000000800000008000000080c0cc94c00029acbfc0cc94c00029acbfc0cc94c0000080b600000000000080bf000000800000008000000080c0cc94c00029acbfc0cc94c0c028ac3f
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0.000015258789, y: -0.0000038146973, z: 0}
-    m_Extent: {x: 4.650009, y: 1.3449974, z: 0}
-  m_MeshUsageFlags: 0
-  m_CookingOptions: 30
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshMetrics[0]: 1
-  m_MeshMetrics[1]: 1
-  m_MeshOptimizationFlags: 1
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1 &1546283249
 GameObject:
   m_ObjectHideFlags: 0
@@ -40339,7 +38922,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1546283251}
   - component: {fileID: 1546283250}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: army-4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40424,7 +39007,7 @@ GameObject:
   - component: {fileID: 1550988260}
   - component: {fileID: 1550988262}
   - component: {fileID: 1550988261}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-MID
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -40959,7 +39542,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1569768323}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Skyscaper (1)Dest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40994,7 +39577,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1571055459}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tank (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41029,7 +39612,7 @@ GameObject:
   - component: {fileID: 1575839747}
   - component: {fileID: 1575839748}
   - component: {fileID: 1575839749}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_1-MID
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -41428,90 +40011,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1598726536
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1598726537}
-  - component: {fileID: 1598726538}
-  m_Layer: 0
-  m_Name: CEILING_LIGHTS2 (4)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1598726537
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1598726536}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -66.851, y: -1.251, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 254211158}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1598726538
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1598726536}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -590280887
-  m_SortingLayer: 2
-  m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 530e24074020ec84f8275a3ccaa80424, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 4.32, y: 2.49}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &1605656775
 GameObject:
   m_ObjectHideFlags: 0
@@ -41610,7 +40109,7 @@ GameObject:
   - component: {fileID: 1606398463}
   - component: {fileID: 1606398466}
   - component: {fileID: 1606398467}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BurntGrass
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -42158,7 +40657,7 @@ GameObject:
   - component: {fileID: 1612028200}
   - component: {fileID: 1612028202}
   - component: {fileID: 1612028201}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TILE_WALL_PLATFORM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43157,7 +41656,7 @@ GameObject:
   - component: {fileID: 1654332463}
   - component: {fileID: 1654332465}
   - component: {fileID: 1654332464}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (26)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -43292,7 +41791,7 @@ GameObject:
   - component: {fileID: 1657874851}
   - component: {fileID: 1657874853}
   - component: {fileID: 1657874852}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (2)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -43426,7 +41925,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1657899546}
   - component: {fileID: 1657899547}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_9-MID
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -43511,7 +42010,7 @@ GameObject:
   - component: {fileID: 1663654379}
   - component: {fileID: 1663654381}
   - component: {fileID: 1663654380}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (35)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -43740,7 +42239,7 @@ GameObject:
   - component: {fileID: 1676327811}
   - component: {fileID: 1676327813}
   - component: {fileID: 1676327812}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-MID
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -44270,7 +42769,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1699189070}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Skyscaper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44307,7 +42806,7 @@ GameObject:
   - component: {fileID: 1700030578}
   - component: {fileID: 1700030580}
   - component: {fileID: 1700030579}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-MID (4)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -44839,7 +43338,7 @@ GameObject:
   - component: {fileID: 1736892645}
   - component: {fileID: 1736892647}
   - component: {fileID: 1736892646}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-MID
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -45240,7 +43739,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1746113700}
   - component: {fileID: 1746113701}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-1
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -45455,7 +43954,7 @@ GameObject:
   - component: {fileID: 1756861695}
   - component: {fileID: 1756861697}
   - component: {fileID: 1756861696}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (37)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -45589,7 +44088,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1757835361}
   - component: {fileID: 1757835362}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CRAFTSHOP_EMPTY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45674,7 +44173,7 @@ GameObject:
   - component: {fileID: 1758211322}
   - component: {fileID: 1758211324}
   - component: {fileID: 1758211323}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tankr3-extradamaged-gun
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -46874,7 +45373,7 @@ GameObject:
   - component: {fileID: 1804422104}
   - component: {fileID: 1804422106}
   - component: {fileID: 1804422105}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_9-MID (1)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -47025,7 +45524,7 @@ GameObject:
   - component: {fileID: 1805333860}
   - component: {fileID: 1805333862}
   - component: {fileID: 1805333861}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (35)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -47159,7 +45658,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1807476389}
   - component: {fileID: 1807476390}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (44)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -47243,7 +45742,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1812859404}
   - component: {fileID: 1812859405}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-MID
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -47312,90 +45811,6 @@ SpriteRenderer:
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 19.2, y: 19.2}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!1 &1825492573
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1825492574}
-  - component: {fileID: 1825492575}
-  m_Layer: 0
-  m_Name: CEILING_LIGHTS2 (8)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1825492574
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1825492573}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.101, y: 1.215, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 254211158}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1825492575
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1825492573}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -590280887
-  m_SortingLayer: 2
-  m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 530e24074020ec84f8275a3ccaa80424, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 4.32, y: 2.49}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -47542,7 +45957,7 @@ GameObject:
   - component: {fileID: 1836105857}
   - component: {fileID: 1836105859}
   - component: {fileID: 1836105858}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (29)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -47677,7 +46092,7 @@ GameObject:
   - component: {fileID: 1841014698}
   - component: {fileID: 1841014700}
   - component: {fileID: 1841014699}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (36)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -47693,7 +46108,7 @@ Transform:
   m_GameObject: {fileID: 1841014697}
   m_LocalRotation: {x: -0, y: -0, z: -0.0008249559, w: 0.9999997}
   m_LocalPosition: {x: 65.69, y: 3.4300003, z: 2}
-  m_LocalScale: {x: 0.19906999, y: 0.21533996, z: 0.19765}
+  m_LocalScale: {x: 0.19906999, y: 0.28, z: 0.19765}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 825988221}
@@ -47812,7 +46227,7 @@ GameObject:
   - component: {fileID: 1843075486}
   - component: {fileID: 1843075488}
   - component: {fileID: 1843075487}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tankr3-extradamaged-gun
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -48277,7 +46692,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1852682005}
   - component: {fileID: 1852682006}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-MID
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -48797,90 +47212,6 @@ SpriteShapeRenderer:
     m_Center: {x: -0.7901459, y: -0.8275833, z: 0}
     m_Extent: {x: 45.427322, y: 11.679363, z: 0}
   m_SpriteSortPoint: 0
---- !u!1 &1862520395
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1862520396}
-  - component: {fileID: 1862520397}
-  m_Layer: 0
-  m_Name: CEILING_LIGHTS2 (7)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1862520396
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1862520395}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26.352, y: -1.7399998, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 254211158}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1862520397
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1862520395}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -590280887
-  m_SortingLayer: 2
-  m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 530e24074020ec84f8275a3ccaa80424, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 4.32, y: 2.49}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &1862862419
 GameObject:
   m_ObjectHideFlags: 0
@@ -49021,7 +47352,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1865374871}
   - component: {fileID: 1865374872}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (43)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -49106,7 +47437,7 @@ GameObject:
   - component: {fileID: 1879994608}
   - component: {fileID: 1879994610}
   - component: {fileID: 1879994609}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (20)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -49121,7 +47452,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1879994607}
   m_LocalRotation: {x: -0, y: -0, z: 0.9918618, w: 0.1273193}
-  m_LocalPosition: {x: 9.01001, y: -16.199802, z: 2}
+  m_LocalPosition: {x: 8.947, y: -16.183, z: 2}
   m_LocalScale: {x: 0.34715998, y: 0.25733998, z: 0.19765}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -49552,90 +47883,6 @@ SpriteShapeRenderer:
     m_Center: {x: 21.05082, y: -3.5796204, z: 0}
     m_Extent: {x: 12.832169, y: 33.894596, z: 0}
   m_SpriteSortPoint: 0
---- !u!1 &1889562895
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1889562896}
-  - component: {fileID: 1889562897}
-  m_Layer: 0
-  m_Name: CEILING_LIGHTS2 (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1889562896
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1889562895}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -74.51, y: -1.251, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 254211158}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1889562897
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1889562895}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -590280887
-  m_SortingLayer: 2
-  m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 530e24074020ec84f8275a3ccaa80424, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 4.32, y: 2.49}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &1899564492
 GameObject:
   m_ObjectHideFlags: 0
@@ -49795,7 +48042,7 @@ GameObject:
   - component: {fileID: 1905790048}
   - component: {fileID: 1905790049}
   - component: {fileID: 1905790050}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-MID
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -49857,7 +48104,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: a90a9bf4eeb059f4386564a6a0035f3e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -50197,7 +48444,7 @@ GameObject:
   - component: {fileID: 1915983220}
   - component: {fileID: 1915983222}
   - component: {fileID: 1915983221}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (36)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -50213,7 +48460,7 @@ Transform:
   m_GameObject: {fileID: 1915983219}
   m_LocalRotation: {x: -0, y: -0, z: -0.0008249559, w: 0.9999997}
   m_LocalPosition: {x: 65.69, y: 3.4300003, z: 2}
-  m_LocalScale: {x: 0.19906999, y: 0.21533996, z: 0.19765}
+  m_LocalScale: {x: 0.19906999, y: 0.28, z: 0.19765}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 450825686}
@@ -50332,7 +48579,7 @@ GameObject:
   - component: {fileID: 1928665856}
   - component: {fileID: 1928665858}
   - component: {fileID: 1928665857}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (5)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -50466,7 +48713,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1930996898}
   - component: {fileID: 1930996899}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_2-MID
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -50681,7 +48928,7 @@ GameObject:
   - component: {fileID: 1932898455}
   - component: {fileID: 1932898457}
   - component: {fileID: 1932898456}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tankr3-extradamaged-gun
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -50887,7 +49134,7 @@ GameObject:
   - component: {fileID: 1934087144}
   - component: {fileID: 1934087146}
   - component: {fileID: 1934087145}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (33)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -51022,7 +49269,7 @@ GameObject:
   - component: {fileID: 1935842578}
   - component: {fileID: 1935842580}
   - component: {fileID: 1935842579}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-1 (1)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -51293,7 +49540,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1942197780}
   - component: {fileID: 1942197781}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_9-MID (1)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -51456,6 +49703,141 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1284084140543987491, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
   m_PrefabInstance: {fileID: 1140933678}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1952717468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1952717469}
+  - component: {fileID: 1952717471}
+  - component: {fileID: 1952717470}
+  m_Layer: 9
+  m_Name: metalBeam (7)
+  m_TagString: Level
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1952717469
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952717468}
+  m_LocalRotation: {x: 0, y: 0, z: -0.68721426, w: 0.7264548}
+  m_LocalPosition: {x: -83.23, y: -2.28, z: 2}
+  m_LocalScale: {x: 0.21036002, y: 0.21036002, z: 0.21035999}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 450825686}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -86.82}
+--- !u!60 &1952717470
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952717468}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 16.4, y: 2.05}
+    newSize: {x: 16.4, y: 2.05}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -8.07, y: 0.78499997}
+      - {x: -8.07, y: -0.73499995}
+      - {x: 7.74, y: -0.73499995}
+      - {x: 7.74, y: 0.79499996}
+      - {x: -8.05, y: 0.79499996}
+  m_UseDelaunayMesh: 0
+--- !u!212 &1952717471
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952717468}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 6ed981bd736c72245bf3b4c33bbb6172, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 16.4, y: 2.05}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 2
+  m_SpriteSortPoint: 0
 --- !u!1 &1960483130
 GameObject:
   m_ObjectHideFlags: 0
@@ -51467,7 +49849,7 @@ GameObject:
   - component: {fileID: 1960483131}
   - component: {fileID: 1960483133}
   - component: {fileID: 1960483132}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (19)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -51602,7 +49984,7 @@ GameObject:
   - component: {fileID: 1969541575}
   - component: {fileID: 1969541577}
   - component: {fileID: 1969541576}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (20)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -51617,7 +49999,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969541574}
   m_LocalRotation: {x: -0, y: -0, z: 0.9918618, w: 0.1273193}
-  m_LocalPosition: {x: 9.01001, y: -16.199802, z: 2}
+  m_LocalPosition: {x: 8.95, y: -16.18, z: 2}
   m_LocalScale: {x: 0.34715998, y: 0.25733998, z: 0.19765}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -51726,6 +50108,171 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
+--- !u!43 &1972380122
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 11
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 42
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 16
+    localAABB:
+      m_Center: {x: 0.000015258789, y: 0, z: 0}
+      m_Extent: {x: 1.7150116, y: 0.63500214, z: 0}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 00000100020003000100000003000400010005000400030006000400050004000600070002000800000000000900030001000a00020004000b00010003000c00050007000d00040005000e00060006000f000700
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 16
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 28
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 704
+    _typelessdata: 0086db3f808f22bf000000000000803f0000008000000080000000800086db3f808f22bf0086db3f808f22bf0086db3f808f223f00000000000000800000803f00000080000000800086db3f808f223f0086db3f808f223f0086db3f00000000000000000000803f0000008000000080000000800086db3f808f223f0086db3f808f22bf00008037808f22bf0000000000000080000080bf00000000000000800086db3f808f22bf0085dbbf808f22bf00008037808f223f00000000000000800000803f00000080000000800085dbbf808f223f0086db3f808f223f0085dbbf808f22bf0000000000000080000080bf00000000000000800085dbbf808f22bf0085dbbf808f22bf0085dbbf0000000000000000000080bf0000008000000080000000800085dbbf808f22bf0085dbbf808f223f0085dbbf808f223f00000000000080bf0000008000000080000000800085dbbf808f223f0085dbbf808f223f0086db3f00000000000000000000803f0000008000000080000000800086db3f808f223f0086db3f808f22bf0086db3f808f22bf0000000000000080000080bf00000000000000800086db3f808f22bf0086db3f808f22bf0086db3f808f223f000000000000803f0000008000000080000000800086db3f808f223f0086db3f808f223f00008037808f223f00000000000000800000803f00000080000000800085dbbf808f223f0086db3f808f223f00008037808f22bf0000000000000080000080bf00000000000000800086db3f808f22bf0085dbbf808f22bf0085dbbf808f223f00000000000000800000803f00000080000000800085dbbf808f223f0085dbbf808f223f0085dbbf808f22bf00000000000080bf0000008000000080000000800085dbbf808f22bf0085dbbf808f22bf0085dbbf0000000000000000000080bf0000008000000080000000800085dbbf808f22bf0085dbbf808f223f
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0.000015258789, y: 0, z: 0}
+    m_Extent: {x: 1.7150116, y: 0.63500214, z: 0}
+  m_MeshUsageFlags: 0
+  m_CookingOptions: 30
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!114 &1973537111 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4285311624902182019, guid: 5a26b844cf49d9543bf1da116318f5f5, type: 3}
@@ -51748,7 +50295,7 @@ GameObject:
   - component: {fileID: 1994103717}
   - component: {fileID: 1994103718}
   - component: {fileID: 1994103719}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-MID
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -52589,7 +51136,7 @@ GameObject:
   - component: {fileID: 2017485218}
   - component: {fileID: 2017485220}
   - component: {fileID: 2017485219}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (24)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -52723,7 +51270,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2020295605}
   - component: {fileID: 2020295604}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: army-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53317,7 +51864,7 @@ GameObject:
   - component: {fileID: 2025279569}
   - component: {fileID: 2025279571}
   - component: {fileID: 2025279570}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (6)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -53450,7 +51997,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2038055507}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TiltedBuilding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53533,7 +52080,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2050267082}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Skyscaper (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53571,7 +52118,7 @@ GameObject:
   - component: {fileID: 2056897850}
   - component: {fileID: 2056897849}
   - component: {fileID: 2056897848}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BurntGrass (1)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -54114,7 +52661,7 @@ GameObject:
   - component: {fileID: 2057210159}
   - component: {fileID: 2057210161}
   - component: {fileID: 2057210160}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-1
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -54245,90 +52792,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
---- !u!1 &2062338162
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2062338163}
-  - component: {fileID: 2062338164}
-  m_Layer: 0
-  m_Name: CEILING_LIGHTS2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2062338163
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2062338162}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.290009, y: -1.7399998, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 254211158}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2062338164
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2062338162}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -590280887
-  m_SortingLayer: 2
-  m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 530e24074020ec84f8275a3ccaa80424, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 4.32, y: 2.49}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &2063525387
 GameObject:
   m_ObjectHideFlags: 0
@@ -54340,7 +52803,7 @@ GameObject:
   - component: {fileID: 2063525388}
   - component: {fileID: 2063525390}
   - component: {fileID: 2063525389}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-1
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -54470,90 +52933,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
-  m_SpriteSortPoint: 0
---- !u!1 &2063537881
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2063537882}
-  - component: {fileID: 2063537883}
-  m_Layer: 0
-  m_Name: WALL_MOUNTED_LIGHTS (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2063537882
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2063537881}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.476, y: 6.885, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 254211158}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2063537883
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2063537881}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -590280887
-  m_SortingLayer: 2
-  m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: f7fa40c0a9d1b63489d16b0f98639d99, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 2.71, y: 3.59}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &2070843085
 GameObject:
@@ -54696,7 +53075,7 @@ GameObject:
   - component: {fileID: 2075802128}
   - component: {fileID: 2075802130}
   - component: {fileID: 2075802129}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-MID (6)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -55056,7 +53435,7 @@ GameObject:
   - component: {fileID: 2078450094}
   - component: {fileID: 2078450096}
   - component: {fileID: 2078450095}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metalBeam (26)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -55191,7 +53570,7 @@ GameObject:
   - component: {fileID: 2081204980}
   - component: {fileID: 2081204982}
   - component: {fileID: 2081204981}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_6-MID (5)
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -55462,7 +53841,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2081678025}
   - component: {fileID: 2081678026}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_10-MID
   m_TagString: Level
   m_Icon: {fileID: 0}
@@ -55587,7 +53966,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2108948966
 GameObject:
@@ -55989,7 +54368,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2135901863}
   - component: {fileID: 2135901864}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingTop_1-MIDDest
   m_TagString: Level
   m_Icon: {fileID: 0}

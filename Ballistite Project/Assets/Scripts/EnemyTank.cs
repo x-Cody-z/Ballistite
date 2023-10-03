@@ -122,7 +122,6 @@ public class EnemyTank : MonoBehaviour
 
     private void EnemyTank_OnEnemyDestroyed(object sender, EventArgs e)
     {
-        Debug.Log("Enemy destroyed");
         m_State = State.Destroyed;
     }
 
