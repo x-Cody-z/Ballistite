@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Farmland.unity
     guid: 43d446fb8b4d0c34a9266017ece1f41d
   - enabled: 1
-    path: Assets/Scenes/TempCity.unity
+    path: Assets/Scenes/TemporaryCity.unity
     guid: ea26b0ce1f6032244aff8079fbed759f
   - enabled: 1
     path: Assets/Scenes/TempGraveyard.unity
