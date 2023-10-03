@@ -234,6 +234,12 @@ namespace Platformer.Mechanics
             }
         }
 
+        public void EnableCutscene(bool cutsceneState)
+        {
+            notInsideCutscene = !cutsceneState;
+        }
+
+
         public void EnableControl(bool controlState)
         {
             controlEnabled = controlState;
