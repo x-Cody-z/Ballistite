@@ -4,29 +4,12 @@ using UnityEngine;
 
 public class MusicLoop : MonoBehaviour
 {
-    public AudioSource MpPlayer;
-    public AudioClip FirstClip;
-    public AudioClip SecondClip;
-
+    public AudioSource musicSource;
+    public AudioClip musicStart;
     void Start()
     {
-        MpPlayer.clip = FirstClip;
-        MpPlayer.loop = false;
-        MpPlayer.Play();
-        StartCoroutine(WaitForTrackTOend());
+        musicSource.PlayOneShot(musicStart);
+        musicSource.PlayScheduled(AudioSettings.dspTime + musicStart.length);
     }
 
-    IEnumerator WaitForTrackTOend()
-    {
-        while (MpPlayer.isPlaying)
-        {
-
-            yield return new WaitForSeconds(0.01f);
-
-        }
-        MpPlayer.clip = SecondClip;
-        MpPlayer.loop = true;
-        MpPlayer.Play();
-
-    }
 }
