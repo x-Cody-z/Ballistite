@@ -151,13 +151,22 @@ public class uiController : MonoBehaviour
         togglePauseMenu();
     }
 
-    public void restartGame()
+    public void RestartGame()
     {
         togglePauseMenu();
 
         if (SceneManager.sceneCountInBuildSettings > 1)
         {
             SceneManager.LoadScene(0);
+        }
+    }
+
+    public void RestartLevel()
+    {
+        togglePauseMenu();
+        if (SceneManager.sceneCountInBuildSettings > 1)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
