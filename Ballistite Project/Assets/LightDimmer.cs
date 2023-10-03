@@ -32,10 +32,12 @@ public class LightDimmer : MonoBehaviour
         yield return new WaitForSeconds(dimDelay);
         while (globalLight.intensity > dimAmount)
         {
-            globalLight.intensity -= dimSpeed * Time.deltaTime;
+            globalLight.intensity -= dimSpeed * Time.fixedDeltaTime;
+            Mathf.Clamp(globalLight.intensity, 0, 1);
             foreach (Light2D light in otherLights)
             {
-                light.intensity += dimSpeed * 10 * Time.deltaTime;
+                light.intensity += dimSpeed * 10 * Time.fixedDeltaTime;
+                Mathf.Clamp(light.intensity, 0, 10);
             }
             yield return null;
         }
@@ -45,10 +47,12 @@ public class LightDimmer : MonoBehaviour
     {
         while (globalLight.intensity < 1)
         {
-            globalLight.intensity += dimSpeed * Time.deltaTime;
+            globalLight.intensity += dimSpeed * Time.fixedDeltaTime;
+            Mathf.Clamp(globalLight.intensity, 0, 1);
             foreach (Light2D light in otherLights)
             {
-                light.intensity -= dimSpeed * 10 * Time.deltaTime;
+                light.intensity -= dimSpeed * 10 * Time.fixedDeltaTime;
+                Mathf.Clamp(light.intensity, 0, 10);
             }
             yield return null;
         }
