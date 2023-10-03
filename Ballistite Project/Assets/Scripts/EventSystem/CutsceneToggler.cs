@@ -11,6 +11,7 @@ public class TimelineToControl : MonoBehaviour
     public CinemachineVirtualCamera CutsceneCamera;
     public string CutsceneName;
     public GameEvent onCutsceneEndedEvent;
+    public Animator LetterboxAnim;
 
     public GameObject FakeBarrel;
     public GameObject RealBarrel;
@@ -34,5 +35,6 @@ public class TimelineToControl : MonoBehaviour
         ChargeUI.SetActive(true);
         CutsceneCamera.Priority = 8;
         PlayerLine.textureScale = new Vector2(1.75f, 1f);
+        LetterboxAnim.SetTrigger("Exit");
     }
 }
