@@ -12,6 +12,7 @@ public class TimelineToControl : MonoBehaviour
     public string CutsceneName;
     public GameEvent onCutsceneEndedEvent;
     public Animator LetterboxAnim;
+    public bool isStartingCutscene;
 
     public GameObject FakeBarrel;
     public GameObject RealBarrel;
@@ -23,6 +24,12 @@ public class TimelineToControl : MonoBehaviour
         RealBarrel.SetActive(false);
         FakeBarrel.SetActive(true);
         ChargeUI.SetActive(false);
+
+        if (isStartingCutscene)
+        {
+            LetterboxAnim.SetTrigger("Default");
+        }
+
         CutsceneCamera.Priority = 13;
         PlayerLine.textureScale = new Vector2(0f, 0f);
     }
