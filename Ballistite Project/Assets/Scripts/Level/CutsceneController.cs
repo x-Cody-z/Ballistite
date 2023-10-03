@@ -34,6 +34,7 @@ public class CutsceneController : MonoBehaviour
         //TODO: Change camera mode
         cutsceneName = "Intro";
         cutsceneAnimator.SetTrigger("PlayIntro");
+        letterboxAnimator.SetTrigger("Entry");
     }
     
     public void Start() 

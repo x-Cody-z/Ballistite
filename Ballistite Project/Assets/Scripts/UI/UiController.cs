@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class uiController : MonoBehaviour
 {
@@ -148,5 +149,15 @@ public class uiController : MonoBehaviour
     public void CloseMenu()
     {
         togglePauseMenu();
+    }
+
+    public void restartGame()
+    {
+        togglePauseMenu();
+
+        if (SceneManager.sceneCountInBuildSettings > 1)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 }
