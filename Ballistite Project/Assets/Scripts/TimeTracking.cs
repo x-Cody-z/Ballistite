@@ -7,7 +7,7 @@ using System.IO;
 public class TimeTracking : MonoBehaviour
 {
     private static TimeTracking testingInstance;
-    private List<float> levelTimes = new List<float>();
+    public List<float> levelTimes = new List<float>();
     private List<string> levelNames = new List<string>();
     private string currentLevel;
 

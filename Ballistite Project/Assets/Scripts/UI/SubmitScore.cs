@@ -76,8 +76,23 @@ public class SubmitScore : MonoBehaviour
     {
         if (timeTrackerScript != null)
         {
-            timeTrackerScript.saveRun(name);
-            confirmationTmp.text = "Time Submitted!";
+            if (textInput.text != "")
+            {
+                timeTrackerScript.saveRun(name);
+                confirmationTmp.text = "Time Submitted!";
+            }
+        }
+    }
+
+    public void submitName()
+    {
+        if (timeTrackerScript != null)
+        {
+            if (textInput.text != "")
+            {
+                timeTrackerScript.saveRun(textInput.text);
+                confirmationTmp.text = "Time Submitted!";
+            }
         }
     }
 

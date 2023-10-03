@@ -29,13 +29,21 @@ public class LeaderboardRanking : MonoBehaviour
         {
             Debug.Log(s);
             string[] splitLine = s.Split(',');
-            AllTimes.Add(float.Parse(splitLine[4]), splitLine[0]);
+            float key = float.Parse(splitLine[4]);
+            if (AllTimes.ContainsKey(key))
+            {
+                while (AllTimes.ContainsKey(key))
+                {
+                    key += UnityEngine.Random.Range(0.00001f, 0.001f);
+                }
+            }
+            AllTimes.Add(key, splitLine[0]);
         }
         timeSortList = AllTimes.Keys.ToList();
         timeSortList.Sort();
         for (int i = 0; i < timeSortList.Count(); i++)
         {
-            leaderboardElements[i].text = AllTimes[timeSortList[i]] + " : " + ConvertFloatToTime(timeSortList[i]);
+            leaderboardElements[i].text = (i+1).ToString() + ". " + AllTimes[timeSortList[i]] + " : " + ConvertFloatToTime(timeSortList[i]);
         }
         foreach (TextMeshProUGUI t in leaderboardElements)
         {
