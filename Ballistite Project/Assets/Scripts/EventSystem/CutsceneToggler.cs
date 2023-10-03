@@ -6,9 +6,10 @@ using UnityEngine;
 
 public class TimelineToControl : MonoBehaviour
 {
-    public BespokePlayerController Player;
+    public BespokePlayerController PlayerControl;
     public LineRenderer PlayerLine;
     public CinemachineVirtualCamera CutsceneCamera;
+    public GameObject PlayerObject;
     public string CutsceneName;
     public GameEvent onCutsceneEndedEvent;
     public Animator LetterboxAnim;
@@ -20,7 +21,7 @@ public class TimelineToControl : MonoBehaviour
 
     public void CutsceneStarted()
     {
-        Player.EnableCutscene(true);
+        PlayerControl.EnableCutscene(true);
         RealBarrel.SetActive(false);
         FakeBarrel.SetActive(true);
         ChargeUI.SetActive(false);
@@ -31,7 +32,7 @@ public class TimelineToControl : MonoBehaviour
         } else
         {
             LetterboxAnim.SetTrigger("Entry");
-
+            PlayerObject.SetActive(false);
         }
 
         CutsceneCamera.Priority = 13;
@@ -40,7 +41,7 @@ public class TimelineToControl : MonoBehaviour
 
     public void CutsceneEnded()
     {
-        Player.EnableCutscene(false);
+        PlayerControl.EnableCutscene(false);
         RealBarrel.SetActive(true);
         FakeBarrel.SetActive(false);
         ChargeUI.SetActive(true);
