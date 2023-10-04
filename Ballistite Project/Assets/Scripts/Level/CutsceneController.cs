@@ -22,6 +22,7 @@ public class CutsceneController : MonoBehaviour
     public GameObject chargeUI;
     public GameObject playerObj;
     public GameObject grasslandMusic;
+    public GameObject ammoCounter;
 
     public bool isLevel1;
 
@@ -51,6 +52,7 @@ public class CutsceneController : MonoBehaviour
         playerObj.GetComponent<LineRenderer>().enabled = true;
         chargeUI.SetActive(true);
         grasslandMusic.SetActive(true);
+        ammoCounter.SetActive(true);
         if (parallaxObject != null)
             parallaxObject.ScrollerMode = false;
         // TODO: Change camera mode.
