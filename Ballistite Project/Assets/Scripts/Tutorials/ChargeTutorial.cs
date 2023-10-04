@@ -39,6 +39,10 @@ public class ChargeTutorial : MonoBehaviour
     void Update()
     {
         playerObject.controlEnabled = true;
+        if (playerObject.shooter.shotCount == 0 && state != TutorialState.Untouched && state != TutorialState.Released)
+        {
+            playerObject.shooter.ShotCount = 1;
+        }
         if (playerObject.ChargeTimer >= 5 && (state != TutorialState.Untouched || state != TutorialState.Released))
         {
             playerObject.ChargeTimer = 5;
