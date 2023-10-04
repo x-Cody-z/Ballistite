@@ -41,7 +41,7 @@ public class LeaderboardRanking : MonoBehaviour
         }
         timeSortList = AllTimes.Keys.ToList();
         timeSortList.Sort();
-        for (int i = 0; i < timeSortList.Count(); i++)
+        for (int i = 0; i < leaderboardElements.Count(); i++)
         {
             leaderboardElements[i].text = (i+1).ToString() + ". " + AllTimes[timeSortList[i]] + " : " + ConvertFloatToTime(timeSortList[i]);
         }
