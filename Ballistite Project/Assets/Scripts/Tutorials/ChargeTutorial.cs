@@ -13,6 +13,7 @@ public class ChargeTutorial : MonoBehaviour
     public GameObject tutorialWindow;
     public Animator mouseAnimator;
     public TextMeshProUGUI textBox;
+    public bool freezeEnabled = true;
 
     enum TutorialState
     {
@@ -57,7 +58,8 @@ public class ChargeTutorial : MonoBehaviour
         {
             if (playerObject.grounded == true)
             {
-                playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | 0;
+                if (freezeEnabled)
+                    playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | 0;
                 state = TutorialState.Grounded;
                 textBox.text = "Press";
                 mouseAnimator.Play("Prompt");
@@ -67,7 +69,8 @@ public class ChargeTutorial : MonoBehaviour
         {
             if (Input.GetButtonDown("Fire1") && !playerObject.charge3)
             {
-                playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+                if (freezeEnabled)
+                    playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
                 state = TutorialState.Charging;
                 textBox.text = "Hold";
                 mouseAnimator.Play("Charging");
