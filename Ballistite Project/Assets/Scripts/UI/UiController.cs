@@ -37,6 +37,8 @@ public class uiController : MonoBehaviour
 
     public CutsceneController cutsceneController;
 
+    public GameObject ControlCaddy;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -168,5 +170,16 @@ public class uiController : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+    }
+
+    public void ToggleControlCaddy()
+    {
+        ControlCaddy.SetActive(!ControlCaddy.activeSelf);
+    }
+
+    public void StartControlCaddy()
+    {
+        ControlCaddy.SetActive(true);
+        ControlCaddy.GetComponent<Animator>().SetBool("Start", true);
     }
 }

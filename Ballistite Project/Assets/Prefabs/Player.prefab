@@ -35537,7 +35537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c943d7f6fe24aa4192e4f8fa222bcbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseCursor: {fileID: 2800000, guid: 30206a80e0fbc3d4ea3a039d678cd3a6, type: 3}
+  mouseCursor: {fileID: 2800000, guid: f28cf76d65e06d34980c44fc79429e95, type: 3}
 --- !u!114 &2761207263777769527
 MonoBehaviour:
   m_ObjectHideFlags: 0
