@@ -6,6 +6,7 @@ public class AirShotTutorial : MonoBehaviour
 {
     public GameObject tutorialWindow;
     public float freezeDelay = 0.5f;
+    public bool freezeEnabled = true;
 
     private TutorialState state;
     private Vector2 forceGrab;
@@ -59,7 +60,9 @@ public class AirShotTutorial : MonoBehaviour
     {
         yield return new WaitForSeconds(freezeDelay);
         forceGrab = playerRB.totalForce;
-        playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+        if (freezeEnabled)
+            playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+
         state = TutorialState.Grabbed;
     }
 }
