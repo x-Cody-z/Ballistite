@@ -23,6 +23,7 @@ public class CutsceneController : MonoBehaviour
     public GameObject playerObj;
     public GameObject grasslandMusic;
     public GameObject ammoCounter;
+    public GameObject introSFX;
 
     public bool isLevel1;
 
@@ -61,6 +62,7 @@ public class CutsceneController : MonoBehaviour
     public void ExitArmy()
     {
         armyPathAnimator.SetTrigger("Exit");
+        introSFX.SetActive(true);
     }
 
     public void IntroTankPath()
