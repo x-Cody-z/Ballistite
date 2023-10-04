@@ -8,19 +8,19 @@ public class CaddyAnimator : MonoBehaviour
     public Animator controlCaddy;
     public bool isOnTrigger;
     public bool isOnClick;
-    private bool enabled;
     private bool activated;
+    private bool enable;
     
     // Start is called before the first frame update
     void Start()
     {
-        controlCaddy = FindObjectOfType<Animator>();
         activated = false;
+        enable = false;
     }
 
     private void Update()
     {
-        if (isOnClick && !activated && enabled)
+        if (isOnClick && !activated && enable)
         {
             if (Input.GetButton("Fire1"))
             {
@@ -44,6 +44,6 @@ public class CaddyAnimator : MonoBehaviour
 
     public void ActivateOnClick()
     {
-        enabled = true;
+        enable = true;
     }
 }
