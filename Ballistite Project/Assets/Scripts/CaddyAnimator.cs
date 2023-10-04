@@ -45,5 +45,6 @@ public class CaddyAnimator : MonoBehaviour
     public void ActivateOnClick()
     {
         enable = true;
+        controlCaddy.SetBool("Start", false);
     }
 }

@@ -176,4 +176,10 @@ public class uiController : MonoBehaviour
     {
         ControlCaddy.SetActive(!ControlCaddy.activeSelf);
     }
+
+    public void StartControlCaddy()
+    {
+        ControlCaddy.SetActive(true);
+        ControlCaddy.GetComponent<Animator>().SetBool("Start", true);
+    }
 }
