@@ -77,7 +77,9 @@ public class TestingTools : MonoBehaviour
             //wraps around when out of range
             if (logIndex < 0)
                 logIndex = inputLog.Count - 1;
-            consoleInput.text = inputLog[logIndex];
+            //checks that input log has anything in it
+            if (inputLog.Count > 0)
+                consoleInput.text = inputLog[logIndex];
         }
         //same as above but in opposite direction
         if (canvas.enabled == true && Input.GetKeyDown(KeyCode.DownArrow))
@@ -85,7 +87,9 @@ public class TestingTools : MonoBehaviour
             logIndex += 1;
             if (logIndex > inputLog.Count - 1)
                 logIndex = 0;
-            consoleInput.text = inputLog[logIndex];
+
+            if (inputLog.Count > 0)
+                consoleInput.text = inputLog[logIndex];
         }
 
 
