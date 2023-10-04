@@ -10,29 +10,37 @@ public class ShakeTrigger : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera shakeCam;
     [SerializeField] BespokePlayerController player;
     [SerializeField] float shakeTime = 2;
-    float shakeTimer = 0;
+    [SerializeField] bool playerControl = false;
     bool triggered = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        triggered = true;
-        if (triggered)
+        if (!triggered)
         {
-            player.EnableCutscene(true);
-            while (shakeTimer <= shakeTime)
+            if (playerControl)
             {
-                shakeCam.Priority = 12;
+                StartCoroutine(Shake());
+            } else
+            {
+                StartCoroutine(ShakeHalt());
             }
-            shakeCam.Priority = 10;
-            player.EnableCutscene(false);
-        } 
+            triggered = true;
+        }
     }
 
-    private void Update()
+    IEnumerator Shake()
     {
-        if (triggered)
-        {
-            shakeTimer += Time.deltaTime;
-        }
+        shakeCam.Priority = 12;
+        yield return new WaitForSeconds(shakeTime);
+        shakeCam.Priority = 10;
+    }
+
+    IEnumerator ShakeHalt()
+    {
+        player.EnableCutscene(true);
+        shakeCam.Priority = 12;
+        yield return new WaitForSeconds(shakeTime);
+        shakeCam.Priority = 10;
+        player.EnableCutscene(false);
     }
 }
