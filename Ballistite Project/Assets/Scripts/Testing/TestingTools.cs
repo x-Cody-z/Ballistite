@@ -172,7 +172,8 @@ public class TestingTools : MonoBehaviour
             new LogCommand(),
             new PerformanceLogCommand(),
             new AddAmmoCommand(),
-            new SetDestructionScore()
+            new SetDestructionScore(),
+            new UnfreezeCommand()
         };
     }
 
