@@ -35182,13 +35182,13 @@ MonoBehaviour:
   charge1: 0
   charge2: 0
   charge3: 0
-  shooter: {fileID: 0}
+  shooter: {fileID: 1016075928834900212}
   shotPower: 1
   shotMod: 0.6
   chargeRate: 2.5
   chargePaused: 1
   controlEnabled: 0
-  notInsideCutscene: 1
+  notInsideCutscene: 0
   grounded: 1
   groundedCounter: 0
   shotCancel: 0
@@ -35214,6 +35214,7 @@ MonoBehaviour:
   shotCount: 0
   muzzle: {fileID: 5197845457302251699}
   barrelPivot: {fileID: 8962347402026695018}
+  shakeCam: {fileID: 0}
   gunAudio: {fileID: 8300000, guid: dbe29fdb85b67b047be6483b363b3e89, type: 3}
   reloadAudio: {fileID: 8300000, guid: 5f6ca32ae83928540b67e4ba4b8f1b05, type: 3}
   soundMachine: {fileID: 1823391465}
