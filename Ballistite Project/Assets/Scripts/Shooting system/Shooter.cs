@@ -1,3 +1,4 @@
+using Cinemachine;
 using Platformer.Mechanics;
 using System.Collections;
 using UnityEngine;
@@ -31,7 +32,7 @@ public class Shooter : MonoBehaviour
     private float reloadTimer;
     private bool reloading = false;
 
-    [Header("Transforms")]
+    [Header("Objects")]
     [SerializeField] GameObject muzzle;
     [SerializeField] Transform barrelPivot;
     BespokePlayerController playerController;

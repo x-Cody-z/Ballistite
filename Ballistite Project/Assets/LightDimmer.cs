@@ -13,17 +13,14 @@ public class LightDimmer : MonoBehaviour
     [SerializeField] float dimDelay = 0.5f;
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {
-            
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            StartCoroutine(DimLight());
-            Debug.Log("collided with player");
-        }
+    { 
+        StopCoroutine(BrightenLight());
+        StartCoroutine(DimLight());
     }
 
     private void OnTriggerExit2D()
     {
+        StopCoroutine(DimLight());
         StartCoroutine(BrightenLight());
     }
 

@@ -22,6 +22,7 @@ namespace Platformer.Mechanics
         [Header("VCams")]
         [SerializeField] CinemachineVirtualCamera vcamMouse;
         [SerializeField] CinemachineVirtualCamera vcamPlayer;
+        [SerializeField] CinemachineVirtualCamera shakeCam;
 
         [Header("Audio")]
         public AudioClip landingAudio;
@@ -56,7 +57,7 @@ namespace Platformer.Mechanics
         //timer stuff used for charging shot power
         private float chargeTimer = 0;
         private float power;
-
+        private bool interior = false;
         public bool chargePaused = true;
         private bool firstShot = true; //Boolean to disable start tutorial
 
@@ -192,6 +193,7 @@ namespace Platformer.Mechanics
                 if (Input.GetButtonUp("Fire1") && shooter.ShotCount > 0 && !shooter.ShotCooldown && !shotCancel)
                 {
                     shooter.Shoot(shooter.GetBarrelAngle(GetMousePos2d()), shotSpawnPos, power, projectile);
+                    StartCoroutine(ShotShake());
                     StartCoroutine(shooter.StartReloadDelay());
                     StartCoroutine(shooter.StartFireDelay());
                     ResetCharge();
@@ -292,6 +294,7 @@ namespace Platformer.Mechanics
                     break;
                 case > 6:
                     shooter.Shoot(shooter.GetBarrelAngle(GetMousePos2d()), shotSpawn, power, projectile);
+                    StartCoroutine(ShotShake());
                     StartCoroutine(shooter.StartReloadDelay());
                     StartCoroutine(shooter.StartFireDelay());
                     FirstShot();
@@ -318,6 +321,32 @@ namespace Platformer.Mechanics
             Vector3 Worldpos = Camera.main.ScreenToWorldPoint(mousePos);
             Vector2 Worldpos2D = new Vector2(Worldpos.x, Worldpos.y);
             return Worldpos2D;
+        }
+
+        void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.CompareTag("Interior"))
+            {
+                interior = true;
+            }
+        }
+
+        void OnTriggerExit2D(Collider2D collision)
+        {
+            if (collision.gameObject.CompareTag("Interior"))
+            {
+                interior = false;
+            }
+        }
+
+        IEnumerator ShotShake()
+        {
+            if (interior)
+            {
+                shakeCam.Priority = 12;
+                yield return new WaitForSeconds(0.5f);
+                shakeCam.Priority = 10;
+            }
         }
 
         void FirstShot()
