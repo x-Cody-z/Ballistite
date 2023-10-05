@@ -149,13 +149,13 @@ namespace Platformer.Mechanics
             else
                 grounded = false;
 
-            var main = sparkles.main;
             //take control away when paused & not in cutscene
             if (Time.timeScale == 0 || !notInsideCutscene)
             {
                 controlEnabled = false;
                 if (sparkles != null)
                 {
+                    var main = sparkles.main;
                     main.simulationSpace = ParticleSystemSimulationSpace.Local;
                 }
             } else
@@ -163,8 +163,14 @@ namespace Platformer.Mechanics
                 controlEnabled = true;
                 if (sparkles != null)
                 {
+                    var main = sparkles.main;
                     main.simulationSpace = ParticleSystemSimulationSpace.World;
                 }
+            }
+
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                controlEnabled = true;
             }
 
             //start timer when holding left click
