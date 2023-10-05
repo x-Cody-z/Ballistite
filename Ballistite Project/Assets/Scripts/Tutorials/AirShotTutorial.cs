@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class AirShotTutorial : MonoBehaviour
 {
     public GameObject tutorialWindow;
+    public Animator mouse;
+    public TextMeshProUGUI text;
     public float freezeDelay = 0.5f;
     public bool freezeEnabled = true;
 
@@ -51,6 +54,8 @@ public class AirShotTutorial : MonoBehaviour
         {
             state = TutorialState.Activated;
             tutorialWindow.SetActive(true);
+            mouse.Play("Prompt");
+            text.text = "Shoot!";
             StartCoroutine(WaitToFreeze());
             playerObject.shooter.ShotCount = 1;
         }
