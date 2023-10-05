@@ -24,6 +24,7 @@ public class CutsceneController : MonoBehaviour
     public GameObject grasslandMusic;
     public GameObject ammoCounter;
     public GameObject introSFX;
+    public GameObject sparkles;
 
     public bool isLevel1;
 
@@ -54,6 +55,7 @@ public class CutsceneController : MonoBehaviour
         chargeUI.SetActive(true);
         grasslandMusic.SetActive(true);
         ammoCounter.SetActive(true);
+        sparkles.SetActive(true);
         if (parallaxObject != null)
             parallaxObject.ScrollerMode = false;
         // TODO: Change camera mode.
