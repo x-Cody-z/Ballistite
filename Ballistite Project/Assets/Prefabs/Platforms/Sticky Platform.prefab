@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 605557219850203384}
   m_Layer: 0
   m_Name: buffer
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
