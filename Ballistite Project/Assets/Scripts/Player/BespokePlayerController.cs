@@ -34,6 +34,7 @@ namespace Platformer.Mechanics
         public Transform barrelPivot;
         public Transform muzzle;
         public GameObject projectile;
+        public ParticleSystem sparkles;
 
         private TrajectoryPredictor trajectoryPredictor;
 
@@ -148,13 +149,22 @@ namespace Platformer.Mechanics
             else
                 grounded = false;
 
+            var main = sparkles.main;
             //take control away when paused & not in cutscene
             if (Time.timeScale == 0 || !notInsideCutscene)
             {
                 controlEnabled = false;
+                if (sparkles != null)
+                {
+                    main.simulationSpace = ParticleSystemSimulationSpace.Local;
+                }
             } else
             {
                 controlEnabled = true;
+                if (sparkles != null)
+                {
+                    main.simulationSpace = ParticleSystemSimulationSpace.World;
+                }
             }
 
             //start timer when holding left click
