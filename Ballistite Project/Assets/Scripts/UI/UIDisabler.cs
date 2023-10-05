@@ -16,7 +16,6 @@ public class UIDisabler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
         caddyState = caddy.activeSelf;
         caddyBool = true;
         videoBool = false;
@@ -43,21 +42,27 @@ public class UIDisabler : MonoBehaviour
             {
                 foreach (GameObject o in videoObjects)
                 {
-                    o.SetActive(false);
+                    if (o != null)
+                    {
+                        o.SetActive(false);
+                    }
                 }
             }
             else
             {
                 foreach (GameObject o in videoObjects)
                 {
-                    o.SetActive(true);
+                    if (o != null)
+                    {
+                        o.SetActive(true);
+                    }
                 }
             }
             caddy.SetActive(caddyBool);
         }
         catch(Exception e)
         {
-            Debug.LogException(e);
+            
         }
     }
 
