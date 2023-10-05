@@ -14,12 +14,10 @@ public class AnimOnCol : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Collision!");
 
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Player!");
-            anim.SetTrigger("PlayerDetected");
+            anim.Play(animationName);
         }
     }
 }
