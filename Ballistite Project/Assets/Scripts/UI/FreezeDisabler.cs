@@ -43,7 +43,7 @@ public class FreezeDisabler : MonoBehaviour
         destructionTutScript = null;
 
         getTutObjects();
-        //setFreezeStates(masterFreezeEnabled);
+        setFreezeStates(masterFreezeEnabled);
     }
 
     // Update is called once per frame
@@ -53,6 +53,9 @@ public class FreezeDisabler : MonoBehaviour
             setFreezeStates(masterFreezeEnabled);
         else if (chargeTutScript != null)
             if (chargeTutScript.freezeEnabled != masterFreezeEnabled)
+                setFreezeStates(masterFreezeEnabled);
+        else if (airShotChargeTutScript != null)
+            if (airShotChargeTutScript.freezeEnabled != masterFreezeEnabled)
                 setFreezeStates(masterFreezeEnabled);
     }
 
