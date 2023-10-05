@@ -24,35 +24,35 @@ public class LeaderboardRanking : MonoBehaviour
     public void GenerateLeaderboard()
     {
         gameObject.SetActive(true);
-        string[] lines = File.ReadAllLines(leaderboardFilename) ;
-        foreach (string s in lines)
-        {
-            Debug.Log(s);
-            string[] splitLine = s.Split(',');
-            float key = float.Parse(splitLine[4]);
-            if (AllTimes.ContainsKey(key))
+        string[] lines = File.ReadAllLines(leaderboardFilename);
+            foreach (string s in lines)
             {
-                while (AllTimes.ContainsKey(key))
+                Debug.Log(s);
+                string[] splitLine = s.Split(',');
+                float key = float.Parse(splitLine[4]);
+                if (AllTimes.ContainsKey(key))
                 {
-                    key += UnityEngine.Random.Range(0.00001f, 0.001f);
+                    while (AllTimes.ContainsKey(key))
+                    {
+                        key += UnityEngine.Random.Range(0.00001f, 0.001f);
+                    }
+                }
+                AllTimes.Add(key, splitLine[0]);
+            }
+            timeSortList = AllTimes.Keys.ToList();
+            timeSortList.Sort();
+            for (int i = 0; i < leaderboardElements.Count(); i++)
+            {
+                if (i < timeSortList.Count())
+                    leaderboardElements[i].text = (i + 1).ToString() + ". " + AllTimes[timeSortList[i]] + " : " + ConvertFloatToTime(timeSortList[i]);
+            }
+            foreach (TextMeshProUGUI t in leaderboardElements)
+            {
+                if (t.text == "-")
+                {
+                    t.gameObject.SetActive(false);
                 }
             }
-            AllTimes.Add(key, splitLine[0]);
-        }
-        timeSortList = AllTimes.Keys.ToList();
-        timeSortList.Sort();
-        for (int i = 0; i < leaderboardElements.Count(); i++)
-        {
-            if (i < timeSortList.Count())
-                leaderboardElements[i].text = (i+1).ToString() + ". " + AllTimes[timeSortList[i]] + " : " + ConvertFloatToTime(timeSortList[i]);
-        }
-        foreach (TextMeshProUGUI t in leaderboardElements)
-        {
-            if (t.text == "-")
-            {
-                t.gameObject.SetActive(false);
-            }
-        }
     }
 
     string ConvertFloatToTime(float timeInSeconds)

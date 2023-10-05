@@ -110,6 +110,8 @@ public class TimeTracking : MonoBehaviour
                 OutroObject = GameObject.Find("OutroCutscene");
             else if (GameObject.Find("Ending Cutscene"))
                 OutroObject = GameObject.Find("Ending Cutscene");
+            else if (GameObject.Find("EndingCutscene"))
+                OutroObject = GameObject.Find("EndingCutscene");
             else if (GameObject.Find("Credits"))
                 OutroObject = GameObject.Find("Credits");
         }
