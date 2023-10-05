@@ -37,7 +37,13 @@ public class uiController : MonoBehaviour
 
     public CutsceneController cutsceneController;
 
-    public GameObject ControlCaddy;
+    public GameObject shootImage;
+    public GameObject chargeImage;
+    public GameObject cancelImage;
+
+    public GameObject controlCaddy;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +57,6 @@ public class uiController : MonoBehaviour
         {
             winPanel.SetActive(false);
         }
-
     }
     private bool exitactive = false;
     
@@ -172,14 +177,11 @@ public class uiController : MonoBehaviour
         }
     }
 
-    public void ToggleControlCaddy()
-    {
-        ControlCaddy.SetActive(!ControlCaddy.activeSelf);
-    }
-
     public void StartControlCaddy()
     {
-        ControlCaddy.SetActive(true);
-        ControlCaddy.GetComponent<Animator>().SetBool("Start", true);
+        shootImage.SetActive(true);
+        chargeImage.SetActive(true);
+        cancelImage.SetActive(true);
+        controlCaddy.GetComponent<Animator>().SetBool("Start", true);
     }
 }

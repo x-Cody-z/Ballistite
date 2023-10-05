@@ -14,7 +14,6 @@ public class DestructionTutorial : MonoBehaviour
     public Animation siloOutside;
     public bool freezeEnabled;
     //public Animator mouseAnimator;
-    //public TextMeshProUGUI textBox;
 
     enum TutorialState
     {
