@@ -12,6 +12,19 @@ public class LightDimmer : MonoBehaviour
     [SerializeField] float dimSpeed = 0.5f;
     [SerializeField] float dimDelay = 0.5f;
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            MaxLight();
+        }
+
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            MinLight();
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     { 
         StopCoroutine(BrightenLight());
@@ -22,6 +35,24 @@ public class LightDimmer : MonoBehaviour
     {
         StopCoroutine(DimLight());
         StartCoroutine(BrightenLight());
+    }
+
+    void MaxLight()
+    {
+        globalLight.intensity = 1;
+        foreach (Light2D light in otherLights)
+        {
+            light.intensity = 0;
+        }
+    }
+
+    void MinLight()
+    {
+        globalLight.intensity = dimAmount;
+        foreach (Light2D light in otherLights)
+        {
+            light.intensity = 10;
+        }
     }
 
     IEnumerator DimLight()
