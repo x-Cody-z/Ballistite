@@ -16121,6 +16121,7 @@ GameObject:
   - component: {fileID: 7481336446546810787}
   - component: {fileID: 4854111809344654642}
   - component: {fileID: 1829431730}
+  - component: {fileID: 4616227992917098017}
   m_Layer: 7
   m_Name: enemy
   m_TagString: Level
@@ -16163,6 +16164,7 @@ MonoBehaviour:
   maxRange: 10
   power: 2
   firstShotDelay: 2
+  enemyDestroyedRadiusModifier: 1
   projectile: {fileID: 6425388640759641725, guid: e613b6c737ed4924c85792d45c67f359, type: 3}
   muzzle: {fileID: 483635214282483282}
   barrel: {fileID: 666935984858905853}
@@ -16515,6 +16517,34 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &4616227992917098017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6041303911266315107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d20cf86ca41731f47af4168807a34a5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 717d0aef951b0154f9f0251a21f73afb, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2077975035814528707}
+        m_TargetAssemblyTypeName: EnemyTank, Assembly-CSharp
+        m_MethodName: enemyDestroyedByRadius
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!1 &6121526238062072460
 GameObject:
   m_ObjectHideFlags: 0

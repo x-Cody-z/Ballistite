@@ -32,6 +32,7 @@ public class EnemyTank : MonoBehaviour
     [SerializeField][Tooltip("The max range at which the enemy can detect the player")] float maxRange;
     [SerializeField][Tooltip("power of enemy shot")] float power;
     [SerializeField][Tooltip("Time before enemy starts firing upon detecting player")] float firstShotDelay = 2f;
+    [SerializeField] [Tooltip("How far away a player bullet can land and still destroy the tank")] float enemyDestroyedRadiusModifier = 1f;
     float firstShotTimer = 0f;
     public event EventHandler OnEnemyDestroyed;
 
@@ -130,6 +131,18 @@ public class EnemyTank : MonoBehaviour
         if (collision.gameObject.tag == "Bullet")
         {
             OnEnemyDestroyed?.Invoke(this, EventArgs.Empty);
+        }
+    }
+    
+    //this function is mostly the same as the destructible object code, used to detect player's projectile explosion radius (rather than just direct hits)
+    public void enemyDestroyedByRadius(GameEventData eventData)
+    {
+        if (eventData is ProjectileEventData projectileData)
+        {
+            if ((transform.position - projectileData.HitPosition.position).magnitude < projectileData.radius * enemyDestroyedRadiusModifier)
+            {
+                OnEnemyDestroyed?.Invoke(this, EventArgs.Empty);
+            }
         }
     }
 
