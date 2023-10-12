@@ -209,7 +209,7 @@ namespace Platformer.Mechanics
                 if (Input.GetButtonUp("Fire1") && shooter.ShotCount > 0 && !shooter.ShotCooldown && !shotCancel)
                 {
                     shooter.Shoot(shooter.GetBarrelAngle(GetMousePos2d()), shotSpawnPos, power, projectile);
-                    StartCoroutine(ShotShake());
+                    StartCoroutine(ShotShake(power));
                     StartCoroutine(shooter.StartReloadDelay());
                     StartCoroutine(shooter.StartFireDelay());
                     ResetCharge();
@@ -310,7 +310,7 @@ namespace Platformer.Mechanics
                     break;
                 case > 6:
                     shooter.Shoot(shooter.GetBarrelAngle(GetMousePos2d()), shotSpawn, power, projectile);
-                    StartCoroutine(ShotShake());
+                    StartCoroutine(ShotShake(power));
                     StartCoroutine(shooter.StartReloadDelay());
                     StartCoroutine(shooter.StartFireDelay());
                     FirstShot();
@@ -355,12 +355,14 @@ namespace Platformer.Mechanics
             }
         }
 
-        IEnumerator ShotShake()
+        IEnumerator ShotShake(float power)
         {
+            //power should be 1, 1.6 or 2.2
             if (interior)
             {
                 shakeCam.Priority = 12;
-                yield return new WaitForSeconds(0.5f);
+                //longer shake for higher power shots
+                yield return new WaitForSeconds(0.3f * power);
                 shakeCam.Priority = 10;
             }
         }
