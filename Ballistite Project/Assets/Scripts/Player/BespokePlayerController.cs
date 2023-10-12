@@ -220,7 +220,7 @@ namespace Platformer.Mechanics
                     
 
                 //cancel shot
-                if (Input.GetKeyDown(KeyCode.Mouse1))
+                if (Input.GetKeyDown(KeyCode.Mouse1) && Input.GetButton("Fire1"))
                 {
                     shotCancel = true;
                     ResetCharge();
