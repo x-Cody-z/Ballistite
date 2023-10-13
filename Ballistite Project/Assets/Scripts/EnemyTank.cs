@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
-
+using Unity.Mathematics;
 
 [RequireComponent(typeof(Shooter))]
 [RequireComponent(typeof(LeadPredictor))]
@@ -25,14 +25,15 @@ public class EnemyTank : MonoBehaviour
     //      DONE s- enemy shouldn't be able to see player through walls
     //      DONE- add code to control enemy health/destruction
     //      DONE - update projectile to hit player if enemy has shot
-    private enum State {Idle, Alert, Search, Destroyed}
+    private enum State { Idle, Alert, Search, Destroyed, Inactive }
     [SerializeField] State m_State;
 
     [Header("Enemy Settings")]
     [SerializeField][Tooltip("The max range at which the enemy can detect the player")] float maxRange;
     [SerializeField][Tooltip("power of enemy shot")] float power;
     [SerializeField][Tooltip("Time before enemy starts firing upon detecting player")] float firstShotDelay = 2f;
-    [SerializeField] [Tooltip("How far away a player bullet can land and still destroy the tank")] float enemyDestroyedRadiusModifier = 1f;
+    [SerializeField][Tooltip("How far away a player bullet can land and still destroy the tank")] float enemyDestroyedRadiusModifier = 1f;
+    [SerializeField][Tooltip("force applied to turret in turret popper death animation")] float turretPopperForce = 5f;
     float firstShotTimer = 0f;
     public event EventHandler OnEnemyDestroyed;
 
@@ -41,10 +42,12 @@ public class EnemyTank : MonoBehaviour
     [SerializeField] GameObject projectile;
     [SerializeField] Transform muzzle;
     [SerializeField] Transform barrel;
+    [SerializeField] Rigidbody2D turret;
 
     [Header("Graphics")]
     [SerializeField] SpriteRenderer[] tankGraphics;
-    
+
+    bool destroyed = false;
     Shooter shooter;
     LeadPredictor leadPredictor;
     TrajectoryPredictor trajectoryPredictor;
@@ -202,14 +205,28 @@ public class EnemyTank : MonoBehaviour
                 break;
 
             case State.Destroyed:
-                foreach (SpriteRenderer graphic in tankGraphics)
+                destroyed = true;
+                if (!destroyed)
                 {
                     chargeUI.gameObject.SetActive(false);
                     leadPredictor.GetComponent<LineRenderer>().enabled = false;
-                    graphic.color = Color.gray;
+                    TurretPopper();
+                    m_State = State.Inactive;
                 }
                 break;
+
+            case State.Inactive:
+                break;
         }
+    }
+
+
+    private void TurretPopper()
+    {
+        turret.bodyType = RigidbodyType2D.Dynamic;
+        int rand = UnityEngine.Random.Range(-2, 2);
+        turret.AddForce(new Vector2(rand, turretPopperForce),ForceMode2D.Impulse);
+        turret.AddTorque(UnityEngine.Random.Range(-0.5f,0.5f), ForceMode2D.Impulse);
     }
 
     Color orangeOff = new Color(0.40f, 0.31f, 0.12f);
