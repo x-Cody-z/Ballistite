@@ -61,7 +61,7 @@ public class DestructionTutorial : MonoBehaviour
     public void ReleasePlayer()
     {
         state = TutorialState.Released;
-        playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+        playerRB.constraints = 0 | 0;
         tutorialWindow.SetActive(false);
         siloOutside.Play();
     }
