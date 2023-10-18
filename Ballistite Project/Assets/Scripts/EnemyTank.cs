@@ -4,6 +4,8 @@ using UnityEngine.UI;
 using UnityEngine;
 using Unity.Mathematics;
 using Random = UnityEngine.Random;
+using static Org.BouncyCastle.Asn1.Cmp.Challenge;
+using Platformer.Mechanics;
 
 [RequireComponent(typeof(Shooter))]
 [RequireComponent(typeof(LeadPredictor))]
@@ -44,8 +46,7 @@ public class EnemyTank : MonoBehaviour
     [SerializeField] Transform muzzle;
     [SerializeField] Transform barrel;
     [SerializeField] Rigidbody2D turret;
-    [SerializeField] SpriteRenderer bodySprite;
-    [SerializeField] Sprite tankDestroyed;
+    [SerializeField] GameObject tankDestroyed;
 
     [Header("Graphics")]
     [SerializeField] SpriteRenderer[] tankGraphics;
@@ -212,7 +213,7 @@ public class EnemyTank : MonoBehaviour
                 {
                     chargeUI.gameObject.SetActive(false);
                     leadPredictor.GetComponent<LineRenderer>().enabled = false;
-                    int rand = Random.Range(0,1);
+                    int rand = Random.Range(0,2);
                     switch(rand)
                     {
                         case 0:
@@ -243,9 +244,11 @@ public class EnemyTank : MonoBehaviour
 
     private void NormalDestroy()
     {
-        bodySprite.sprite = tankDestroyed;
         tankGraphics[0].gameObject.SetActive(false);
-        tankGraphics[1].gameObject.SetActive(false);
+        tankGraphics[1].GetComponent<SpriteRenderer>().enabled = false;
+        tankDestroyed.gameObject.SetActive(true);
+        turret.bodyType = RigidbodyType2D.Dynamic;
+        turret.AddForce(barrel.right * turretPopperForce, ForceMode2D.Impulse);
     }
 
     Color orangeOff = new Color(0.40f, 0.31f, 0.12f);
