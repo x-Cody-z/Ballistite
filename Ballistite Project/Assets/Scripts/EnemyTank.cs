@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using Unity.Mathematics;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Shooter))]
 [RequireComponent(typeof(LeadPredictor))]
@@ -43,6 +44,8 @@ public class EnemyTank : MonoBehaviour
     [SerializeField] Transform muzzle;
     [SerializeField] Transform barrel;
     [SerializeField] Rigidbody2D turret;
+    [SerializeField] SpriteRenderer bodySprite;
+    [SerializeField] Sprite tankDestroyed;
 
     [Header("Graphics")]
     [SerializeField] SpriteRenderer[] tankGraphics;
@@ -205,14 +208,23 @@ public class EnemyTank : MonoBehaviour
                 break;
 
             case State.Destroyed:
-                destroyed = true;
                 if (!destroyed)
                 {
                     chargeUI.gameObject.SetActive(false);
                     leadPredictor.GetComponent<LineRenderer>().enabled = false;
-                    TurretPopper();
+                    int rand = Random.Range(0,1);
+                    switch(rand)
+                    {
+                        case 0:
+                            NormalDestroy();
+                            break;
+                        case 1:
+                            TurretPopper();
+                            break;
+                    }
                     m_State = State.Inactive;
                 }
+                destroyed = true;
                 break;
 
             case State.Inactive:
@@ -227,6 +239,13 @@ public class EnemyTank : MonoBehaviour
         int rand = UnityEngine.Random.Range(-2, 2);
         turret.AddForce(new Vector2(rand, turretPopperForce),ForceMode2D.Impulse);
         turret.AddTorque(UnityEngine.Random.Range(-0.5f,0.5f), ForceMode2D.Impulse);
+    }
+
+    private void NormalDestroy()
+    {
+        bodySprite.sprite = tankDestroyed;
+        tankGraphics[0].gameObject.SetActive(false);
+        tankGraphics[1].gameObject.SetActive(false);
     }
 
     Color orangeOff = new Color(0.40f, 0.31f, 0.12f);
