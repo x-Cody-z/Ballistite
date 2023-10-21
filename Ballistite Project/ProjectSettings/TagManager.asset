@@ -9,6 +9,7 @@ TagManager:
   - Checkpoint
   - Crater
   - Interior
+  - Enemy
   layers:
   - Default
   - TransparentFX

@@ -15762,7 +15762,7 @@ GameObject:
   - component: {fileID: 2077975036026235408}
   - component: {fileID: 2077975036026235407}
   m_Layer: 7
-  m_Name: barrelGraphic
+  m_Name: barrelGraphicEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16112,7 +16112,7 @@ GameObject:
   - component: {fileID: 2077975036820638535}
   - component: {fileID: 2077975036820638534}
   m_Layer: 7
-  m_Name: barrelGraphic (1)
+  m_Name: barrelGraphicEnemy (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16323,7 +16323,7 @@ GameObject:
   - component: {fileID: 4616227992917098017}
   m_Layer: 7
   m_Name: enemy
-  m_TagString: Level
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16361,7 +16361,7 @@ MonoBehaviour:
   maxRange: 10
   power: 2
   firstShotDelay: 2
-  enemyDestroyedRadiusModifier: 3
+  enemyDestroyedRadiusModifier: 2
   turretPopperForce: 10
   projectile: {fileID: 6425388640759641725, guid: e613b6c737ed4924c85792d45c67f359, type: 3}
   muzzle: {fileID: 483635214282483282}

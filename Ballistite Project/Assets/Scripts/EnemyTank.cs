@@ -148,7 +148,11 @@ public class EnemyTank : MonoBehaviour
         {
             if ((transform.position - projectileData.HitPosition.position).magnitude < projectileData.radius * enemyDestroyedRadiusModifier)
             {
-                OnEnemyDestroyed?.Invoke(this, EventArgs.Empty);
+                RaycastHit2D hit = Physics2D.Raycast(projectileData.HitPosition.position, transform.position - projectileData.HitPosition.position, projectileData.radius * enemyDestroyedRadiusModifier, LayerMask.GetMask("Level", "Destructible"));
+                if (hit.transform != null && hit.collider.CompareTag("Enemy"))
+                {
+                    OnEnemyDestroyed?.Invoke(this, EventArgs.Empty);
+                }
             }
         }
     }
@@ -156,7 +160,6 @@ public class EnemyTank : MonoBehaviour
     void Update() //fixedupdate?
     {
         RaycastHit2D hit = DetectPlayer();
-        Debug.Log(hit.distance);
 
         Vector2 leadPos = leadPredictor.CalculateLead(
                     player.transform.position,
