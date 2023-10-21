@@ -60,7 +60,7 @@ public class UIDisabler : MonoBehaviour
             }
             caddy.SetActive(caddyBool);
         }
-        catch(Exception e)
+        catch(Exception)
         {
             
         }
